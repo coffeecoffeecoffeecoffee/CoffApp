@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F6A051B2658A1E10050439D /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A051A2658A1E10050439D /* Tests_iOS.swift */; };
-		0F6A05262658A1E10050439D /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05252658A1E10050439D /* Tests_macOS.swift */; };
+		0F6A051B2658A1E10050439D /* TestsiOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A051A2658A1E10050439D /* TestsiOS.swift */; };
+		0F6A05262658A1E10050439D /* TestsMacOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05252658A1E10050439D /* TestsMacOS.swift */; };
 		0F6A05282658A1E10050439D /* CoffApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FC2658A1DE0050439D /* CoffApp.xcdatamodeld */; };
 		0F6A05292658A1E10050439D /* CoffApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FC2658A1DE0050439D /* CoffApp.xcdatamodeld */; };
 		0F6A052A2658A1E10050439D /* CoffAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FE2658A1DE0050439D /* CoffAppApp.swift */; };
@@ -64,6 +64,9 @@
 		0F6A05E32658AEA80050439D /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 0F6A05E22658AEA80050439D /* Logging */; };
 		0F6A05E52658AEAF0050439D /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 0F6A05E42658AEAF0050439D /* Logging */; };
 		0F6A05E72658AEDB0050439D /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 0F6A05E62658AEDB0050439D /* Logging */; };
+		0F6A05EA2658B2010050439D /* NetworkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05E92658B2010050439D /* NetworkState.swift */; };
+		0F6A05EB2658B2010050439D /* NetworkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05E92658B2010050439D /* NetworkState.swift */; };
+		0F6A05EC2658B2010050439D /* NetworkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05E92658B2010050439D /* NetworkState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,10 +165,10 @@
 		0F6A05102658A1E10050439D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F6A05112658A1E10050439D /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		0F6A05162658A1E10050439D /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0F6A051A2658A1E10050439D /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
+		0F6A051A2658A1E10050439D /* TestsiOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsiOS.swift; sourceTree = "<group>"; };
 		0F6A051C2658A1E10050439D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F6A05212658A1E10050439D /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0F6A05252658A1E10050439D /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
+		0F6A05252658A1E10050439D /* TestsMacOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsMacOS.swift; sourceTree = "<group>"; };
 		0F6A05272658A1E10050439D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F6A05442658A2230050439D /* CoffApp (tvOS).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CoffApp (tvOS).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F6A05462658A2230050439D /* CoffAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffAppApp.swift; sourceTree = "<group>"; };
@@ -206,6 +209,7 @@
 		0F6A05D22658A9460050439D /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		0F6A05D62658A9EC0050439D /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		0F6A05DA2658AA050050439D /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		0F6A05E92658B2010050439D /* NetworkState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +319,7 @@
 				0F6A05012658A1E10050439D /* Assets.xcassets */,
 				0F6A04FC2658A1DE0050439D /* CoffApp.xcdatamodeld */,
 				0F6A05C72658A4350050439D /* NetworkService.swift */,
+				0F6A05E92658B2010050439D /* NetworkState.swift */,
 				0F6A05D12658A9330050439D /* Models */,
 			);
 			path = Shared;
@@ -359,7 +364,7 @@
 		0F6A05192658A1E10050439D /* Tests iOS */ = {
 			isa = PBXGroup;
 			children = (
-				0F6A051A2658A1E10050439D /* Tests_iOS.swift */,
+				0F6A051A2658A1E10050439D /* TestsiOS.swift */,
 				0F6A051C2658A1E10050439D /* Info.plist */,
 			);
 			path = "Tests iOS";
@@ -368,7 +373,7 @@
 		0F6A05242658A1E10050439D /* Tests macOS */ = {
 			isa = PBXGroup;
 			children = (
-				0F6A05252658A1E10050439D /* Tests_macOS.swift */,
+				0F6A05252658A1E10050439D /* TestsMacOS.swift */,
 				0F6A05272658A1E10050439D /* Info.plist */,
 			);
 			path = "Tests macOS";
@@ -919,6 +924,7 @@
 				0F6A05D72658A9EC0050439D /* Venue.swift in Sources */,
 				0F6A05282658A1E10050439D /* CoffApp.xcdatamodeld in Sources */,
 				0F6A052E2658A1E10050439D /* Persistence.swift in Sources */,
+				0F6A05EA2658B2010050439D /* NetworkState.swift in Sources */,
 				0F6A05DB2658AA050050439D /* Location.swift in Sources */,
 				0F6A05CE2658A9020050439D /* Group.swift in Sources */,
 				0F6A052A2658A1E10050439D /* CoffAppApp.swift in Sources */,
@@ -935,6 +941,7 @@
 				0F6A05D82658A9EC0050439D /* Venue.swift in Sources */,
 				0F6A05292658A1E10050439D /* CoffApp.xcdatamodeld in Sources */,
 				0F6A052F2658A1E10050439D /* Persistence.swift in Sources */,
+				0F6A05EB2658B2010050439D /* NetworkState.swift in Sources */,
 				0F6A05DC2658AA050050439D /* Location.swift in Sources */,
 				0F6A05CF2658A9020050439D /* Group.swift in Sources */,
 				0F6A052B2658A1E10050439D /* CoffAppApp.swift in Sources */,
@@ -947,7 +954,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F6A051B2658A1E10050439D /* Tests_iOS.swift in Sources */,
+				0F6A051B2658A1E10050439D /* TestsiOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -955,7 +962,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F6A05262658A1E10050439D /* Tests_macOS.swift in Sources */,
+				0F6A05262658A1E10050439D /* TestsMacOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -963,6 +970,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F6A05EC2658B2010050439D /* NetworkState.swift in Sources */,
 				0F6A05502658A2250050439D /* Persistence.swift in Sources */,
 				0F6A05D92658A9EC0050439D /* Venue.swift in Sources */,
 				0F6A05D52658A9460050439D /* Event.swift in Sources */,

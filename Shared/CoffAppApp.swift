@@ -1,10 +1,3 @@
-//
-//  CoffAppApp.swift
-//  Shared
-//
-//  Created by Michael Critz on 5/21/21.
-//
-
 import SwiftUI
 
 @main

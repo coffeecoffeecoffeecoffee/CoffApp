@@ -2,10 +2,6 @@ import Combine
 import Foundation
 import Logging
 
-enum NetworkState {
-    case ready, loading, error
-}
-
 final class NetworkService: ObservableObject {
     @Published var groups = [Group]()
     @Published var netState = NetworkState.loading
@@ -33,7 +29,7 @@ final class NetworkService: ObservableObject {
                 switch completion {
                 case .failure(let error):
                     self.logger.critical("Network Error \n\(error.localizedDescription)")
-                    self.netState = .error
+                    self.netState = .failed(error)
                 case .finished:
                     self.logger.debug("Group Fetch Complete")
                     self.netState = .ready
