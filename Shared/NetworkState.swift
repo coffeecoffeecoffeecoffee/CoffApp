@@ -5,6 +5,12 @@ enum NetworkState {
     case failed(Error)
 }
 
+extension NetworkState: Equatable {
+    static func == (lhs: NetworkState, rhs: NetworkState) -> Bool {
+        lhs.description == rhs.description
+    }
+}
+
 extension NetworkState: CustomStringConvertible {
     var description: String {
         switch self {

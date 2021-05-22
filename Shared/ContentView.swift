@@ -10,13 +10,16 @@ struct ContentView: View {
     private var items: FetchedResults<Item>
 
     var body: some View {
-        List {
-//            ForEach(items) { item in
-//                Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-//            }
-//            .onDelete(perform: deleteItems)
-            ForEach(networkService.groups) { group in
-                Text(group.name)
+        ZStack {
+            if networkService.netState != .ready {
+                ProgressView(networkService.netState.description)
+                    .frame(minWidth: 320, minHeight: 180)
+            } else {
+                List {
+                    ForEach(networkService.groups) { group in
+                        Text(group.name)
+                    }
+                }
             }
         }
         .toolbar {
