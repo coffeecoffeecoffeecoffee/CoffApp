@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="true" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20E241" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="CDEvent" representedClassName="CDEvent" syncable="YES" codeGenerationType="class">
+        <attribute name="end_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="group_id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="UUID" defaultValueString="CCCCCCCC-1234-47A0-AFA2-E2CDFFABD4B0" usesScalarValueType="NO"/>
+        <attribute name="image_url" optional="YES" attributeType="URI"/>
+        <attribute name="is_online" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String" defaultValueString="Coffee" spotlightIndexingEnabled="YES"/>
+        <attribute name="online_event_url" optional="YES" attributeType="URI"/>
+        <attribute name="start_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="venue" optional="YES" attributeType="Binary"/>
+        <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDGroup" inverseName="events" inverseEntity="CDGroup"/>
+    </entity>
+    <entity name="CDGroup" representedClassName="CDGroup" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="events" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDEvent" inverseName="group" inverseEntity="CDEvent"/>
+    </entity>
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <elements>
         <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
+        <element name="CDGroup" positionX="112.0743408203125" positionY="4.622314453125" width="128" height="88"/>
+        <element name="CDEvent" positionX="333.8473510742188" positionY="27.06195068359375" width="128" height="193"/>
     </elements>
 </model>

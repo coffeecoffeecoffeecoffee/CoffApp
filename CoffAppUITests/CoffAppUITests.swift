@@ -1,13 +1,13 @@
 //
-//  Tests_macOS.swift
-//  Tests macOS
+//  CoffAppUITests.swift
+//  CoffAppUITests
 //
 //  Created by Michael Critz on 5/21/21.
 //
 
 import XCTest
 
-class TestsMacOS: XCTestCase {
+class CoffAppUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
