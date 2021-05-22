@@ -2,8 +2,8 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    @EnvironmentObject private var networkService: NetworkService
     @Environment(\.managedObjectContext) private var viewContext
-
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
@@ -11,10 +11,13 @@ struct ContentView: View {
 
     var body: some View {
         List {
-            ForEach(items) { item in
-                Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+//            ForEach(items) { item in
+//                Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+//            }
+//            .onDelete(perform: deleteItems)
+            ForEach(networkService.groups) { group in
+                Text(group.name)
             }
-            .onDelete(perform: deleteItems)
         }
         .toolbar {
             #if os(iOS)

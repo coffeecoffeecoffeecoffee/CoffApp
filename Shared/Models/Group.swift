@@ -11,3 +11,5 @@ extension Group {
         URL(string: "https://coffeecoffeecoffee.coffee/api/groups/\(id.uuidString)/events")
     }
 }
+
+extension Group: Identifiable { }
