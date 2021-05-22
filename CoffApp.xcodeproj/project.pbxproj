@@ -67,6 +67,15 @@
 		0F6A05EA2658B2010050439D /* NetworkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05E92658B2010050439D /* NetworkState.swift */; };
 		0F6A05EB2658B2010050439D /* NetworkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05E92658B2010050439D /* NetworkState.swift */; };
 		0F6A05EC2658B2010050439D /* NetworkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05E92658B2010050439D /* NetworkState.swift */; };
+		0FD69B6C2658D35B007EC696 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD69B6B2658D35B007EC696 /* EventListView.swift */; };
+		0FD69B6D2658D35B007EC696 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD69B6B2658D35B007EC696 /* EventListView.swift */; };
+		0FD69B6E2658D35B007EC696 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD69B6B2658D35B007EC696 /* EventListView.swift */; };
+		0FD69B702658DABD007EC696 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD69B6F2658DABD007EC696 /* EventDetailView.swift */; };
+		0FD69B712658DABD007EC696 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD69B6F2658DABD007EC696 /* EventDetailView.swift */; };
+		0FD69B722658DABD007EC696 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD69B6F2658DABD007EC696 /* EventDetailView.swift */; };
+		0FD69B752658DC29007EC696 /* FetchImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0FD69B742658DC29007EC696 /* FetchImage */; };
+		0FD69B772658DC3B007EC696 /* FetchImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0FD69B762658DC3B007EC696 /* FetchImage */; };
+		0FD69B792658DC42007EC696 /* FetchImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0FD69B782658DC42007EC696 /* FetchImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -210,6 +219,8 @@
 		0F6A05D62658A9EC0050439D /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		0F6A05DA2658AA050050439D /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		0F6A05E92658B2010050439D /* NetworkState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkState.swift; sourceTree = "<group>"; };
+		0FD69B6B2658D35B007EC696 /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
+		0FD69B6F2658DABD007EC696 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F6A05E02658ADF80050439D /* Logging in Frameworks */,
+				0FD69B772658DC3B007EC696 /* FetchImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F6A05E32658AEA80050439D /* Logging in Frameworks */,
+				0FD69B752658DC29007EC696 /* FetchImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F6A05E52658AEAF0050439D /* Logging in Frameworks */,
+				0FD69B792658DC42007EC696 /* FetchImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,8 +328,9 @@
 			isa = PBXGroup;
 			children = (
 				0F6A04FE2658A1DE0050439D /* CoffAppApp.swift */,
-				0F6A04FF2658A1DE0050439D /* ContentView.swift */,
+				0FD69B6A2658D338007EC696 /* Navigation */,
 				0F6A05002658A1DE0050439D /* Persistence.swift */,
+				0FD69B6F2658DABD007EC696 /* EventDetailView.swift */,
 				0F6A05012658A1E10050439D /* Assets.xcassets */,
 				0F6A04FC2658A1DE0050439D /* CoffApp.xcdatamodeld */,
 				0F6A05C72658A4350050439D /* NetworkService.swift */,
@@ -488,6 +503,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		0FD69B6A2658D338007EC696 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				0FD69B6B2658D35B007EC696 /* EventListView.swift */,
+				0F6A04FF2658A1DE0050439D /* ContentView.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -506,6 +530,7 @@
 			name = "CoffApp (iOS)";
 			packageProductDependencies = (
 				0F6A05DF2658ADF80050439D /* Logging */,
+				0FD69B762658DC3B007EC696 /* FetchImage */,
 			);
 			productName = "CoffApp (iOS)";
 			productReference = 0F6A05062658A1E10050439D /* CoffApp.app */;
@@ -527,6 +552,7 @@
 			name = "CoffApp (macOS)";
 			packageProductDependencies = (
 				0F6A05E22658AEA80050439D /* Logging */,
+				0FD69B742658DC29007EC696 /* FetchImage */,
 			);
 			productName = "CoffApp (macOS)";
 			productReference = 0F6A050E2658A1E10050439D /* CoffApp.app */;
@@ -583,6 +609,7 @@
 			name = "CoffApp (tvOS)";
 			packageProductDependencies = (
 				0F6A05E42658AEAF0050439D /* Logging */,
+				0FD69B782658DC42007EC696 /* FetchImage */,
 			);
 			productName = CoffApp;
 			productReference = 0F6A05442658A2230050439D /* CoffApp (tvOS).app */;
@@ -778,6 +805,7 @@
 			mainGroup = 0F6A04F62658A1DE0050439D;
 			packageReferences = (
 				0F6A05DE2658ADF80050439D /* XCRemoteSwiftPackageReference "swift-log" */,
+				0FD69B732658DC29007EC696 /* XCRemoteSwiftPackageReference "FetchImage" */,
 			);
 			productRefGroup = 0F6A05072658A1E10050439D /* Products */;
 			projectDirPath = "";
@@ -920,6 +948,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FD69B6C2658D35B007EC696 /* EventListView.swift in Sources */,
 				0F6A05C82658A4350050439D /* NetworkService.swift in Sources */,
 				0F6A05D72658A9EC0050439D /* Venue.swift in Sources */,
 				0F6A05282658A1E10050439D /* CoffApp.xcdatamodeld in Sources */,
@@ -927,6 +956,7 @@
 				0F6A05EA2658B2010050439D /* NetworkState.swift in Sources */,
 				0F6A05DB2658AA050050439D /* Location.swift in Sources */,
 				0F6A05CE2658A9020050439D /* Group.swift in Sources */,
+				0FD69B702658DABD007EC696 /* EventDetailView.swift in Sources */,
 				0F6A052A2658A1E10050439D /* CoffAppApp.swift in Sources */,
 				0F6A05D32658A9460050439D /* Event.swift in Sources */,
 				0F6A052C2658A1E10050439D /* ContentView.swift in Sources */,
@@ -937,6 +967,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FD69B6D2658D35B007EC696 /* EventListView.swift in Sources */,
 				0F6A05C92658A4350050439D /* NetworkService.swift in Sources */,
 				0F6A05D82658A9EC0050439D /* Venue.swift in Sources */,
 				0F6A05292658A1E10050439D /* CoffApp.xcdatamodeld in Sources */,
@@ -944,6 +975,7 @@
 				0F6A05EB2658B2010050439D /* NetworkState.swift in Sources */,
 				0F6A05DC2658AA050050439D /* Location.swift in Sources */,
 				0F6A05CF2658A9020050439D /* Group.swift in Sources */,
+				0FD69B712658DABD007EC696 /* EventDetailView.swift in Sources */,
 				0F6A052B2658A1E10050439D /* CoffAppApp.swift in Sources */,
 				0F6A05D42658A9460050439D /* Event.swift in Sources */,
 				0F6A052D2658A1E10050439D /* ContentView.swift in Sources */,
@@ -970,6 +1002,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FD69B722658DABD007EC696 /* EventDetailView.swift in Sources */,
 				0F6A05EC2658B2010050439D /* NetworkState.swift in Sources */,
 				0F6A05502658A2250050439D /* Persistence.swift in Sources */,
 				0F6A05D92658A9EC0050439D /* Venue.swift in Sources */,
@@ -980,6 +1013,7 @@
 				0F6A05DD2658AA050050439D /* Location.swift in Sources */,
 				0F6A05C52658A2AC0050439D /* CoffApp.xcdatamodeld in Sources */,
 				0F6A05CA2658A4350050439D /* NetworkService.swift in Sources */,
+				0FD69B6E2658D35B007EC696 /* EventListView.swift in Sources */,
 				0F6A05C42658A2A60050439D /* Persistence.swift in Sources */,
 				0F6A05492658A2230050439D /* ContentView.swift in Sources */,
 				0F6A05472658A2230050439D /* CoffAppApp.swift in Sources */,
@@ -1850,6 +1884,14 @@
 				minimumVersion = 1.4.2;
 			};
 		};
+		0FD69B732658DC29007EC696 /* XCRemoteSwiftPackageReference "FetchImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/FetchImage.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.4.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1872,6 +1914,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0F6A05DE2658ADF80050439D /* XCRemoteSwiftPackageReference "swift-log" */;
 			productName = Logging;
+		};
+		0FD69B742658DC29007EC696 /* FetchImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0FD69B732658DC29007EC696 /* XCRemoteSwiftPackageReference "FetchImage" */;
+			productName = FetchImage;
+		};
+		0FD69B762658DC3B007EC696 /* FetchImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0FD69B732658DC29007EC696 /* XCRemoteSwiftPackageReference "FetchImage" */;
+			productName = FetchImage;
+		};
+		0FD69B782658DC42007EC696 /* FetchImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0FD69B732658DC29007EC696 /* XCRemoteSwiftPackageReference "FetchImage" */;
+			productName = FetchImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 

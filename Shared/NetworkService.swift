@@ -33,7 +33,7 @@ final class NetworkService: ObservableObject {
     }
 
     init() {
-        print(Bundle.main.bundleIdentifier!)
+        decoder.dateDecodingStrategy = .iso8601
         loadGroups()
     }
 }
@@ -73,7 +73,10 @@ extension NetworkService {
         netState = .loading
         session.dataTaskPublisher(for: url)
             .retry(5)
-            .map { $0.data }
+            .map {
+                print($0.data)
+                return $0.data
+            }
             .decode(type: [Event].self, decoder: decoder)
             .receive(on: RunLoop.main)
             .sink { completion in

@@ -8,7 +8,7 @@ struct Group: Codable {
 
 extension Group {
     var eventsURL: URL? {
-        URL(string: "https://coffeecoffeecoffee.coffee/api/groups/\(id.uuidString)/events")
+        URL(string: "https://coffeecoffeecoffee.coffee/api/groups/\(id.uuidString.lowercased())/events")
     }
 }
 

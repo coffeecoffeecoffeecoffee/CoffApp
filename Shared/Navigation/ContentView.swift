@@ -13,7 +13,7 @@ struct ContentView: View {
         ZStack {
                 NavigationView {
                     List(networkService.groups, id: \.id) { group in
-                        NavigationLink(destination: Text(group.name)) {
+                        NavigationLink(destination: EventListView(group: group)) {
                             Text(group.name)
                         }
                         .navigationTitle("Navigation")

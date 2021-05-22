@@ -2,13 +2,11 @@
 import Foundation
 
 struct Event: Codable {
-    let id, groupID: UUID
+    let id, groupID: UUID?
     let name: String
-    let imageURL: String
-    let startAt, endAt: Date
-    let venue: Venue
-    let isOnline: Bool
-    let onlineEventURL: String
+    let imageURL: URL?
+    let startAt, endAt: Date?
+    let venue: Venue?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -18,7 +16,14 @@ struct Event: Codable {
         case startAt = "start_at"
         case endAt = "end_at"
         case venue
-        case isOnline = "is_online"
-        case onlineEventURL = "online_event_url"
+    }
+}
+
+extension Event {
+    var localizedStartTime: String {
+        guard let startAt = startAt else { return NSLocalizedString("Mystery Time", comment: "") }
+        return DateFormatter.localizedString(from: startAt,
+                                             dateStyle: .long,
+                                             timeStyle: .short)
     }
 }

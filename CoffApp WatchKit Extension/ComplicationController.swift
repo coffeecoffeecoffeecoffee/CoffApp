@@ -1,10 +1,3 @@
-//
-//  ComplicationController.swift
-//  CoffApp WatchKit Extension
-//
-//  Created by Michael Critz on 5/21/21.
-//
-
 import ClockKit
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
