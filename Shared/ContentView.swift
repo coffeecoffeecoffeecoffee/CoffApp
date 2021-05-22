@@ -11,16 +11,22 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
-            if networkService.netState != .ready {
-                ProgressView(networkService.netState.description)
-                    .frame(minWidth: 320, minHeight: 180)
-            } else {
-                List {
-                    ForEach(networkService.groups) { group in
-                        Text(group.name)
+                NavigationView {
+                    List(networkService.groups, id: \.id) { group in
+                        NavigationLink(destination: Text(group.name)) {
+                            Text(group.name)
+                        }
+                        .navigationTitle("Navigation")
+                    }
+                    .listStyle(SidebarListStyle())
+                    if networkService.netState == .loading {
+                        ProgressView(networkService.netState.description)
+                            .frame(minWidth: 320, minHeight: 180)
+                    } else if networkService.netState != .ready {
+                        Text(networkService.netState.description)
                     }
                 }
-            }
+                .navigationTitle(NSLocalizedString("Coffee Coffee Coffee", comment: ""))
         }
         .toolbar {
             #if os(iOS)

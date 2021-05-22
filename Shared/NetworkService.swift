@@ -4,8 +4,9 @@ import Logging
 
 final class NetworkService: ObservableObject {
     @Published var groups = [Group]()
+    @Published var events = [Event]()
     @Published var netState = NetworkState.loading
-    private var logger = Logger(label: Bundle.main.description
+    private var logger = Logger(label: Bundle.main.bundleIdentifier!
                                     .appending(".loggers"))
     private var subscribers = Set<AnyCancellable>()
     private var session = URLSession.shared
@@ -13,10 +14,31 @@ final class NetworkService: ObservableObject {
 
     private let groupURL = URL(string: "https://coffeecoffeecoffee.coffee/api/groups/")!
 
+    enum NetworkError: Error {
+        case invalidURL
+        case unknownError
+
+        var description: String {
+            switch self {
+            case .invalidURL:
+                return NSLocalizedString("Invalid Group URL", comment: "")
+            default:
+                return NSLocalizedString("Unkown error", comment: "")
+            }
+        }
+    }
+
     func cancelAll() {
         subscribers.removeAll()
     }
 
+    init() {
+        print(Bundle.main.bundleIdentifier!)
+        loadGroups()
+    }
+}
+
+extension NetworkService {
     func loadGroups() {
         netState = .loading
         session.dataTaskPublisher(for: groupURL)
@@ -40,9 +62,31 @@ final class NetworkService: ObservableObject {
             }
             .store(in: &subscribers)
     }
+}
 
-    init() {
-        print(Bundle.main.description)
-        loadGroups()
+extension NetworkService {
+    func loadEvents(for group: Group) {
+        guard let url = group.eventsURL else {
+            self.netState = .failed(NetworkError.invalidURL)
+            return
+        }
+        netState = .loading
+        session.dataTaskPublisher(for: url)
+            .retry(5)
+            .map { $0.data }
+            .decode(type: [Event].self, decoder: decoder)
+            .receive(on: RunLoop.main)
+            .sink { completion in
+                switch completion {
+                case .failure(let error):
+                    self.logger.critical("Network Error\n\(error.localizedDescription)")
+                case .finished:
+                    self.logger.debug("Events fetch complete")
+                    self.netState = .ready
+                }
+            } receiveValue: { netEvents in
+                self.events = netEvents
+            }
+            .store(in: &subscribers)
     }
 }
