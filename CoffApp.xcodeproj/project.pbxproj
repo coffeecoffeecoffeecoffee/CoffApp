@@ -328,9 +328,8 @@
 			isa = PBXGroup;
 			children = (
 				0F6A04FE2658A1DE0050439D /* CoffAppApp.swift */,
-				0FD69B6A2658D338007EC696 /* Navigation */,
+				0FD69B6A2658D338007EC696 /* Views */,
 				0F6A05002658A1DE0050439D /* Persistence.swift */,
-				0FD69B6F2658DABD007EC696 /* EventDetailView.swift */,
 				0F6A05012658A1E10050439D /* Assets.xcassets */,
 				0F6A04FC2658A1DE0050439D /* CoffApp.xcdatamodeld */,
 				0F6A05C72658A4350050439D /* NetworkService.swift */,
@@ -503,13 +502,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		0FD69B6A2658D338007EC696 /* Navigation */ = {
+		0FD69B6A2658D338007EC696 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0FD69B6F2658DABD007EC696 /* EventDetailView.swift */,
 				0FD69B6B2658D35B007EC696 /* EventListView.swift */,
 				0F6A04FF2658A1DE0050439D /* ContentView.swift */,
 			);
-			path = Navigation;
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -19,6 +19,14 @@ struct Event: Codable {
     }
 }
 
+extension Event: Hashable {
+    static func == (lhs: Event, rhs: Event) -> Bool {
+        guard let lid = lhs.id,
+              let rid = rhs.id else { return false }
+        return lid == rid
+    }
+}
+
 extension Event {
     var localizedStartTime: String {
         guard let startAt = startAt else { return NSLocalizedString("Mystery Time", comment: "") }

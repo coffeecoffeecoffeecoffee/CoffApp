@@ -10,31 +10,18 @@ struct ContentView: View {
     private var items: FetchedResults<Item>
 
     var body: some View {
-        ZStack {
-                NavigationView {
-                    List(networkService.groups, id: \.id) { group in
-                        NavigationLink(destination: EventListView(group: group)) {
-                            Text(group.name)
-                        }
-                        .navigationTitle("Navigation")
-                    }
-                    .listStyle(SidebarListStyle())
-                    if networkService.netState == .loading {
-                        ProgressView(networkService.netState.description)
-                            .frame(minWidth: 320, minHeight: 180)
-                    } else if networkService.netState != .ready {
-                        Text(networkService.netState.description)
-                    }
-                }
-                .navigationTitle(NSLocalizedString("Coffee Coffee Coffee", comment: ""))
-        }
-        .toolbar {
-            #if os(iOS)
-            EditButton()
-            #endif
-
-            Button(action: addItem) {
-                Label("Add Item", systemImage: "plus")
+        NavigationView {
+            List(networkService.groups, id: \.id) { group in
+                NavigationLink(group.name,
+                               destination: EventListView(group: group))
+            }
+            .navigationTitle("Groups")
+            .listStyle(SidebarListStyle())
+            if networkService.netState == .loading {
+                ProgressView(networkService.netState.description)
+                    .frame(minWidth: 320, minHeight: 180)
+            } else if networkService.netState != .ready {
+                Text(networkService.netState.description)
             }
         }
     }
