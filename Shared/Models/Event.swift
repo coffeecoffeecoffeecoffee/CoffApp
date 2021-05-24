@@ -27,7 +27,15 @@ extension Event: Hashable {
     }
 }
 
+// MARK: - Data formatting
 extension Event {
+    var venueName: String {
+        guard let venueName = venue?.name else {
+            return NSLocalizedString("Mystery location", comment: "")
+        }
+        return venueName
+    }
+
     var localizedStartTime: String {
         guard let startAt = startAt else { return NSLocalizedString("Mystery Time", comment: "") }
         return DateFormatter.localizedString(from: startAt,

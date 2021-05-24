@@ -15,7 +15,7 @@ struct EventListView: View {
                     ScrollView {
                     LazyVStack(content: {
                         ForEach(net.events, id: \.self) { event in
-                        EventDetailView(event: event)
+                        EventDetailView(event)
                             .padding(.vertical, 10)
                             .frame(minWidth: .none,
                                    maxWidth: .infinity,

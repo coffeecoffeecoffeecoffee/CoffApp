@@ -22,8 +22,22 @@ struct ContentView: View {
                     .frame(minWidth: 320, minHeight: 180)
             } else if networkService.netState != .ready {
                 Text(networkService.netState.description)
+            } else {
+                Text("Choose a group")
+                    .font(.largeTitle)
             }
         }
+        .toolbar {
+            ToolbarItem(placement: .navigation) {
+                Button(action: toggleSidebar, label: {
+                    Image(systemName: "sidebar.left")
+                })
+            }
+        }
+    }
+
+    public func toggleSidebar() {
+        NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
     }
 
     private func addItem() {
