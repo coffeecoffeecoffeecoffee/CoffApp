@@ -28,17 +28,21 @@ struct ContentView: View {
             }
         }
         .toolbar {
+            #if os(OSX)
             ToolbarItem(placement: .navigation) {
                 Button(action: toggleSidebar, label: {
                     Image(systemName: "sidebar.left")
                 })
             }
+            #endif
         }
     }
 
+    #if os(OSX)
     public func toggleSidebar() {
         NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
     }
+    #endif
 
     private func addItem() {
         withAnimation {
