@@ -10,7 +10,7 @@ struct EventDetailView: View {
 
     var event: Event
     var body: some View {
-        ZStack(alignment: .center) {
+        ZStack(alignment: .bottomLeading) {
             image.view?
                 .resizable()
                 .aspectRatio(contentMode: .fill)
@@ -22,19 +22,27 @@ struct EventDetailView: View {
                        maxHeight: .infinity,
                        alignment: .center)
                 .clipped()
+            LinearGradient(gradient:
+                            Gradient(colors: [
+                                .clear,
+                                .init(.displayP3, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.7)
+                            ]),
+                           startPoint: UnitPoint(x: 0.5, y: 0.55),
+                           endPoint: UnitPoint(x: 0.5, y: 0.75))
             VStack(alignment: .leading) {
                 Text(event.name)
-                    .font(.headline)
+                    .font(.title2)
+                    .foregroundColor(.white)
                 Text(event.venueName)
-                    .font(.subheadline)
+                    .font(.body)
+                    .foregroundColor(.init(white: 0.8))
                 Text(event.localizedStartTime)
+                    .font(.body)
                     .bold()
+                    .foregroundColor(.init(white: 0.8))
             }
-            .foregroundColor(Color.black)
-            .frame(minWidth: .none, maxWidth: .infinity)
-            .padding(10)
-            .cornerRadius(5)
-            .background(Color.white.opacity(0.85))
+            .padding(.leading, 20)
+            .padding(.bottom, 20)
         }
         .frame(minWidth: 240,
                idealWidth: 512,
@@ -53,6 +61,8 @@ struct EventDetailView: View {
                            endPoint: UnitPoint(x: 1, y: 1)
             )
         )
+        .cornerRadius(10)
+        .padding(10)
         .onAppear {
             if let url = event.imageURL {
                 image.load(url)
