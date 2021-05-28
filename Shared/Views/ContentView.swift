@@ -4,10 +4,6 @@ import CoreData
 struct ContentView: View {
     @EnvironmentObject private var networkService: NetworkService
     @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
 
     var body: some View {
         NavigationView {
@@ -16,7 +12,10 @@ struct ContentView: View {
                                destination: EventListView(group: group))
             }
             .navigationTitle("Groups")
-            .listStyle(SidebarListStyle())
+            #if os(tvOS)
+            #else
+//            .listStyle(SidebarListStyle())
+            #endif
             if networkService.netState == .loading {
                 ProgressView(networkService.netState.description)
                     .frame(minWidth: 320, minHeight: 180)
@@ -47,8 +46,8 @@ struct ContentView: View {
 
     private func addItem() {
         withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+//            let newItem = Item(context: viewContext)
+//            newItem.timestamp = Date()
 
             do {
                 try viewContext.save()
@@ -65,7 +64,7 @@ struct ContentView: View {
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
+//            offsets.map { items[$0] }.forEach(viewContext.delete)
 
             do {
                 try viewContext.save()

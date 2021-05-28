@@ -3,6 +3,7 @@ import SwiftUI
 
 struct EventDetailView: View {
     @StateObject private var image = FetchImage()
+    @State private var inFocus: Bool = false
 
     init(_ event: Event) {
         self.event = event
@@ -33,6 +34,8 @@ struct EventDetailView: View {
                 Text(event.name)
                     .font(.title2)
                     .foregroundColor(.white)
+                    .scaleEffect(inFocus ? 1.03 : 1)
+                    .shadow(radius: inFocus ? 3 : 0)
                 Text(event.venueName)
                     .font(.body)
                     .foregroundColor(.init(white: 0.8))
@@ -41,7 +44,7 @@ struct EventDetailView: View {
                     .bold()
                     .foregroundColor(.init(white: 0.8))
             }
-            .padding(.leading, 20)
+            .padding(.horizontal, 20)
             .padding(.bottom, 20)
         }
         .frame(minWidth: 240,
@@ -62,10 +65,16 @@ struct EventDetailView: View {
             )
         )
         .cornerRadius(10)
+        .shadow(radius: inFocus ? 10 : 0)
         .padding(10)
         .onAppear {
             if let url = event.imageURL {
                 image.load(url)
+            }
+        }
+        .focusable(true) { inFocus in
+            withAnimation {
+                self.inFocus = inFocus
             }
         }
     }

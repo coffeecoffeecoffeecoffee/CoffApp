@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "FetchImage",
+        "repositoryURL": "https://github.com/kean/FetchImage.git",
+        "state": {
+          "branch": null,
+          "revision": "0980e4cd71a8e86cb4b297293677cffcabbc2dc3",
+          "version": "0.4.1"
+        }
+      },
+      {
+        "package": "Nuke",
+        "repositoryURL": "https://github.com/kean/Nuke.git",
+        "state": {
+          "branch": null,
+          "revision": "8e0f42d1d9f30d816f3c565aa6193d9363325157",
+          "version": "9.6.0"
+        }
+      },
+      {
+        "package": "swift-log",
+        "repositoryURL": "https://github.com/apple/swift-log.git",
+        "state": {
+          "branch": null,
+          "revision": "5d66f7ba25daf4f94100e7022febf3c75e37a6c7",
+          "version": "1.4.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

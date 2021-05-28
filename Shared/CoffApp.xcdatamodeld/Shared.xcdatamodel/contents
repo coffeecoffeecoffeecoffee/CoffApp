@@ -17,12 +17,8 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="events" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDEvent" inverseName="group" inverseEntity="CDEvent"/>
     </entity>
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-    </entity>
     <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
-        <element name="CDGroup" positionX="112.0743408203125" positionY="4.622314453125" width="128" height="88"/>
-        <element name="CDEvent" positionX="333.8473510742188" positionY="27.06195068359375" width="128" height="193"/>
+        <element name="CDEvent" positionX="333.8473510742188" positionY="27.06195068359375" width="128" height="179"/>
+        <element name="CDGroup" positionX="112.0743408203125" positionY="4.622314453125" width="128" height="74"/>
     </elements>
 </model>

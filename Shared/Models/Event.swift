@@ -27,6 +27,8 @@ extension Event: Hashable {
     }
 }
 
+extension Event: Identifiable { }
+
 // MARK: - Data formatting
 extension Event {
     var venueName: String {

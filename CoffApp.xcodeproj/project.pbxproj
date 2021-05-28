@@ -19,35 +19,17 @@
 		0F6A052F2658A1E10050439D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05002658A1DE0050439D /* Persistence.swift */; };
 		0F6A05302658A1E10050439D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6A05012658A1E10050439D /* Assets.xcassets */; };
 		0F6A05312658A1E10050439D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6A05012658A1E10050439D /* Assets.xcassets */; };
-		0F6A05472658A2230050439D /* CoffAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05462658A2230050439D /* CoffAppApp.swift */; };
-		0F6A05492658A2230050439D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05482658A2230050439D /* ContentView.swift */; };
 		0F6A054B2658A2250050439D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6A054A2658A2250050439D /* Assets.xcassets */; };
 		0F6A054E2658A2250050439D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6A054D2658A2250050439D /* Preview Assets.xcassets */; };
 		0F6A05502658A2250050439D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A054F2658A2250050439D /* Persistence.swift */; };
-		0F6A05532658A2250050439D /* CoffApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05512658A2250050439D /* CoffApp.xcdatamodeld */; };
-		0F6A055E2658A2250050439D /* CoffAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A055D2658A2250050439D /* CoffAppTests.swift */; };
 		0F6A05692658A2250050439D /* CoffAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05682658A2250050439D /* CoffAppUITests.swift */; };
-		0F6A057A2658A2470050439D /* CoffApp (WatchKit).app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0F6A05792658A2470050439D /* CoffApp (WatchKit).app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		0F6A057F2658A2480050439D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6A057E2658A2480050439D /* Assets.xcassets */; };
-		0F6A05862658A2480050439D /* CoffApp WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0F6A05852658A2480050439D /* CoffApp WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		0F6A058B2658A2480050439D /* CoffAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A058A2658A2480050439D /* CoffAppApp.swift */; };
-		0F6A058D2658A2480050439D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A058C2658A2480050439D /* ContentView.swift */; };
-		0F6A058F2658A2480050439D /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A058E2658A2480050439D /* NotificationController.swift */; };
-		0F6A05912658A2480050439D /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05902658A2480050439D /* NotificationView.swift */; };
-		0F6A05932658A2480050439D /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05922658A2480050439D /* ComplicationController.swift */; };
-		0F6A05952658A2490050439D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6A05942658A2490050439D /* Assets.xcassets */; };
-		0F6A05982658A2490050439D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6A05972658A2490050439D /* Preview Assets.xcassets */; };
-		0F6A05A42658A2490050439D /* CoffAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05A32658A2490050439D /* CoffAppTests.swift */; };
-		0F6A05AF2658A2490050439D /* CoffAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05AE2658A2490050439D /* CoffAppUITests.swift */; };
 		0F6A05C22658A2A60050439D /* CoffAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FE2658A1DE0050439D /* CoffAppApp.swift */; };
 		0F6A05C32658A2A60050439D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FF2658A1DE0050439D /* ContentView.swift */; };
-		0F6A05C42658A2A60050439D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05002658A1DE0050439D /* Persistence.swift */; };
 		0F6A05C52658A2AC0050439D /* CoffApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FC2658A1DE0050439D /* CoffApp.xcdatamodeld */; };
 		0F6A05C62658A2B50050439D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6A05012658A1E10050439D /* Assets.xcassets */; };
 		0F6A05C82658A4350050439D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05C72658A4350050439D /* NetworkService.swift */; };
 		0F6A05C92658A4350050439D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05C72658A4350050439D /* NetworkService.swift */; };
 		0F6A05CA2658A4350050439D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05C72658A4350050439D /* NetworkService.swift */; };
-		0F6A05CC2658A4430050439D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05C72658A4350050439D /* NetworkService.swift */; };
 		0F6A05CE2658A9020050439D /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05CD2658A9020050439D /* Group.swift */; };
 		0F6A05CF2658A9020050439D /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05CD2658A9020050439D /* Group.swift */; };
 		0F6A05D02658A9020050439D /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05CD2658A9020050439D /* Group.swift */; };
@@ -63,7 +45,6 @@
 		0F6A05E02658ADF80050439D /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 0F6A05DF2658ADF80050439D /* Logging */; };
 		0F6A05E32658AEA80050439D /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 0F6A05E22658AEA80050439D /* Logging */; };
 		0F6A05E52658AEAF0050439D /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 0F6A05E42658AEAF0050439D /* Logging */; };
-		0F6A05E72658AEDB0050439D /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 0F6A05E62658AEDB0050439D /* Logging */; };
 		0F6A05EA2658B2010050439D /* NetworkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05E92658B2010050439D /* NetworkState.swift */; };
 		0F6A05EB2658B2010050439D /* NetworkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05E92658B2010050439D /* NetworkState.swift */; };
 		0F6A05EC2658B2010050439D /* NetworkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05E92658B2010050439D /* NetworkState.swift */; };
@@ -107,60 +88,7 @@
 			remoteGlobalIDString = 0F6A05432658A2230050439D;
 			remoteInfo = CoffApp;
 		};
-		0F6A057B2658A2470050439D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0F6A04F72658A1DE0050439D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0F6A05782658A2470050439D;
-			remoteInfo = "CoffApp WatchKit App";
-		};
-		0F6A05872658A2480050439D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0F6A04F72658A1DE0050439D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0F6A05842658A2480050439D;
-			remoteInfo = "CoffApp WatchKit Extension";
-		};
-		0F6A05A02658A2490050439D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0F6A04F72658A1DE0050439D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0F6A05842658A2480050439D;
-			remoteInfo = "CoffApp WatchKit Extension";
-		};
-		0F6A05AB2658A2490050439D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0F6A04F72658A1DE0050439D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0F6A05782658A2470050439D;
-			remoteInfo = "CoffApp WatchKit App";
-		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		0F6A05B42658A2490050439D /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				0F6A05862658A2480050439D /* CoffApp WatchKit Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0F6A05B82658A2490050439D /* Embed Watch Content */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
-			dstSubfolderSpec = 16;
-			files = (
-				0F6A057A2658A2470050439D /* CoffApp (WatchKit).app in Embed Watch Content */,
-			);
-			name = "Embed Watch Content";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0F6A04FD2658A1DE0050439D /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
@@ -188,29 +116,11 @@
 		0F6A05522658A2250050439D /* CoffApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoffApp.xcdatamodel; sourceTree = "<group>"; };
 		0F6A05542658A2250050439D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F6A05592658A2250050439D /* CoffAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0F6A055D2658A2250050439D /* CoffAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffAppTests.swift; sourceTree = "<group>"; };
-		0F6A055F2658A2250050439D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F6A05642658A2250050439D /* CoffAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F6A05682658A2250050439D /* CoffAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffAppUITests.swift; sourceTree = "<group>"; };
 		0F6A056A2658A2250050439D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0F6A05762658A2470050439D /* CoffApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0F6A05792658A2470050439D /* CoffApp (WatchKit).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CoffApp (WatchKit).app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0F6A057E2658A2480050439D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0F6A05802658A2480050439D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0F6A05852658A2480050439D /* CoffApp WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "CoffApp WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0F6A058A2658A2480050439D /* CoffAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffAppApp.swift; sourceTree = "<group>"; };
-		0F6A058C2658A2480050439D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		0F6A058E2658A2480050439D /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
-		0F6A05902658A2480050439D /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
-		0F6A05922658A2480050439D /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
-		0F6A05942658A2490050439D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0F6A05972658A2490050439D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		0F6A05992658A2490050439D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0F6A059A2658A2490050439D /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		0F6A059F2658A2490050439D /* CoffAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F6A05A32658A2490050439D /* CoffAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffAppTests.swift; sourceTree = "<group>"; };
 		0F6A05A52658A2490050439D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0F6A05AA2658A2490050439D /* CoffAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F6A05AE2658A2490050439D /* CoffAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffAppUITests.swift; sourceTree = "<group>"; };
 		0F6A05B02658A2490050439D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F6A05C72658A4350050439D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -279,28 +189,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0F6A05822658A2480050439D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0F6A05E72658AEDB0050439D /* Logging in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0F6A059C2658A2490050439D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0F6A05A72658A2490050439D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -313,10 +201,7 @@
 				0F6A05192658A1E10050439D /* Tests iOS */,
 				0F6A05242658A1E10050439D /* Tests macOS */,
 				0F6A05452658A2230050439D /* CoffApp tvOS */,
-				0F6A055C2658A2250050439D /* CoffAppWKExtensionTests */,
 				0F6A05672658A2250050439D /* CoffAppUITests */,
-				0F6A057D2658A2470050439D /* CoffApp WatchKit App */,
-				0F6A05892658A2480050439D /* CoffApp WatchKit Extension */,
 				0F6A05A22658A2490050439D /* CoffAppTests */,
 				0F6A05AD2658A2490050439D /* CoffAppUITests */,
 				0F6A05072658A1E10050439D /* Products */,
@@ -349,11 +234,6 @@
 				0F6A05442658A2230050439D /* CoffApp (tvOS).app */,
 				0F6A05592658A2250050439D /* CoffAppTests.xctest */,
 				0F6A05642658A2250050439D /* CoffAppUITests.xctest */,
-				0F6A05762658A2470050439D /* CoffApp.app */,
-				0F6A05792658A2470050439D /* CoffApp (WatchKit).app */,
-				0F6A05852658A2480050439D /* CoffApp WatchKit Extension.appex */,
-				0F6A059F2658A2490050439D /* CoffAppTests.xctest */,
-				0F6A05AA2658A2490050439D /* CoffAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -415,15 +295,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		0F6A055C2658A2250050439D /* CoffAppWKExtensionTests */ = {
-			isa = PBXGroup;
-			children = (
-				0F6A055D2658A2250050439D /* CoffAppTests.swift */,
-				0F6A055F2658A2250050439D /* Info.plist */,
-			);
-			path = CoffAppWKExtensionTests;
-			sourceTree = "<group>";
-		};
 		0F6A05672658A2250050439D /* CoffAppUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -431,39 +302,6 @@
 				0F6A056A2658A2250050439D /* Info.plist */,
 			);
 			path = CoffAppUITests;
-			sourceTree = "<group>";
-		};
-		0F6A057D2658A2470050439D /* CoffApp WatchKit App */ = {
-			isa = PBXGroup;
-			children = (
-				0F6A057E2658A2480050439D /* Assets.xcassets */,
-				0F6A05802658A2480050439D /* Info.plist */,
-			);
-			path = "CoffApp WatchKit App";
-			sourceTree = "<group>";
-		};
-		0F6A05892658A2480050439D /* CoffApp WatchKit Extension */ = {
-			isa = PBXGroup;
-			children = (
-				0F6A058A2658A2480050439D /* CoffAppApp.swift */,
-				0F6A058C2658A2480050439D /* ContentView.swift */,
-				0F6A058E2658A2480050439D /* NotificationController.swift */,
-				0F6A05902658A2480050439D /* NotificationView.swift */,
-				0F6A05922658A2480050439D /* ComplicationController.swift */,
-				0F6A05942658A2490050439D /* Assets.xcassets */,
-				0F6A05992658A2490050439D /* Info.plist */,
-				0F6A059A2658A2490050439D /* PushNotificationPayload.apns */,
-				0F6A05962658A2490050439D /* Preview Content */,
-			);
-			path = "CoffApp WatchKit Extension";
-			sourceTree = "<group>";
-		};
-		0F6A05962658A2490050439D /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				0F6A05972658A2490050439D /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		0F6A05A22658A2490050439D /* CoffAppTests */ = {
@@ -651,96 +489,6 @@
 			productReference = 0F6A05642658A2250050439D /* CoffAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		0F6A05752658A2470050439D /* CoffApp */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0F6A05B92658A2490050439D /* Build configuration list for PBXNativeTarget "CoffApp" */;
-			buildPhases = (
-				0F6A05742658A2470050439D /* Resources */,
-				0F6A05B82658A2490050439D /* Embed Watch Content */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0F6A057C2658A2470050439D /* PBXTargetDependency */,
-			);
-			name = CoffApp;
-			productName = CoffApp;
-			productReference = 0F6A05762658A2470050439D /* CoffApp.app */;
-			productType = "com.apple.product-type.application.watchapp2-container";
-		};
-		0F6A05782658A2470050439D /* CoffApp (WatchKit) */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0F6A05B52658A2490050439D /* Build configuration list for PBXNativeTarget "CoffApp (WatchKit)" */;
-			buildPhases = (
-				0F6A05772658A2470050439D /* Resources */,
-				0F6A05B42658A2490050439D /* Embed App Extensions */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0F6A05882658A2480050439D /* PBXTargetDependency */,
-			);
-			name = "CoffApp (WatchKit)";
-			productName = "CoffApp WatchKit App";
-			productReference = 0F6A05792658A2470050439D /* CoffApp (WatchKit).app */;
-			productType = "com.apple.product-type.application.watchapp2";
-		};
-		0F6A05842658A2480050439D /* CoffApp WatchKit Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0F6A05B12658A2490050439D /* Build configuration list for PBXNativeTarget "CoffApp WatchKit Extension" */;
-			buildPhases = (
-				0F6A05812658A2480050439D /* Sources */,
-				0F6A05822658A2480050439D /* Frameworks */,
-				0F6A05832658A2480050439D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "CoffApp WatchKit Extension";
-			packageProductDependencies = (
-				0F6A05E62658AEDB0050439D /* Logging */,
-			);
-			productName = "CoffApp WatchKit Extension";
-			productReference = 0F6A05852658A2480050439D /* CoffApp WatchKit Extension.appex */;
-			productType = "com.apple.product-type.watchkit2-extension";
-		};
-		0F6A059E2658A2490050439D /* CoffAppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0F6A05BC2658A2490050439D /* Build configuration list for PBXNativeTarget "CoffAppTests" */;
-			buildPhases = (
-				0F6A059B2658A2490050439D /* Sources */,
-				0F6A059C2658A2490050439D /* Frameworks */,
-				0F6A059D2658A2490050439D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0F6A05A12658A2490050439D /* PBXTargetDependency */,
-			);
-			name = CoffAppTests;
-			productName = CoffAppTests;
-			productReference = 0F6A059F2658A2490050439D /* CoffAppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		0F6A05A92658A2490050439D /* CoffAppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0F6A05BF2658A2490050439D /* Build configuration list for PBXNativeTarget "CoffAppUITests" */;
-			buildPhases = (
-				0F6A05A62658A2490050439D /* Sources */,
-				0F6A05A72658A2490050439D /* Frameworks */,
-				0F6A05A82658A2490050439D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0F6A05AC2658A2490050439D /* PBXTargetDependency */,
-			);
-			name = CoffAppUITests;
-			productName = CoffAppUITests;
-			productReference = 0F6A05AA2658A2490050439D /* CoffAppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -775,23 +523,6 @@
 						CreatedOnToolsVersion = 12.5;
 						TestTargetID = 0F6A05432658A2230050439D;
 					};
-					0F6A05752658A2470050439D = {
-						CreatedOnToolsVersion = 12.5;
-					};
-					0F6A05782658A2470050439D = {
-						CreatedOnToolsVersion = 12.5;
-					};
-					0F6A05842658A2480050439D = {
-						CreatedOnToolsVersion = 12.5;
-					};
-					0F6A059E2658A2490050439D = {
-						CreatedOnToolsVersion = 12.5;
-						TestTargetID = 0F6A05842658A2480050439D;
-					};
-					0F6A05A92658A2490050439D = {
-						CreatedOnToolsVersion = 12.5;
-						TestTargetID = 0F6A05782658A2470050439D;
-					};
 				};
 			};
 			buildConfigurationList = 0F6A04FA2658A1DE0050439D /* Build configuration list for PBXProject "CoffApp" */;
@@ -818,11 +549,6 @@
 				0F6A05432658A2230050439D /* CoffApp (tvOS) */,
 				0F6A05582658A2250050439D /* CoffAppTests */,
 				0F6A05632658A2250050439D /* CoffAppUITests */,
-				0F6A05752658A2470050439D /* CoffApp */,
-				0F6A05782658A2470050439D /* CoffApp (WatchKit) */,
-				0F6A05842658A2480050439D /* CoffApp WatchKit Extension */,
-				0F6A059E2658A2490050439D /* CoffAppTests */,
-				0F6A05A92658A2490050439D /* CoffAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -876,44 +602,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		0F6A05622658A2250050439D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0F6A05742658A2470050439D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0F6A05772658A2470050439D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0F6A057F2658A2480050439D /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0F6A05832658A2480050439D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0F6A05982658A2490050439D /* Preview Assets.xcassets in Resources */,
-				0F6A05952658A2490050439D /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0F6A059D2658A2490050439D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0F6A05A82658A2490050439D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1014,10 +702,6 @@
 				0F6A05C52658A2AC0050439D /* CoffApp.xcdatamodeld in Sources */,
 				0F6A05CA2658A4350050439D /* NetworkService.swift in Sources */,
 				0FD69B6E2658D35B007EC696 /* EventListView.swift in Sources */,
-				0F6A05C42658A2A60050439D /* Persistence.swift in Sources */,
-				0F6A05492658A2230050439D /* ContentView.swift in Sources */,
-				0F6A05472658A2230050439D /* CoffAppApp.swift in Sources */,
-				0F6A05532658A2250050439D /* CoffApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1025,7 +709,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F6A055E2658A2250050439D /* CoffAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1034,35 +717,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F6A05692658A2250050439D /* CoffAppUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0F6A05812658A2480050439D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0F6A058F2658A2480050439D /* NotificationController.swift in Sources */,
-				0F6A058D2658A2480050439D /* ContentView.swift in Sources */,
-				0F6A05932658A2480050439D /* ComplicationController.swift in Sources */,
-				0F6A058B2658A2480050439D /* CoffAppApp.swift in Sources */,
-				0F6A05CC2658A4430050439D /* NetworkService.swift in Sources */,
-				0F6A05912658A2480050439D /* NotificationView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0F6A059B2658A2490050439D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0F6A05A42658A2490050439D /* CoffAppTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0F6A05A62658A2490050439D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0F6A05AF2658A2490050439D /* CoffAppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1088,26 +742,6 @@
 			isa = PBXTargetDependency;
 			target = 0F6A05432658A2230050439D /* CoffApp (tvOS) */;
 			targetProxy = 0F6A05652658A2250050439D /* PBXContainerItemProxy */;
-		};
-		0F6A057C2658A2470050439D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0F6A05782658A2470050439D /* CoffApp (WatchKit) */;
-			targetProxy = 0F6A057B2658A2470050439D /* PBXContainerItemProxy */;
-		};
-		0F6A05882658A2480050439D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0F6A05842658A2480050439D /* CoffApp WatchKit Extension */;
-			targetProxy = 0F6A05872658A2480050439D /* PBXContainerItemProxy */;
-		};
-		0F6A05A12658A2490050439D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0F6A05842658A2480050439D /* CoffApp WatchKit Extension */;
-			targetProxy = 0F6A05A02658A2490050439D /* PBXContainerItemProxy */;
-		};
-		0F6A05AC2658A2490050439D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0F6A05782658A2470050439D /* CoffApp (WatchKit) */;
-			targetProxy = 0F6A05AB2658A2490050439D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1411,10 +1045,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"CoffApp/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = UB37VMGP6E;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = CoffApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CoffApp tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1434,10 +1068,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"CoffApp/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = UB37VMGP6E;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = CoffApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CoffApp tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1544,215 +1178,6 @@
 			};
 			name = Release;
 		};
-		0F6A05B22658A2490050439D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"CoffApp WatchKit Extension/Preview Content\"";
-				DEVELOPMENT_TEAM = UB37VMGP6E;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "CoffApp WatchKit Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.CoffApp.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 7.4;
-			};
-			name = Debug;
-		};
-		0F6A05B32658A2490050439D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"CoffApp WatchKit Extension/Preview Content\"";
-				DEVELOPMENT_TEAM = UB37VMGP6E;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "CoffApp WatchKit Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.CoffApp.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 7.4;
-			};
-			name = Release;
-		};
-		0F6A05B62658A2490050439D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UB37VMGP6E;
-				IBSC_MODULE = CoffApp_WatchKit_Extension;
-				INFOPLIST_FILE = "CoffApp WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.CoffApp.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 7.4;
-			};
-			name = Debug;
-		};
-		0F6A05B72658A2490050439D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UB37VMGP6E;
-				IBSC_MODULE = CoffApp_WatchKit_Extension;
-				INFOPLIST_FILE = "CoffApp WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.CoffApp.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 7.4;
-			};
-			name = Release;
-		};
-		0F6A05BA2658A2490050439D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UB37VMGP6E;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.CoffApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		0F6A05BB2658A2490050439D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UB37VMGP6E;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.CoffApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		0F6A05BD2658A2490050439D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UB37VMGP6E;
-				INFOPLIST_FILE = CoffAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.CoffAppTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoffApp WatchKit Extension.appex/CoffApp WatchKit Extension";
-				WATCHOS_DEPLOYMENT_TARGET = 7.4;
-			};
-			name = Debug;
-		};
-		0F6A05BE2658A2490050439D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UB37VMGP6E;
-				INFOPLIST_FILE = CoffAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.CoffAppTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoffApp WatchKit Extension.appex/CoffApp WatchKit Extension";
-				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 7.4;
-			};
-			name = Release;
-		};
-		0F6A05C02658A2490050439D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UB37VMGP6E;
-				INFOPLIST_FILE = CoffAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.CoffAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				TEST_TARGET_NAME = "CoffApp WatchKit App";
-				WATCHOS_DEPLOYMENT_TARGET = 7.4;
-			};
-			name = Debug;
-		};
-		0F6A05C12658A2490050439D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UB37VMGP6E;
-				INFOPLIST_FILE = CoffAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.CoffAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				TEST_TARGET_NAME = "CoffApp WatchKit App";
-				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 7.4;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1828,51 +1253,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0F6A05B12658A2490050439D /* Build configuration list for PBXNativeTarget "CoffApp WatchKit Extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0F6A05B22658A2490050439D /* Debug */,
-				0F6A05B32658A2490050439D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0F6A05B52658A2490050439D /* Build configuration list for PBXNativeTarget "CoffApp (WatchKit)" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0F6A05B62658A2490050439D /* Debug */,
-				0F6A05B72658A2490050439D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0F6A05B92658A2490050439D /* Build configuration list for PBXNativeTarget "CoffApp" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0F6A05BA2658A2490050439D /* Debug */,
-				0F6A05BB2658A2490050439D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0F6A05BC2658A2490050439D /* Build configuration list for PBXNativeTarget "CoffAppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0F6A05BD2658A2490050439D /* Debug */,
-				0F6A05BE2658A2490050439D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0F6A05BF2658A2490050439D /* Build configuration list for PBXNativeTarget "CoffAppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0F6A05C02658A2490050439D /* Debug */,
-				0F6A05C12658A2490050439D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -1906,11 +1286,6 @@
 			productName = Logging;
 		};
 		0F6A05E42658AEAF0050439D /* Logging */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0F6A05DE2658ADF80050439D /* XCRemoteSwiftPackageReference "swift-log" */;
-			productName = Logging;
-		};
-		0F6A05E62658AEDB0050439D /* Logging */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0F6A05DE2658ADF80050439D /* XCRemoteSwiftPackageReference "swift-log" */;
 			productName = Logging;

@@ -4,7 +4,6 @@ struct EventListView: View {
     @EnvironmentObject var net: NetworkService
     var group: Group
     var body: some View {
-        GeometryReader { _ in
             VStack(alignment: .center) {
                 if net.netState == .loading {
                     ProgressView(net.netState.description)
@@ -25,7 +24,6 @@ struct EventListView: View {
                             }
                         })
                     }
-                }
                 }
             }
             .navigationTitle(group.name)
