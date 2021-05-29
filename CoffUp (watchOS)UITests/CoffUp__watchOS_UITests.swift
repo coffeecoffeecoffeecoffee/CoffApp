@@ -7,7 +7,7 @@
 
 import XCTest
 
-class CoffUp__watchOS_UITests: XCTestCase {
+class CoffUpWatchOSUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

@@ -5,6 +5,8 @@ import Logging
 final class NetworkService: ObservableObject {
     @Published var groups = [Group]()
     @Published var events = [Event]()
+    @Published var upcomingEvents = [Event]()
+    @Published var pastEvents = [Event]()
     @Published var netState = NetworkState.loading
     private var logger = Logger(label: Bundle.main.bundleIdentifier!
                                     .appending(".loggers"))
@@ -49,7 +51,11 @@ extension NetworkService {
             .decode(type: [Group].self, decoder: decoder)
             .receive(on: RunLoop.main)
             .sink { [weak self] completion in
-                guard let self = self else { return }
+                guard let self = self else {
+                    self?.logger.error("loadGroup() no self")
+                    self?.netState = .failed(NetworkError.unknownError)
+                    return
+                }
                 switch completion {
                 case .failure(let error):
                     self.logger.critical("Network Error \n\(error.localizedDescription)")
@@ -83,7 +89,7 @@ extension NetworkService {
             .receive(on: RunLoop.main)
             .sink { [weak self] completion in
                 guard let self = self else {
-                    self?.logger.error("No self, exiting")
+                    self?.logger.error("loadEvents() - no self")
                     self?.netState = .failed(NetworkError.unknownError)
                     return
                 }
