@@ -77,8 +77,7 @@ extension NetworkService {
         session.dataTaskPublisher(for: url)
             .retry(5)
             .map {
-                print($0.data)
-                return $0.data
+                $0.data
             }
             .decode(type: [Event].self, decoder: decoder)
             .receive(on: RunLoop.main)
@@ -93,10 +92,11 @@ extension NetworkService {
                     self.logger.critical("Network Error\n\(error.localizedDescription)")
                     self.netState = .failed(error)
                 case .finished:
-                    self.logger.debug("Events fetch complete")
+                    self.logger.info("Events fetch complete")
                     self.netState = .ready
                 }
             } receiveValue: { netEvents in
+                self.logger.info("Events loaded: \(netEvents.count)")
                 self.events = netEvents
             }
             .store(in: &subscribers)
