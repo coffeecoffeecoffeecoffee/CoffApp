@@ -74,20 +74,24 @@ extension NetworkService {
         session.dataTaskPublisher(for: url)
             .retry(5)
             .map {
-                print($0.data)
-                return $0.data
+                $0.data
             }
             .decode(type: [Event].self, decoder: decoder)
             .receive(on: RunLoop.main)
-            .sink { completion in
+            .sink { [weak self] completion in
+                guard let self = self else {
+                    self?.logger.info("No self, exiting")
+                    return
+                }
                 switch completion {
                 case .failure(let error):
                     self.logger.critical("Network Error\n\(error.localizedDescription)")
                 case .finished:
-                    self.logger.debug("Events fetch complete")
+                    self.logger.info("Events fetch complete")
                     self.netState = .ready
                 }
             } receiveValue: { netEvents in
+                self.logger.info("Events loaded: \(netEvents.count)")
                 self.events = netEvents
             }
             .store(in: &subscribers)
