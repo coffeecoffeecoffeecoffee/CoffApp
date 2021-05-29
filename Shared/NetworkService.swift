@@ -30,6 +30,7 @@ final class NetworkService: ObservableObject {
 
     func cancelAll() {
         subscribers.removeAll()
+        self.netState = .ready
     }
 
     init() {
@@ -38,6 +39,7 @@ final class NetworkService: ObservableObject {
     }
 }
 
+// MARK: - Groups
 extension NetworkService {
     func loadGroups() {
         netState = .loading
@@ -64,6 +66,7 @@ extension NetworkService {
     }
 }
 
+// MARK: - Events
 extension NetworkService {
     func loadEvents(for group: Group) {
         guard let url = group.eventsURL else {
@@ -79,10 +82,16 @@ extension NetworkService {
             }
             .decode(type: [Event].self, decoder: decoder)
             .receive(on: RunLoop.main)
-            .sink { completion in
+            .sink { [weak self] completion in
+                guard let self = self else {
+                    self?.logger.error("No self, exiting")
+                    self?.netState = .failed(NetworkError.unknownError)
+                    return
+                }
                 switch completion {
                 case .failure(let error):
                     self.logger.critical("Network Error\n\(error.localizedDescription)")
+                    self.netState = .failed(error)
                 case .finished:
                     self.logger.debug("Events fetch complete")
                     self.netState = .ready
