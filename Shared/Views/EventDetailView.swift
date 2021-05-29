@@ -3,7 +3,7 @@ import SwiftUI
 
 struct EventDetailView: View {
     @StateObject private var image = FetchImage()
-    @State private var inFocus: Bool = false
+    @State private var focusState = FocusState()
 
     init(_ event: Event) {
         self.event = event
@@ -11,6 +11,7 @@ struct EventDetailView: View {
 
     var event: Event
     var body: some View {
+        TVFocusable(focusState) {
         ZStack(alignment: .bottomLeading) {
             image.view?
                 .resizable()
@@ -34,8 +35,8 @@ struct EventDetailView: View {
                 Text(event.name)
                     .font(.title2)
                     .foregroundColor(.white)
-                    .scaleEffect(inFocus ? 1.03 : 1)
-                    .shadow(radius: inFocus ? 3 : 0)
+                    .scaleEffect(focusState.inFocus ? 1.03 : 1)
+                    .shadow(radius: focusState.inFocus ? 3 : 0)
                 Text(event.venueName)
                     .font(.body)
                     .foregroundColor(.init(white: 0.8))
@@ -65,18 +66,45 @@ struct EventDetailView: View {
             )
         )
         .cornerRadius(10)
-        .shadow(radius: inFocus ? 10 : 0)
+        .shadow(radius: focusState.inFocus ? 10 : 0)
         .padding(10)
+        }
         .onAppear {
             if let url = event.imageURL {
                 image.load(url)
             }
         }
-        .focusable(true) { inFocus in
-            withAnimation {
-                self.inFocus = inFocus
+    }
+}
+
+final class FocusState: ObservableObject {
+    @Published var inFocus: Bool = false
+    
+    func toggleFocus(_ shouldFocus: Bool = false) {
+        self.inFocus = shouldFocus
+    }
+}
+
+struct TVFocusable<Content: View>: View {
+    let content: Content
+    @ObservedObject var focusState: FocusState
+    
+    init(_ bindingValue: FocusState, @ViewBuilder content: () -> Content) {
+        self.focusState = bindingValue
+        self.content = content()
+    }
+    
+    var body: some View {
+        #if os(tvOS)
+        return content
+            .focusable(true) { inFocus in
+                withAnimation {
+                    focusState.toggleFocus(inFocus)
+                }
             }
-        }
+        #else
+            return content
+        #endif
     }
 }
 
