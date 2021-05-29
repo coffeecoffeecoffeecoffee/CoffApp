@@ -1,11 +1,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject private var networkService: NetworkService
+    @EnvironmentObject var networkService: NetworkService
     var body: some View {
         ForEach(networkService.groups) { group in
             List(networkService.groups, id: \.id) { group in
-                NavigationLink(group.name, destination: EventListView(group: group))
+                NavigationLink(group.name, destination: EventListView(networkService: networkService, group: group))
             }
         }
         .onAppear(perform: {
@@ -15,14 +15,21 @@ struct ContentView: View {
 }
 
 struct EventListView: View {
+    var networkService: NetworkService
     var group: Group
     
     var body: some View {
         VStack {
-            Text("Groups")
-            
             Text(group.name)
+                .bold()
+            List(networkService.events) { event in
+                Text(event.name)
+                    .font(.body)
+            }
         }
+        .onAppear(perform: {
+            networkService.loadEvents(for: group)
+        })
     }
 }
 
