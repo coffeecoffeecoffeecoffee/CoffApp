@@ -68,6 +68,7 @@
 		0FA09F612661FEEF00E04777 /* NetworkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05E92658B2010050439D /* NetworkState.swift */; };
 		0FA09F632661FF7000E04777 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 0FA09F622661FF7000E04777 /* Logging */; };
 		0FA09F652661FF7000E04777 /* FetchImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0FA09F642661FF7000E04777 /* FetchImage */; };
+		0FA09F6826629B9100E04777 /* EventListWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F6726629B9100E04777 /* EventListWatchView.swift */; };
 		0FD69B6C2658D35B007EC696 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD69B6B2658D35B007EC696 /* EventListView.swift */; };
 		0FD69B6D2658D35B007EC696 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD69B6B2658D35B007EC696 /* EventListView.swift */; };
 		0FD69B6E2658D35B007EC696 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD69B6B2658D35B007EC696 /* EventListView.swift */; };
@@ -192,8 +193,6 @@
 		0F6A05642658A2250050439D /* CoffAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F6A05682658A2250050439D /* CoffAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffAppUITests.swift; sourceTree = "<group>"; };
 		0F6A056A2658A2250050439D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0F6A05A32658A2490050439D /* CoffAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffAppTests.swift; sourceTree = "<group>"; };
-		0F6A05A52658A2490050439D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F6A05AE2658A2490050439D /* CoffAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffAppUITests.swift; sourceTree = "<group>"; };
 		0F6A05B02658A2490050439D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F6A05C72658A4350050439D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -222,6 +221,7 @@
 		0FA09F442661FE5900E04777 /* CoffUp (watchOS)UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CoffUp (watchOS)UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FA09F482661FE5900E04777 /* CoffUp__watchOS_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffUp__watchOS_UITests.swift; sourceTree = "<group>"; };
 		0FA09F4A2661FE5900E04777 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0FA09F6726629B9100E04777 /* EventListWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListWatchView.swift; sourceTree = "<group>"; };
 		0FD69B6B2658D35B007EC696 /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
 		0FD69B6F2658DABD007EC696 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -318,7 +318,6 @@
 				0F6A05242658A1E10050439D /* Tests macOS */,
 				0F6A05452658A2230050439D /* CoffApp tvOS */,
 				0F6A05672658A2250050439D /* CoffAppUITests */,
-				0F6A05A22658A2490050439D /* CoffAppTests */,
 				0F6A05AD2658A2490050439D /* CoffAppUITests */,
 				0FA09F172661FE5700E04777 /* CoffUp (watchOS) WatchKit App */,
 				0FA09F232661FE5800E04777 /* CoffUp (watchOS) WatchKit Extension */,
@@ -429,15 +428,6 @@
 			path = CoffAppUITests;
 			sourceTree = "<group>";
 		};
-		0F6A05A22658A2490050439D /* CoffAppTests */ = {
-			isa = PBXGroup;
-			children = (
-				0F6A05A32658A2490050439D /* CoffAppTests.swift */,
-				0F6A05A52658A2490050439D /* Info.plist */,
-			);
-			path = CoffAppTests;
-			sourceTree = "<group>";
-		};
 		0F6A05AD2658A2490050439D /* CoffAppUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,6 +476,7 @@
 				0FA09F332661FE5900E04777 /* Info.plist */,
 				0FA09F342661FE5900E04777 /* PushNotificationPayload.apns */,
 				0FA09F302661FE5900E04777 /* Preview Content */,
+				0FA09F6726629B9100E04777 /* EventListWatchView.swift */,
 			);
 			path = "CoffUp (watchOS) WatchKit Extension";
 			sourceTree = "<group>";
@@ -1062,6 +1053,7 @@
 				0FA09F252661FE5800E04777 /* CoffAppApp.swift in Sources */,
 				0FA09F5D2661FEE700E04777 /* Event.swift in Sources */,
 				0FA09F2B2661FE5900E04777 /* NotificationView.swift in Sources */,
+				0FA09F6826629B9100E04777 /* EventListWatchView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

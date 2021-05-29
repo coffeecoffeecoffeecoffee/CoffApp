@@ -1,15 +1,10 @@
-//
-//  CoffAppApp.swift
-//  CoffUp (watchOS) WatchKit Extension
-//
-//  Created by Michael Critz on 5/28/21.
-//
+// watchOS
 
 import SwiftUI
 
 @main
 struct CoffAppApp: App {
-    let networkService = NetworkService()
+    @State var networkService = NetworkService()
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {
@@ -17,7 +12,6 @@ struct CoffAppApp: App {
                     .environmentObject(networkService)
             }
         }
-
         WKNotificationScene(controller: NotificationController.self, category: "myCategory")
     }
 }
