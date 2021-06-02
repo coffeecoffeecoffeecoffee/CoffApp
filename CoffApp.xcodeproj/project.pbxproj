@@ -1272,7 +1272,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.CoffApp;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.coffee;
 				PRODUCT_NAME = CoffApp;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
@@ -1294,7 +1295,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.CoffApp;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.coffee;
 				PRODUCT_NAME = CoffApp;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
@@ -1320,7 +1322,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.CoffApp;
+				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.coffee;
 				PRODUCT_NAME = CoffApp;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
@@ -1344,7 +1346,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.CoffApp;
+				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.coffee;
 				PRODUCT_NAME = CoffApp;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
@@ -1585,8 +1587,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UB37VMGP6E;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "science.pixel.CoffUp--watchOS-";
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.coffee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
@@ -1599,8 +1601,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UB37VMGP6E;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "science.pixel.CoffUp--watchOS-";
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.coffee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
@@ -1618,7 +1620,7 @@
 				DEVELOPMENT_TEAM = UB37VMGP6E;
 				IBSC_MODULE = CoffUp__watchOS__WatchKit_Extension;
 				INFOPLIST_FILE = "CoffUp (watchOS) WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "science.pixel.CoffUp--watchOS-.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.coffee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1638,7 +1640,7 @@
 				DEVELOPMENT_TEAM = UB37VMGP6E;
 				IBSC_MODULE = CoffUp__watchOS__WatchKit_Extension;
 				INFOPLIST_FILE = "CoffUp (watchOS) WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "science.pixel.CoffUp--watchOS-.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.coffee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1663,7 +1665,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "science.pixel.CoffUp--watchOS-.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.coffee;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1687,7 +1689,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "science.pixel.CoffUp--watchOS-.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.coffee;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
