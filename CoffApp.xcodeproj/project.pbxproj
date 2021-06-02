@@ -72,6 +72,14 @@
 		0FA09F6A2665587600E04777 /* EventSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F692665587600E04777 /* EventSummaryView.swift */; };
 		0FA09F6B2665587600E04777 /* EventSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F692665587600E04777 /* EventSummaryView.swift */; };
 		0FA09F6C2665587600E04777 /* EventSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F692665587600E04777 /* EventSummaryView.swift */; };
+		0FA09F6E2667251400E04777 /* TVFocusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F6D2667251400E04777 /* TVFocusable.swift */; };
+		0FA09F6F2667251400E04777 /* TVFocusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F6D2667251400E04777 /* TVFocusable.swift */; };
+		0FA09F702667251400E04777 /* TVFocusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F6D2667251400E04777 /* TVFocusable.swift */; };
+		0FA09F71266736D900E04777 /* TVFocusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F6D2667251400E04777 /* TVFocusable.swift */; };
+		0FA09F732667373500E04777 /* FocusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F722667373500E04777 /* FocusState.swift */; };
+		0FA09F742667373500E04777 /* FocusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F722667373500E04777 /* FocusState.swift */; };
+		0FA09F752667373500E04777 /* FocusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F722667373500E04777 /* FocusState.swift */; };
+		0FA09F762667374C00E04777 /* FocusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F722667373500E04777 /* FocusState.swift */; };
 		0FD69B6C2658D35B007EC696 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD69B6B2658D35B007EC696 /* EventListView.swift */; };
 		0FD69B6D2658D35B007EC696 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD69B6B2658D35B007EC696 /* EventListView.swift */; };
 		0FD69B6E2658D35B007EC696 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD69B6B2658D35B007EC696 /* EventListView.swift */; };
@@ -226,6 +234,8 @@
 		0FA09F4A2661FE5900E04777 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FA09F6726629B9100E04777 /* EventListWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListWatchView.swift; sourceTree = "<group>"; };
 		0FA09F692665587600E04777 /* EventSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSummaryView.swift; sourceTree = "<group>"; };
+		0FA09F6D2667251400E04777 /* TVFocusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVFocusable.swift; sourceTree = "<group>"; };
+		0FA09F722667373500E04777 /* FocusState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusState.swift; sourceTree = "<group>"; };
 		0FD69B6B2658D35B007EC696 /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
 		0FD69B6F2658DABD007EC696 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -342,6 +352,7 @@
 				0F6A05C72658A4350050439D /* NetworkService.swift */,
 				0F6A05E92658B2010050439D /* NetworkState.swift */,
 				0F6A05D12658A9330050439D /* Models */,
+				0FA09F722667373500E04777 /* FocusState.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -518,6 +529,7 @@
 				0FD69B6B2658D35B007EC696 /* EventListView.swift */,
 				0F6A04FF2658A1DE0050439D /* ContentView.swift */,
 				0FA09F692665587600E04777 /* EventSummaryView.swift */,
+				0FA09F6D2667251400E04777 /* TVFocusable.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -959,6 +971,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FA09F6E2667251400E04777 /* TVFocusable.swift in Sources */,
 				0FD69B6C2658D35B007EC696 /* EventListView.swift in Sources */,
 				0F6A05C82658A4350050439D /* NetworkService.swift in Sources */,
 				0F6A05D72658A9EC0050439D /* Venue.swift in Sources */,
@@ -966,6 +979,7 @@
 				0F6A05282658A1E10050439D /* CoffApp.xcdatamodeld in Sources */,
 				0F6A052E2658A1E10050439D /* Persistence.swift in Sources */,
 				0F6A05EA2658B2010050439D /* NetworkState.swift in Sources */,
+				0FA09F732667373500E04777 /* FocusState.swift in Sources */,
 				0F6A05DB2658AA050050439D /* Location.swift in Sources */,
 				0F6A05CE2658A9020050439D /* Group.swift in Sources */,
 				0FD69B702658DABD007EC696 /* EventDetailView.swift in Sources */,
@@ -979,6 +993,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FA09F6F2667251400E04777 /* TVFocusable.swift in Sources */,
 				0FD69B6D2658D35B007EC696 /* EventListView.swift in Sources */,
 				0F6A05C92658A4350050439D /* NetworkService.swift in Sources */,
 				0F6A05D82658A9EC0050439D /* Venue.swift in Sources */,
@@ -986,6 +1001,7 @@
 				0F6A05292658A1E10050439D /* CoffApp.xcdatamodeld in Sources */,
 				0F6A052F2658A1E10050439D /* Persistence.swift in Sources */,
 				0F6A05EB2658B2010050439D /* NetworkState.swift in Sources */,
+				0FA09F742667373500E04777 /* FocusState.swift in Sources */,
 				0F6A05DC2658AA050050439D /* Location.swift in Sources */,
 				0F6A05CF2658A9020050439D /* Group.swift in Sources */,
 				0FD69B712658DABD007EC696 /* EventDetailView.swift in Sources */,
@@ -1015,6 +1031,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FA09F702667251400E04777 /* TVFocusable.swift in Sources */,
 				0FD69B722658DABD007EC696 /* EventDetailView.swift in Sources */,
 				0F6A05EC2658B2010050439D /* NetworkState.swift in Sources */,
 				0F6A05502658A2250050439D /* Persistence.swift in Sources */,
@@ -1022,6 +1039,7 @@
 				0F6A05D92658A9EC0050439D /* Venue.swift in Sources */,
 				0F6A05D52658A9460050439D /* Event.swift in Sources */,
 				0F6A05C22658A2A60050439D /* CoffAppApp.swift in Sources */,
+				0FA09F752667373500E04777 /* FocusState.swift in Sources */,
 				0F6A05C32658A2A60050439D /* ContentView.swift in Sources */,
 				0F6A05D02658A9020050439D /* Group.swift in Sources */,
 				0F6A05DD2658AA050050439D /* Location.swift in Sources */,
@@ -1054,8 +1072,10 @@
 				0FA09F5F2661FEE700E04777 /* Group.swift in Sources */,
 				0FA09F292661FE5900E04777 /* NotificationController.swift in Sources */,
 				0FA09F5C2661FEE700E04777 /* Venue.swift in Sources */,
+				0FA09F762667374C00E04777 /* FocusState.swift in Sources */,
 				0FA09F5E2661FEE700E04777 /* Location.swift in Sources */,
 				0FA09F272661FE5900E04777 /* ContentView.swift in Sources */,
+				0FA09F71266736D900E04777 /* TVFocusable.swift in Sources */,
 				0FA09F2D2661FE5900E04777 /* ComplicationController.swift in Sources */,
 				0FA09F612661FEEF00E04777 /* NetworkState.swift in Sources */,
 				0FA09F252661FE5800E04777 /* CoffAppApp.swift in Sources */,

@@ -4,7 +4,7 @@ import SwiftUI
 
 struct EventDetailView: View {
     @StateObject private var image = FetchImage()
-    @State private var focusState = FocusState()
+    @StateObject private var focusState = FocusState()
 
     init(_ event: Event) {
         self.event = event
@@ -20,8 +20,8 @@ struct EventDetailView: View {
                 .frame(minWidth: 240,
                        idealWidth: 512,
                        maxWidth: .infinity,
-                       minHeight: 200,
-                       idealHeight: 360,
+                       minHeight: focusState.inFocus ? 640 : 200,
+                       idealHeight: 640,
                        maxHeight: .infinity,
                        alignment: .center)
                 .clipped()
@@ -38,9 +38,26 @@ struct EventDetailView: View {
                     .foregroundColor(.white)
                     .scaleEffect(focusState.inFocus ? 1.03 : 1)
                     .shadow(radius: focusState.inFocus ? 3 : 0)
-                Text(event.venueName)
-                    .font(.body)
-                    .foregroundColor(.init(white: 0.8))
+                HStack {
+                    Text(event.venueName)
+                        .font(.body)
+                        .foregroundColor(.init(white: 0.8))
+                    if focusState.inFocus
+                        && event.venue?.location != nil {
+                        Button(action: {
+                            event.venue?.getDirections()
+                        }, label: {
+                            Text("Directions")
+                                .padding(.horizontal, 12)
+                        })
+                        .foregroundColor(.white)
+                        .background(
+                            RoundedRectangle(cornerRadius: 40)
+                                .foregroundColor(.blue)
+                        )
+                    }
+                }
+                .padding(.vertical, focusState.inFocus ? 10 : 0)
                 Text(event.localizedStartTime)
                     .font(.body)
                     .bold()
@@ -48,12 +65,18 @@ struct EventDetailView: View {
             }
             .padding(.horizontal, 20)
             .padding(.bottom, 20)
+            .onTapGesture {
+                withAnimation {
+                    focusState.toggleFocus()
+                    print("inFocus: ", focusState.inFocus)
+                }
+            }
         }
         .frame(minWidth: 240,
                idealWidth: 512,
                maxWidth: .infinity,
-               minHeight: 200,
-               idealHeight: 360,
+               minHeight: focusState.inFocus ? 640 : 200,
+               idealHeight: focusState.inFocus ? 640 : 360,
                maxHeight: .infinity,
                alignment: .center)
         .background(
@@ -75,37 +98,6 @@ struct EventDetailView: View {
                 image.load(url)
             }
         }
-    }
-}
-
-final class FocusState: ObservableObject {
-    @Published var inFocus: Bool = false
-
-    func toggleFocus(_ shouldFocus: Bool = false) {
-        self.inFocus = shouldFocus
-    }
-}
-
-struct TVFocusable<Content: View>: View {
-    let content: Content
-    @ObservedObject var focusState: FocusState
-
-    init(_ bindingValue: FocusState, @ViewBuilder content: () -> Content) {
-        self.focusState = bindingValue
-        self.content = content()
-    }
-
-    var body: some View {
-        #if os(tvOS)
-        return content
-            .focusable(true) { inFocus in
-                withAnimation {
-                    focusState.toggleFocus(inFocus)
-                }
-            }
-        #else
-            return content
-        #endif
     }
 }
 

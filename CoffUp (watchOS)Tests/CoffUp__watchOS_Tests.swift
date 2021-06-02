@@ -1,12 +1,5 @@
-//
-//  CoffUp__watchOS_Tests.swift
-//  CoffUp (watchOS)Tests
-//
-//  Created by Michael Critz on 5/28/21.
-//
-
 import XCTest
-@testable import CoffUp_watchOS_WatchKit_Extension
+//@testable import CoffUp_watchOS_WatchKit_Extension
 
 class CoffUpWatchOSTests: XCTestCase {
 

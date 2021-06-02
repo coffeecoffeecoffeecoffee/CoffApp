@@ -8,3 +8,9 @@ extension Venue: Hashable {
         lhs.name == rhs.name
     }
 }
+
+extension Venue {
+    func getDirections() {
+        location?.getDirections(name)
+    }
+}
