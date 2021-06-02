@@ -5,11 +5,12 @@ import Logging
 final class NetworkService: ObservableObject {
     @Published var groups = [Group]()
     @Published var events = [Event]()
+    let eventsSubject = PassthroughSubject<[Event], Error>()
     @Published var upcomingEvents = [Event]()
     @Published var pastEvents = [Event]()
     @Published var netState = NetworkState.loading
     private var logger = Logger(label: Bundle.main.bundleIdentifier!
-                                    .appending(".loggers"))
+                                    .appending("NetworkService.log"))
     private var subscribers = Set<AnyCancellable>()
     private var session = URLSession.shared
     private var decoder = JSONDecoder()
@@ -45,8 +46,9 @@ final class NetworkService: ObservableObject {
 extension NetworkService {
     func loadGroups() {
         netState = .loading
+        logger.info("Loading all groups")
         session.dataTaskPublisher(for: groupURL)
-            .retry(5)
+            .retry(2)
             .map { $0.data }
             .decode(type: [Group].self, decoder: decoder)
             .receive(on: RunLoop.main)
@@ -74,18 +76,23 @@ extension NetworkService {
 
 // MARK: - Events
 extension NetworkService {
-    func loadEvents(for group: Group) {
+    func loadAllEvents(for group: Group) -> AnyPublisher<[Event], Error> {
         guard let url = group.eventsURL else {
             self.netState = .failed(NetworkError.invalidURL)
-            return
+            return Fail(error: NetworkError.invalidURL).eraseToAnyPublisher()
         }
         netState = .loading
-        session.dataTaskPublisher(for: url)
+        return session.dataTaskPublisher(for: url)
             .retry(5)
             .map {
                 $0.data
             }
             .decode(type: [Event].self, decoder: decoder)
+            .eraseToAnyPublisher()
+    }
+
+    func loadEvents(for group: Group) {
+        loadAllEvents(for: group)
             .receive(on: RunLoop.main)
             .sink { [weak self] completion in
                 guard let self = self else {
@@ -104,6 +111,47 @@ extension NetworkService {
             } receiveValue: { netEvents in
                 self.logger.info("Events loaded: \(netEvents.count)")
                 self.events = netEvents
+                self.sort(netEvents)
+            }
+            .store(in: &subscribers)
+    }
+
+    private func sort(_ events: [Event]) {
+        let now = Date()
+        self.upcomingEvents = []
+        self.pastEvents = []
+        events.forEach { event in
+            guard let startDate = event.startAt else { return }
+            if startDate > now {
+                self.upcomingEvents.append(event)
+            } else {
+                self.pastEvents.append(event)
+            }
+        }
+    }
+
+    func loadUpcomingEvents(for group: Group) {
+        loadAllEvents(for: group)
+            .map { events -> [Event] in
+                let now = Date()
+                return events.filter { event in
+                    guard let startDate = event.startAt else {
+                        return false
+                    }
+                    return startDate > now
+                }
+            }
+            .receive(on: RunLoop.main)
+            .sink { upcomingCompletion in
+                switch upcomingCompletion {
+                case .failure(let error):
+                    self.logger.error("loadUpcomingEvents(for:) \(error.localizedDescription)")
+                    self.netState = .failed(error)
+                case .finished:
+                    self.netState = .ready
+                }
+            } receiveValue: { upcomingEvts in
+                self.upcomingEvents = upcomingEvts
             }
             .store(in: &subscribers)
     }

@@ -69,6 +69,9 @@
 		0FA09F632661FF7000E04777 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 0FA09F622661FF7000E04777 /* Logging */; };
 		0FA09F652661FF7000E04777 /* FetchImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0FA09F642661FF7000E04777 /* FetchImage */; };
 		0FA09F6826629B9100E04777 /* EventListWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F6726629B9100E04777 /* EventListWatchView.swift */; };
+		0FA09F6A2665587600E04777 /* EventSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F692665587600E04777 /* EventSummaryView.swift */; };
+		0FA09F6B2665587600E04777 /* EventSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F692665587600E04777 /* EventSummaryView.swift */; };
+		0FA09F6C2665587600E04777 /* EventSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F692665587600E04777 /* EventSummaryView.swift */; };
 		0FD69B6C2658D35B007EC696 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD69B6B2658D35B007EC696 /* EventListView.swift */; };
 		0FD69B6D2658D35B007EC696 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD69B6B2658D35B007EC696 /* EventListView.swift */; };
 		0FD69B6E2658D35B007EC696 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD69B6B2658D35B007EC696 /* EventListView.swift */; };
@@ -222,6 +225,7 @@
 		0FA09F482661FE5900E04777 /* CoffUp__watchOS_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffUp__watchOS_UITests.swift; sourceTree = "<group>"; };
 		0FA09F4A2661FE5900E04777 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FA09F6726629B9100E04777 /* EventListWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListWatchView.swift; sourceTree = "<group>"; };
+		0FA09F692665587600E04777 /* EventSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSummaryView.swift; sourceTree = "<group>"; };
 		0FD69B6B2658D35B007EC696 /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
 		0FD69B6F2658DABD007EC696 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -513,6 +517,7 @@
 				0FD69B6F2658DABD007EC696 /* EventDetailView.swift */,
 				0FD69B6B2658D35B007EC696 /* EventListView.swift */,
 				0F6A04FF2658A1DE0050439D /* ContentView.swift */,
+				0FA09F692665587600E04777 /* EventSummaryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -957,6 +962,7 @@
 				0FD69B6C2658D35B007EC696 /* EventListView.swift in Sources */,
 				0F6A05C82658A4350050439D /* NetworkService.swift in Sources */,
 				0F6A05D72658A9EC0050439D /* Venue.swift in Sources */,
+				0FA09F6A2665587600E04777 /* EventSummaryView.swift in Sources */,
 				0F6A05282658A1E10050439D /* CoffApp.xcdatamodeld in Sources */,
 				0F6A052E2658A1E10050439D /* Persistence.swift in Sources */,
 				0F6A05EA2658B2010050439D /* NetworkState.swift in Sources */,
@@ -976,6 +982,7 @@
 				0FD69B6D2658D35B007EC696 /* EventListView.swift in Sources */,
 				0F6A05C92658A4350050439D /* NetworkService.swift in Sources */,
 				0F6A05D82658A9EC0050439D /* Venue.swift in Sources */,
+				0FA09F6B2665587600E04777 /* EventSummaryView.swift in Sources */,
 				0F6A05292658A1E10050439D /* CoffApp.xcdatamodeld in Sources */,
 				0F6A052F2658A1E10050439D /* Persistence.swift in Sources */,
 				0F6A05EB2658B2010050439D /* NetworkState.swift in Sources */,
@@ -1011,6 +1018,7 @@
 				0FD69B722658DABD007EC696 /* EventDetailView.swift in Sources */,
 				0F6A05EC2658B2010050439D /* NetworkState.swift in Sources */,
 				0F6A05502658A2250050439D /* Persistence.swift in Sources */,
+				0FA09F6C2665587600E04777 /* EventSummaryView.swift in Sources */,
 				0F6A05D92658A9EC0050439D /* Venue.swift in Sources */,
 				0F6A05D52658A9460050439D /* Event.swift in Sources */,
 				0F6A05C22658A2A60050439D /* CoffAppApp.swift in Sources */,

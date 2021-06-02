@@ -3,6 +3,7 @@ import SwiftUI
 struct EventListView: View {
     @EnvironmentObject var net: NetworkService
     var group: Group
+
     var body: some View {
             VStack(alignment: .center) {
                 if net.netState == .loading {
@@ -12,26 +13,42 @@ struct EventListView: View {
                     Spacer()
                 } else {
                     ScrollView {
-                    LazyVStack(content: {
-                        ForEach(net.events, id: \.self) { event in
-                        EventDetailView(event)
-                            .padding(.vertical, 10)
-                            .frame(minWidth: .none,
-                                   maxWidth: .infinity,
-                                   minHeight: .none,
-                                   maxHeight: .infinity,
-                                   alignment: .center)
+                        LazyVStack(alignment: .leading, spacing: 30) {
+                            if net.upcomingEvents.count > 0 {
+                                HStack {
+                                    ForEach(net.upcomingEvents, id: \.self) { upcomingEvent in
+                                        EventDetailView(upcomingEvent)
+                                            .padding(.vertical, 10)
+                                            .frame(minWidth: .none,
+                                                   maxWidth: .infinity,
+                                                   minHeight: .none,
+                                                   maxHeight: .infinity,
+                                                   alignment: .center)
+                                    }
+                                }
+                            } else {
+                                HStack {
+                                    Text("No upcoming events")
+                                        .foregroundColor(.secondary)
+                                }
                             }
-                        })
+                            if net.pastEvents.count > 0 {
+                                Divider()
+                                Text("Previously")
+                                    .font(.title)
+                                ForEach(net.pastEvents) { event in
+                                    EventSummaryView(event)
+                                }
+                            }
+                        }
+                        .padding(.horizontal, 10)
                     }
-                }
+                    .navigationTitle(group.name)
             }
-            .navigationTitle(group.name)
-            .onAppear(perform: {
-                withAnimation {
-                    net.loadEvents(for: group)
-                }
-            })
+        }
+        .onAppear {
+            net.loadEvents(for: group)
+        }
     }
 }
 

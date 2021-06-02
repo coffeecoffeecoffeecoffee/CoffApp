@@ -1,3 +1,4 @@
+// swiftlint:disable line_length
 import FetchImage
 import SwiftUI
 
@@ -108,12 +109,14 @@ struct TVFocusable<Content: View>: View {
     }
 }
 
+#if DEBUG
 struct EventDetailView_Previews: PreviewProvider {
+    static let imgURL = URL(string: "https://fastly.4sqi.net/img/general/1440x1920/1813137_VPYk5iqnExTrW9lEMbbSy2WDS6P-lbOkpqsy5KE2sSI.jpg")!
     static var previews: some View {
         let event = Event(id: UUID(),
                           groupID: UUID(),
                           name: "Test Event Here",
-                          imageURL: URL(string: "https://fastly.4sqi.net/img/general/1440x1920/1813137_VPYk5iqnExTrW9lEMbbSy2WDS6P-lbOkpqsy5KE2sSI.jpg")!,
+                          imageURL: imgURL,
                           startAt: Date(),
                           endAt: Date(),
                           venue: Venue(name: "Mi Casa", location: nil))
@@ -121,3 +124,4 @@ struct EventDetailView_Previews: PreviewProvider {
             .frame(width: 320, height: 240, alignment: .center)
     }
 }
+#endif
