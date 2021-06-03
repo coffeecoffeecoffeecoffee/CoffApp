@@ -1620,6 +1620,7 @@
 				DEVELOPMENT_TEAM = UB37VMGP6E;
 				IBSC_MODULE = CoffUp__watchOS__WatchKit_Extension;
 				INFOPLIST_FILE = "CoffUp (watchOS) WatchKit App/Info.plist";
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.coffee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -1640,6 +1641,7 @@
 				DEVELOPMENT_TEAM = UB37VMGP6E;
 				IBSC_MODULE = CoffUp__watchOS__WatchKit_Extension;
 				INFOPLIST_FILE = "CoffUp (watchOS) WatchKit App/Info.plist";
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.coffee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -1665,6 +1667,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.coffee;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -1689,6 +1692,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.coffee;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;

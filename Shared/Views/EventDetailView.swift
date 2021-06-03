@@ -47,7 +47,7 @@ struct EventDetailView: View {
                         Button(action: {
                             event.venue?.getDirections()
                         }, label: {
-                            Text("Directions")
+                            Text("􀙟 Directions")
                                 .padding(.horizontal, 12)
                         })
                         .foregroundColor(.white)
