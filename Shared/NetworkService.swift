@@ -128,6 +128,10 @@ extension NetworkService {
                 self.pastEvents.append(event)
             }
         }
+        #if DEBUG
+        let evt = testEvent()
+        self.upcomingEvents.append(evt)
+        #endif
     }
 
     func loadUpcomingEvents(for group: Group) {
@@ -156,3 +160,19 @@ extension NetworkService {
             .store(in: &subscribers)
     }
 }
+
+#if DEBUG
+func testEvent() -> Event {
+    let location = Location(latitude: Double(37.789004663475026),
+                                   longitude: Double(-122.3970252426277))
+    let imgURL = URL(string: "https://fastly.4sqi.net/img/general/1440x1920/1813137_VPYk5iqnExTrW9lEMbbSy2WDS6P-lbOkpqsy5KE2sSI.jpg")!
+    let event = Event(id: UUID(),
+                      groupID: UUID(),
+                      name: "Test Event Here",
+                      imageURL: imgURL,
+                      startAt: Date(),
+                      endAt: Date(),
+                      venue: Venue(name: "Salesforce Park", location: location))
+    return event
+}
+#endif

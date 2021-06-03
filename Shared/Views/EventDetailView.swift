@@ -32,39 +32,53 @@ struct EventDetailView: View {
                             ]),
                            startPoint: UnitPoint(x: 0.5, y: 0.55),
                            endPoint: UnitPoint(x: 0.5, y: 0.75))
-            VStack(alignment: .leading) {
-                Text(event.name)
-                    .font(.title2)
-                    .foregroundColor(.white)
-                    .scaleEffect(focusState.inFocus ? 1.03 : 1)
-                    .shadow(radius: focusState.inFocus ? 3 : 0)
-                HStack {
+            HStack(alignment: .bottom) {
+                VStack(alignment: .leading) {
+                    Text(event.name)
+                        .font(.title2)
+                        .foregroundColor(.white)
+                        .scaleEffect(focusState.inFocus ? 1.03 : 1)
+                        .shadow(radius: focusState.inFocus ? 3 : 0)
                     Text(event.venueName)
                         .font(.body)
+                        .foregroundColor(.init(white: 0.8))
+                    Text(event.localizedStartTime)
+                        .font(.body)
+                        .bold()
                         .foregroundColor(.init(white: 0.8))
                     if focusState.inFocus
                         && event.venue?.location != nil {
                         Button(action: {
                             event.venue?.getDirections()
                         }, label: {
-                            Text("􀙟 Directions")
-                                .padding(.horizontal, 12)
+                            HStack {
+                                Image(systemName: "arrow.triangle.turn.up.right.diamond.fill")
+                                    .padding(.vertical, 2)
+                                Text("Directions")
+                            }
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, focusState.inFocus ? 4 : 0)
                         })
                         .foregroundColor(.white)
                         .background(
                             RoundedRectangle(cornerRadius: 40)
                                 .foregroundColor(.blue)
                         )
+                        .transition(.scale(scale: 0.2, anchor: .bottomLeading))
                     }
                 }
-                .padding(.vertical, focusState.inFocus ? 10 : 0)
-                Text(event.localizedStartTime)
-                    .font(.body)
+                .padding(.horizontal, 20)
+                .padding(.bottom, 20)
+                Spacer()
+                Text(focusState.inFocus ? Image(systemName: "rectangle.compress.vertical") : Image(systemName: "rectangle.expand.vertical"))
+                    .font(.headline)
                     .bold()
-                    .foregroundColor(.init(white: 0.8))
+                    .foregroundColor(.white)
+                    .padding(5)
+                    .background(Circle().foregroundColor(.blue))
+                    .padding(.trailing, 20)
+                    .padding(.bottom, 20)
             }
-            .padding(.horizontal, 20)
-            .padding(.bottom, 20)
             .onTapGesture {
                 withAnimation {
                     focusState.toggleFocus()
@@ -103,6 +117,8 @@ struct EventDetailView: View {
 
 #if DEBUG
 struct EventDetailView_Previews: PreviewProvider {
+    static let location = Location(latitude: Double(37.789004663475026),
+                                   longitude: Double(-122.3970252426277))
     static let imgURL = URL(string: "https://fastly.4sqi.net/img/general/1440x1920/1813137_VPYk5iqnExTrW9lEMbbSy2WDS6P-lbOkpqsy5KE2sSI.jpg")!
     static var previews: some View {
         let event = Event(id: UUID(),
@@ -111,9 +127,9 @@ struct EventDetailView_Previews: PreviewProvider {
                           imageURL: imgURL,
                           startAt: Date(),
                           endAt: Date(),
-                          venue: Venue(name: "Mi Casa", location: nil))
+                          venue: Venue(name: "Salesforce Park", location: location))
         EventDetailView(event)
-            .frame(width: 320, height: 240, alignment: .center)
+            .frame(width: 320.0, height: 240.0, alignment: .center)
     }
 }
 #endif
