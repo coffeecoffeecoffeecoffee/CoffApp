@@ -226,7 +226,7 @@
 		0F745441266891BE00DEB3F1 /* RuntimeOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeOS.swift; sourceTree = "<group>"; };
 		0F74544B2669642200DEB3F1 /* RoundFilledButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundFilledButtonStyle.swift; sourceTree = "<group>"; };
 		0F745450266C031700DEB3F1 /* Image+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Data.swift"; sourceTree = "<group>"; };
-		0FA09F102661FE5700E04777 /* CoffUp (watchOS).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CoffUp (watchOS).app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FA09F102661FE5700E04777 /* The Coffee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Coffee.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FA09F132661FE5700E04777 /* CoffUp (watchOS) WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CoffUp (watchOS) WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FA09F182661FE5800E04777 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0FA09F1A2661FE5800E04777 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -382,7 +382,7 @@
 				0F6A05442658A2230050439D /* CoffApp (tvOS).app */,
 				0F6A05592658A2250050439D /* CoffAppTests.xctest */,
 				0F6A05642658A2250050439D /* CoffAppUITests.xctest */,
-				0FA09F102661FE5700E04777 /* CoffUp (watchOS).app */,
+				0FA09F102661FE5700E04777 /* The Coffee.app */,
 				0FA09F132661FE5700E04777 /* CoffUp (watchOS) WatchKit App.app */,
 				0FA09F1F2661FE5800E04777 /* CoffUp (watchOS) WatchKit Extension.appex */,
 				0FA09F392661FE5900E04777 /* CoffUp (watchOS)Tests.xctest */,
@@ -704,7 +704,7 @@
 			);
 			name = "CoffUp (watchOS)";
 			productName = "CoffUp (watchOS)";
-			productReference = 0FA09F102661FE5700E04777 /* CoffUp (watchOS).app */;
+			productReference = 0FA09F102661FE5700E04777 /* The Coffee.app */;
 			productType = "com.apple.product-type.application.watchapp2-container";
 		};
 		0FA09F122661FE5700E04777 /* CoffUp (watchOS) WatchKit App */ = {
@@ -1617,7 +1617,7 @@
 				DEVELOPMENT_TEAM = UB37VMGP6E;
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.coffee.watch;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "The Coffee";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 			};
@@ -1631,7 +1631,7 @@
 				DEVELOPMENT_TEAM = UB37VMGP6E;
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.coffee.watch;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "The Coffee";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
