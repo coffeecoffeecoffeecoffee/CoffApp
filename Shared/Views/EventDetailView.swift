@@ -42,12 +42,13 @@ struct EventDetailView: View {
                     Text(event.venueName)
                         .font(.body)
                         .foregroundColor(.init(white: 0.8))
-                    Text(event.localizedStartTime)
+                    Text(event.localizedStartTime())
                         .font(.body)
                         .bold()
                         .foregroundColor(.init(white: 0.8))
                     if focusState.inFocus
-                        && event.venue?.location != nil {
+                        && event.venue?.location != nil
+                        && RuntimeOS.current != .tvOS {
                         Button(action: {
                             event.venue?.getDirections()
                         }, label: {
@@ -56,33 +57,28 @@ struct EventDetailView: View {
                                     .padding(.vertical, 2)
                                 Text("Directions")
                             }
-                            .padding(.horizontal, 12)
-                            .padding(.vertical, focusState.inFocus ? 4 : 0)
                         })
-                        .foregroundColor(.white)
-                        .background(
-                            RoundedRectangle(cornerRadius: 40)
-                                .foregroundColor(.blue)
-                        )
+                        .buttonStyle(RoundFilledButtonStyle(color: .blue))
                         .transition(.scale(scale: 0.2, anchor: .bottomLeading))
                     }
                 }
                 .padding(.horizontal, 20)
                 .padding(.bottom, 20)
-                Spacer()
-                Text(focusState.inFocus ? Image(systemName: "rectangle.compress.vertical") : Image(systemName: "rectangle.expand.vertical"))
-                    .font(.headline)
-                    .bold()
-                    .foregroundColor(.white)
-                    .padding(5)
-                    .background(Circle().foregroundColor(.blue))
-                    .padding(.trailing, 20)
-                    .padding(.bottom, 20)
+                if RuntimeOS.current != .tvOS {
+                    Spacer()
+                    Text(focusState.inFocus ? Image(systemName: "rectangle.compress.vertical") : Image(systemName: "rectangle.expand.vertical"))
+                        .font(.headline)
+                        .bold()
+                        .foregroundColor(.white)
+                        .padding(5)
+                        .background(Circle().foregroundColor(.blue))
+                        .padding(.trailing, 20)
+                        .padding(.bottom, 20)
+                }
             }
-            .onTapGesture {
+            .onLongPressGesture(minimumDuration: 0.02) {
                 withAnimation {
                     focusState.toggleFocus()
-                    print("inFocus: ", focusState.inFocus)
                 }
             }
         }

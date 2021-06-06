@@ -22,4 +22,3 @@ struct TVFocusable<Content: View>: View {
         #endif
     }
 }
-

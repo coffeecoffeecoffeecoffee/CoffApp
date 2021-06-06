@@ -6,6 +6,7 @@ final class NetworkService: ObservableObject {
     @Published var groups = [Group]()
     @Published var events = [Event]()
     let eventsSubject = PassthroughSubject<[Event], Error>()
+    @Published var firstEvent: Event = Event.loading
     @Published var upcomingEvents = [Event]()
     @Published var pastEvents = [Event]()
     @Published var netState = NetworkState.loading
@@ -104,12 +105,14 @@ extension NetworkService {
                 case .failure(let error):
                     self.logger.critical("Network Error\n\(error.localizedDescription)")
                     self.netState = .failed(error)
+                    self.sort([Event.error])
                 case .finished:
                     self.logger.info("Events fetch complete")
                     self.netState = .ready
                 }
             } receiveValue: { netEvents in
                 self.logger.info("Events loaded: \(netEvents.count)")
+                self.firstEvent = netEvents.first ?? Event.empty
                 self.events = netEvents
                 self.sort(netEvents)
             }
@@ -165,7 +168,9 @@ extension NetworkService {
 func testEvent() -> Event {
     let location = Location(latitude: Double(37.789004663475026),
                                    longitude: Double(-122.3970252426277))
-    let imgURL = URL(string: "https://fastly.4sqi.net/img/general/1440x1920/1813137_VPYk5iqnExTrW9lEMbbSy2WDS6P-lbOkpqsy5KE2sSI.jpg")!
+    let imageURLString = "https://fastly.4sqi.net/img/general/1440x1920/"
+        + "1813137_VPYk5iqnExTrW9lEMbbSy2WDS6P-lbOkpqsy5KE2sSI.jpg"
+    let imgURL = URL(string: imageURLString)!
     let event = Event(id: UUID(),
                       groupID: UUID(),
                       name: "Test Event Here",

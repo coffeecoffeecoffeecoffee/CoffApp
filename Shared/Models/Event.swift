@@ -19,6 +19,41 @@ struct Event: Codable {
     }
 }
 
+extension Event {
+    static var loading: Event {
+        Event(id: nil,
+              groupID: nil,
+              name: "Loading",
+              imageURL: nil,
+              startAt: nil,
+              endAt: nil,
+              venue: nil
+        )
+    }
+
+    static var error: Event {
+        Event(id: nil,
+              groupID: nil,
+              name: "Error",
+              imageURL: nil,
+              startAt: nil,
+              endAt: nil,
+              venue: nil
+        )
+    }
+
+    static var empty: Event {
+        Event(id: nil,
+              groupID: nil,
+              name: "No Events",
+              imageURL: nil,
+              startAt: nil,
+              endAt: nil,
+              venue: nil
+        )
+    }
+}
+
 extension Event: Hashable {
     static func == (lhs: Event, rhs: Event) -> Bool {
         guard let lid = lhs.id,
@@ -38,10 +73,10 @@ extension Event {
         return venueName
     }
 
-    var localizedStartTime: String {
+    func localizedStartTime(_ style: DateFormatter.Style = .long) -> String {
         guard let startAt = startAt else { return NSLocalizedString("Mystery Time", comment: "") }
         return DateFormatter.localizedString(from: startAt,
-                                             dateStyle: .long,
+                                             dateStyle: style,
                                              timeStyle: .short)
     }
 }

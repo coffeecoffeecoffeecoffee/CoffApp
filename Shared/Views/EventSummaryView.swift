@@ -32,7 +32,7 @@ struct EventSummaryView: View {
             VStack(alignment: .leading) {
                 Text(event.name)
                     .bold()
-                Text(event.localizedStartTime)
+                Text(event.localizedStartTime())
             }
         }
         .frame(minWidth: 64, maxWidth: .infinity, minHeight: 64, maxHeight: 64, alignment: .leading)
