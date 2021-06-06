@@ -57,7 +57,6 @@
 		0F74544E2669642200DEB3F1 /* RoundFilledButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F74544B2669642200DEB3F1 /* RoundFilledButtonStyle.swift */; };
 		0F74544F2669642200DEB3F1 /* RoundFilledButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F74544B2669642200DEB3F1 /* RoundFilledButtonStyle.swift */; };
 		0F745451266C031700DEB3F1 /* Image+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F745450266C031700DEB3F1 /* Image+Data.swift */; };
-		0F745452266C031700DEB3F1 /* Image+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F745450266C031700DEB3F1 /* Image+Data.swift */; };
 		0F745453266C031700DEB3F1 /* Image+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F745450266C031700DEB3F1 /* Image+Data.swift */; };
 		0F745454266C031700DEB3F1 /* Image+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F745450266C031700DEB3F1 /* Image+Data.swift */; };
 		0FA09F142661FE5700E04777 /* CoffUp (watchOS) WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0FA09F132661FE5700E04777 /* CoffUp (watchOS) WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -1029,7 +1028,6 @@
 				0F6A05CF2658A9020050439D /* Group.swift in Sources */,
 				0FD69B712658DABD007EC696 /* EventDetailView.swift in Sources */,
 				0F6A052B2658A1E10050439D /* CoffAppApp.swift in Sources */,
-				0F745452266C031700DEB3F1 /* Image+Data.swift in Sources */,
 				0F6A05D42658A9460050439D /* Event.swift in Sources */,
 				0F6A052D2658A1E10050439D /* ContentView.swift in Sources */,
 			);

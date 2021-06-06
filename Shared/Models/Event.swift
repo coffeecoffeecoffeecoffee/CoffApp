@@ -30,7 +30,7 @@ extension Event {
               venue: nil
         )
     }
-    
+
     static var error: Event {
         Event(id: nil,
               groupID: nil,
@@ -41,7 +41,7 @@ extension Event {
               venue: nil
         )
     }
-    
+
     static var empty: Event {
         Event(id: nil,
               groupID: nil,
@@ -73,10 +73,10 @@ extension Event {
         return venueName
     }
 
-    var localizedStartTime: String {
+    func localizedStartTime(_ style: DateFormatter.Style = .long) -> String {
         guard let startAt = startAt else { return NSLocalizedString("Mystery Time", comment: "") }
         return DateFormatter.localizedString(from: startAt,
-                                             dateStyle: .long,
+                                             dateStyle: style,
                                              timeStyle: .short)
     }
 }

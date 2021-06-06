@@ -9,26 +9,34 @@ struct EventListWatchView: View {
     // MARK: - Body
     var body: some View {
         GeometryReader { geo in
-            VStack(alignment: .center) {
-                Image(systemName: "cloud")
-                    .data(networkService.firstEvent.imageURL)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(maxWidth: geo.size.width, maxHeight: 80)
-                    .cornerRadius(10)
-                    .clipped()
-                VStack {
-                    Text(networkService.firstEvent.name)
-                        .lineLimit(nil)
-                        .multilineTextAlignment(.leading)
-                    Text(networkService.firstEvent.localizedStartTime)
-                        .font(.footnote)
+            ScrollView {
+                VStack(alignment: .leading) {
+                    Image("Loading")
+                        .data(networkService.firstEvent.imageURL)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(maxWidth: geo.size.width, maxHeight: 70)
+                        .cornerRadius(10)
+                        .clipped()
+                    VStack(alignment: .leading) {
+                        Text(networkService.firstEvent.venueName)
+                            .lineLimit(2)
+                            .multilineTextAlignment(.leading)
+                        Text(networkService.firstEvent.localizedStartTime(.short))
+                            .font(.footnote)
+                        Button {
+                            networkService.firstEvent.venue?.getDirections()
+                        } label: {
+                            Text("Directions")
+                        }
+
+                    }
+                    .font(.body)
+                    .padding(.all, 10)
+                    .background(Color.black.opacity(0.7).cornerRadius(10))
                 }
-                .font(.body)
-                .padding(.all, 10)
-                .background(Color.black.opacity(0.7).cornerRadius(10))
+                .frame(maxWidth: geo.size.width, maxHeight: geo.size.width)
             }
-            .frame(maxWidth: geo.size.width, maxHeight: geo.size.width)
         }
         .onAppear {
             networkService.loadEvents(for: group)

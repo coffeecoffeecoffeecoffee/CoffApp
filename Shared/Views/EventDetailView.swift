@@ -42,7 +42,7 @@ struct EventDetailView: View {
                     Text(event.venueName)
                         .font(.body)
                         .foregroundColor(.init(white: 0.8))
-                    Text(event.localizedStartTime)
+                    Text(event.localizedStartTime())
                         .font(.body)
                         .bold()
                         .foregroundColor(.init(white: 0.8))
