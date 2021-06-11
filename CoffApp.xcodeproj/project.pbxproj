@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F49A3C22673983E00B62CC4 /* CoffAppMacUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3C12673983E00B62CC4 /* CoffAppMacUITests.swift */; };
 		0F6A051B2658A1E10050439D /* TestsiOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A051A2658A1E10050439D /* TestsiOS.swift */; };
 		0F6A05262658A1E10050439D /* TestsMacOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05252658A1E10050439D /* TestsMacOS.swift */; };
 		0F6A05282658A1E10050439D /* CoffApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FC2658A1DE0050439D /* CoffApp.xcdatamodeld */; };
@@ -103,6 +104,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0F49A3B92673981F00B62CC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F6A04F72658A1DE0050439D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0F6A050D2658A1E10050439D;
+			remoteInfo = "CoffApp (macOS)";
+		};
+		0F49A3C42673983E00B62CC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F6A04F72658A1DE0050439D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0F6A050D2658A1E10050439D;
+			remoteInfo = "CoffApp (macOS)";
+		};
 		0F6A05172658A1E10050439D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0F6A04F72658A1DE0050439D /* Project object */;
@@ -187,6 +202,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0F49A3BF2673983D00B62CC4 /* CoffAppMacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffAppMacUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F49A3C12673983E00B62CC4 /* CoffAppMacUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffAppMacUITests.swift; sourceTree = "<group>"; };
+		0F49A3C32673983E00B62CC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F6A04FD2658A1DE0050439D /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		0F6A04FE2658A1DE0050439D /* CoffAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffAppApp.swift; sourceTree = "<group>"; };
 		0F6A04FF2658A1DE0050439D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -255,6 +273,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0F49A3BC2673983D00B62CC4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0F6A05032658A1E10050439D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -336,12 +361,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F49A3C02673983D00B62CC4 /* CoffAppMacUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0F49A3C12673983E00B62CC4 /* CoffAppMacUITests.swift */,
+				0F49A3C32673983E00B62CC4 /* Info.plist */,
+			);
+			path = CoffAppMacUITests;
+			sourceTree = "<group>";
+		};
 		0F6A04F62658A1DE0050439D = {
 			isa = PBXGroup;
 			children = (
 				0F6A04FB2658A1DE0050439D /* Shared */,
 				0F6A05082658A1E10050439D /* iOS */,
 				0F6A050F2658A1E10050439D /* macOS */,
+				0F6A05242658A1E10050439D /* Tests macOS */,
 				0F6A05192658A1E10050439D /* Tests iOS */,
 				0F6A05452658A2230050439D /* CoffApp tvOS */,
 				0F6A05672658A2250050439D /* CoffAppUITests */,
@@ -350,6 +385,7 @@
 				0FA09F232661FE5800E04777 /* CoffUp (watchOS) WatchKit Extension */,
 				0FA09F3C2661FE5900E04777 /* CoffUp (watchOS)Tests */,
 				0FA09F472661FE5900E04777 /* CoffUp (watchOS)UITests */,
+				0F49A3C02673983D00B62CC4 /* CoffAppMacUITests */,
 				0F6A05072658A1E10050439D /* Products */,
 				0F6A05E12658AEA80050439D /* Frameworks */,
 			);
@@ -387,6 +423,7 @@
 				0FA09F1F2661FE5800E04777 /* CoffUp (watchOS) WatchKit Extension.appex */,
 				0FA09F392661FE5900E04777 /* CoffUp (watchOS)Tests.xctest */,
 				0FA09F442661FE5900E04777 /* CoffUp (watchOS)UITests.xctest */,
+				0F49A3BF2673983D00B62CC4 /* CoffAppMacUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -402,7 +439,6 @@
 		0F6A050F2658A1E10050439D /* macOS */ = {
 			isa = PBXGroup;
 			children = (
-				0F6A05242658A1E10050439D /* Tests macOS */,
 				0F6A05102658A1E10050439D /* Info.plist */,
 				0F6A05112658A1E10050439D /* macOS.entitlements */,
 			);
@@ -554,6 +590,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0F49A3BE2673983D00B62CC4 /* CoffAppMacUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0F49A3C62673983E00B62CC4 /* Build configuration list for PBXNativeTarget "CoffAppMacUITests" */;
+			buildPhases = (
+				0F49A3BB2673983D00B62CC4 /* Sources */,
+				0F49A3BC2673983D00B62CC4 /* Frameworks */,
+				0F49A3BD2673983D00B62CC4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0F49A3C52673983E00B62CC4 /* PBXTargetDependency */,
+			);
+			name = CoffAppMacUITests;
+			productName = CoffAppMacUITests;
+			productReference = 0F49A3BF2673983D00B62CC4 /* CoffAppMacUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		0F6A05052658A1E10050439D /* CoffApp (iOS) */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F6A05342658A1E10050439D /* Build configuration list for PBXNativeTarget "CoffApp (iOS)" */;
@@ -684,6 +738,7 @@
 			);
 			dependencies = (
 				0F6A05662658A2250050439D /* PBXTargetDependency */,
+				0F49A3BA2673981F00B62CC4 /* PBXTargetDependency */,
 			);
 			name = CoffAppUITests;
 			productName = CoffAppUITests;
@@ -790,6 +845,10 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					0F49A3BE2673983D00B62CC4 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 0F6A050D2658A1E10050439D;
+					};
 					0F6A05052658A1E10050439D = {
 						CreatedOnToolsVersion = 12.5;
 					};
@@ -813,7 +872,7 @@
 					};
 					0F6A05632658A2250050439D = {
 						CreatedOnToolsVersion = 12.5;
-						TestTargetID = 0F6A05432658A2230050439D;
+						TestTargetID = 0F6A050D2658A1E10050439D;
 					};
 					0FA09F0F2661FE5700E04777 = {
 						CreatedOnToolsVersion = 12.5;
@@ -863,11 +922,19 @@
 				0FA09F1E2661FE5800E04777 /* CoffUp (watchOS) WatchKit Extension */,
 				0FA09F382661FE5900E04777 /* CoffUp (watchOS)Tests */,
 				0FA09F432661FE5900E04777 /* CoffUp (watchOS)UITests */,
+				0F49A3BE2673983D00B62CC4 /* CoffAppMacUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0F49A3BD2673983D00B62CC4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0F6A05042658A1E10050439D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -984,6 +1051,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0F49A3BB2673983D00B62CC4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0F49A3C22673983E00B62CC4 /* CoffAppMacUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0F6A05022658A1E10050439D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1132,6 +1207,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0F49A3BA2673981F00B62CC4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0F6A050D2658A1E10050439D /* CoffApp (macOS) */;
+			targetProxy = 0F49A3B92673981F00B62CC4 /* PBXContainerItemProxy */;
+		};
+		0F49A3C52673983E00B62CC4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0F6A050D2658A1E10050439D /* CoffApp (macOS) */;
+			targetProxy = 0F49A3C42673983E00B62CC4 /* PBXContainerItemProxy */;
+		};
 		0F6A05182658A1E10050439D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0F6A05052658A1E10050439D /* CoffApp (iOS) */;
@@ -1175,6 +1260,48 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		0F49A3C72673983E00B62CC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = UB37VMGP6E;
+				INFOPLIST_FILE = CoffAppMacUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.CoffAppMacUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "CoffApp (macOS)";
+			};
+			name = Debug;
+		};
+		0F49A3C82673983E00B62CC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = UB37VMGP6E;
+				INFOPLIST_FILE = CoffAppMacUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.CoffAppMacUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "CoffApp (macOS)";
+			};
+			name = Release;
+		};
 		0F6A05322658A1E10050439D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1292,6 +1419,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = UB37VMGP6E;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -1315,6 +1443,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = UB37VMGP6E;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -1341,6 +1470,7 @@
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = UB37VMGP6E;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -1365,6 +1495,7 @@
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = UB37VMGP6E;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -1476,6 +1607,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = UB37VMGP6E;
 				ENABLE_PREVIEWS = YES;
@@ -1499,6 +1631,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = UB37VMGP6E;
 				ENABLE_PREVIEWS = YES;
@@ -1581,7 +1714,7 @@
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TEST_TARGET_NAME = CoffApp;
+				TEST_TARGET_NAME = "CoffApp (macOS)";
 				TVOS_DEPLOYMENT_TARGET = 14.5;
 			};
 			name = Debug;
@@ -1603,7 +1736,7 @@
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TEST_TARGET_NAME = CoffApp;
+				TEST_TARGET_NAME = "CoffApp (macOS)";
 				TVOS_DEPLOYMENT_TARGET = 14.5;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1613,7 +1746,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = UB37VMGP6E;
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.coffee.watch;
@@ -1627,7 +1760,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = UB37VMGP6E;
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.coffee.watch;
@@ -1645,6 +1778,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = UB37VMGP6E;
 				IBSC_MODULE = CoffUp__watchOS__WatchKit_Extension;
 				INFOPLIST_FILE = "CoffUp (watchOS) WatchKit App/Info.plist";
@@ -1666,6 +1800,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = UB37VMGP6E;
 				IBSC_MODULE = CoffUp__watchOS__WatchKit_Extension;
 				INFOPLIST_FILE = "CoffUp (watchOS) WatchKit App/Info.plist";
@@ -1686,6 +1821,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"CoffUp (watchOS) WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = UB37VMGP6E;
 				ENABLE_PREVIEWS = YES;
@@ -1711,6 +1847,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"CoffUp (watchOS) WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = UB37VMGP6E;
 				ENABLE_PREVIEWS = YES;
@@ -1825,6 +1962,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0F49A3C62673983E00B62CC4 /* Build configuration list for PBXNativeTarget "CoffAppMacUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0F49A3C72673983E00B62CC4 /* Debug */,
+				0F49A3C82673983E00B62CC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		0F6A04FA2658A1DE0050439D /* Build configuration list for PBXProject "CoffApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
