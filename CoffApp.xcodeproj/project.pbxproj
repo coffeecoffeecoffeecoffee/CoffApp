@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0F49A3C22673983E00B62CC4 /* CoffAppMacUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3C12673983E00B62CC4 /* CoffAppMacUITests.swift */; };
+		0F49A3D12675189900B62CC4 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D02675189900B62CC4 /* ImageCache.swift */; };
+		0F49A3D22675189900B62CC4 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D02675189900B62CC4 /* ImageCache.swift */; };
+		0F49A3D32675189900B62CC4 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D02675189900B62CC4 /* ImageCache.swift */; };
+		0F49A3D42675189900B62CC4 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D02675189900B62CC4 /* ImageCache.swift */; };
 		0F6A051B2658A1E10050439D /* TestsiOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A051A2658A1E10050439D /* TestsiOS.swift */; };
 		0F6A05262658A1E10050439D /* TestsMacOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05252658A1E10050439D /* TestsMacOS.swift */; };
 		0F6A05282658A1E10050439D /* CoffApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FC2658A1DE0050439D /* CoffApp.xcdatamodeld */; };
@@ -205,6 +209,7 @@
 		0F49A3BF2673983D00B62CC4 /* CoffAppMacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffAppMacUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F49A3C12673983E00B62CC4 /* CoffAppMacUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffAppMacUITests.swift; sourceTree = "<group>"; };
 		0F49A3C32673983E00B62CC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0F49A3D02675189900B62CC4 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		0F6A04FD2658A1DE0050439D /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		0F6A04FE2658A1DE0050439D /* CoffAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffAppApp.swift; sourceTree = "<group>"; };
 		0F6A04FF2658A1DE0050439D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -368,6 +373,16 @@
 				0F49A3C32673983E00B62CC4 /* Info.plist */,
 			);
 			path = CoffAppMacUITests;
+			sourceTree = "<group>";
+		};
+		0F49A3D5267518F900B62CC4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0FA09F262661FE5900E04777 /* ContentView.swift */,
+				0FA09F2A2661FE5900E04777 /* NotificationView.swift */,
+				0FA09F6726629B9100E04777 /* EventListWatchView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		0F6A04F62658A1DE0050439D = {
@@ -534,16 +549,15 @@
 			isa = PBXGroup;
 			children = (
 				0FA09F242661FE5800E04777 /* CoffAppApp.swift */,
-				0FA09F262661FE5900E04777 /* ContentView.swift */,
+				0F49A3D5267518F900B62CC4 /* Views */,
 				0FA09F282661FE5900E04777 /* NotificationController.swift */,
-				0FA09F2A2661FE5900E04777 /* NotificationView.swift */,
 				0FA09F2C2661FE5900E04777 /* ComplicationController.swift */,
 				0FA09F2E2661FE5900E04777 /* Assets.xcassets */,
 				0FA09F332661FE5900E04777 /* Info.plist */,
 				0FA09F342661FE5900E04777 /* PushNotificationPayload.apns */,
 				0FA09F302661FE5900E04777 /* Preview Content */,
-				0FA09F6726629B9100E04777 /* EventListWatchView.swift */,
 				0F745450266C031700DEB3F1 /* Image+Data.swift */,
+				0F49A3D02675189900B62CC4 /* ImageCache.swift */,
 			);
 			path = "CoffUp (watchOS) WatchKit Extension";
 			sourceTree = "<group>";
@@ -612,6 +626,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F6A05342658A1E10050439D /* Build configuration list for PBXNativeTarget "CoffApp (iOS)" */;
 			buildPhases = (
+				0F49A3CE2675169A00B62CC4 /* SwiftLint */,
 				0F6A05022658A1E10050439D /* Sources */,
 				0F6A05032658A1E10050439D /* Frameworks */,
 				0F6A05042658A1E10050439D /* Resources */,
@@ -766,6 +781,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0FA09F582661FE5900E04777 /* Build configuration list for PBXNativeTarget "CoffUp (watchOS) WatchKit App" */;
 			buildPhases = (
+				0F49A3CF267516B500B62CC4 /* SwiftLint */,
 				0FA09F112661FE5700E04777 /* Resources */,
 				0FA09F502661FE5900E04777 /* Embed App Extensions */,
 			);
@@ -1030,6 +1046,42 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0F49A3CE2675169A00B62CC4 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint autocorrect && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		0F49A3CF267516B500B62CC4 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint autocorrect && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		0F6A05E82658B0530050439D /* SwiftLint Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1072,6 +1124,7 @@
 				0FA09F6A2665587600E04777 /* EventSummaryView.swift in Sources */,
 				0F6A05282658A1E10050439D /* CoffApp.xcdatamodeld in Sources */,
 				0F6A052E2658A1E10050439D /* Persistence.swift in Sources */,
+				0F49A3D12675189900B62CC4 /* ImageCache.swift in Sources */,
 				0F6A05EA2658B2010050439D /* NetworkState.swift in Sources */,
 				0FA09F732667373500E04777 /* FocusState.swift in Sources */,
 				0F6A05DB2658AA050050439D /* Location.swift in Sources */,
@@ -1100,6 +1153,7 @@
 				0F6A05EB2658B2010050439D /* NetworkState.swift in Sources */,
 				0FA09F742667373500E04777 /* FocusState.swift in Sources */,
 				0F6A05DC2658AA050050439D /* Location.swift in Sources */,
+				0F49A3D22675189900B62CC4 /* ImageCache.swift in Sources */,
 				0F6A05CF2658A9020050439D /* Group.swift in Sources */,
 				0FD69B712658DABD007EC696 /* EventDetailView.swift in Sources */,
 				0F6A052B2658A1E10050439D /* CoffAppApp.swift in Sources */,
@@ -1137,6 +1191,7 @@
 				0FA09F6C2665587600E04777 /* EventSummaryView.swift in Sources */,
 				0F6A05D92658A9EC0050439D /* Venue.swift in Sources */,
 				0F6A05D52658A9460050439D /* Event.swift in Sources */,
+				0F49A3D32675189900B62CC4 /* ImageCache.swift in Sources */,
 				0F6A05C22658A2A60050439D /* CoffAppApp.swift in Sources */,
 				0FA09F752667373500E04777 /* FocusState.swift in Sources */,
 				0F6A05C32658A2A60050439D /* ContentView.swift in Sources */,
@@ -1180,6 +1235,7 @@
 				0FA09F272661FE5900E04777 /* ContentView.swift in Sources */,
 				0FA09F71266736D900E04777 /* TVFocusable.swift in Sources */,
 				0FA09F2D2661FE5900E04777 /* ComplicationController.swift in Sources */,
+				0F49A3D42675189900B62CC4 /* ImageCache.swift in Sources */,
 				0FA09F612661FEEF00E04777 /* NetworkState.swift in Sources */,
 				0FA09F252661FE5800E04777 /* CoffAppApp.swift in Sources */,
 				0FA09F5D2661FEE700E04777 /* Event.swift in Sources */,

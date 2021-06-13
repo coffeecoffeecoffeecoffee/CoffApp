@@ -10,6 +10,7 @@ struct CoffAppApp: App {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(networkService)
+                .accessibility(identifier: "Identifier"/*@END_MENU_TOKEN@*/)
         }
     }
 }

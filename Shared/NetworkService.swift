@@ -11,7 +11,7 @@ final class NetworkService: ObservableObject {
     @Published var pastEvents = [Event]()
     @Published var netState = NetworkState.loading
     private var logger = Logger(label: Bundle.main.bundleIdentifier!
-                                    .appending("NetworkService.log"))
+                                    .appending(".networkservice.log"))
     private var subscribers = Set<AnyCancellable>()
     private var session = URLSession.shared
     private var decoder = JSONDecoder()
@@ -34,6 +34,8 @@ final class NetworkService: ObservableObject {
 
     func cancelAll() {
         subscribers.removeAll()
+        firstEvent = Event.loading
+        events = []
         self.netState = .ready
     }
 

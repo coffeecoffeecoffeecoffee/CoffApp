@@ -11,26 +11,23 @@ struct EventDetailView: View {
     }
 
     var event: Event
+
     var body: some View {
         TVFocusable(focusState) {
         ZStack(alignment: .bottomLeading) {
             image.view?
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .frame(minWidth: 240,
-                       idealWidth: 512,
-                       maxWidth: .infinity,
-                       minHeight: focusState.inFocus ? 640 : 200,
-                       idealHeight: 640,
-                       maxHeight: .infinity,
-                       alignment: .center)
-                .clipped()
+                .frame(
+                    minHeight: focusState.inFocus ? 350 : 200,
+                    maxHeight: 350,
+                    alignment: .center)
             LinearGradient(gradient:
                             Gradient(colors: [
                                 .clear,
-                                .init(.displayP3, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.7)
+                                .init(.displayP3, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.8)
                             ]),
-                           startPoint: UnitPoint(x: 0.5, y: 0.55),
+                           startPoint: UnitPoint(x: 0.5, y: 0.45),
                            endPoint: UnitPoint(x: 0.5, y: 0.75))
             HStack(alignment: .bottom) {
                 VStack(alignment: .leading) {
@@ -46,8 +43,7 @@ struct EventDetailView: View {
                         .font(.body)
                         .bold()
                         .foregroundColor(.init(white: 0.8))
-                    if focusState.inFocus
-                        && event.venue?.location != nil
+                    if event.venue?.location != nil
                         && RuntimeOS.current != .tvOS {
                         Button(action: {
                             event.venue?.getDirections()
@@ -64,31 +60,8 @@ struct EventDetailView: View {
                 }
                 .padding(.horizontal, 20)
                 .padding(.bottom, 20)
-                if RuntimeOS.current != .tvOS {
-                    Spacer()
-                    Text(focusState.inFocus ? Image(systemName: "rectangle.compress.vertical") : Image(systemName: "rectangle.expand.vertical"))
-                        .font(.headline)
-                        .bold()
-                        .foregroundColor(.white)
-                        .padding(5)
-                        .background(Circle().foregroundColor(.blue))
-                        .padding(.trailing, 20)
-                        .padding(.bottom, 20)
-                }
-            }
-            .onLongPressGesture(minimumDuration: 0.02) {
-                withAnimation {
-                    focusState.toggleFocus()
-                }
             }
         }
-        .frame(minWidth: 240,
-               idealWidth: 512,
-               maxWidth: .infinity,
-               minHeight: focusState.inFocus ? 640 : 200,
-               idealHeight: focusState.inFocus ? 640 : 360,
-               maxHeight: .infinity,
-               alignment: .center)
         .background(
             LinearGradient(gradient:
                 Gradient(colors: [
@@ -101,7 +74,7 @@ struct EventDetailView: View {
         )
         .cornerRadius(10)
         .shadow(radius: focusState.inFocus ? 10 : 0)
-        .padding(10)
+        .padding(.vertical, 10)
         }
         .onAppear {
             if let url = event.imageURL {

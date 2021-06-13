@@ -13,22 +13,17 @@ struct EventListView: View {
                     Spacer()
                 } else {
                     ScrollView {
-                        LazyVStack(alignment: .leading, spacing: 30) {
+                        LazyVStack(alignment: .leading, spacing: 15) {
                             if net.upcomingEvents.count > 0 {
-                                HStack {
+                                VStack {
                                     ForEach(net.upcomingEvents, id: \.self) { upcomingEvent in
                                         EventDetailView(upcomingEvent)
-                                            .padding(.vertical, 10)
-                                            .frame(minWidth: .none,
-                                                   maxWidth: .infinity,
-                                                   minHeight: .none,
-                                                   maxHeight: .infinity,
-                                                   alignment: .center)
                                     }
                                 }
                             } else {
                                 HStack {
                                     Text("No upcoming events")
+                                        .font(.title2)
                                         .foregroundColor(.secondary)
                                 }
                             }
@@ -41,7 +36,7 @@ struct EventListView: View {
                                 }
                             }
                         }
-                        .padding(.horizontal, 10)
+                        .padding(.horizontal, 15)
                     }
                     .navigationTitle(group.name)
             }
@@ -52,6 +47,7 @@ struct EventListView: View {
     }
 }
 
+#if DEBUG
 struct EventListView_Previews: PreviewProvider {
     static var previews: some View {
         EventListView(group: Group(id: UUID(uuidString: "28ef50f9-b909-4f03-9a69-a8218a8cbd99")!,
@@ -59,3 +55,4 @@ struct EventListView_Previews: PreviewProvider {
             .environmentObject(NetworkService())
     }
 }
+#endif
