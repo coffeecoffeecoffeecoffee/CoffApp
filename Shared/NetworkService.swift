@@ -47,13 +47,29 @@ final class NetworkService: ObservableObject {
 
 // MARK: - Groups
 extension NetworkService {
-    func loadGroups() {
-        netState = .loading
-        logger.info("Loading all groups")
+    func fetchNetworkGroups() -> AnyPublisher<[Group], Error> {
         session.dataTaskPublisher(for: groupURL)
             .retry(2)
             .map { $0.data }
             .decode(type: [Group].self, decoder: decoder)
+            .eraseToAnyPublisher()
+    }
+
+    func handle(_ completion: Subscribers.Completion<Error>) {
+        switch completion {
+        case .failure(let error):
+            self.logger.critical("Network Error \n\(error.localizedDescription)")
+            self.netState = .failed(error)
+        case .finished:
+            self.logger.debug("Group Fetch Complete")
+            self.netState = .ready
+        }
+    }
+
+    func loadGroups() {
+        netState = .loading
+        logger.info("Loading all groups")
+        fetchNetworkGroups()
             .receive(on: RunLoop.main)
             .sink { [weak self] completion in
                 guard let self = self else {
@@ -61,14 +77,7 @@ extension NetworkService {
                     self?.netState = .failed(NetworkError.unknownError)
                     return
                 }
-                switch completion {
-                case .failure(let error):
-                    self.logger.critical("Network Error \n\(error.localizedDescription)")
-                    self.netState = .failed(error)
-                case .finished:
-                    self.logger.debug("Group Fetch Complete")
-                    self.netState = .ready
-                }
+                self.handle(completion)
             } receiveValue: { netGroups in
                 self.logger.debug("fetched groups \n\(netGroups.count)")
                 self.groups = netGroups

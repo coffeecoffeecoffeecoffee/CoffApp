@@ -1,22 +1,24 @@
 import SwiftUI
 import CoreData
 
+// Shared: macOS, iOS, tvOS
 struct ContentView: View {
     @EnvironmentObject private var networkService: NetworkService
     @Environment(\.managedObjectContext) private var viewContext
+    @StateObject private var groups = Groups()
 
     var body: some View {
         NavigationView {
-            List(networkService.groups, id: \.id) { group in
-                NavigationLink(group.name,
-                               destination: EventListView(group: group))
+            List {
+                ForEach(groups.groups) { group in
+                    NavigationLink(group.name,
+                                   destination: EventListView(group: group),
+                                   isActive: groups.selectionBinding(for: group.name))
+                        .tag(group.name)
+                }
             }
-            .navigationTitle("Groups")
-            #if os(tvOS)
-            #else
-//            .listStyle(SidebarListStyle())
-            #endif
-            if networkService.netState == .loading {
+            .navigationTitle("The Coffee")
+            if groups.state == .loading {
                 ProgressView(networkService.netState.description)
                     .frame(minWidth: 320, minHeight: 180)
             } else if networkService.netState != .ready {
@@ -46,9 +48,6 @@ struct ContentView: View {
 
     private func addItem() {
         withAnimation {
-//            let newItem = Item(context: viewContext)
-//            newItem.timestamp = Date()
-
             do {
                 try viewContext.save()
             } catch {

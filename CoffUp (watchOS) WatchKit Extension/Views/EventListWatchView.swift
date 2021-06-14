@@ -43,6 +43,7 @@ struct EventListWatchView: View {
         }
         .onAppear {
             networkService.loadEvents(for: group)
+            group.setSelectd()
         }
         .onDisappear {
             networkService.cancelAll()
