@@ -13,7 +13,7 @@ struct EventListView: View {
                     Spacer()
                 } else {
                     ScrollView {
-                        LazyVStack(alignment: .leading, spacing: 15) {
+                        LazyVStack(alignment: .leading, spacing: 30) {
                             if net.upcomingEvents.count > 0 {
                                 VStack {
                                     ForEach(net.upcomingEvents, id: \.self) { upcomingEvent in
@@ -42,6 +42,7 @@ struct EventListView: View {
             }
         }
         .onAppear {
+            group.setSelectd()
             net.loadEvents(for: group)
         }
     }

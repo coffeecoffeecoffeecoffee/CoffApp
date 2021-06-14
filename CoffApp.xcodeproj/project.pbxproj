@@ -12,6 +12,14 @@
 		0F49A3D22675189900B62CC4 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D02675189900B62CC4 /* ImageCache.swift */; };
 		0F49A3D32675189900B62CC4 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D02675189900B62CC4 /* ImageCache.swift */; };
 		0F49A3D42675189900B62CC4 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D02675189900B62CC4 /* ImageCache.swift */; };
+		0F49A3D72677022500B62CC4 /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D62677022500B62CC4 /* UserDefaultKeys.swift */; };
+		0F49A3D82677022500B62CC4 /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D62677022500B62CC4 /* UserDefaultKeys.swift */; };
+		0F49A3D92677022500B62CC4 /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D62677022500B62CC4 /* UserDefaultKeys.swift */; };
+		0F49A3DA2677022500B62CC4 /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D62677022500B62CC4 /* UserDefaultKeys.swift */; };
+		0F49A3DC26770F0400B62CC4 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3DB26770F0400B62CC4 /* Groups.swift */; };
+		0F49A3DD26770F0400B62CC4 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3DB26770F0400B62CC4 /* Groups.swift */; };
+		0F49A3DE26770F0400B62CC4 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3DB26770F0400B62CC4 /* Groups.swift */; };
+		0F49A3DF26770F0400B62CC4 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3DB26770F0400B62CC4 /* Groups.swift */; };
 		0F6A051B2658A1E10050439D /* TestsiOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A051A2658A1E10050439D /* TestsiOS.swift */; };
 		0F6A05262658A1E10050439D /* TestsMacOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05252658A1E10050439D /* TestsMacOS.swift */; };
 		0F6A05282658A1E10050439D /* CoffApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FC2658A1DE0050439D /* CoffApp.xcdatamodeld */; };
@@ -210,6 +218,8 @@
 		0F49A3C12673983E00B62CC4 /* CoffAppMacUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffAppMacUITests.swift; sourceTree = "<group>"; };
 		0F49A3C32673983E00B62CC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F49A3D02675189900B62CC4 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		0F49A3D62677022500B62CC4 /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
+		0F49A3DB26770F0400B62CC4 /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
 		0F6A04FD2658A1DE0050439D /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		0F6A04FE2658A1DE0050439D /* CoffAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffAppApp.swift; sourceTree = "<group>"; };
 		0F6A04FF2658A1DE0050439D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -419,6 +429,7 @@
 				0F6A05D12658A9330050439D /* Models */,
 				0FA09F722667373500E04777 /* FocusState.swift */,
 				0F745441266891BE00DEB3F1 /* RuntimeOS.swift */,
+				0F49A3D62677022500B62CC4 /* UserDefaultKeys.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -525,6 +536,7 @@
 				0F6A05D22658A9460050439D /* Event.swift */,
 				0F6A05D62658A9EC0050439D /* Venue.swift */,
 				0F6A05DA2658AA050050439D /* Location.swift */,
+				0F49A3DB26770F0400B62CC4 /* Groups.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1115,6 +1127,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F49A3D72677022500B62CC4 /* UserDefaultKeys.swift in Sources */,
 				0F745442266891BE00DEB3F1 /* RuntimeOS.swift in Sources */,
 				0FA09F6E2667251400E04777 /* TVFocusable.swift in Sources */,
 				0F74544C2669642200DEB3F1 /* RoundFilledButtonStyle.swift in Sources */,
@@ -1134,6 +1147,7 @@
 				0F745451266C031700DEB3F1 /* Image+Data.swift in Sources */,
 				0F6A05D32658A9460050439D /* Event.swift in Sources */,
 				0F6A052C2658A1E10050439D /* ContentView.swift in Sources */,
+				0F49A3DC26770F0400B62CC4 /* Groups.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1144,12 +1158,14 @@
 				0F745443266891BE00DEB3F1 /* RuntimeOS.swift in Sources */,
 				0FA09F6F2667251400E04777 /* TVFocusable.swift in Sources */,
 				0F74544D2669642200DEB3F1 /* RoundFilledButtonStyle.swift in Sources */,
+				0F49A3DD26770F0400B62CC4 /* Groups.swift in Sources */,
 				0FD69B6D2658D35B007EC696 /* EventListView.swift in Sources */,
 				0F6A05C92658A4350050439D /* NetworkService.swift in Sources */,
 				0F6A05D82658A9EC0050439D /* Venue.swift in Sources */,
 				0FA09F6B2665587600E04777 /* EventSummaryView.swift in Sources */,
 				0F6A05292658A1E10050439D /* CoffApp.xcdatamodeld in Sources */,
 				0F6A052F2658A1E10050439D /* Persistence.swift in Sources */,
+				0F49A3D82677022500B62CC4 /* UserDefaultKeys.swift in Sources */,
 				0F6A05EB2658B2010050439D /* NetworkState.swift in Sources */,
 				0FA09F742667373500E04777 /* FocusState.swift in Sources */,
 				0F6A05DC2658AA050050439D /* Location.swift in Sources */,
@@ -1182,6 +1198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F49A3D92677022500B62CC4 /* UserDefaultKeys.swift in Sources */,
 				0F745444266891BE00DEB3F1 /* RuntimeOS.swift in Sources */,
 				0FA09F702667251400E04777 /* TVFocusable.swift in Sources */,
 				0F74544E2669642200DEB3F1 /* RoundFilledButtonStyle.swift in Sources */,
@@ -1201,6 +1218,7 @@
 				0F745453266C031700DEB3F1 /* Image+Data.swift in Sources */,
 				0F6A05CA2658A4350050439D /* NetworkService.swift in Sources */,
 				0FD69B6E2658D35B007EC696 /* EventListView.swift in Sources */,
+				0F49A3DE26770F0400B62CC4 /* Groups.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1226,12 +1244,14 @@
 				0FA09F602661FEEF00E04777 /* NetworkService.swift in Sources */,
 				0FA09F5F2661FEE700E04777 /* Group.swift in Sources */,
 				0F74544F2669642200DEB3F1 /* RoundFilledButtonStyle.swift in Sources */,
+				0F49A3DF26770F0400B62CC4 /* Groups.swift in Sources */,
 				0F745445266891BE00DEB3F1 /* RuntimeOS.swift in Sources */,
 				0FA09F292661FE5900E04777 /* NotificationController.swift in Sources */,
 				0F745454266C031700DEB3F1 /* Image+Data.swift in Sources */,
 				0FA09F5C2661FEE700E04777 /* Venue.swift in Sources */,
 				0FA09F762667374C00E04777 /* FocusState.swift in Sources */,
 				0FA09F5E2661FEE700E04777 /* Location.swift in Sources */,
+				0F49A3DA2677022500B62CC4 /* UserDefaultKeys.swift in Sources */,
 				0FA09F272661FE5900E04777 /* ContentView.swift in Sources */,
 				0FA09F71266736D900E04777 /* TVFocusable.swift in Sources */,
 				0FA09F2D2661FE5900E04777 /* ComplicationController.swift in Sources */,
