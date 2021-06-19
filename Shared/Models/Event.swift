@@ -19,6 +19,7 @@ struct Event: Codable {
     }
 }
 
+// MARK: - Event States
 extension Event {
     static var loading: Event {
         Event(id: nil,

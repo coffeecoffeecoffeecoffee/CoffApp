@@ -3,6 +3,7 @@ import Foundation
 import Logging
 
 final class NetworkService: ObservableObject {
+    @Published var selectedGroup: Group?
     @Published var groups = [Group]()
     @Published var events = [Event]()
     let eventsSubject = PassthroughSubject<[Event], Error>()
@@ -42,6 +43,7 @@ final class NetworkService: ObservableObject {
     init() {
         decoder.dateDecodingStrategy = .iso8601
         loadGroups()
+        observeSelectedGroup()
     }
 }
 
@@ -64,6 +66,18 @@ extension NetworkService {
             self.logger.debug("Group Fetch Complete")
             self.netState = .ready
         }
+    }
+
+    func observeSelectedGroup() {
+        UserDefaults.standard.publisher(for: \.selectedGroup)
+            .debounce(for: 0.2, scheduler: RunLoop.current)
+            .sink { [weak self] defaultsValue in
+                guard let self = self else { return }
+                self.selectedGroup = self.groups.first(where: { group in
+                    group.name == defaultsValue
+                })
+            }
+            .store(in: &subscribers)
     }
 
     func loadGroups() {
@@ -172,6 +186,11 @@ extension NetworkService {
                 self.upcomingEvents = upcomingEvts
             }
             .store(in: &subscribers)
+    }
+
+    func selectedGroupUpcomingEvents() {
+        guard let selectedGroup = selectedGroup else { return }
+        loadUpcomingEvents(for: selectedGroup)
     }
 }
 
