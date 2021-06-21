@@ -1,6 +1,7 @@
 import WidgetKit
 import SwiftUI
 import Intents
+import FetchImage
 
 struct Provider: IntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
@@ -36,31 +37,39 @@ struct EventProvider: IntentTimelineProvider {
     typealias Entry = EventEntry
     typealias Intent = ConfigurationIntent
 
+    private var net = NetworkService()
+
+    init() {
+        net.selectedGroupUpcomingEvents()
+    }
+
+    var mostRecentEvent: Event {
+        net.firstEvent
+    }
+
     func placeholder(in context: Context) -> EventEntry {
-        EventEntry(date: Date(), event: Event.empty, configuration: ConfigurationIntent())
+        EventEntry(date: Date(),
+                   event: Event.empty,
+                   configuration: ConfigurationIntent())
     }
 
     func getSnapshot(for configuration: ConfigurationIntent,
                      in context: Context,
                      completion: @escaping (EventEntry) -> Void) {
-        let entry = EventEntry(date: Date(), event: Event.loading, configuration: configuration)
+        let entry = EventEntry(date: Date(),
+                               event: mostRecentEvent,
+                               configuration: configuration)
         completion(entry)
     }
 
     func getTimeline(for configuration: ConfigurationIntent,
                      in context: Context,
                      completion: @escaping (Timeline<EventEntry>) -> Void) {
-        var entries: [EventEntry] = []
-        let someEvent = Event(id: UUID(),
-                              groupID: UUID(),
-                              name: "Timeline Event",
-                              imageURL: nil,
-                              startAt: Date().advanced(by: 60_000),
-                              endAt: Date().advanced(by: 66_000),
-                              venue: Venue(name: "Some Venue", location: nil))
-        entries.append(EventEntry(date: Date().advanced(by: 60_000),
-                               event: someEvent,
-                               configuration: configuration))
+        let entries: [EventEntry] = [
+            EventEntry(date: Date(),
+                       event: mostRecentEvent,
+                       configuration: configuration)
+        ]
         let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
     }
@@ -80,18 +89,68 @@ struct EventEntry: TimelineEntry {
 struct TheCoffeeWidgetEntryView: View {
     var entry: EventProvider.Entry
 
-    var body: some View {
-        VStack(alignment: .leading) {
-            Spacer()
-            Text(entry.event.name)
-                .font(.caption)
-            Text(entry.event.venueName)
-                .font(.body)
-            Text(entry.event.localizedStartTime(.short))
-                .font(.caption)
-            Text(entry.date.advanced(by: 7_000), style: .timer)
+    func isFuture(_ date: Date?) -> Bool {
+        guard let date = date else { return false }
+        return date > Date() ? true : false
+    }
+
+    func labelText(_ event: Event) -> String {
+        guard let startDate = event.startAt else { return "" }
+        if startDate > Date() {
+            return "Next"
         }
-        .padding()
+        return "Previously"
+    }
+
+    var body: some View {
+        ZStack {
+            Image("")
+                .data(entry.event.imageURL)
+                .centerCropped()
+            LinearGradient(gradient:
+                            Gradient(colors: [
+                                        .clear,
+                                        .init(hue: 0.8,
+                                              saturation: 1.0,
+                                              brightness: 0.26)
+                            ]),
+                           startPoint: UnitPoint(x: 0.5, y: 0),
+                           endPoint: UnitPoint(x: 0.5, y: 1)
+            )
+            HStack {
+                VStack(alignment: .leading) {
+                    Spacer()
+                    Text(labelText(entry.event).uppercased())
+                        .font(.caption)
+                    Text(entry.event.venueName)
+                        .font(.body)
+                    Text(entry.event.localizedStartTime(.short))
+                        .font(.caption)
+                    if let startDate = entry.event.startAt,
+                        isFuture(startDate) {
+                        Text(startDate, style: .timer)
+                            .bold()
+                    }
+                }
+                .foregroundColor(.white)
+
+                Spacer()
+            }
+            .padding(10)
+        }
+        .background(Color(hue: 0.1, saturation: 1.0, brightness: 1.0, opacity: 1.0))
+    }
+}
+
+extension Image {
+    func centerCropped() -> some View {
+        GeometryReader { geo in
+            self
+            .resizable()
+            .scaledToFill()
+            .frame(width: geo.size.width, height: geo.size.height)
+            .clipped()
+        }
     }
 }
 
@@ -108,7 +167,9 @@ struct TheCoffeeWidget: Widget {
     let kind: String = "The Coffee"
 
     var body: some WidgetConfiguration {
-        IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: EventProvider()) { entry in
+        IntentConfiguration(kind: kind,
+                            intent: ConfigurationIntent.self,
+                            provider: EventProvider()) { entry in
             TheCoffeeWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("The Coffee")
@@ -118,9 +179,12 @@ struct TheCoffeeWidget: Widget {
 
 #if DEBUG
 struct TheCoffeeWidget_Previews: PreviewProvider {
+    static var net = NetworkService()
     static var previews: some View {
         TheCoffeeWidgetEntryView(entry:
-                                    EventEntry(date: Date(), event: Event.error, configuration: ConfigurationIntent()))
+                                    EventEntry(date: Date(),
+                                               event: testEvent(true),
+                                               configuration: ConfigurationIntent()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
