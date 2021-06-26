@@ -58,6 +58,8 @@ extension Groups {
         } set: { newValue in
             if newValue {
                 self.selectedGroupName = name
+            } else {
+                self.selectedGroupName = nil
             }
         }
     }
