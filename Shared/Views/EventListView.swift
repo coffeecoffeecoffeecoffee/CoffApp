@@ -2,6 +2,7 @@ import SwiftUI
 
 struct EventListView: View {
     @EnvironmentObject var net: NetworkService
+    @EnvironmentObject var groups: Groups
     var group: Group
 
     var body: some View {

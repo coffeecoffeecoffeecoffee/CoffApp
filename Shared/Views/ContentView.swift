@@ -12,7 +12,8 @@ struct ContentView: View {
             List {
                 ForEach(groups.groups) { group in
                     NavigationLink(group.name,
-                                   destination: EventListView(group: group),
+                                   destination: EventListView(group: group)
+                                    .environmentObject(groups),
                                    isActive: groups.selectionBinding(for: group.name))
                         .tag(group.name)
                 }
