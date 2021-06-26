@@ -102,6 +102,10 @@ struct TheCoffeeWidgetEntryView: View {
         return "Previously"
     }
 
+    var shadyPurple = Color(hue: 0.8,
+                            saturation: 1.0,
+                            brightness: 0.26)
+
     var body: some View {
         ZStack {
             Image("")
@@ -110,18 +114,19 @@ struct TheCoffeeWidgetEntryView: View {
             LinearGradient(gradient:
                             Gradient(colors: [
                                         .clear,
-                                        .init(hue: 0.8,
-                                              saturation: 1.0,
-                                              brightness: 0.26)
+                                        shadyPurple
                             ]),
-                           startPoint: UnitPoint(x: 0.5, y: 0),
-                           endPoint: UnitPoint(x: 0.5, y: 1)
+                           startPoint: UnitPoint(x: 0.3, y: 0.0),
+                           endPoint: UnitPoint(x: 0.0, y: 1.0)
             )
             HStack {
                 VStack(alignment: .leading) {
                     Spacer()
                     Text(labelText(entry.event).uppercased())
-                        .font(.caption)
+                        .foregroundColor(.init(hue: 0.6,
+                                               saturation: 0.7,
+                                               brightness: 3.0))
+                        .font(.caption2)
                     Text(entry.event.venueName)
                         .font(.body)
                     Text(entry.event.localizedStartTime(.short))
@@ -129,10 +134,13 @@ struct TheCoffeeWidgetEntryView: View {
                     if let startDate = entry.event.startAt,
                         isFuture(startDate) {
                         Text(startDate, style: .timer)
+                            .foregroundColor(.yellow)
                             .bold()
                     }
                 }
                 .foregroundColor(.white)
+                .shadow(color: .black.opacity(0.4), radius: 0, x: 1, y: 1)
+                .shadow(color: shadyPurple, radius: 3, x: 0, y: 0)
 
                 Spacer()
             }
@@ -158,7 +166,7 @@ struct PlaceholderView: View {
     var entry: EventProvider.Entry
 
     var body: some View {
-        Text("Nope")
+        TheCoffeeWidgetEntryView(entry: entry)
     }
 }
 
@@ -182,10 +190,22 @@ struct TheCoffeeWidget_Previews: PreviewProvider {
     static var net = NetworkService()
     static var previews: some View {
         TheCoffeeWidgetEntryView(entry:
-                                    EventEntry(date: Date(),
-                                               event: testEvent(true),
-                                               configuration: ConfigurationIntent()))
+                                EventEntry(date: Date(),
+                                           event: testEvent(true),
+                                           configuration: ConfigurationIntent()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
+
+        TheCoffeeWidgetEntryView(entry:
+                                EventEntry(date: Date(),
+                                           event: testEvent(true),
+                                           configuration: ConfigurationIntent()))
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
+
+        TheCoffeeWidgetEntryView(entry:
+                                EventEntry(date: Date(),
+                                           event: testEvent(true),
+                                           configuration: ConfigurationIntent()))
+            .previewContext(WidgetPreviewContext(family: .systemLarge))
     }
 }
 #endif
