@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct EventListView: View {
-    @ObservedObject var net = NetworkService()
+    @StateObject var net = NetworkService()
     var group: Group
 
     var body: some View {
