@@ -3,6 +3,7 @@ import Foundation
 import Logging
 
 final class NetworkService: ObservableObject {
+    @Published var selectedGroup: Group?
     @Published var groups = [Group]()
     @Published var events = [Event]()
     let eventsSubject = PassthroughSubject<[Event], Error>()
@@ -41,7 +42,7 @@ final class NetworkService: ObservableObject {
 
     init() {
         decoder.dateDecodingStrategy = .iso8601
-        loadGroups()
+        observeSelectedGroup()
     }
 }
 
@@ -64,6 +65,18 @@ extension NetworkService {
             self.logger.debug("Group Fetch Complete")
             self.netState = .ready
         }
+    }
+
+    func observeSelectedGroup() {
+        UserDefaults.standard.publisher(for: \.selectedGroup)
+            .debounce(for: 0.2, scheduler: RunLoop.current)
+            .sink { [weak self] defaultsValue in
+                guard let self = self else { return }
+                self.selectedGroup = self.groups.first(where: { group in
+                    group.name == defaultsValue
+                })
+            }
+            .store(in: &subscribers)
     }
 
     func loadGroups() {
@@ -173,21 +186,27 @@ extension NetworkService {
             }
             .store(in: &subscribers)
     }
+
+    func selectedGroupUpcomingEvents() {
+        guard let selectedGroup = selectedGroup else { return }
+        loadUpcomingEvents(for: selectedGroup)
+    }
 }
 
 #if DEBUG
-func testEvent() -> Event {
+func testEvent(_ isFuture: Bool = false) -> Event {
     let location = Location(latitude: Double(37.789004663475026),
                                    longitude: Double(-122.3970252426277))
     let imageURLString = "https://fastly.4sqi.net/img/general/1440x1920/"
         + "1813137_VPYk5iqnExTrW9lEMbbSy2WDS6P-lbOkpqsy5KE2sSI.jpg"
     let imgURL = URL(string: imageURLString)!
+    let date = isFuture ? Date().advanced(by: 40_000) : Date().advanced(by: -20_000)
     let event = Event(id: UUID(),
                       groupID: UUID(),
                       name: "Test Event Here",
                       imageURL: imgURL,
-                      startAt: Date(),
-                      endAt: Date(),
+                      startAt: date,
+                      endAt: date.advanced(by: 720),
                       venue: Venue(name: "Salesforce Park", location: location))
     return event
 }

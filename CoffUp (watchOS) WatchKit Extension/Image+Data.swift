@@ -1,8 +1,7 @@
 import SwiftUI
 
 extension Image {
-    #if os(macOS)
-    #else
+    #if !os(macOS)
     func data(_ url: URL?) -> Self {
         guard let url = url else {
             return self
