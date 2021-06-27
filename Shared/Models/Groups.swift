@@ -4,7 +4,7 @@ import Foundation
 
 final class Groups: ObservableObject {
     @Published var groups: [Group] = []
-    @Published var selectedGroupName: String?
+    @AppStorage("selectedGroupName") var selectedGroupName = ""
     @Published var state: NetworkState = .loading
 
     var net = NetworkService()
@@ -12,7 +12,6 @@ final class Groups: ObservableObject {
     var tokens = Set<AnyCancellable>()
 
     init() {
-        load()
         net.$groups
             .merge(with: self.$groups)
             .removeDuplicates()
@@ -21,8 +20,6 @@ final class Groups: ObservableObject {
                 guard let self = self else { return }
                 self.state = .ready
                 self.groups = groups
-                self.selectedGroupName = UserDefaults.standard.string(forKey: UserDefaultKeys.selectedGroup.rawValue)
-                self.save()
             }
             .store(in: &tokens)
         net.loadGroups()
@@ -32,22 +29,6 @@ final class Groups: ObservableObject {
 extension Groups {
     public func select(_ group: Group) {
         selectedGroupName = group.name
-        save()
-    }
-
-    public func save() {
-        if let data = try? PropertyListEncoder().encode(groups) {
-            defaults.setValue(data, forKey: UserDefaultKeys.allGroups.rawValue)
-        }
-        defaults.setValue(selectedGroupName, forKey: UserDefaultKeys.selectedGroup.rawValue)
-    }
-
-    public func load() {
-        if let saved = UserDefaults.standard.value(forKey: UserDefaultKeys.allGroups.rawValue) as? [Group] {
-            self.groups = saved
-        }
-
-        selectedGroupName = UserDefaults.standard.string(forKey: UserDefaultKeys.selectedGroup.rawValue)
     }
 }
 
@@ -59,7 +40,12 @@ extension Groups {
             if newValue {
                 self.selectedGroupName = name
             } else {
-                self.selectedGroupName = nil
+                #if os(iOS)
+                // not necessary for anything other than iOS
+                // and macOS in particular has a bug for
+                // navigation view selection
+                self.selectedGroupName = ""
+                #endif
             }
         }
     }

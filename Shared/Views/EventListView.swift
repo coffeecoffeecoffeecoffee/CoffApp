@@ -1,8 +1,7 @@
 import SwiftUI
 
 struct EventListView: View {
-    @EnvironmentObject var net: NetworkService
-    @EnvironmentObject var groups: Groups
+    @ObservedObject var net = NetworkService()
     var group: Group
 
     var body: some View {
@@ -43,7 +42,7 @@ struct EventListView: View {
             }
         }
         .onAppear {
-            group.setSelectd()
+//            group.setSelectd()
             net.loadEvents(for: group)
         }
     }

@@ -42,7 +42,6 @@ final class NetworkService: ObservableObject {
 
     init() {
         decoder.dateDecodingStrategy = .iso8601
-        loadGroups()
         observeSelectedGroup()
     }
 }

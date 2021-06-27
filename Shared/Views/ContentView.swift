@@ -3,18 +3,18 @@ import CoreData
 
 // Shared: macOS, iOS, tvOS
 struct ContentView: View {
-    @EnvironmentObject private var networkService: NetworkService
+    @ObservedObject private var networkService = NetworkService()
     @Environment(\.managedObjectContext) private var viewContext
     @StateObject private var groups = Groups()
+    @SceneStorage("selectedGroupName") var selectedGroupName = ""
 
     var body: some View {
         NavigationView {
             List {
                 ForEach(groups.groups) { group in
                     NavigationLink(group.name,
-                                   destination: EventListView(group: group)
-                                    .environmentObject(groups),
-                                   isActive: groups.selectionBinding(for: group.name))
+                                   destination: EventListView(group: group),
+                                   isActive: selectionBinding(for: group.name))
                         .tag(group.name)
                 }
             }
@@ -38,6 +38,28 @@ struct ContentView: View {
             }
             #endif
         }
+        .onAppear {
+            networkService.loadGroups()
+        }
+    }
+}
+
+extension ContentView {
+    func selectionBinding(for name: String) -> Binding<Bool> {
+        Binding<Bool> { () -> Bool in
+            self.selectedGroupName == name
+        } set: { newValue in
+            if newValue {
+                self.selectedGroupName = name
+            } else {
+                #if os(iOS)
+                // not necessary for anything other than iOS
+                // and macOS in particular has a bug for
+                // navigation view selection
+                self.selectedGroupName = ""
+                #endif
+            }
+        }
     }
 
     #if os(OSX)
@@ -46,7 +68,9 @@ struct ContentView: View {
             .tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
     }
     #endif
+}
 
+extension ContentView {
     private func addItem() {
         withAnimation {
             do {
