@@ -4,9 +4,7 @@ import Foundation
 
 final class Groups: ObservableObject {
     @Published var groups: [Group] = []
-    @AppStorage("lastSavedGroup") var lastSavedGroup: String = ""
     @Published var selectedGroupName: String?
-
     @Published var state: NetworkState = .loading
 
     var net = NetworkService()
