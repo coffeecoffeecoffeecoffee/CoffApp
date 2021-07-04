@@ -14,7 +14,7 @@ struct ContentView: View {
                 ForEach(groups.groups) { group in
                     NavigationLink(group.name,
                                    destination: EventListView(group: group),
-                                   isActive: selectionBinding(for: group.name))
+                                   isActive: groups.selectionBinding(for: group.name))
                         .tag(group.name)
                 }
             }
@@ -45,23 +45,6 @@ struct ContentView: View {
 }
 
 extension ContentView {
-    func selectionBinding(for name: String) -> Binding<Bool> {
-        Binding<Bool> { () -> Bool in
-            self.selectedGroupName == name
-        } set: { newValue in
-            if newValue {
-                self.selectedGroupName = name
-            } else {
-                #if os(iOS)
-                // not necessary for anything other than iOS
-                // and macOS in particular has a bug for
-                // navigation view selection
-                self.selectedGroupName = ""
-                #endif
-            }
-        }
-    }
-
     #if os(OSX)
     public func toggleSidebar() {
         NSApp.keyWindow?.firstResponder?
@@ -111,8 +94,11 @@ private let itemFormatter: DateFormatter = {
     return formatter
 }()
 
+#if DEBUG
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView().environment(\.managedObjectContext,
+                                  PersistenceController.preview.container.viewContext)
     }
 }
+#endif

@@ -4,7 +4,7 @@ import Foundation
 
 final class Groups: ObservableObject {
     @Published var groups: [Group] = []
-    @AppStorage("selectedGroupName") var selectedGroupName = ""
+    @Published var selectedGroupName: String?
     @Published var state: NetworkState = .loading
 
     var net = NetworkService()
@@ -12,6 +12,9 @@ final class Groups: ObservableObject {
     var tokens = Set<AnyCancellable>()
 
     init() {
+        let selectedGroupName = UserDefaults.sharedSuite
+            .string(forKey: UserDefaultKeys.selectedGroup.rawValue)
+        self.selectedGroupName = selectedGroupName
         net.$groups
             .merge(with: self.$groups)
             .removeDuplicates()
@@ -20,25 +23,35 @@ final class Groups: ObservableObject {
                 guard let self = self else { return }
                 self.state = .ready
                 self.groups = groups
+                self.selectedGroupName = self.selectedGroupName
             }
             .store(in: &tokens)
         net.loadGroups()
     }
 }
 
+// MARK: - Selected Group Persistance
+// FIXME: Split this logic!
+// Last-selected group is useful for the first-pass Widget.
+// But, we’ll want to properly use the `UserActivity` based API for proper state restoration
 extension Groups {
-    public func select(_ group: Group) {
-        selectedGroupName = group.name
+    /// Sets and saves the current Group
+    /// - Parameter groupName: the name of the group to save
+    public func select(_ groupName: String) {
+        selectedGroupName = groupName
+        UserDefaults.sharedSuite.setValue(groupName,
+                                          forKey: UserDefaultKeys.selectedGroup.rawValue)
     }
-}
 
-extension Groups {
+    /// Binding owned by this Type that accepts user input for the currently selected group
+    /// - Parameter name: Name of a `Group`
+    /// - Returns: `Binding<Bool>` fit to idenitify the selected group
     func selectionBinding(for name: String) -> Binding<Bool> {
         Binding<Bool> { () -> Bool in
             self.selectedGroupName == name
         } set: { newValue in
             if newValue {
-                self.selectedGroupName = name
+                self.select(name)
             } else {
                 #if os(iOS)
                 // not necessary for anything other than iOS
