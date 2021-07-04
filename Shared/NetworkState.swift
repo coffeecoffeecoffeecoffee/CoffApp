@@ -1,4 +1,5 @@
 import Foundation
+
 enum NetworkState {
     case ready
     case loading

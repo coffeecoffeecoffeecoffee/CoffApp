@@ -10,6 +10,11 @@
 		0F0B231B267FA68600AE7877 /* Image+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F745450266C031700DEB3F1 /* Image+Data.swift */; };
 		0F0B231C267FA69000AE7877 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D02675189900B62CC4 /* ImageCache.swift */; };
 		0F0B231D268034D500AE7877 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6A05012658A1E10050439D /* Assets.xcassets */; };
+		0F1FD6FD2689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1FD6FC2689752A00E90D7D /* UserDefaults+AppSuite.swift */; };
+		0F1FD6FE2689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1FD6FC2689752A00E90D7D /* UserDefaults+AppSuite.swift */; };
+		0F1FD6FF2689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1FD6FC2689752A00E90D7D /* UserDefaults+AppSuite.swift */; };
+		0F1FD7002689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1FD6FC2689752A00E90D7D /* UserDefaults+AppSuite.swift */; };
+		0F1FD7012689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1FD6FC2689752A00E90D7D /* UserDefaults+AppSuite.swift */; };
 		0F2391062686CDAA007461F9 /* EventProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2391042686CD8A007461F9 /* EventProvider.swift */; };
 		0F2391092686CDC7007461F9 /* EventEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2391072686CDBD007461F9 /* EventEntry.swift */; };
 		0F23910C2686CE2D007461F9 /* Image+CenterCropped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F23910B2686CE2D007461F9 /* Image+CenterCropped.swift */; };
@@ -263,6 +268,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0F1FD6FC2689752A00E90D7D /* UserDefaults+AppSuite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+AppSuite.swift"; sourceTree = "<group>"; };
 		0F2391022686CC53007461F9 /* TheCoffeeWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheCoffeeWidgetExtension.entitlements; sourceTree = "<group>"; };
 		0F2391032686CCAF007461F9 /* CoffUp (watchOS) WatchKit App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "CoffUp (watchOS) WatchKit App.entitlements"; sourceTree = "<group>"; };
 		0F2391042686CD8A007461F9 /* EventProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventProvider.swift; sourceTree = "<group>"; };
@@ -540,6 +546,7 @@
 				0FA09F722667373500E04777 /* FocusState.swift */,
 				0F745441266891BE00DEB3F1 /* RuntimeOS.swift */,
 				0F49A3D62677022500B62CC4 /* UserDefaultKeys.swift */,
+				0F1FD6FC2689752A00E90D7D /* UserDefaults+AppSuite.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -1280,6 +1287,7 @@
 				0F49A4612679AC8D00B62CC4 /* NetworkState.swift in Sources */,
 				0F49A4592679AC8D00B62CC4 /* UserDefaultKeys.swift in Sources */,
 				0F49A4602679AC8D00B62CC4 /* Event.swift in Sources */,
+				0F1FD7012689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */,
 				0F2391062686CDAA007461F9 /* EventProvider.swift in Sources */,
 				0F49A44F2679AC5400B62CC4 /* TheCoffeeWidget.intentdefinition in Sources */,
 				0F49A45D2679AC8D00B62CC4 /* Location.swift in Sources */,
@@ -1322,6 +1330,7 @@
 				0FD69B702658DABD007EC696 /* EventDetailView.swift in Sources */,
 				0F6A052A2658A1E10050439D /* CoffAppApp.swift in Sources */,
 				0F745451266C031700DEB3F1 /* Image+Data.swift in Sources */,
+				0F1FD6FD2689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */,
 				0F6A05D32658A9460050439D /* Event.swift in Sources */,
 				0F6A052C2658A1E10050439D /* ContentView.swift in Sources */,
 				0F49A4502679AC5400B62CC4 /* TheCoffeeWidget.intentdefinition in Sources */,
@@ -1352,6 +1361,7 @@
 				0FD69B712658DABD007EC696 /* EventDetailView.swift in Sources */,
 				0F6A052B2658A1E10050439D /* CoffAppApp.swift in Sources */,
 				0F23910D2686CE2D007461F9 /* Image+CenterCropped.swift in Sources */,
+				0F1FD6FE2689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */,
 				0F6A05D42658A9460050439D /* Event.swift in Sources */,
 				0F6A052D2658A1E10050439D /* ContentView.swift in Sources */,
 			);
@@ -1399,6 +1409,7 @@
 				0F6A05CA2658A4350050439D /* NetworkService.swift in Sources */,
 				0FD69B6E2658D35B007EC696 /* EventListView.swift in Sources */,
 				0F49A3DE26770F0400B62CC4 /* Groups.swift in Sources */,
+				0F1FD6FF2689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1440,6 +1451,7 @@
 				0FA09F252661FE5800E04777 /* CoffAppApp.swift in Sources */,
 				0FA09F5D2661FEE700E04777 /* Event.swift in Sources */,
 				0F23910F2686CE2D007461F9 /* Image+CenterCropped.swift in Sources */,
+				0F1FD7002689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */,
 				0FA09F2B2661FE5900E04777 /* NotificationView.swift in Sources */,
 				0FA09F6826629B9100E04777 /* EventListWatchView.swift in Sources */,
 			);
