@@ -23,7 +23,7 @@ struct TheCoffeeWidgetEntryView: View {
 
     var body: some View {
         ZStack {
-            Image("")
+            Image("clock")
                 .data(entry.event.imageURL)
                 .centerCropped()
             LinearGradient(gradient:

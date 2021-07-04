@@ -136,7 +136,12 @@ extension NetworkService {
                 }
             } receiveValue: { netEvents in
                 self.logger.info("Events loaded: \(netEvents.count)")
-                self.firstEvent = netEvents.first ?? Event.empty
+                if let firstEvent = netEvents.first {
+                    self.firstEvent = firstEvent
+                    firstEvent.saveAsMostRecent()
+                } else {
+                    self.firstEvent = Event.empty
+                }
                 self.events = netEvents
                 self.sort(netEvents)
             }

@@ -11,16 +11,10 @@ struct EventProvider: IntentTimelineProvider {
     }
 
     var mostRecentEvent: Event {
-        let groupName = Group.loadSelected() ?? "Wut?"
-        let event = Event(id: UUID(),
-                          groupID: UUID(),
-                          name: groupName,
-                          imageURL: nil,
-                          startAt: Date().advanced(by: 6000),
-                          endAt: Date().advanced(by: 8000),
-                          venue: Venue(name: groupName,
-                                       location: nil))
-        return event
+        if let savedEvent = Event.loadMostRecent() {
+            return savedEvent
+        }
+        return Event.empty
     }
 
     func placeholder(in context: Context) -> EventEntry {

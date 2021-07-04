@@ -6,7 +6,7 @@ struct ContentView: View {
     @StateObject private var networkService = NetworkService()
     @Environment(\.managedObjectContext) private var viewContext
     @StateObject private var groups = Groups()
-    @SceneStorage("selectedGroupName") var selectedGroupName = ""
+    static let contentGroupUserActivityType = "science.pixel.espresso.group"
 
     var body: some View {
         NavigationView {
