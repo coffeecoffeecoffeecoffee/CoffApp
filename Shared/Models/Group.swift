@@ -24,6 +24,7 @@ extension Group {
     }
 
     static func loadSelected() -> String? {
-        UserDefaults.standard.string(forKey: UserDefaultKeys.selectedGroup.rawValue)
+        UserDefaults.sharedSuite
+            .string(forKey: UserDefaultKeys.selectedGroup.rawValue)
     }
 }
