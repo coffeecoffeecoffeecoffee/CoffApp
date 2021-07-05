@@ -1,8 +1,10 @@
+import Logging
 import SwiftUI
 
 struct EventListView: View {
     @StateObject var net = NetworkService()
     var group: Group
+    private let logger = Logger(label: "EventListView")
 
     var body: some View {
             VStack(alignment: .center) {
@@ -42,8 +44,40 @@ struct EventListView: View {
             }
         }
         .onAppear {
-//            group.setSelectd()
             net.loadEvents(for: group)
+        }
+        .userActivity(ContentView.contentGroupUserActivityType) { activity in
+            logger.info("EVENT LIST: \(activity.activityType)")
+            describeUserActivity(activity)
+        }
+        .onContinueUserActivity(ContentView.contentGroupUserActivityType) { resumeActivity in
+            logger.info("CONTINUE: \(resumeActivity.activityType)")
+            guard let resumedGroup = try? resumeActivity.typedPayload(Group.self) else {
+                logger.warning("FAIL: Could not resume \(resumeActivity.activityType)")
+                return
+            }
+            logger.info("FOUND: \(resumedGroup.name)")
+        }
+    }
+}
+
+extension EventListView {
+    func describeUserActivity(_ userActivity: NSUserActivity) {
+        let nextGroup: Group?
+        if let activityGroup = try? userActivity.typedPayload(Group.self) {
+            nextGroup = activityGroup
+        } else {
+            nextGroup = group
+        }
+        guard let nextGroup = nextGroup else { return }
+        userActivity.title = nextGroup.name
+        userActivity.isEligibleForHandoff = true
+        userActivity.isEligibleForSearch = true
+        userActivity.targetContentIdentifier = nextGroup.id.uuidString
+        do {
+            try userActivity.setTypedPayload(nextGroup)
+        } catch {
+            logger.warning("FAIL: Activity Payload for \(nextGroup.name)")
         }
     }
 }

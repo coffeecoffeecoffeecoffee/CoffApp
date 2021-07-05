@@ -1,3 +1,4 @@
+import Logging
 import SwiftUI
 import CoreData
 
@@ -6,16 +7,23 @@ struct ContentView: View {
     @StateObject private var networkService = NetworkService()
     @Environment(\.managedObjectContext) private var viewContext
     @StateObject private var groups = Groups()
+    @SceneStorage("selectedGroup") var selectedGroup: String?
     static let contentGroupUserActivityType = "science.pixel.espresso.group"
+    private let logger = Logger(label: "ContentView.logger")
 
     var body: some View {
         NavigationView {
             List {
                 ForEach(groups.groups) { group in
+//                    NavigationLink(group.name,
+//                                   destination: EventListView(group: group),
+//                                   isActive: groups.selectionBinding(for: group.name))
+//                    .tag(group.name)
+
                     NavigationLink(group.name,
                                    destination: EventListView(group: group),
-                                   isActive: groups.selectionBinding(for: group.name))
-                        .tag(group.name)
+                                   tag: group.name,
+                                   selection: $selectedGroup)
                 }
             }
             .navigationTitle("The Coffee")
@@ -41,6 +49,31 @@ struct ContentView: View {
         .onAppear {
             networkService.loadGroups()
         }
+        .onContinueUserActivity(ContentView.contentGroupUserActivityType) { resumeActivity in
+            logger.info("CONTINUE: \(resumeActivity.activityType)")
+            guard let resumedGroup = try? resumeActivity.typedPayload(Group.self) else {
+                return
+            }
+            logger.info("GOT \(resumedGroup.name)")
+            groups.select(resumedGroup.name)
+        }
+    }
+}
+
+extension ContentView {
+    func describeUserActivity(_ userActivity: NSUserActivity) {
+        let nextGroup: Group?
+        if let activityGroup = try? userActivity.typedPayload(Group.self) {
+            nextGroup = activityGroup
+        } else {
+            nextGroup = groups.selectedGroup
+        }
+        guard let nextGroup = nextGroup else { return }
+        userActivity.title = nextGroup.name
+        userActivity.isEligibleForHandoff = true
+        userActivity.isEligibleForSearch = true
+        userActivity.targetContentIdentifier = nextGroup.id.uuidString
+        try? userActivity.setTypedPayload(nextGroup)
     }
 }
 
