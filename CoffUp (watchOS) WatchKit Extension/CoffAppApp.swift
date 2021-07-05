@@ -4,7 +4,7 @@ import SwiftUI
 
 @main
 struct CoffAppApp: App {
-    @State var networkService = NetworkService()
+    private var networkService = NetworkService()
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {

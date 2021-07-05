@@ -4,15 +4,15 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var networkService: NetworkService
     @StateObject private var groups = Groups()
+    @SceneStorage("selectedGroup") var selectedGroup: String?
     var body: some View {
         ForEach(groups.groups) { group in
             List(networkService.groups, id: \.id) { group in
                 NavigationLink(group.name,
                                destination: EventListWatchView(group: group)
                                 .environmentObject(networkService),
-                               isActive: groups.selectionBinding(for: group.name)
-                )
-                .tag(group.name)
+                               tag: group.name,
+                               selection: $selectedGroup)
             }
         }
         .onAppear(perform: {
