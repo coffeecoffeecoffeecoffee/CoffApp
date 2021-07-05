@@ -32,9 +32,6 @@ final class Groups: ObservableObject {
 }
 
 // MARK: - Selected Group Persistance
-// FIXME: Split this logic!
-// Last-selected group is useful for the first-pass Widget.
-// But, we’ll want to properly use the `UserActivity` based API for proper state restoration
 extension Groups {
     /// Sets and saves the current Group
     /// - Parameter groupName: the name of the group to save
