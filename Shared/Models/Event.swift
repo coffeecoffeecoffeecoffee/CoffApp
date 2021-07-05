@@ -46,7 +46,7 @@ extension Event {
     static var empty: Event {
         Event(id: nil,
               groupID: nil,
-              name: "No Events",
+              name: "Coffee: The True Dark Lord",
               imageURL: nil,
               startAt: nil,
               endAt: nil,
@@ -64,6 +64,25 @@ extension Event: Hashable {
 }
 
 extension Event: Identifiable { }
+
+// MARK: - Pesistence
+extension Event {
+    func saveAsMostRecent() {
+        if let data = try? PropertyListEncoder().encode(self) {
+            UserDefaults.sharedSuite
+                .setValue(data, forKey: UserDefaultKeys.mostRecentEvent.rawValue)
+        }
+    }
+
+    static func loadMostRecent() -> Event? {
+        if let data = UserDefaults.sharedSuite
+            .data(forKey: UserDefaultKeys.mostRecentEvent.rawValue),
+           let savedEvent = try? PropertyListDecoder().decode(Event.self, from: data) {
+            return savedEvent
+        }
+        return nil
+    }
+}
 
 // MARK: - Data formatting
 extension Event {

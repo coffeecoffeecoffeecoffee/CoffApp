@@ -23,7 +23,7 @@ struct TheCoffeeWidgetEntryView: View {
 
     var body: some View {
         ZStack {
-            Image("")
+            Image("clock")
                 .data(entry.event.imageURL)
                 .centerCropped()
             LinearGradient(gradient:
@@ -56,7 +56,6 @@ struct TheCoffeeWidgetEntryView: View {
                 .foregroundColor(.white)
                 .shadow(color: .black.opacity(0.4), radius: 0, x: 1, y: 1)
                 .shadow(color: shadyPurple, radius: 3, x: 0, y: 0)
-
                 Spacer()
             }
             .padding(10)
@@ -71,6 +70,7 @@ struct TheCoffeeWidgetEntryView_Previews: PreviewProvider {
         TheCoffeeWidgetEntryView(entry: EventEntry(date: Date(),
                                                    event: testEvent(true),
                                                    configuration: ConfigurationIntent()))
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
 }
 #endif

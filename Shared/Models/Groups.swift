@@ -5,6 +5,7 @@ import Foundation
 final class Groups: ObservableObject {
     @Published var groups: [Group] = []
     @Published var selectedGroupName: String?
+    @Published var selectedGroup: Group?
     @Published var state: NetworkState = .loading
 
     var net = NetworkService()
@@ -39,8 +40,10 @@ extension Groups {
     /// - Parameter groupName: the name of the group to save
     public func select(_ groupName: String) {
         selectedGroupName = groupName
-        UserDefaults.sharedSuite.setValue(groupName,
-                                          forKey: UserDefaultKeys.selectedGroup.rawValue)
+        let selectedGroup = groups.first {
+            $0.name == groupName
+        }
+        selectedGroup?.setSelected()
     }
 
     /// Binding owned by this Type that accepts user input for the currently selected group

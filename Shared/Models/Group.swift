@@ -18,12 +18,17 @@ extension Group {
 }
 
 extension Group {
-    func setSelectd() {
-        print("saving \(name)")
-        UserDefaults.standard.setValue(name, forKey: UserDefaultKeys.selectedGroup.rawValue)
+    func setSelected() {
+        if let encoded = try? JSONEncoder().encode(self) {
+            UserDefaults.sharedSuite.setValue(encoded, forKey: UserDefaultKeys.selectedGroup.rawValue)
+        }
     }
 
-    static func loadSelected() -> String? {
-        UserDefaults.standard.string(forKey: UserDefaultKeys.selectedGroup.rawValue)
+    static func loadSelected() -> Group? {
+        if let savedData = UserDefaults.sharedSuite.data(forKey: UserDefaultKeys.selectedGroup.rawValue),
+           let savedGroup = try? JSONDecoder().decode(Group.self, from: savedData) {
+            return savedGroup
+        }
+        return nil
     }
 }
