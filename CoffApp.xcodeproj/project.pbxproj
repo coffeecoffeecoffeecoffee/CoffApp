@@ -140,6 +140,25 @@
 		0FA09F742667373500E04777 /* FocusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F722667373500E04777 /* FocusState.swift */; };
 		0FA09F752667373500E04777 /* FocusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F722667373500E04777 /* FocusState.swift */; };
 		0FA09F762667374C00E04777 /* FocusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F722667373500E04777 /* FocusState.swift */; };
+		0FA20C2C26955679007F595F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C2B26955679007F595F /* main.swift */; };
+		0FA20C302695568A007F595F /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05CD2658A9020050439D /* Group.swift */; };
+		0FA20C322695568A007F595F /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05D62658A9EC0050439D /* Venue.swift */; };
+		0FA20C332695568A007F595F /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05DA2658AA050050439D /* Location.swift */; };
+		0FA20C342695568A007F595F /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05D22658A9460050439D /* Event.swift */; };
+		0FA20C352695641C007F595F /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D62677022500B62CC4 /* UserDefaultKeys.swift */; };
+		0FA20C362695642A007F595F /* UserDefaults+AppSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1FD6FC2689752A00E90D7D /* UserDefaults+AppSuite.swift */; };
+		0FA20C3826956445007F595F /* Group+Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C3726956445007F595F /* Group+Selection.swift */; };
+		0FA20C3926956445007F595F /* Group+Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C3726956445007F595F /* Group+Selection.swift */; };
+		0FA20C3A26956445007F595F /* Group+Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C3726956445007F595F /* Group+Selection.swift */; };
+		0FA20C3B26956445007F595F /* Group+Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C3726956445007F595F /* Group+Selection.swift */; };
+		0FA20C3C26956445007F595F /* Group+Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C3726956445007F595F /* Group+Selection.swift */; };
+		0FA20C3F269564C2007F595F /* NetworkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05E92658B2010050439D /* NetworkState.swift */; };
+		0FA20C4126956598007F595F /* Location+Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C4026956598007F595F /* Location+Directions.swift */; };
+		0FA20C4226956598007F595F /* Location+Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C4026956598007F595F /* Location+Directions.swift */; };
+		0FA20C4326956598007F595F /* Location+Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C4026956598007F595F /* Location+Directions.swift */; };
+		0FA20C4426956598007F595F /* Location+Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C4026956598007F595F /* Location+Directions.swift */; };
+		0FA20C4526956598007F595F /* Location+Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C4026956598007F595F /* Location+Directions.swift */; };
+		0FA20C4626956598007F595F /* Location+Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C4026956598007F595F /* Location+Directions.swift */; };
 		0FD69B6C2658D35B007EC696 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD69B6B2658D35B007EC696 /* EventListView.swift */; };
 		0FD69B6D2658D35B007EC696 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD69B6B2658D35B007EC696 /* EventListView.swift */; };
 		0FD69B6E2658D35B007EC696 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD69B6B2658D35B007EC696 /* EventListView.swift */; };
@@ -265,6 +284,15 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0FA20C2726955679007F595F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -352,6 +380,10 @@
 		0FA09F692665587600E04777 /* EventSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSummaryView.swift; sourceTree = "<group>"; };
 		0FA09F6D2667251400E04777 /* TVFocusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVFocusable.swift; sourceTree = "<group>"; };
 		0FA09F722667373500E04777 /* FocusState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusState.swift; sourceTree = "<group>"; };
+		0FA20C2926955679007F595F /* api-tool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "api-tool"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FA20C2B26955679007F595F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		0FA20C3726956445007F595F /* Group+Selection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group+Selection.swift"; sourceTree = "<group>"; };
+		0FA20C4026956598007F595F /* Location+Directions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+Directions.swift"; sourceTree = "<group>"; };
 		0FD69B6B2658D35B007EC696 /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
 		0FD69B6F2658DABD007EC696 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
 		0FF5652D2684311600C8E02C /* CoffApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoffApp.entitlements; sourceTree = "<group>"; };
@@ -454,6 +486,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0FA20C2626955679007F595F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -526,6 +565,7 @@
 				0FA09F472661FE5900E04777 /* CoffUp (watchOS)UITests */,
 				0F49A3C02673983D00B62CC4 /* CoffAppMacUITests */,
 				0F49A4482679AC5100B62CC4 /* TheCoffeeWidget */,
+				0FA20C2A26955679007F595F /* api-tool */,
 				0F6A05072658A1E10050439D /* Products */,
 				0F6A05E12658AEA80050439D /* Frameworks */,
 			);
@@ -568,6 +608,7 @@
 				0FA09F442661FE5900E04777 /* CoffUp (watchOS)UITests.xctest */,
 				0F49A3BF2673983D00B62CC4 /* CoffAppMacUITests.xctest */,
 				0F49A4432679AC5100B62CC4 /* TheCoffeeWidgetExtension.appex */,
+				0FA20C2926955679007F595F /* api-tool */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -651,9 +692,11 @@
 			isa = PBXGroup;
 			children = (
 				0F6A05CD2658A9020050439D /* Group.swift */,
+				0FA20C3726956445007F595F /* Group+Selection.swift */,
 				0F6A05D22658A9460050439D /* Event.swift */,
 				0F6A05D62658A9EC0050439D /* Venue.swift */,
 				0F6A05DA2658AA050050439D /* Location.swift */,
+				0FA20C4026956598007F595F /* Location+Directions.swift */,
 				0F49A3DB26770F0400B62CC4 /* Groups.swift */,
 			);
 			path = Models;
@@ -719,6 +762,14 @@
 				0FA09F4A2661FE5900E04777 /* Info.plist */,
 			);
 			path = "CoffUp (watchOS)UITests";
+			sourceTree = "<group>";
+		};
+		0FA20C2A26955679007F595F /* api-tool */ = {
+			isa = PBXGroup;
+			children = (
+				0FA20C2B26955679007F595F /* main.swift */,
+			);
+			path = "api-tool";
 			sourceTree = "<group>";
 		};
 		0FD69B6A2658D338007EC696 /* Views */ = {
@@ -1008,6 +1059,23 @@
 			productReference = 0FA09F442661FE5900E04777 /* CoffUp (watchOS)UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		0FA20C2826955679007F595F /* api-tool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0FA20C2F26955679007F595F /* Build configuration list for PBXNativeTarget "api-tool" */;
+			buildPhases = (
+				0FA20C2526955679007F595F /* Sources */,
+				0FA20C2626955679007F595F /* Frameworks */,
+				0FA20C2726955679007F595F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "api-tool";
+			productName = "api-tool";
+			productReference = 0FA20C2926955679007F595F /* api-tool */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1066,6 +1134,9 @@
 						CreatedOnToolsVersion = 12.5;
 						TestTargetID = 0FA09F122661FE5700E04777;
 					};
+					0FA20C2826955679007F595F = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
 				};
 			};
 			buildConfigurationList = 0F6A04FA2658A1DE0050439D /* Build configuration list for PBXProject "CoffApp" */;
@@ -1099,6 +1170,7 @@
 				0FA09F432661FE5900E04777 /* CoffUp (watchOS)UITests */,
 				0F49A3BE2673983D00B62CC4 /* CoffAppMacUITests */,
 				0F49A4422679AC5100B62CC4 /* TheCoffeeWidgetExtension */,
+				0FA20C2826955679007F595F /* api-tool */,
 			);
 		};
 /* End PBXProject section */
@@ -1298,8 +1370,10 @@
 				0F49A45C2679AC8D00B62CC4 /* Venue.swift in Sources */,
 				0F23911D2686CEC3007461F9 /* TheCoffeeWidgetEntryView.swift in Sources */,
 				0F49A45E2679AC8D00B62CC4 /* FocusState.swift in Sources */,
+				0FA20C4526956598007F595F /* Location+Directions.swift in Sources */,
 				0F49A44A2679AC5100B62CC4 /* TheCoffeeWidget.swift in Sources */,
 				0F49A45B2679AC8D00B62CC4 /* NetworkService.swift in Sources */,
+				0FA20C3C26956445007F595F /* Group+Selection.swift in Sources */,
 				0F2391102686CE2D007461F9 /* Image+CenterCropped.swift in Sources */,
 				0F0B231C267FA69000AE7877 /* ImageCache.swift in Sources */,
 				0F49A4582679AC8D00B62CC4 /* Groups.swift in Sources */,
@@ -1319,11 +1393,13 @@
 				0F6A05C82658A4350050439D /* NetworkService.swift in Sources */,
 				0F6A05D72658A9EC0050439D /* Venue.swift in Sources */,
 				0FA09F6A2665587600E04777 /* EventSummaryView.swift in Sources */,
+				0FA20C3826956445007F595F /* Group+Selection.swift in Sources */,
 				0F6A05282658A1E10050439D /* CoffApp.xcdatamodeld in Sources */,
 				0F6A052E2658A1E10050439D /* Persistence.swift in Sources */,
 				0F23910C2686CE2D007461F9 /* Image+CenterCropped.swift in Sources */,
 				0F49A3D12675189900B62CC4 /* ImageCache.swift in Sources */,
 				0F6A05EA2658B2010050439D /* NetworkState.swift in Sources */,
+				0FA20C4126956598007F595F /* Location+Directions.swift in Sources */,
 				0FA09F732667373500E04777 /* FocusState.swift in Sources */,
 				0F6A05DB2658AA050050439D /* Location.swift in Sources */,
 				0F6A05CE2658A9020050439D /* Group.swift in Sources */,
@@ -1360,7 +1436,9 @@
 				0F6A05CF2658A9020050439D /* Group.swift in Sources */,
 				0FD69B712658DABD007EC696 /* EventDetailView.swift in Sources */,
 				0F6A052B2658A1E10050439D /* CoffAppApp.swift in Sources */,
+				0FA20C3926956445007F595F /* Group+Selection.swift in Sources */,
 				0F23910D2686CE2D007461F9 /* Image+CenterCropped.swift in Sources */,
+				0FA20C4226956598007F595F /* Location+Directions.swift in Sources */,
 				0F1FD6FE2689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */,
 				0F6A05D42658A9460050439D /* Event.swift in Sources */,
 				0F6A052D2658A1E10050439D /* ContentView.swift in Sources */,
@@ -1403,12 +1481,14 @@
 				0FA09F752667373500E04777 /* FocusState.swift in Sources */,
 				0F6A05C32658A2A60050439D /* ContentView.swift in Sources */,
 				0F6A05D02658A9020050439D /* Group.swift in Sources */,
+				0FA20C4326956598007F595F /* Location+Directions.swift in Sources */,
 				0F6A05DD2658AA050050439D /* Location.swift in Sources */,
 				0F6A05C52658A2AC0050439D /* CoffApp.xcdatamodeld in Sources */,
 				0F745453266C031700DEB3F1 /* Image+Data.swift in Sources */,
 				0F6A05CA2658A4350050439D /* NetworkService.swift in Sources */,
 				0FD69B6E2658D35B007EC696 /* EventListView.swift in Sources */,
 				0F49A3DE26770F0400B62CC4 /* Groups.swift in Sources */,
+				0FA20C3A26956445007F595F /* Group+Selection.swift in Sources */,
 				0F1FD6FF2689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1450,7 +1530,9 @@
 				0FA09F612661FEEF00E04777 /* NetworkState.swift in Sources */,
 				0FA09F252661FE5800E04777 /* CoffAppApp.swift in Sources */,
 				0FA09F5D2661FEE700E04777 /* Event.swift in Sources */,
+				0FA20C3B26956445007F595F /* Group+Selection.swift in Sources */,
 				0F23910F2686CE2D007461F9 /* Image+CenterCropped.swift in Sources */,
+				0FA20C4426956598007F595F /* Location+Directions.swift in Sources */,
 				0F1FD7002689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */,
 				0FA09F2B2661FE5900E04777 /* NotificationView.swift in Sources */,
 				0FA09F6826629B9100E04777 /* EventListWatchView.swift in Sources */,
@@ -1470,6 +1552,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FA09F492661FE5900E04777 /* CoffUp__watchOS_UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0FA20C2526955679007F595F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FA20C2C26955679007F595F /* main.swift in Sources */,
+				0FA20C322695568A007F595F /* Venue.swift in Sources */,
+				0FA20C4626956598007F595F /* Location+Directions.swift in Sources */,
+				0FA20C332695568A007F595F /* Location.swift in Sources */,
+				0FA20C362695642A007F595F /* UserDefaults+AppSuite.swift in Sources */,
+				0FA20C302695568A007F595F /* Group.swift in Sources */,
+				0FA20C342695568A007F595F /* Event.swift in Sources */,
+				0FA20C3F269564C2007F595F /* NetworkState.swift in Sources */,
+				0FA20C352695641C007F595F /* UserDefaultKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2298,6 +2396,32 @@
 			};
 			name = Release;
 		};
+		0FA20C2D26955679007F595F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FS69ZZRN45;
+				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		0FA20C2E26955679007F595F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FS69ZZRN45;
+				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2432,6 +2556,15 @@
 			buildConfigurations = (
 				0FA09F552661FE5900E04777 /* Debug */,
 				0FA09F562661FE5900E04777 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0FA20C2F26955679007F595F /* Build configuration list for PBXNativeTarget "api-tool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0FA20C2D26955679007F595F /* Debug */,
+				0FA20C2E26955679007F595F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
