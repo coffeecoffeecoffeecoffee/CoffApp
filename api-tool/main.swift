@@ -8,27 +8,27 @@ struct ApiTool {
     }
     let decoder = JSONDecoder()
     let encoder: JSONEncoder
-    
+
     init() {
         encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
         decoder.dateDecodingStrategy = .iso8601
     }
-    
+
     func fetch<T: Codable>(_ url: URL, type: T) throws -> T {
         let data = try Data(contentsOf: url)
         let decoded = try decoder.decode(T.self, from: data)
         return decoded
     }
-    
+
     func encode<T: Codable>(_ content: T) throws -> Data {
         try encoder.encode(content)
     }
-    
+
     func write(_ data: Data, url: URL) throws {
         try data.write(to: url)
     }
-    
+
     func main() throws {
         let outputDirectory = FileManager.default.temporaryDirectory
             .appendingPathComponent("/coffee-data/")

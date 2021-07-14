@@ -15,4 +15,3 @@ extension Group {
         return nil
     }
 }
-
