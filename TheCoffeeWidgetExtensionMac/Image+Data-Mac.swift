@@ -1,6 +1,6 @@
 import SwiftUI
 
-#if !os(macOS)
+#if os(macOS)
 extension Image {
     func data(_ url: URL?) -> Self {
         guard let url = url else {
@@ -9,12 +9,12 @@ extension Image {
 
         // First: Check Data(contentsOf:). Let the OS networking / memory cache work.
         guard let data = try? Data(contentsOf: url),
-              let remoteImage = UIImage(data: data) else {
+              let remoteImage = NSImage(data: data) else {
 
             // If the network fails then check the disk cache
             if let cachedData = ImageCache.fetchData(for: url),
-               let cachedImage = UIImage(data: cachedData) {
-                return Image(uiImage: cachedImage)
+               let cachedImage = NSImage(data: cachedData) {
+                return Image(nsImage: cachedImage)
             }
 
             return self
@@ -23,16 +23,16 @@ extension Image {
         // Save cache
         ImageCache.save(data, for: url)
 
-        return Image(uiImage: remoteImage)
+        return Image(nsImage: remoteImage)
     }
 
     func data(_ urlString: String) -> Self {
         guard let url = URL(string: urlString),
               let data = try? Data(contentsOf: url),
-              let remoteImage = UIImage(data: data) else {
+              let remoteImage = NSImage(data: data) else {
             return self
         }
-        return Image(uiImage: remoteImage)
+        return Image(nsImage: remoteImage)
     }
 }
 #endif

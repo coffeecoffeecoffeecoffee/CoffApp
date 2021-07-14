@@ -168,6 +168,35 @@
 		0FD69B752658DC29007EC696 /* FetchImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0FD69B742658DC29007EC696 /* FetchImage */; };
 		0FD69B772658DC3B007EC696 /* FetchImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0FD69B762658DC3B007EC696 /* FetchImage */; };
 		0FD69B792658DC42007EC696 /* FetchImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0FD69B782658DC42007EC696 /* FetchImage */; };
+		0FE9C43A269E8E970079613E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F49A4442679AC5100B62CC4 /* WidgetKit.framework */; };
+		0FE9C43B269E8E970079613E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F49A4462679AC5100B62CC4 /* SwiftUI.framework */; };
+		0FE9C441269E8E980079613E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FE9C440269E8E980079613E /* Assets.xcassets */; };
+		0FE9C444269E8E980079613E /* TheCoffeeWidgetExtensionMac.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 0FE9C43F269E8E970079613E /* TheCoffeeWidgetExtensionMac.intentdefinition */; };
+		0FE9C445269E8E980079613E /* TheCoffeeWidgetExtensionMac.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 0FE9C43F269E8E970079613E /* TheCoffeeWidgetExtensionMac.intentdefinition */; };
+		0FE9C448269E8E980079613E /* TheCoffeeWidgetExtensionMacExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0FE9C439269E8E970079613E /* TheCoffeeWidgetExtensionMacExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0FE9C44E269E8F140079613E /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 0FE9C44D269E8F140079613E /* Logging */; };
+		0FE9C450269E8F170079613E /* FetchImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0FE9C44F269E8F170079613E /* FetchImage */; };
+		0FE9C451269E8F690079613E /* NetworkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05E92658B2010050439D /* NetworkState.swift */; };
+		0FE9C452269E8F700079613E /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D62677022500B62CC4 /* UserDefaultKeys.swift */; };
+		0FE9C453269E8F770079613E /* UserDefaults+AppSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1FD6FC2689752A00E90D7D /* UserDefaults+AppSuite.swift */; };
+		0FE9C454269E8F800079613E /* FocusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F722667373500E04777 /* FocusState.swift */; };
+		0FE9C455269E8F910079613E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05C72658A4350050439D /* NetworkService.swift */; };
+		0FE9C456269E8FA50079613E /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2391122686CE75007461F9 /* PlaceholderView.swift */; };
+		0FE9C457269E8FA80079613E /* TheCoffeeWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2391182686CEC3007461F9 /* TheCoffeeWidgetEntryView.swift */; };
+		0FE9C458269E8FB00079613E /* TheCoffeeWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A4492679AC5100B62CC4 /* TheCoffeeWidget.swift */; };
+		0FE9C459269E8FB40079613E /* EventProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2391042686CD8A007461F9 /* EventProvider.swift */; };
+		0FE9C45A269E8FB70079613E /* EventEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2391072686CDBD007461F9 /* EventEntry.swift */; };
+		0FE9C45B269E8FEC0079613E /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05CD2658A9020050439D /* Group.swift */; };
+		0FE9C45C269E8FF00079613E /* Group+Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C3726956445007F595F /* Group+Selection.swift */; };
+		0FE9C45D269E8FF50079613E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05D22658A9460050439D /* Event.swift */; };
+		0FE9C45E269E8FF80079613E /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05D62658A9EC0050439D /* Venue.swift */; };
+		0FE9C45F269E8FFB0079613E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05DA2658AA050050439D /* Location.swift */; };
+		0FE9C460269E8FFF0079613E /* Location+Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C4026956598007F595F /* Location+Directions.swift */; };
+		0FE9C461269E90020079613E /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3DB26770F0400B62CC4 /* Groups.swift */; };
+		0FE9C462269E901F0079613E /* Image+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F745450266C031700DEB3F1 /* Image+Data.swift */; };
+		0FE9C464269E90F70079613E /* Image+Data-Mac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE9C463269E907A0079613E /* Image+Data-Mac.swift */; };
+		0FE9C465269E91240079613E /* Image+CenterCropped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F23910B2686CE2D007461F9 /* Image+CenterCropped.swift */; };
+		0FE9C466269E92620079613E /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D02675189900B62CC4 /* ImageCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -248,6 +277,13 @@
 			remoteGlobalIDString = 0FA09F122661FE5700E04777;
 			remoteInfo = "CoffUp (watchOS) WatchKit App";
 		};
+		0FE9C446269E8E980079613E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F6A04F72658A1DE0050439D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0FE9C438269E8E970079613E;
+			remoteInfo = TheCoffeeWidgetExtensionMacExtension;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -292,6 +328,17 @@
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 1;
+		};
+		0FE9C449269E8E980079613E /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0FE9C448269E8E980079613E /* TheCoffeeWidgetExtensionMacExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -386,6 +433,13 @@
 		0FA20C4026956598007F595F /* Location+Directions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+Directions.swift"; sourceTree = "<group>"; };
 		0FD69B6B2658D35B007EC696 /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
 		0FD69B6F2658DABD007EC696 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
+		0FE9C439269E8E970079613E /* TheCoffeeWidgetExtensionMacExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TheCoffeeWidgetExtensionMacExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FE9C43D269E8E970079613E /* TheCoffeeWidgetExtensionMac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCoffeeWidgetExtensionMac.swift; sourceTree = "<group>"; };
+		0FE9C43F269E8E970079613E /* TheCoffeeWidgetExtensionMac.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = TheCoffeeWidgetExtensionMac.intentdefinition; sourceTree = "<group>"; };
+		0FE9C440269E8E980079613E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0FE9C442269E8E980079613E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0FE9C443269E8E980079613E /* TheCoffeeWidgetExtensionMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheCoffeeWidgetExtensionMac.entitlements; sourceTree = "<group>"; };
+		0FE9C463269E907A0079613E /* Image+Data-Mac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Data-Mac.swift"; sourceTree = "<group>"; };
 		0FF5652D2684311600C8E02C /* CoffApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoffApp.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -493,6 +547,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0FE9C436269E8E970079613E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FE9C44E269E8F140079613E /* Logging in Frameworks */,
+				0FE9C43B269E8E970079613E /* SwiftUI.framework in Frameworks */,
+				0FE9C43A269E8E970079613E /* WidgetKit.framework in Frameworks */,
+				0FE9C450269E8F170079613E /* FetchImage in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -566,6 +631,7 @@
 				0F49A3C02673983D00B62CC4 /* CoffAppMacUITests */,
 				0F49A4482679AC5100B62CC4 /* TheCoffeeWidget */,
 				0FA20C2A26955679007F595F /* api-tool */,
+				0FE9C43C269E8E970079613E /* TheCoffeeWidgetExtensionMac */,
 				0F6A05072658A1E10050439D /* Products */,
 				0F6A05E12658AEA80050439D /* Frameworks */,
 			);
@@ -609,6 +675,7 @@
 				0F49A3BF2673983D00B62CC4 /* CoffAppMacUITests.xctest */,
 				0F49A4432679AC5100B62CC4 /* TheCoffeeWidgetExtension.appex */,
 				0FA20C2926955679007F595F /* api-tool */,
+				0FE9C439269E8E970079613E /* TheCoffeeWidgetExtensionMacExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -785,6 +852,19 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		0FE9C43C269E8E970079613E /* TheCoffeeWidgetExtensionMac */ = {
+			isa = PBXGroup;
+			children = (
+				0FE9C463269E907A0079613E /* Image+Data-Mac.swift */,
+				0FE9C43D269E8E970079613E /* TheCoffeeWidgetExtensionMac.swift */,
+				0FE9C43F269E8E970079613E /* TheCoffeeWidgetExtensionMac.intentdefinition */,
+				0FE9C440269E8E980079613E /* Assets.xcassets */,
+				0FE9C442269E8E980079613E /* Info.plist */,
+				0FE9C443269E8E980079613E /* TheCoffeeWidgetExtensionMac.entitlements */,
+			);
+			path = TheCoffeeWidgetExtensionMac;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -859,10 +939,12 @@
 				0F6A050A2658A1E10050439D /* Sources */,
 				0F6A050B2658A1E10050439D /* Frameworks */,
 				0F6A050C2658A1E10050439D /* Resources */,
+				0FE9C449269E8E980079613E /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0FE9C447269E8E980079613E /* PBXTargetDependency */,
 			);
 			name = "CoffApp (macOS)";
 			packageProductDependencies = (
@@ -1076,6 +1158,27 @@
 			productReference = 0FA20C2926955679007F595F /* api-tool */;
 			productType = "com.apple.product-type.tool";
 		};
+		0FE9C438269E8E970079613E /* TheCoffeeWidgetExtensionMacExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0FE9C44C269E8E980079613E /* Build configuration list for PBXNativeTarget "TheCoffeeWidgetExtensionMacExtension" */;
+			buildPhases = (
+				0FE9C435269E8E970079613E /* Sources */,
+				0FE9C436269E8E970079613E /* Frameworks */,
+				0FE9C437269E8E970079613E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TheCoffeeWidgetExtensionMacExtension;
+			packageProductDependencies = (
+				0FE9C44D269E8F140079613E /* Logging */,
+				0FE9C44F269E8F170079613E /* FetchImage */,
+			);
+			productName = TheCoffeeWidgetExtensionMacExtension;
+			productReference = 0FE9C439269E8E970079613E /* TheCoffeeWidgetExtensionMacExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1137,6 +1240,9 @@
 					0FA20C2826955679007F595F = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
+					0FE9C438269E8E970079613E = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
 				};
 			};
 			buildConfigurationList = 0F6A04FA2658A1DE0050439D /* Build configuration list for PBXProject "CoffApp" */;
@@ -1171,6 +1277,7 @@
 				0F49A3BE2673983D00B62CC4 /* CoffAppMacUITests */,
 				0F49A4422679AC5100B62CC4 /* TheCoffeeWidgetExtension */,
 				0FA20C2826955679007F595F /* api-tool */,
+				0FE9C438269E8E970079613E /* TheCoffeeWidgetExtensionMacExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -1284,6 +1391,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0FE9C437269E8E970079613E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FE9C441269E8E980079613E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -1356,12 +1471,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F49A44F2679AC5400B62CC4 /* TheCoffeeWidget.intentdefinition in Sources */,
 				0F49A4612679AC8D00B62CC4 /* NetworkState.swift in Sources */,
 				0F49A4592679AC8D00B62CC4 /* UserDefaultKeys.swift in Sources */,
 				0F49A4602679AC8D00B62CC4 /* Event.swift in Sources */,
 				0F1FD7012689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */,
 				0F2391062686CDAA007461F9 /* EventProvider.swift in Sources */,
-				0F49A44F2679AC5400B62CC4 /* TheCoffeeWidget.intentdefinition in Sources */,
 				0F49A45D2679AC8D00B62CC4 /* Location.swift in Sources */,
 				0F0B231B267FA68600AE7877 /* Image+Data.swift in Sources */,
 				0F49A45F2679AC8D00B62CC4 /* Group.swift in Sources */,
@@ -1438,6 +1553,7 @@
 				0F6A052B2658A1E10050439D /* CoffAppApp.swift in Sources */,
 				0FA20C3926956445007F595F /* Group+Selection.swift in Sources */,
 				0F23910D2686CE2D007461F9 /* Image+CenterCropped.swift in Sources */,
+				0FE9C445269E8E980079613E /* TheCoffeeWidgetExtensionMac.intentdefinition in Sources */,
 				0FA20C4226956598007F595F /* Location+Directions.swift in Sources */,
 				0F1FD6FE2689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */,
 				0F6A05D42658A9460050439D /* Event.swift in Sources */,
@@ -1571,6 +1687,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0FE9C435269E8E970079613E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FE9C466269E92620079613E /* ImageCache.swift in Sources */,
+				0FE9C458269E8FB00079613E /* TheCoffeeWidget.swift in Sources */,
+				0FE9C459269E8FB40079613E /* EventProvider.swift in Sources */,
+				0FE9C45A269E8FB70079613E /* EventEntry.swift in Sources */,
+				0FE9C453269E8F770079613E /* UserDefaults+AppSuite.swift in Sources */,
+				0FE9C452269E8F700079613E /* UserDefaultKeys.swift in Sources */,
+				0FE9C451269E8F690079613E /* NetworkState.swift in Sources */,
+				0FE9C454269E8F800079613E /* FocusState.swift in Sources */,
+				0FE9C464269E90F70079613E /* Image+Data-Mac.swift in Sources */,
+				0FE9C455269E8F910079613E /* NetworkService.swift in Sources */,
+				0FE9C444269E8E980079613E /* TheCoffeeWidgetExtensionMac.intentdefinition in Sources */,
+				0FE9C457269E8FA80079613E /* TheCoffeeWidgetEntryView.swift in Sources */,
+				0FE9C456269E8FA50079613E /* PlaceholderView.swift in Sources */,
+				0FE9C45C269E8FF00079613E /* Group+Selection.swift in Sources */,
+				0FE9C45B269E8FEC0079613E /* Group.swift in Sources */,
+				0FE9C45E269E8FF80079613E /* Venue.swift in Sources */,
+				0FE9C45D269E8FF50079613E /* Event.swift in Sources */,
+				0FE9C45F269E8FFB0079613E /* Location.swift in Sources */,
+				0FE9C461269E90020079613E /* Groups.swift in Sources */,
+				0FE9C465269E91240079613E /* Image+CenterCropped.swift in Sources */,
+				0FE9C460269E8FFF0079613E /* Location+Directions.swift in Sources */,
+				0FE9C462269E901F0079613E /* Image+Data.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1628,6 +1773,11 @@
 			isa = PBXTargetDependency;
 			target = 0FA09F122661FE5700E04777 /* CoffUp (watchOS) WatchKit App */;
 			targetProxy = 0FA09F452661FE5900E04777 /* PBXContainerItemProxy */;
+		};
+		0FE9C447269E8E980079613E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0FE9C438269E8E970079613E /* TheCoffeeWidgetExtensionMacExtension */;
+			targetProxy = 0FE9C446269E8E980079613E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1896,6 +2046,7 @@
 		0F6A05382658A1E10050439D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
@@ -1921,6 +2072,7 @@
 		0F6A05392658A1E10050439D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
@@ -2422,6 +2574,54 @@
 			};
 			name = Release;
 		};
+		0FE9C44A269E8E980079613E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = TheCoffeeWidgetExtensionMac/TheCoffeeWidgetExtensionMac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FS69ZZRN45;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = TheCoffeeWidgetExtensionMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.espresso.TheCoffeeWidgetExtensionMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		0FE9C44B269E8E980079613E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = TheCoffeeWidgetExtensionMac/TheCoffeeWidgetExtensionMac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FS69ZZRN45;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = TheCoffeeWidgetExtensionMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.espresso.TheCoffeeWidgetExtensionMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2569,6 +2769,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		0FE9C44C269E8E980079613E /* Build configuration list for PBXNativeTarget "TheCoffeeWidgetExtensionMacExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0FE9C44A269E8E980079613E /* Debug */,
+				0FE9C44B269E8E980079613E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -2637,6 +2846,16 @@
 			productName = FetchImage;
 		};
 		0FD69B782658DC42007EC696 /* FetchImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0FD69B732658DC29007EC696 /* XCRemoteSwiftPackageReference "FetchImage" */;
+			productName = FetchImage;
+		};
+		0FE9C44D269E8F140079613E /* Logging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F6A05DE2658ADF80050439D /* XCRemoteSwiftPackageReference "swift-log" */;
+			productName = Logging;
+		};
+		0FE9C44F269E8F170079613E /* FetchImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0FD69B732658DC29007EC696 /* XCRemoteSwiftPackageReference "FetchImage" */;
 			productName = FetchImage;
