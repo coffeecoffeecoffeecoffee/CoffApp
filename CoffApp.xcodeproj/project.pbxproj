@@ -197,6 +197,37 @@
 		0FE9C464269E90F70079613E /* Image+Data-Mac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE9C463269E907A0079613E /* Image+Data-Mac.swift */; };
 		0FE9C465269E91240079613E /* Image+CenterCropped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F23910B2686CE2D007461F9 /* Image+CenterCropped.swift */; };
 		0FE9C466269E92620079613E /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D02675189900B62CC4 /* ImageCache.swift */; };
+		0FF4AA4D26A4E78200EEEDBF /* TheCoffeeAppClipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF4AA4C26A4E78200EEEDBF /* TheCoffeeAppClipApp.swift */; };
+		0FF4AA5426A4E78300EEEDBF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FF4AA5326A4E78300EEEDBF /* Preview Assets.xcassets */; };
+		0FF4AA5926A4E78300EEEDBF /* TheCoffeeAppClip.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0FF4AA5726A4E78300EEEDBF /* TheCoffeeAppClip.xcdatamodeld */; };
+		0FF4AA6526A4E78300EEEDBF /* TheCoffeeAppClipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF4AA6426A4E78300EEEDBF /* TheCoffeeAppClipTests.swift */; };
+		0FF4AA7026A4E78300EEEDBF /* TheCoffeeAppClipUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF4AA6F26A4E78300EEEDBF /* TheCoffeeAppClipUITests.swift */; };
+		0FF4AA7426A4E78300EEEDBF /* TheCoffeeAppClip.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = 0FF4AA4A26A4E78200EEEDBF /* TheCoffeeAppClip.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0FF4AA7F26A4E8CD00EEEDBF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FF2658A1DE0050439D /* ContentView.swift */; };
+		0FF4AA8026A4E8DA00EEEDBF /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05C72658A4350050439D /* NetworkService.swift */; };
+		0FF4AA8126A4E8E600EEEDBF /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3DB26770F0400B62CC4 /* Groups.swift */; };
+		0FF4AA8226A4E8E600EEEDBF /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05CD2658A9020050439D /* Group.swift */; };
+		0FF4AA8326A4E8E600EEEDBF /* Group+Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C3726956445007F595F /* Group+Selection.swift */; };
+		0FF4AA8426A4E8E600EEEDBF /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05DA2658AA050050439D /* Location.swift */; };
+		0FF4AA8526A4E8E600EEEDBF /* Location+Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C4026956598007F595F /* Location+Directions.swift */; };
+		0FF4AA8626A4E8E600EEEDBF /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05D22658A9460050439D /* Event.swift */; };
+		0FF4AA8726A4E8E600EEEDBF /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05D62658A9EC0050439D /* Venue.swift */; };
+		0FF4AA8826A4E93400EEEDBF /* NetworkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05E92658B2010050439D /* NetworkState.swift */; };
+		0FF4AA8926A4E95300EEEDBF /* UserDefaults+AppSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1FD6FC2689752A00E90D7D /* UserDefaults+AppSuite.swift */; };
+		0FF4AA8A26A4E95300EEEDBF /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D62677022500B62CC4 /* UserDefaultKeys.swift */; };
+		0FF4AA8B26A4E95E00EEEDBF /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD69B6B2658D35B007EC696 /* EventListView.swift */; };
+		0FF4AA8C26A4E96400EEEDBF /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD69B6F2658DABD007EC696 /* EventDetailView.swift */; };
+		0FF4AA8D26A4E97300EEEDBF /* EventSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F692665587600E04777 /* EventSummaryView.swift */; };
+		0FF4AA8E26A4E98200EEEDBF /* TVFocusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F6D2667251400E04777 /* TVFocusable.swift */; };
+		0FF4AA8F26A4E99100EEEDBF /* FocusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F722667373500E04777 /* FocusState.swift */; };
+		0FF4AA9026A4E99C00EEEDBF /* RuntimeOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F745441266891BE00DEB3F1 /* RuntimeOS.swift */; };
+		0FF4AA9126A4E9BD00EEEDBF /* RoundFilledButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F74544B2669642200DEB3F1 /* RoundFilledButtonStyle.swift */; };
+		0FF4AA9226A4E9D300EEEDBF /* Image+CenterCropped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F23910B2686CE2D007461F9 /* Image+CenterCropped.swift */; };
+		0FF4AA9426A4EA2800EEEDBF /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 0FF4AA9326A4EA2800EEEDBF /* Logging */; };
+		0FF4AA9626A4EA2800EEEDBF /* FetchImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0FF4AA9526A4EA2800EEEDBF /* FetchImage */; };
+		0FF4AA9726A4EA6800EEEDBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6A05012658A1E10050439D /* Assets.xcassets */; };
+		0FF4AA9826A4F3E100EEEDBF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05002658A1DE0050439D /* Persistence.swift */; };
+		0FF4AA9926A4F3F500EEEDBF /* CoffApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FC2658A1DE0050439D /* CoffApp.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -284,6 +315,27 @@
 			remoteGlobalIDString = 0FE9C438269E8E970079613E;
 			remoteInfo = TheCoffeeWidgetExtensionMacExtension;
 		};
+		0FF4AA6126A4E78300EEEDBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F6A04F72658A1DE0050439D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0FF4AA4926A4E78200EEEDBF;
+			remoteInfo = TheCoffeeAppClip;
+		};
+		0FF4AA6C26A4E78300EEEDBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F6A04F72658A1DE0050439D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0FF4AA4926A4E78200EEEDBF;
+			remoteInfo = TheCoffeeAppClip;
+		};
+		0FF4AA7226A4E78300EEEDBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F6A04F72658A1DE0050439D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0FF4AA4926A4E78200EEEDBF;
+			remoteInfo = TheCoffeeAppClip;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -338,6 +390,17 @@
 				0FE9C448269E8E980079613E /* TheCoffeeWidgetExtensionMacExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0FF4AA7526A4E78300EEEDBF /* Embed App Clips */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/AppClips";
+			dstSubfolderSpec = 16;
+			files = (
+				0FF4AA7426A4E78300EEEDBF /* TheCoffeeAppClip.app in Embed App Clips */,
+			);
+			name = "Embed App Clips";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -440,6 +503,18 @@
 		0FE9C442269E8E980079613E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FE9C443269E8E980079613E /* TheCoffeeWidgetExtensionMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheCoffeeWidgetExtensionMac.entitlements; sourceTree = "<group>"; };
 		0FE9C463269E907A0079613E /* Image+Data-Mac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Data-Mac.swift"; sourceTree = "<group>"; };
+		0FF4AA4A26A4E78200EEEDBF /* TheCoffeeAppClip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheCoffeeAppClip.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FF4AA4C26A4E78200EEEDBF /* TheCoffeeAppClipApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCoffeeAppClipApp.swift; sourceTree = "<group>"; };
+		0FF4AA5326A4E78300EEEDBF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0FF4AA5826A4E78300EEEDBF /* TheCoffeeAppClip.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheCoffeeAppClip.xcdatamodel; sourceTree = "<group>"; };
+		0FF4AA5A26A4E78300EEEDBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0FF4AA5B26A4E78300EEEDBF /* TheCoffeeAppClip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheCoffeeAppClip.entitlements; sourceTree = "<group>"; };
+		0FF4AA6026A4E78300EEEDBF /* TheCoffeeAppClipTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheCoffeeAppClipTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FF4AA6426A4E78300EEEDBF /* TheCoffeeAppClipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCoffeeAppClipTests.swift; sourceTree = "<group>"; };
+		0FF4AA6626A4E78300EEEDBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0FF4AA6B26A4E78300EEEDBF /* TheCoffeeAppClipUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheCoffeeAppClipUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FF4AA6F26A4E78300EEEDBF /* TheCoffeeAppClipUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCoffeeAppClipUITests.swift; sourceTree = "<group>"; };
+		0FF4AA7126A4E78300EEEDBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FF5652D2684311600C8E02C /* CoffApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoffApp.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -558,6 +633,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0FF4AA4726A4E78200EEEDBF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FF4AA9426A4EA2800EEEDBF /* Logging in Frameworks */,
+				0FF4AA9626A4EA2800EEEDBF /* FetchImage in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0FF4AA5D26A4E78300EEEDBF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0FF4AA6826A4E78300EEEDBF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -632,6 +730,9 @@
 				0F49A4482679AC5100B62CC4 /* TheCoffeeWidget */,
 				0FA20C2A26955679007F595F /* api-tool */,
 				0FE9C43C269E8E970079613E /* TheCoffeeWidgetExtensionMac */,
+				0FF4AA4B26A4E78200EEEDBF /* TheCoffeeAppClip */,
+				0FF4AA6326A4E78300EEEDBF /* TheCoffeeAppClipTests */,
+				0FF4AA6E26A4E78300EEEDBF /* TheCoffeeAppClipUITests */,
 				0F6A05072658A1E10050439D /* Products */,
 				0F6A05E12658AEA80050439D /* Frameworks */,
 			);
@@ -676,6 +777,9 @@
 				0F49A4432679AC5100B62CC4 /* TheCoffeeWidgetExtension.appex */,
 				0FA20C2926955679007F595F /* api-tool */,
 				0FE9C439269E8E970079613E /* TheCoffeeWidgetExtensionMacExtension.appex */,
+				0FF4AA4A26A4E78200EEEDBF /* TheCoffeeAppClip.app */,
+				0FF4AA6026A4E78300EEEDBF /* TheCoffeeAppClipTests.xctest */,
+				0FF4AA6B26A4E78300EEEDBF /* TheCoffeeAppClipUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -865,6 +969,44 @@
 			path = TheCoffeeWidgetExtensionMac;
 			sourceTree = "<group>";
 		};
+		0FF4AA4B26A4E78200EEEDBF /* TheCoffeeAppClip */ = {
+			isa = PBXGroup;
+			children = (
+				0FF4AA4C26A4E78200EEEDBF /* TheCoffeeAppClipApp.swift */,
+				0FF4AA5A26A4E78300EEEDBF /* Info.plist */,
+				0FF4AA5B26A4E78300EEEDBF /* TheCoffeeAppClip.entitlements */,
+				0FF4AA5726A4E78300EEEDBF /* TheCoffeeAppClip.xcdatamodeld */,
+				0FF4AA5226A4E78300EEEDBF /* Preview Content */,
+			);
+			path = TheCoffeeAppClip;
+			sourceTree = "<group>";
+		};
+		0FF4AA5226A4E78300EEEDBF /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				0FF4AA5326A4E78300EEEDBF /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0FF4AA6326A4E78300EEEDBF /* TheCoffeeAppClipTests */ = {
+			isa = PBXGroup;
+			children = (
+				0FF4AA6426A4E78300EEEDBF /* TheCoffeeAppClipTests.swift */,
+				0FF4AA6626A4E78300EEEDBF /* Info.plist */,
+			);
+			path = TheCoffeeAppClipTests;
+			sourceTree = "<group>";
+		};
+		0FF4AA6E26A4E78300EEEDBF /* TheCoffeeAppClipUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0FF4AA6F26A4E78300EEEDBF /* TheCoffeeAppClipUITests.swift */,
+				0FF4AA7126A4E78300EEEDBF /* Info.plist */,
+			);
+			path = TheCoffeeAppClipUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -916,11 +1058,13 @@
 				0F6A05032658A1E10050439D /* Frameworks */,
 				0F6A05042658A1E10050439D /* Resources */,
 				0F49A4542679AC5400B62CC4 /* Embed App Extensions */,
+				0FF4AA7526A4E78300EEEDBF /* Embed App Clips */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				0F49A4522679AC5400B62CC4 /* PBXTargetDependency */,
+				0FF4AA7326A4E78300EEEDBF /* PBXTargetDependency */,
 			);
 			name = "CoffApp (iOS)";
 			packageProductDependencies = (
@@ -1179,6 +1323,63 @@
 			productReference = 0FE9C439269E8E970079613E /* TheCoffeeWidgetExtensionMacExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		0FF4AA4926A4E78200EEEDBF /* TheCoffeeAppClip */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0FF4AA7C26A4E78300EEEDBF /* Build configuration list for PBXNativeTarget "TheCoffeeAppClip" */;
+			buildPhases = (
+				0FF4AA4626A4E78200EEEDBF /* Sources */,
+				0FF4AA4726A4E78200EEEDBF /* Frameworks */,
+				0FF4AA4826A4E78200EEEDBF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TheCoffeeAppClip;
+			packageProductDependencies = (
+				0FF4AA9326A4EA2800EEEDBF /* Logging */,
+				0FF4AA9526A4EA2800EEEDBF /* FetchImage */,
+			);
+			productName = TheCoffeeAppClip;
+			productReference = 0FF4AA4A26A4E78200EEEDBF /* TheCoffeeAppClip.app */;
+			productType = "com.apple.product-type.application.on-demand-install-capable";
+		};
+		0FF4AA5F26A4E78300EEEDBF /* TheCoffeeAppClipTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0FF4AA7D26A4E78300EEEDBF /* Build configuration list for PBXNativeTarget "TheCoffeeAppClipTests" */;
+			buildPhases = (
+				0FF4AA5C26A4E78300EEEDBF /* Sources */,
+				0FF4AA5D26A4E78300EEEDBF /* Frameworks */,
+				0FF4AA5E26A4E78300EEEDBF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0FF4AA6226A4E78300EEEDBF /* PBXTargetDependency */,
+			);
+			name = TheCoffeeAppClipTests;
+			productName = TheCoffeeAppClipTests;
+			productReference = 0FF4AA6026A4E78300EEEDBF /* TheCoffeeAppClipTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0FF4AA6A26A4E78300EEEDBF /* TheCoffeeAppClipUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0FF4AA7E26A4E78300EEEDBF /* Build configuration list for PBXNativeTarget "TheCoffeeAppClipUITests" */;
+			buildPhases = (
+				0FF4AA6726A4E78300EEEDBF /* Sources */,
+				0FF4AA6826A4E78300EEEDBF /* Frameworks */,
+				0FF4AA6926A4E78300EEEDBF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0FF4AA6D26A4E78300EEEDBF /* PBXTargetDependency */,
+			);
+			name = TheCoffeeAppClipUITests;
+			productName = TheCoffeeAppClipUITests;
+			productReference = 0FF4AA6B26A4E78300EEEDBF /* TheCoffeeAppClipUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1243,6 +1444,17 @@
 					0FE9C438269E8E970079613E = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
+					0FF4AA4926A4E78200EEEDBF = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					0FF4AA5F26A4E78300EEEDBF = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 0FF4AA4926A4E78200EEEDBF;
+					};
+					0FF4AA6A26A4E78300EEEDBF = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 0FF4AA4926A4E78200EEEDBF;
+					};
 				};
 			};
 			buildConfigurationList = 0F6A04FA2658A1DE0050439D /* Build configuration list for PBXProject "CoffApp" */;
@@ -1278,6 +1490,9 @@
 				0F49A4422679AC5100B62CC4 /* TheCoffeeWidgetExtension */,
 				0FA20C2826955679007F595F /* api-tool */,
 				0FE9C438269E8E970079613E /* TheCoffeeWidgetExtensionMacExtension */,
+				0FF4AA4926A4E78200EEEDBF /* TheCoffeeAppClip */,
+				0FF4AA5F26A4E78300EEEDBF /* TheCoffeeAppClipTests */,
+				0FF4AA6A26A4E78300EEEDBF /* TheCoffeeAppClipUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -1396,6 +1611,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FE9C441269E8E980079613E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0FF4AA4826A4E78200EEEDBF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FF4AA5426A4E78300EEEDBF /* Preview Assets.xcassets in Resources */,
+				0FF4AA9726A4EA6800EEEDBF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0FF4AA5E26A4E78300EEEDBF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0FF4AA6926A4E78300EEEDBF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1716,6 +1954,53 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0FF4AA4626A4E78200EEEDBF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FF4AA8826A4E93400EEEDBF /* NetworkState.swift in Sources */,
+				0FF4AA8226A4E8E600EEEDBF /* Group.swift in Sources */,
+				0FF4AA9126A4E9BD00EEEDBF /* RoundFilledButtonStyle.swift in Sources */,
+				0FF4AA8726A4E8E600EEEDBF /* Venue.swift in Sources */,
+				0FF4AA8626A4E8E600EEEDBF /* Event.swift in Sources */,
+				0FF4AA8E26A4E98200EEEDBF /* TVFocusable.swift in Sources */,
+				0FF4AA8026A4E8DA00EEEDBF /* NetworkService.swift in Sources */,
+				0FF4AA8C26A4E96400EEEDBF /* EventDetailView.swift in Sources */,
+				0FF4AA8A26A4E95300EEEDBF /* UserDefaultKeys.swift in Sources */,
+				0FF4AA9826A4F3E100EEEDBF /* Persistence.swift in Sources */,
+				0FF4AA8F26A4E99100EEEDBF /* FocusState.swift in Sources */,
+				0FF4AA9226A4E9D300EEEDBF /* Image+CenterCropped.swift in Sources */,
+				0FF4AA8B26A4E95E00EEEDBF /* EventListView.swift in Sources */,
+				0FF4AA4D26A4E78200EEEDBF /* TheCoffeeAppClipApp.swift in Sources */,
+				0FF4AA8426A4E8E600EEEDBF /* Location.swift in Sources */,
+				0FF4AA7F26A4E8CD00EEEDBF /* ContentView.swift in Sources */,
+				0FF4AA9026A4E99C00EEEDBF /* RuntimeOS.swift in Sources */,
+				0FF4AA8D26A4E97300EEEDBF /* EventSummaryView.swift in Sources */,
+				0FF4AA8526A4E8E600EEEDBF /* Location+Directions.swift in Sources */,
+				0FF4AA9926A4F3F500EEEDBF /* CoffApp.xcdatamodeld in Sources */,
+				0FF4AA5926A4E78300EEEDBF /* TheCoffeeAppClip.xcdatamodeld in Sources */,
+				0FF4AA8326A4E8E600EEEDBF /* Group+Selection.swift in Sources */,
+				0FF4AA8126A4E8E600EEEDBF /* Groups.swift in Sources */,
+				0FF4AA8926A4E95300EEEDBF /* UserDefaults+AppSuite.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0FF4AA5C26A4E78300EEEDBF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FF4AA6526A4E78300EEEDBF /* TheCoffeeAppClipTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0FF4AA6726A4E78300EEEDBF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FF4AA7026A4E78300EEEDBF /* TheCoffeeAppClipUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1778,6 +2063,21 @@
 			isa = PBXTargetDependency;
 			target = 0FE9C438269E8E970079613E /* TheCoffeeWidgetExtensionMacExtension */;
 			targetProxy = 0FE9C446269E8E980079613E /* PBXContainerItemProxy */;
+		};
+		0FF4AA6226A4E78300EEEDBF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0FF4AA4926A4E78200EEEDBF /* TheCoffeeAppClip */;
+			targetProxy = 0FF4AA6126A4E78300EEEDBF /* PBXContainerItemProxy */;
+		};
+		0FF4AA6D26A4E78300EEEDBF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0FF4AA4926A4E78200EEEDBF /* TheCoffeeAppClip */;
+			targetProxy = 0FF4AA6C26A4E78300EEEDBF /* PBXContainerItemProxy */;
+		};
+		0FF4AA7326A4E78300EEEDBF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0FF4AA4926A4E78200EEEDBF /* TheCoffeeAppClip */;
+			targetProxy = 0FF4AA7226A4E78300EEEDBF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2622,6 +2922,147 @@
 			};
 			name = Release;
 		};
+		0FF4AA7626A4E78300EEEDBF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TheCoffeeAppClip/TheCoffeeAppClip.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"TheCoffeeAppClip/Preview Content\"";
+				DEVELOPMENT_TEAM = FS69ZZRN45;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = TheCoffeeAppClip/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.espresso.Clip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0FF4AA7726A4E78300EEEDBF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TheCoffeeAppClip/TheCoffeeAppClip.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"TheCoffeeAppClip/Preview Content\"";
+				DEVELOPMENT_TEAM = FS69ZZRN45;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = TheCoffeeAppClip/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.espresso.Clip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0FF4AA7826A4E78300EEEDBF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FS69ZZRN45;
+				INFOPLIST_FILE = TheCoffeeAppClipTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.espresso.TheCoffeeAppClipTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheCoffeeAppClip.app/TheCoffeeAppClip";
+			};
+			name = Debug;
+		};
+		0FF4AA7926A4E78300EEEDBF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FS69ZZRN45;
+				INFOPLIST_FILE = TheCoffeeAppClipTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.espresso.TheCoffeeAppClipTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheCoffeeAppClip.app/TheCoffeeAppClip";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0FF4AA7A26A4E78300EEEDBF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FS69ZZRN45;
+				INFOPLIST_FILE = TheCoffeeAppClipUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.espresso.TheCoffeeAppClipUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TheCoffeeAppClip;
+			};
+			name = Debug;
+		};
+		0FF4AA7B26A4E78300EEEDBF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FS69ZZRN45;
+				INFOPLIST_FILE = TheCoffeeAppClipUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.espresso.TheCoffeeAppClipUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TheCoffeeAppClip;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2778,6 +3219,33 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		0FF4AA7C26A4E78300EEEDBF /* Build configuration list for PBXNativeTarget "TheCoffeeAppClip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0FF4AA7626A4E78300EEEDBF /* Debug */,
+				0FF4AA7726A4E78300EEEDBF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0FF4AA7D26A4E78300EEEDBF /* Build configuration list for PBXNativeTarget "TheCoffeeAppClipTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0FF4AA7826A4E78300EEEDBF /* Debug */,
+				0FF4AA7926A4E78300EEEDBF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0FF4AA7E26A4E78300EEEDBF /* Build configuration list for PBXNativeTarget "TheCoffeeAppClipUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0FF4AA7A26A4E78300EEEDBF /* Debug */,
+				0FF4AA7B26A4E78300EEEDBF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -2860,6 +3328,16 @@
 			package = 0FD69B732658DC29007EC696 /* XCRemoteSwiftPackageReference "FetchImage" */;
 			productName = FetchImage;
 		};
+		0FF4AA9326A4EA2800EEEDBF /* Logging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F6A05DE2658ADF80050439D /* XCRemoteSwiftPackageReference "swift-log" */;
+			productName = Logging;
+		};
+		0FF4AA9526A4EA2800EEEDBF /* FetchImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0FD69B732658DC29007EC696 /* XCRemoteSwiftPackageReference "FetchImage" */;
+			productName = FetchImage;
+		};
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
@@ -2880,6 +3358,16 @@
 			);
 			currentVersion = 0F6A05522658A2250050439D /* CoffApp.xcdatamodel */;
 			path = CoffApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		0FF4AA5726A4E78300EEEDBF /* TheCoffeeAppClip.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0FF4AA5826A4E78300EEEDBF /* TheCoffeeAppClip.xcdatamodel */,
+			);
+			currentVersion = 0FF4AA5826A4E78300EEEDBF /* TheCoffeeAppClip.xcdatamodel */;
+			path = TheCoffeeAppClip.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
