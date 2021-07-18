@@ -1,10 +1,3 @@
-//
-//  TheCoffeeAppClipTests.swift
-//  TheCoffeeAppClipTests
-//
-//  Created by Michael Critz on 7/18/21.
-//
-
 import XCTest
 @testable import TheCoffeeAppClip
 

@@ -1,10 +1,3 @@
-//
-//  TheCoffeeAppClipUITests.swift
-//  TheCoffeeAppClipUITests
-//
-//  Created by Michael Critz on 7/18/21.
-//
-
 import XCTest
 
 class TheCoffeeAppClipUITests: XCTestCase {
