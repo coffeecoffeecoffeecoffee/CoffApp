@@ -14,6 +14,17 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
+                #if os(iOS)
+                if networkService.netState != .ready
+                    && networkService.netState != .loading
+                    && UIDevice.current.userInterfaceIdiom != .pad {
+                    ErrorView(headline: "Network Error",
+                              description: networkService.netState.description,
+                              symbolName: "xmark.icloud")
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .padding()
+                }
+                #endif
                 ForEach(groups.groups) { group in
                     NavigationLink(group.name,
                                    destination: EventListView(group: group),
@@ -26,7 +37,10 @@ struct ContentView: View {
                 ProgressView(networkService.netState.description)
                     .frame(minWidth: 320, minHeight: 180)
             } else if networkService.netState != .ready {
-                Text(networkService.netState.description)
+                ErrorView(headline: "Network Error",
+                          description: networkService.netState.description,
+                          symbolName: "xmark.icloud")
+                    .padding()
             } else {
                 Text("Choose a group")
                     .font(.largeTitle)
