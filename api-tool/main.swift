@@ -1,7 +1,7 @@
 import Foundation
 
 struct ApiTool {
-    static var baseURL = URL(string: "https://coffeecoffeecoffee.coffee/api/")!
+    static var baseURL = URL(string: "https://www.coffeecoffeecoffee.coffee/api/")!
     static var groupsURL = { baseURL.appendingPathComponent("groups/") }
     static func url(for group: Group) -> URL {
         groupsURL().appendingPathComponent(group.id.uuidString)

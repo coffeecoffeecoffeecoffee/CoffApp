@@ -3,9 +3,9 @@ import SwiftUI
 import Foundation
 
 final class Groups: ObservableObject {
-    @Published var groups: [Group] = []
+    @Published var groups: [InterestGroup] = []
     @Published var selectedGroupName: String?
-    @Published var selectedGroup: Group?
+    @Published var selectedGroup: InterestGroup?
     @Published var state: NetworkState = .loading
 
     var net = NetworkService()

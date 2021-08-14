@@ -14,15 +14,16 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
+                // This is needed only for iOS because the source side
+                // of List is sometimes the only view visible on iPhone
                 #if os(iOS)
                 if networkService.netState != .ready
                     && networkService.netState != .loading
                     && UIDevice.current.userInterfaceIdiom != .pad {
-                    ErrorView(headline: "Network Error",
-                              description: networkService.netState.description,
-                              symbolName: "xmark.icloud")
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .padding()
+                    StatusView()
+                        .frame(maxWidth: .infinity,
+                               maxHeight: .infinity)
+                        .padding()
                 }
                 #endif
                 ForEach(groups.groups) { group in
@@ -33,15 +34,17 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("The Coffee")
-            if groups.state == .loading {
+            switch groups.state {
+            case .loading:
                 ProgressView(networkService.netState.description)
                     .frame(minWidth: 320, minHeight: 180)
-            } else if networkService.netState != .ready {
-                ErrorView(headline: "Network Error",
-                          description: networkService.netState.description,
-                          symbolName: "xmark.icloud")
+            case .failed(let error):
+                let errorViewModel = StatusViewModel(headline: "Network Error",
+                                                     description: error.localizedDescription,
+                                                     symbolName: "xmark.icloud")
+                StatusView(errorViewModel)
                     .padding()
-            } else {
+            default:
                 Text("Choose a group")
                     .font(.largeTitle)
             }
@@ -59,11 +62,11 @@ struct ContentView: View {
             networkService.loadGroups()
         }
         .onContinueUserActivity(ContentView.contentGroupUserActivityType) { resumeActivity in
-            logger.info("CONTINUE: \(resumeActivity.activityType)")
-            guard let resumedGroup = try? resumeActivity.typedPayload(Group.self) else {
+            logger.debug("CONTINUE: \(resumeActivity.activityType)")
+            guard let resumedGroup = try? resumeActivity.typedPayload(InterestGroup.self) else {
                 return
             }
-            logger.info("GOT \(resumedGroup.name)")
+            logger.debug("GOT \(resumedGroup.name)")
             groups.select(resumedGroup.name)
         }
     }
@@ -71,8 +74,8 @@ struct ContentView: View {
 
 extension ContentView {
     func describeUserActivity(_ userActivity: NSUserActivity) {
-        let nextGroup: Group?
-        if let activityGroup = try? userActivity.typedPayload(Group.self) {
+        let nextGroup: InterestGroup?
+        if let activityGroup = try? userActivity.typedPayload(InterestGroup.self) {
             nextGroup = activityGroup
         } else {
             nextGroup = groups.selectedGroup

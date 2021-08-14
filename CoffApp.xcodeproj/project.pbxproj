@@ -51,7 +51,7 @@
 		0F49A45C2679AC8D00B62CC4 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05D62658A9EC0050439D /* Venue.swift */; };
 		0F49A45D2679AC8D00B62CC4 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05DA2658AA050050439D /* Location.swift */; };
 		0F49A45E2679AC8D00B62CC4 /* FocusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F722667373500E04777 /* FocusState.swift */; };
-		0F49A45F2679AC8D00B62CC4 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05CD2658A9020050439D /* Group.swift */; };
+		0F49A45F2679AC8D00B62CC4 /* InterestGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05CD2658A9020050439D /* InterestGroup.swift */; };
 		0F49A4602679AC8D00B62CC4 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05D22658A9460050439D /* Event.swift */; };
 		0F49A4612679AC8D00B62CC4 /* NetworkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05E92658B2010050439D /* NetworkState.swift */; };
 		0F49A4632679ACEA00B62CC4 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 0F49A4622679ACEA00B62CC4 /* Logging */; };
@@ -79,9 +79,9 @@
 		0F6A05C82658A4350050439D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05C72658A4350050439D /* NetworkService.swift */; };
 		0F6A05C92658A4350050439D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05C72658A4350050439D /* NetworkService.swift */; };
 		0F6A05CA2658A4350050439D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05C72658A4350050439D /* NetworkService.swift */; };
-		0F6A05CE2658A9020050439D /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05CD2658A9020050439D /* Group.swift */; };
-		0F6A05CF2658A9020050439D /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05CD2658A9020050439D /* Group.swift */; };
-		0F6A05D02658A9020050439D /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05CD2658A9020050439D /* Group.swift */; };
+		0F6A05CE2658A9020050439D /* InterestGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05CD2658A9020050439D /* InterestGroup.swift */; };
+		0F6A05CF2658A9020050439D /* InterestGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05CD2658A9020050439D /* InterestGroup.swift */; };
+		0F6A05D02658A9020050439D /* InterestGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05CD2658A9020050439D /* InterestGroup.swift */; };
 		0F6A05D32658A9460050439D /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05D22658A9460050439D /* Event.swift */; };
 		0F6A05D42658A9460050439D /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05D22658A9460050439D /* Event.swift */; };
 		0F6A05D52658A9460050439D /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05D22658A9460050439D /* Event.swift */; };
@@ -108,6 +108,26 @@
 		0F745451266C031700DEB3F1 /* Image+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F745450266C031700DEB3F1 /* Image+Data.swift */; };
 		0F745453266C031700DEB3F1 /* Image+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F745450266C031700DEB3F1 /* Image+Data.swift */; };
 		0F745454266C031700DEB3F1 /* Image+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F745450266C031700DEB3F1 /* Image+Data.swift */; };
+		0F8293B726C72D88008BBA76 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293B626C72D88008BBA76 /* StatusViewModel.swift */; };
+		0F8293B826C72D88008BBA76 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293B626C72D88008BBA76 /* StatusViewModel.swift */; };
+		0F8293B926C72D88008BBA76 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293B626C72D88008BBA76 /* StatusViewModel.swift */; };
+		0F8293BA26C72D88008BBA76 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293B626C72D88008BBA76 /* StatusViewModel.swift */; };
+		0F8293BB26C72D88008BBA76 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293B626C72D88008BBA76 /* StatusViewModel.swift */; };
+		0F8293BD26C72F0E008BBA76 /* URL+AppURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293BC26C72F0E008BBA76 /* URL+AppURLs.swift */; };
+		0F8293BE26C72F0E008BBA76 /* URL+AppURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293BC26C72F0E008BBA76 /* URL+AppURLs.swift */; };
+		0F8293BF26C72F0E008BBA76 /* URL+AppURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293BC26C72F0E008BBA76 /* URL+AppURLs.swift */; };
+		0F8293C026C72F0E008BBA76 /* URL+AppURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293BC26C72F0E008BBA76 /* URL+AppURLs.swift */; };
+		0F8293C126C72F0E008BBA76 /* URL+AppURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293BC26C72F0E008BBA76 /* URL+AppURLs.swift */; };
+		0F8293C226C732DC008BBA76 /* URL+AppURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293BC26C72F0E008BBA76 /* URL+AppURLs.swift */; };
+		0F8293C426C73347008BBA76 /* TestURL+AppURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293C326C73347008BBA76 /* TestURL+AppURLs.swift */; };
+		0F8293C526C73347008BBA76 /* TestURL+AppURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293C326C73347008BBA76 /* TestURL+AppURLs.swift */; };
+		0F8293C626C8172C008BBA76 /* Image+CenterCropped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F23910B2686CE2D007461F9 /* Image+CenterCropped.swift */; };
+		0F8293C726C81730008BBA76 /* URL+AppURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293BC26C72F0E008BBA76 /* URL+AppURLs.swift */; };
+		0F8293C926C81A5D008BBA76 /* URL+AppURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293BC26C72F0E008BBA76 /* URL+AppURLs.swift */; };
+		0F8293CA26C81A5E008BBA76 /* URL+AppURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293BC26C72F0E008BBA76 /* URL+AppURLs.swift */; };
+		0F8293CD26C81A6D008BBA76 /* URL+AppURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293BC26C72F0E008BBA76 /* URL+AppURLs.swift */; };
+		0F8293CF26C81A71008BBA76 /* URL+AppURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293BC26C72F0E008BBA76 /* URL+AppURLs.swift */; };
+		0F8293D026C81A72008BBA76 /* URL+AppURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293BC26C72F0E008BBA76 /* URL+AppURLs.swift */; };
 		0FA09F142661FE5700E04777 /* CoffUp (watchOS) WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0FA09F132661FE5700E04777 /* CoffUp (watchOS) WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0FA09F192661FE5800E04777 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA09F182661FE5800E04777 /* Assets.xcassets */; };
 		0FA09F202661FE5800E04777 /* CoffUp (watchOS) WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0FA09F1F2661FE5800E04777 /* CoffUp (watchOS) WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -123,7 +143,7 @@
 		0FA09F5C2661FEE700E04777 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05D62658A9EC0050439D /* Venue.swift */; };
 		0FA09F5D2661FEE700E04777 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05D22658A9460050439D /* Event.swift */; };
 		0FA09F5E2661FEE700E04777 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05DA2658AA050050439D /* Location.swift */; };
-		0FA09F5F2661FEE700E04777 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05CD2658A9020050439D /* Group.swift */; };
+		0FA09F5F2661FEE700E04777 /* InterestGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05CD2658A9020050439D /* InterestGroup.swift */; };
 		0FA09F602661FEEF00E04777 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05C72658A4350050439D /* NetworkService.swift */; };
 		0FA09F612661FEEF00E04777 /* NetworkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05E92658B2010050439D /* NetworkState.swift */; };
 		0FA09F632661FF7000E04777 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 0FA09F622661FF7000E04777 /* Logging */; };
@@ -141,7 +161,7 @@
 		0FA09F752667373500E04777 /* FocusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F722667373500E04777 /* FocusState.swift */; };
 		0FA09F762667374C00E04777 /* FocusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F722667373500E04777 /* FocusState.swift */; };
 		0FA20C2C26955679007F595F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C2B26955679007F595F /* main.swift */; };
-		0FA20C302695568A007F595F /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05CD2658A9020050439D /* Group.swift */; };
+		0FA20C302695568A007F595F /* InterestGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05CD2658A9020050439D /* InterestGroup.swift */; };
 		0FA20C322695568A007F595F /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05D62658A9EC0050439D /* Venue.swift */; };
 		0FA20C332695568A007F595F /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05DA2658AA050050439D /* Location.swift */; };
 		0FA20C342695568A007F595F /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05D22658A9460050439D /* Event.swift */; };
@@ -168,11 +188,11 @@
 		0FD69B752658DC29007EC696 /* FetchImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0FD69B742658DC29007EC696 /* FetchImage */; };
 		0FD69B772658DC3B007EC696 /* FetchImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0FD69B762658DC3B007EC696 /* FetchImage */; };
 		0FD69B792658DC42007EC696 /* FetchImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0FD69B782658DC42007EC696 /* FetchImage */; };
-		0FDB46BB26A685860085AB5B /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB46BA26A685860085AB5B /* ErrorView.swift */; };
-		0FDB46BC26A685860085AB5B /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB46BA26A685860085AB5B /* ErrorView.swift */; };
-		0FDB46BD26A685860085AB5B /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB46BA26A685860085AB5B /* ErrorView.swift */; };
-		0FDB46BE26A685860085AB5B /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB46BA26A685860085AB5B /* ErrorView.swift */; };
-		0FDB46BF26A685860085AB5B /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB46BA26A685860085AB5B /* ErrorView.swift */; };
+		0FDB46BB26A685860085AB5B /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB46BA26A685860085AB5B /* StatusView.swift */; };
+		0FDB46BC26A685860085AB5B /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB46BA26A685860085AB5B /* StatusView.swift */; };
+		0FDB46BD26A685860085AB5B /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB46BA26A685860085AB5B /* StatusView.swift */; };
+		0FDB46BE26A685860085AB5B /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB46BA26A685860085AB5B /* StatusView.swift */; };
+		0FDB46BF26A685860085AB5B /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB46BA26A685860085AB5B /* StatusView.swift */; };
 		0FE9C43A269E8E970079613E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F49A4442679AC5100B62CC4 /* WidgetKit.framework */; };
 		0FE9C43B269E8E970079613E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F49A4462679AC5100B62CC4 /* SwiftUI.framework */; };
 		0FE9C441269E8E980079613E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FE9C440269E8E980079613E /* Assets.xcassets */; };
@@ -191,7 +211,7 @@
 		0FE9C458269E8FB00079613E /* TheCoffeeWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A4492679AC5100B62CC4 /* TheCoffeeWidget.swift */; };
 		0FE9C459269E8FB40079613E /* EventProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2391042686CD8A007461F9 /* EventProvider.swift */; };
 		0FE9C45A269E8FB70079613E /* EventEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2391072686CDBD007461F9 /* EventEntry.swift */; };
-		0FE9C45B269E8FEC0079613E /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05CD2658A9020050439D /* Group.swift */; };
+		0FE9C45B269E8FEC0079613E /* InterestGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05CD2658A9020050439D /* InterestGroup.swift */; };
 		0FE9C45C269E8FF00079613E /* Group+Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C3726956445007F595F /* Group+Selection.swift */; };
 		0FE9C45D269E8FF50079613E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05D22658A9460050439D /* Event.swift */; };
 		0FE9C45E269E8FF80079613E /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05D62658A9EC0050439D /* Venue.swift */; };
@@ -200,7 +220,6 @@
 		0FE9C461269E90020079613E /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3DB26770F0400B62CC4 /* Groups.swift */; };
 		0FE9C462269E901F0079613E /* Image+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F745450266C031700DEB3F1 /* Image+Data.swift */; };
 		0FE9C464269E90F70079613E /* Image+Data-Mac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE9C463269E907A0079613E /* Image+Data-Mac.swift */; };
-		0FE9C465269E91240079613E /* Image+CenterCropped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F23910B2686CE2D007461F9 /* Image+CenterCropped.swift */; };
 		0FE9C466269E92620079613E /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D02675189900B62CC4 /* ImageCache.swift */; };
 		0FF4AA4D26A4E78200EEEDBF /* TheCoffeeAppClipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF4AA4C26A4E78200EEEDBF /* TheCoffeeAppClipApp.swift */; };
 		0FF4AA5426A4E78300EEEDBF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FF4AA5326A4E78300EEEDBF /* Preview Assets.xcassets */; };
@@ -211,7 +230,7 @@
 		0FF4AA7F26A4E8CD00EEEDBF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FF2658A1DE0050439D /* ContentView.swift */; };
 		0FF4AA8026A4E8DA00EEEDBF /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05C72658A4350050439D /* NetworkService.swift */; };
 		0FF4AA8126A4E8E600EEEDBF /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3DB26770F0400B62CC4 /* Groups.swift */; };
-		0FF4AA8226A4E8E600EEEDBF /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05CD2658A9020050439D /* Group.swift */; };
+		0FF4AA8226A4E8E600EEEDBF /* InterestGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05CD2658A9020050439D /* InterestGroup.swift */; };
 		0FF4AA8326A4E8E600EEEDBF /* Group+Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C3726956445007F595F /* Group+Selection.swift */; };
 		0FF4AA8426A4E8E600EEEDBF /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05DA2658AA050050439D /* Location.swift */; };
 		0FF4AA8526A4E8E600EEEDBF /* Location+Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C4026956598007F595F /* Location+Directions.swift */; };
@@ -463,7 +482,7 @@
 		0F6A05AE2658A2490050439D /* CoffAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffAppUITests.swift; sourceTree = "<group>"; };
 		0F6A05B02658A2490050439D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F6A05C72658A4350050439D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		0F6A05CD2658A9020050439D /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		0F6A05CD2658A9020050439D /* InterestGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestGroup.swift; sourceTree = "<group>"; };
 		0F6A05D22658A9460050439D /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		0F6A05D62658A9EC0050439D /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		0F6A05DA2658AA050050439D /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -471,6 +490,9 @@
 		0F745441266891BE00DEB3F1 /* RuntimeOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeOS.swift; sourceTree = "<group>"; };
 		0F74544B2669642200DEB3F1 /* RoundFilledButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundFilledButtonStyle.swift; sourceTree = "<group>"; };
 		0F745450266C031700DEB3F1 /* Image+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Data.swift"; sourceTree = "<group>"; };
+		0F8293B626C72D88008BBA76 /* StatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
+		0F8293BC26C72F0E008BBA76 /* URL+AppURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+AppURLs.swift"; sourceTree = "<group>"; };
+		0F8293C326C73347008BBA76 /* TestURL+AppURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestURL+AppURLs.swift"; sourceTree = "<group>"; };
 		0FA09F102661FE5700E04777 /* The Coffee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Coffee.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FA09F132661FE5700E04777 /* CoffUp (watchOS) WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CoffUp (watchOS) WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FA09F182661FE5800E04777 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -501,7 +523,7 @@
 		0FA20C4026956598007F595F /* Location+Directions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+Directions.swift"; sourceTree = "<group>"; };
 		0FD69B6B2658D35B007EC696 /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
 		0FD69B6F2658DABD007EC696 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
-		0FDB46BA26A685860085AB5B /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		0FDB46BA26A685860085AB5B /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		0FE9C439269E8E970079613E /* TheCoffeeWidgetExtensionMacExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TheCoffeeWidgetExtensionMacExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FE9C43D269E8E970079613E /* TheCoffeeWidgetExtensionMac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCoffeeWidgetExtensionMac.swift; sourceTree = "<group>"; };
 		0FE9C43F269E8E970079613E /* TheCoffeeWidgetExtensionMac.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = TheCoffeeWidgetExtensionMac.intentdefinition; sourceTree = "<group>"; };
@@ -669,6 +691,7 @@
 			isa = PBXGroup;
 			children = (
 				0F23910B2686CE2D007461F9 /* Image+CenterCropped.swift */,
+				0F8293BC26C72F0E008BBA76 /* URL+AppURLs.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -747,6 +770,7 @@
 		0F6A04FB2658A1DE0050439D /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				0F8293B426C72D65008BBA76 /* Components */,
 				0F23910A2686CDFF007461F9 /* Extensions */,
 				0F6A04FE2658A1DE0050439D /* CoffAppApp.swift */,
 				0FD69B6A2658D338007EC696 /* Views */,
@@ -812,6 +836,7 @@
 			children = (
 				0F6A051A2658A1E10050439D /* TestsiOS.swift */,
 				0F6A051C2658A1E10050439D /* Info.plist */,
+				0F8293C326C73347008BBA76 /* TestURL+AppURLs.swift */,
 			);
 			path = "Tests iOS";
 			sourceTree = "<group>";
@@ -868,7 +893,7 @@
 		0F6A05D12658A9330050439D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0F6A05CD2658A9020050439D /* Group.swift */,
+				0F6A05CD2658A9020050439D /* InterestGroup.swift */,
 				0FA20C3726956445007F595F /* Group+Selection.swift */,
 				0F6A05D22658A9460050439D /* Event.swift */,
 				0F6A05D62658A9EC0050439D /* Venue.swift */,
@@ -886,6 +911,23 @@
 				0F49A4462679AC5100B62CC4 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0F8293B426C72D65008BBA76 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0F8293B526C72D6D008BBA76 /* StatusView */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		0F8293B526C72D6D008BBA76 /* StatusView */ = {
+			isa = PBXGroup;
+			children = (
+				0FDB46BA26A685860085AB5B /* StatusView.swift */,
+				0F8293B626C72D88008BBA76 /* StatusViewModel.swift */,
+			);
+			path = StatusView;
 			sourceTree = "<group>";
 		};
 		0FA09F172661FE5700E04777 /* CoffUp (watchOS) WatchKit App */ = {
@@ -958,7 +1000,6 @@
 				0FA09F692665587600E04777 /* EventSummaryView.swift */,
 				0FA09F6D2667251400E04777 /* TVFocusable.swift */,
 				0F74544B2669642200DEB3F1 /* RoundFilledButtonStyle.swift */,
-				0FDB46BA26A685860085AB5B /* ErrorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1724,7 +1765,7 @@
 				0F2391062686CDAA007461F9 /* EventProvider.swift in Sources */,
 				0F49A45D2679AC8D00B62CC4 /* Location.swift in Sources */,
 				0F0B231B267FA68600AE7877 /* Image+Data.swift in Sources */,
-				0F49A45F2679AC8D00B62CC4 /* Group.swift in Sources */,
+				0F49A45F2679AC8D00B62CC4 /* InterestGroup.swift in Sources */,
 				0F2391172686CE75007461F9 /* PlaceholderView.swift in Sources */,
 				0F49A45A2679AC8D00B62CC4 /* RuntimeOS.swift in Sources */,
 				0F49A45C2679AC8D00B62CC4 /* Venue.swift in Sources */,
@@ -1733,6 +1774,7 @@
 				0FA20C4526956598007F595F /* Location+Directions.swift in Sources */,
 				0F49A44A2679AC5100B62CC4 /* TheCoffeeWidget.swift in Sources */,
 				0F49A45B2679AC8D00B62CC4 /* NetworkService.swift in Sources */,
+				0F8293C226C732DC008BBA76 /* URL+AppURLs.swift in Sources */,
 				0FA20C3C26956445007F595F /* Group+Selection.swift in Sources */,
 				0F2391102686CE2D007461F9 /* Image+CenterCropped.swift in Sources */,
 				0F0B231C267FA69000AE7877 /* ImageCache.swift in Sources */,
@@ -1752,7 +1794,8 @@
 				0FD69B6C2658D35B007EC696 /* EventListView.swift in Sources */,
 				0F6A05C82658A4350050439D /* NetworkService.swift in Sources */,
 				0F6A05D72658A9EC0050439D /* Venue.swift in Sources */,
-				0FDB46BB26A685860085AB5B /* ErrorView.swift in Sources */,
+				0FDB46BB26A685860085AB5B /* StatusView.swift in Sources */,
+				0F8293B726C72D88008BBA76 /* StatusViewModel.swift in Sources */,
 				0FA09F6A2665587600E04777 /* EventSummaryView.swift in Sources */,
 				0FA20C3826956445007F595F /* Group+Selection.swift in Sources */,
 				0F6A05282658A1E10050439D /* CoffApp.xcdatamodeld in Sources */,
@@ -1762,8 +1805,9 @@
 				0F6A05EA2658B2010050439D /* NetworkState.swift in Sources */,
 				0FA20C4126956598007F595F /* Location+Directions.swift in Sources */,
 				0FA09F732667373500E04777 /* FocusState.swift in Sources */,
+				0F8293BD26C72F0E008BBA76 /* URL+AppURLs.swift in Sources */,
 				0F6A05DB2658AA050050439D /* Location.swift in Sources */,
-				0F6A05CE2658A9020050439D /* Group.swift in Sources */,
+				0F6A05CE2658A9020050439D /* InterestGroup.swift in Sources */,
 				0FD69B702658DABD007EC696 /* EventDetailView.swift in Sources */,
 				0F6A052A2658A1E10050439D /* CoffAppApp.swift in Sources */,
 				0F745451266C031700DEB3F1 /* Image+Data.swift in Sources */,
@@ -1786,16 +1830,17 @@
 				0FD69B6D2658D35B007EC696 /* EventListView.swift in Sources */,
 				0F6A05C92658A4350050439D /* NetworkService.swift in Sources */,
 				0F6A05D82658A9EC0050439D /* Venue.swift in Sources */,
+				0F8293B826C72D88008BBA76 /* StatusViewModel.swift in Sources */,
 				0FA09F6B2665587600E04777 /* EventSummaryView.swift in Sources */,
 				0F6A05292658A1E10050439D /* CoffApp.xcdatamodeld in Sources */,
 				0F6A052F2658A1E10050439D /* Persistence.swift in Sources */,
 				0F49A3D82677022500B62CC4 /* UserDefaultKeys.swift in Sources */,
-				0FDB46BC26A685860085AB5B /* ErrorView.swift in Sources */,
+				0FDB46BC26A685860085AB5B /* StatusView.swift in Sources */,
 				0F6A05EB2658B2010050439D /* NetworkState.swift in Sources */,
 				0FA09F742667373500E04777 /* FocusState.swift in Sources */,
 				0F6A05DC2658AA050050439D /* Location.swift in Sources */,
 				0F49A3D22675189900B62CC4 /* ImageCache.swift in Sources */,
-				0F6A05CF2658A9020050439D /* Group.swift in Sources */,
+				0F6A05CF2658A9020050439D /* InterestGroup.swift in Sources */,
 				0FD69B712658DABD007EC696 /* EventDetailView.swift in Sources */,
 				0F6A052B2658A1E10050439D /* CoffAppApp.swift in Sources */,
 				0FA20C3926956445007F595F /* Group+Selection.swift in Sources */,
@@ -1803,6 +1848,7 @@
 				0FE9C445269E8E980079613E /* TheCoffeeWidgetExtensionMac.intentdefinition in Sources */,
 				0FA20C4226956598007F595F /* Location+Directions.swift in Sources */,
 				0F1FD6FE2689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */,
+				0F8293BE26C72F0E008BBA76 /* URL+AppURLs.swift in Sources */,
 				0F6A05D42658A9460050439D /* Event.swift in Sources */,
 				0F6A052D2658A1E10050439D /* ContentView.swift in Sources */,
 			);
@@ -1812,7 +1858,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F8293C926C81A5D008BBA76 /* URL+AppURLs.swift in Sources */,
 				0F6A051B2658A1E10050439D /* TestsiOS.swift in Sources */,
+				0F8293C426C73347008BBA76 /* TestURL+AppURLs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1820,7 +1868,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F8293CA26C81A5E008BBA76 /* URL+AppURLs.swift in Sources */,
 				0F6A05262658A1E10050439D /* TestsMacOS.swift in Sources */,
+				0F8293C526C73347008BBA76 /* TestURL+AppURLs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1835,16 +1885,17 @@
 				0F74544E2669642200DEB3F1 /* RoundFilledButtonStyle.swift in Sources */,
 				0FD69B722658DABD007EC696 /* EventDetailView.swift in Sources */,
 				0F6A05EC2658B2010050439D /* NetworkState.swift in Sources */,
+				0F8293B926C72D88008BBA76 /* StatusViewModel.swift in Sources */,
 				0F6A05502658A2250050439D /* Persistence.swift in Sources */,
 				0FA09F6C2665587600E04777 /* EventSummaryView.swift in Sources */,
 				0F6A05D92658A9EC0050439D /* Venue.swift in Sources */,
 				0F6A05D52658A9460050439D /* Event.swift in Sources */,
-				0FDB46BD26A685860085AB5B /* ErrorView.swift in Sources */,
+				0FDB46BD26A685860085AB5B /* StatusView.swift in Sources */,
 				0F49A3D32675189900B62CC4 /* ImageCache.swift in Sources */,
 				0F6A05C22658A2A60050439D /* CoffAppApp.swift in Sources */,
 				0FA09F752667373500E04777 /* FocusState.swift in Sources */,
 				0F6A05C32658A2A60050439D /* ContentView.swift in Sources */,
-				0F6A05D02658A9020050439D /* Group.swift in Sources */,
+				0F6A05D02658A9020050439D /* InterestGroup.swift in Sources */,
 				0FA20C4326956598007F595F /* Location+Directions.swift in Sources */,
 				0F6A05DD2658AA050050439D /* Location.swift in Sources */,
 				0F6A05C52658A2AC0050439D /* CoffApp.xcdatamodeld in Sources */,
@@ -1852,6 +1903,7 @@
 				0F6A05CA2658A4350050439D /* NetworkService.swift in Sources */,
 				0FD69B6E2658D35B007EC696 /* EventListView.swift in Sources */,
 				0F49A3DE26770F0400B62CC4 /* Groups.swift in Sources */,
+				0F8293BF26C72F0E008BBA76 /* URL+AppURLs.swift in Sources */,
 				0FA20C3A26956445007F595F /* Group+Selection.swift in Sources */,
 				0F1FD6FF2689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */,
 			);
@@ -1861,6 +1913,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F8293CD26C81A6D008BBA76 /* URL+AppURLs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1876,9 +1929,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FDB46BE26A685860085AB5B /* ErrorView.swift in Sources */,
+				0F8293BA26C72D88008BBA76 /* StatusViewModel.swift in Sources */,
+				0FDB46BE26A685860085AB5B /* StatusView.swift in Sources */,
 				0FA09F602661FEEF00E04777 /* NetworkService.swift in Sources */,
-				0FA09F5F2661FEE700E04777 /* Group.swift in Sources */,
+				0FA09F5F2661FEE700E04777 /* InterestGroup.swift in Sources */,
 				0F74544F2669642200DEB3F1 /* RoundFilledButtonStyle.swift in Sources */,
 				0F49A3DF26770F0400B62CC4 /* Groups.swift in Sources */,
 				0F745445266891BE00DEB3F1 /* RuntimeOS.swift in Sources */,
@@ -1893,6 +1947,7 @@
 				0FA09F2D2661FE5900E04777 /* ComplicationController.swift in Sources */,
 				0F49A3D42675189900B62CC4 /* ImageCache.swift in Sources */,
 				0FA09F612661FEEF00E04777 /* NetworkState.swift in Sources */,
+				0F8293C026C72F0E008BBA76 /* URL+AppURLs.swift in Sources */,
 				0FA09F252661FE5800E04777 /* CoffAppApp.swift in Sources */,
 				0FA09F5D2661FEE700E04777 /* Event.swift in Sources */,
 				0FA20C3B26956445007F595F /* Group+Selection.swift in Sources */,
@@ -1909,6 +1964,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FA09F3E2661FE5900E04777 /* CoffUp__watchOS_Tests.swift in Sources */,
+				0F8293CF26C81A71008BBA76 /* URL+AppURLs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1917,6 +1973,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FA09F492661FE5900E04777 /* CoffUp__watchOS_UITests.swift in Sources */,
+				0F8293D026C81A72008BBA76 /* URL+AppURLs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1929,7 +1986,7 @@
 				0FA20C4626956598007F595F /* Location+Directions.swift in Sources */,
 				0FA20C332695568A007F595F /* Location.swift in Sources */,
 				0FA20C362695642A007F595F /* UserDefaults+AppSuite.swift in Sources */,
-				0FA20C302695568A007F595F /* Group.swift in Sources */,
+				0FA20C302695568A007F595F /* InterestGroup.swift in Sources */,
 				0FA20C342695568A007F595F /* Event.swift in Sources */,
 				0FA20C3F269564C2007F595F /* NetworkState.swift in Sources */,
 				0FA20C352695641C007F595F /* UserDefaultKeys.swift in Sources */,
@@ -1940,6 +1997,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F8293C626C8172C008BBA76 /* Image+CenterCropped.swift in Sources */,
 				0FE9C466269E92620079613E /* ImageCache.swift in Sources */,
 				0FE9C458269E8FB00079613E /* TheCoffeeWidget.swift in Sources */,
 				0FE9C459269E8FB40079613E /* EventProvider.swift in Sources */,
@@ -1954,12 +2012,12 @@
 				0FE9C457269E8FA80079613E /* TheCoffeeWidgetEntryView.swift in Sources */,
 				0FE9C456269E8FA50079613E /* PlaceholderView.swift in Sources */,
 				0FE9C45C269E8FF00079613E /* Group+Selection.swift in Sources */,
-				0FE9C45B269E8FEC0079613E /* Group.swift in Sources */,
+				0FE9C45B269E8FEC0079613E /* InterestGroup.swift in Sources */,
 				0FE9C45E269E8FF80079613E /* Venue.swift in Sources */,
+				0F8293C726C81730008BBA76 /* URL+AppURLs.swift in Sources */,
 				0FE9C45D269E8FF50079613E /* Event.swift in Sources */,
 				0FE9C45F269E8FFB0079613E /* Location.swift in Sources */,
 				0FE9C461269E90020079613E /* Groups.swift in Sources */,
-				0FE9C465269E91240079613E /* Image+CenterCropped.swift in Sources */,
 				0FE9C460269E8FFF0079613E /* Location+Directions.swift in Sources */,
 				0FE9C462269E901F0079613E /* Image+Data.swift in Sources */,
 			);
@@ -1969,9 +2027,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FDB46BF26A685860085AB5B /* ErrorView.swift in Sources */,
+				0F8293BB26C72D88008BBA76 /* StatusViewModel.swift in Sources */,
+				0FDB46BF26A685860085AB5B /* StatusView.swift in Sources */,
 				0FF4AA8826A4E93400EEEDBF /* NetworkState.swift in Sources */,
-				0FF4AA8226A4E8E600EEEDBF /* Group.swift in Sources */,
+				0FF4AA8226A4E8E600EEEDBF /* InterestGroup.swift in Sources */,
 				0FF4AA9126A4E9BD00EEEDBF /* RoundFilledButtonStyle.swift in Sources */,
 				0FF4AA8726A4E8E600EEEDBF /* Venue.swift in Sources */,
 				0FF4AA8626A4E8E600EEEDBF /* Event.swift in Sources */,
@@ -1986,6 +2045,7 @@
 				0FF4AA4D26A4E78200EEEDBF /* TheCoffeeAppClipApp.swift in Sources */,
 				0FF4AA8426A4E8E600EEEDBF /* Location.swift in Sources */,
 				0FF4AA7F26A4E8CD00EEEDBF /* ContentView.swift in Sources */,
+				0F8293C126C72F0E008BBA76 /* URL+AppURLs.swift in Sources */,
 				0FF4AA9026A4E99C00EEEDBF /* RuntimeOS.swift in Sources */,
 				0FF4AA8D26A4E97300EEEDBF /* EventSummaryView.swift in Sources */,
 				0FF4AA8526A4E8E600EEEDBF /* Location+Directions.swift in Sources */,

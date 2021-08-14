@@ -3,7 +3,7 @@ import SwiftUI
 
 struct EventListView: View {
     @StateObject var net = NetworkService()
-    var group: Group
+    var group: InterestGroup
     private let logger = Logger(label: "EventListView")
 
     var body: some View {
@@ -52,7 +52,7 @@ struct EventListView: View {
         }
         .onContinueUserActivity(ContentView.contentGroupUserActivityType) { resumeActivity in
             logger.info("CONTINUE: \(resumeActivity.activityType)")
-            guard let resumedGroup = try? resumeActivity.typedPayload(Group.self) else {
+            guard let resumedGroup = try? resumeActivity.typedPayload(InterestGroup.self) else {
                 logger.warning("FAIL: Could not resume \(resumeActivity.activityType)")
                 return
             }
@@ -63,8 +63,8 @@ struct EventListView: View {
 
 extension EventListView {
     func describeUserActivity(_ userActivity: NSUserActivity) {
-        let nextGroup: Group?
-        if let activityGroup = try? userActivity.typedPayload(Group.self) {
+        let nextGroup: InterestGroup?
+        if let activityGroup = try? userActivity.typedPayload(InterestGroup.self) {
             nextGroup = activityGroup
         } else {
             nextGroup = group
@@ -85,7 +85,7 @@ extension EventListView {
 #if DEBUG
 struct EventListView_Previews: PreviewProvider {
     static var previews: some View {
-        EventListView(group: Group(id: UUID(uuidString: "28ef50f9-b909-4f03-9a69-a8218a8cbd99")!,
+        EventListView(group: InterestGroup(id: UUID(uuidString: "28ef50f9-b909-4f03-9a69-a8218a8cbd99")!,
                                    name: "Test Group Name"))
             .environmentObject(NetworkService())
     }
