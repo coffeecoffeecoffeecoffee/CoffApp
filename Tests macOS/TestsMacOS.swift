@@ -24,9 +24,10 @@ class TestsMacOS: XCTestCase {
         let window = XCUIApplication().windows.firstMatch
         XCTAssert(window.staticTexts["Choose a group"].exists)
         XCTAssert(window.toolbars.buttons["split view horizontally left"].exists)
-        XCTAssert(window.outlines.buttons["SF iOS Coffee"].exists)
+//        XCTAssert(window.outlines.buttons["SF iOS Coffee"].exists)
     }
 
+    #if TEST_PERFORMANCE
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
             // This measures how long it takes to launch your application.
@@ -35,4 +36,5 @@ class TestsMacOS: XCTestCase {
             }
         }
     }
+    #endif
 }

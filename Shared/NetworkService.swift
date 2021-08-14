@@ -3,8 +3,8 @@ import Foundation
 import Logging
 
 final class NetworkService: ObservableObject {
-    @Published var selectedGroup: Group?
-    @Published var groups = [Group]()
+    @Published var selectedGroup: InterestGroup?
+    @Published var groups = [InterestGroup]()
     @Published var events = [Event]()
     let eventsSubject = PassthroughSubject<[Event], Error>()
     @Published var firstEvent: Event = Event.loading
@@ -17,7 +17,7 @@ final class NetworkService: ObservableObject {
     private var session = URLSession.shared
     private var decoder = JSONDecoder()
 
-    private let groupURL = URL(string: "https://coffeecoffeecoffee.coffee/api/groups/")!
+    private let groupURL = URL.appURL(with: "api", "groups")
 
     enum NetworkError: Error {
         case invalidURL
@@ -48,11 +48,11 @@ final class NetworkService: ObservableObject {
 
 // MARK: - Groups
 extension NetworkService {
-    func fetchNetworkGroups() -> AnyPublisher<[Group], Error> {
+    func fetchNetworkGroups() -> AnyPublisher<[InterestGroup], Error> {
         session.dataTaskPublisher(for: groupURL)
             .retry(2)
             .map { $0.data }
-            .decode(type: [Group].self, decoder: decoder)
+            .decode(type: [InterestGroup].self, decoder: decoder)
             .eraseToAnyPublisher()
     }
 
@@ -101,7 +101,7 @@ extension NetworkService {
 
 // MARK: - Events
 extension NetworkService {
-    func loadAllEvents(for group: Group) -> AnyPublisher<[Event], Error> {
+    func loadAllEvents(for group: InterestGroup) -> AnyPublisher<[Event], Error> {
         guard let url = group.eventsURL else {
             self.netState = .failed(NetworkError.invalidURL)
             return Fail(error: NetworkError.invalidURL).eraseToAnyPublisher()
@@ -116,7 +116,7 @@ extension NetworkService {
             .eraseToAnyPublisher()
     }
 
-    func loadEvents(for group: Group) {
+    func loadEvents(for group: InterestGroup) {
         loadAllEvents(for: group)
             .receive(on: RunLoop.main)
             .sink { [weak self] completion in
@@ -166,7 +166,7 @@ extension NetworkService {
         #endif
     }
 
-    func loadUpcomingEvents(for group: Group) {
+    func loadUpcomingEvents(for group: InterestGroup) {
         loadAllEvents(for: group)
             .map { events -> [Event] in
                 let now = Date()
