@@ -23,7 +23,13 @@ struct TheCoffeeWidgetEntryView: View {
 
     var body: some View {
         ZStack {
-            AsyncImagePhaseView(entry.event.imageURL)
+            if let imageData = entry.imageData,
+                let uiImage = UIImage(data: imageData) {
+                Image(uiImage: uiImage)
+                    .centerCropped()
+            } else {
+                AsyncImagePhaseView(entry.event.imageURL)
+            }
             LinearGradient(gradient:
                             Gradient(colors: [
                                         .clear,
