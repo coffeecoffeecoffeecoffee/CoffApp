@@ -23,9 +23,13 @@ struct TheCoffeeWidgetEntryView: View {
 
     var body: some View {
         ZStack {
-            Image("clock")
-                .data(entry.event.imageURL)
-                .centerCropped()
+            if let imageData = entry.imageData,
+                let uiImage = UIImage(data: imageData) {
+                Image(uiImage: uiImage)
+                    .centerCropped()
+            } else {
+                AsyncImagePhaseView(entry.event.imageURL)
+            }
             LinearGradient(gradient:
                             Gradient(colors: [
                                         .clear,
@@ -67,8 +71,7 @@ struct TheCoffeeWidgetEntryView: View {
 #if DEBUG
 struct TheCoffeeWidgetEntryView_Previews: PreviewProvider {
     static var previews: some View {
-        TheCoffeeWidgetEntryView(entry: EventEntry(date: Date(),
-                                                   event: testEvent(true),
+        TheCoffeeWidgetEntryView(entry: EventEntry(testEvent(true),
                                                    configuration: ConfigurationIntent()))
             .previewContext(WidgetPreviewContext(family: .systemMedium))
     }

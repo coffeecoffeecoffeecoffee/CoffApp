@@ -18,16 +18,14 @@ struct EventProvider: IntentTimelineProvider {
     }
 
     func placeholder(in context: Context) -> EventEntry {
-        EventEntry(date: Date(),
-                   event: Event.empty,
+        EventEntry(Event.empty,
                    configuration: ConfigurationIntent())
     }
 
     func getSnapshot(for configuration: ConfigurationIntent,
                      in context: Context,
                      completion: @escaping (EventEntry) -> Void) {
-        let entry = EventEntry(date: Date(),
-                               event: mostRecentEvent,
+        let entry = EventEntry(mostRecentEvent,
                                configuration: configuration)
         completion(entry)
     }
@@ -36,8 +34,7 @@ struct EventProvider: IntentTimelineProvider {
                      in context: Context,
                      completion: @escaping (Timeline<EventEntry>) -> Void) {
         let entries: [EventEntry] = [
-            EventEntry(date: Date(),
-                       event: mostRecentEvent,
+            EventEntry(mostRecentEvent,
                        configuration: configuration)
         ]
         let timeline = Timeline(entries: entries, policy: .atEnd)

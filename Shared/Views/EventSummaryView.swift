@@ -1,9 +1,7 @@
 // swiftlint:disable line_length
-import FetchImage
 import SwiftUI
 
 struct EventSummaryView: View {
-    @StateObject private var image = FetchImage()
     @State private var focusState = FocusState()
     let event: Event
 
@@ -23,9 +21,7 @@ struct EventSummaryView: View {
                                startPoint: UnitPoint(x: 0, y: 0),
                                endPoint: UnitPoint(x: 1, y: 1)
                 )
-                image.view?
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
+                AsyncImagePhaseView(event.imageURL)
             }
             .frame(maxWidth: 64, maxHeight: 64)
             .cornerRadius(5)
@@ -38,11 +34,6 @@ struct EventSummaryView: View {
         .frame(minWidth: 64, maxWidth: .infinity, minHeight: 64, maxHeight: 64, alignment: .leading)
         .scaleEffect(focusState.inFocus ? 1.03 : 1)
         .shadow(radius: focusState.inFocus ? 3 : 0)
-        .onAppear {
-            if let url = event.imageURL {
-                image.load(url)
-            }
-        }
         .foregroundColor(.secondary)
         }
     }

@@ -21,22 +21,13 @@ struct TheCoffeeWidget: Widget {
 struct TheCoffeeWidget_Previews: PreviewProvider {
     static var net = NetworkService()
     static var previews: some View {
-        TheCoffeeWidgetEntryView(entry:
-                                EventEntry(date: Date(),
-                                           event: testEvent(true),
-                                           configuration: ConfigurationIntent()))
+        TheCoffeeWidgetEntryView(entry: EventEntry(testEvent(true)))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
 
-        TheCoffeeWidgetEntryView(entry:
-                                EventEntry(date: Date(),
-                                           event: testEvent(true),
-                                           configuration: ConfigurationIntent()))
+        TheCoffeeWidgetEntryView(entry: EventEntry(testEvent(true)))
             .previewContext(WidgetPreviewContext(family: .systemMedium))
 
-        TheCoffeeWidgetEntryView(entry:
-                                EventEntry(date: Date(),
-                                           event: testEvent(true),
-                                           configuration: ConfigurationIntent()))
+        TheCoffeeWidgetEntryView(entry: EventEntry(testEvent(true)))
             .previewContext(WidgetPreviewContext(family: .systemLarge))
     }
 }

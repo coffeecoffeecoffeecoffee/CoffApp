@@ -1,9 +1,7 @@
 // swiftlint:disable line_length
-import FetchImage
 import SwiftUI
 
 struct EventDetailView: View {
-    @StateObject private var image = FetchImage()
     @StateObject private var focusState = FocusState()
 
     init(_ event: Event) {
@@ -15,13 +13,7 @@ struct EventDetailView: View {
     var body: some View {
         TVFocusable(focusState) {
         ZStack(alignment: .bottomLeading) {
-            image.view?
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(
-                    minHeight: focusState.inFocus ? 350 : 200,
-                    maxHeight: 350,
-                    alignment: .center)
+            AsyncImagePhaseView(event.imageURL)
             LinearGradient(gradient:
                             Gradient(colors: [
                                 .clear,
@@ -75,11 +67,6 @@ struct EventDetailView: View {
         .cornerRadius(10)
         .shadow(radius: focusState.inFocus ? 10 : 0)
         .padding(.vertical, 10)
-        }
-        .onAppear {
-            if let url = event.imageURL {
-                image.load(url)
-            }
         }
     }
 }

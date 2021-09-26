@@ -1,19 +1,15 @@
-import FetchImage
 import SwiftUI
 
 // watchOS
 struct EventListWatchView: View {
     @EnvironmentObject var networkService: NetworkService
-    var group: Group
+    var group: InterestGroup
 
     // MARK: - Body
     var body: some View {
         ScrollView {
             ZStack(alignment: .bottom) {
-                Image("Loading")
-                    .data(networkService.firstEvent.imageURL)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
+                AsyncImagePhaseView(networkService.firstEvent.imageURL)
                     .frame(maxHeight: 140)
                     .cornerRadius(10)
                     .clipped()
@@ -54,7 +50,7 @@ struct EventListWatchView: View {
 // MARK: - Previews
 #if DEBUG
 struct EventListWatchView_Previews: PreviewProvider {
-    static let testGroup = Group(id: UUID(uuidString: "28ef50f9-b909-4f03-9a69-a8218a8cbd99")!,
+    static let testGroup = InterestGroup(id: UUID(uuidString: "28ef50f9-b909-4f03-9a69-a8218a8cbd99")!,
                           name: "Test Group")
     static var previews: some View {
         EventListWatchView(group: testGroup)
