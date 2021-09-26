@@ -152,31 +152,53 @@ extension NetworkService {
         let now = Date()
         self.upcomingEvents = []
         self.pastEvents = []
+        var forthComingEvents = [Event]()
         events.forEach { event in
             guard let startDate = event.startAt else { return }
             if startDate > now {
-                self.upcomingEvents.append(event)
+                forthComingEvents.append(event)
             } else {
                 self.pastEvents.append(event)
             }
         }
         #if DEBUG
         let evt = testEvent()
-        self.upcomingEvents.append(evt)
+        forthComingEvents.append(evt)
         #endif
+        do {
+            self.upcomingEvents = try forthComingEvents.sorted(by: sortEvents)
+        } catch {
+            logger.error(Logger.Message(stringLiteral: "Could not sort upcoming events"))
+        }
+    }
+
+    private func sortEvents(aVent: Event, bVent: Event) throws -> Bool {
+        guard let aStart = aVent.startAt,
+              let bStart = bVent.startAt else {
+                  return true
+              }
+        return aStart < bStart
     }
 
     func loadUpcomingEvents(for group: InterestGroup) {
         loadAllEvents(for: group)
             .map { events -> [Event] in
                 let now = Date()
-                return events.filter { event in
+                let upcoming = events.filter { event in
                     guard let startDate = event.startAt else {
                         return false
                     }
                     return startDate > now
                 }
+                return upcoming.sorted { avent, bvent in
+                    guard let aStart = avent.startAt,
+                          let bStart = bvent.startAt else {
+                              return true
+                          }
+                    return aStart > bStart
+                }
             }
+            .removeDuplicates()
             .receive(on: RunLoop.main)
             .sink { upcomingCompletion in
                 switch upcomingCompletion {
