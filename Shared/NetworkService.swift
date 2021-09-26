@@ -165,14 +165,10 @@ extension NetworkService {
         let evt = testEvent()
         forthComingEvents.append(evt)
         #endif
-        do {
-            self.upcomingEvents = try forthComingEvents.sorted(by: sortEvents)
-        } catch {
-            logger.error(Logger.Message(stringLiteral: "Could not sort upcoming events"))
-        }
+        self.upcomingEvents = forthComingEvents.sorted(by: sortEvents)
     }
 
-    private func sortEvents(aVent: Event, bVent: Event) throws -> Bool {
+    private func sortEvents(aVent: Event, bVent: Event) -> Bool {
         guard let aStart = aVent.startAt,
               let bStart = bVent.startAt else {
                   return true
@@ -182,7 +178,8 @@ extension NetworkService {
 
     func loadUpcomingEvents(for group: InterestGroup) {
         loadAllEvents(for: group)
-            .map { events -> [Event] in
+            .map { [weak self] events -> [Event] in
+                guard let self = self else { return [] }
                 let now = Date()
                 let upcoming = events.filter { event in
                     guard let startDate = event.startAt else {
@@ -190,13 +187,7 @@ extension NetworkService {
                     }
                     return startDate > now
                 }
-                return upcoming.sorted { avent, bvent in
-                    guard let aStart = avent.startAt,
-                          let bStart = bvent.startAt else {
-                              return true
-                          }
-                    return aStart > bStart
-                }
+                return upcoming.sorted(by: self.sortEvents)
             }
             .removeDuplicates()
             .receive(on: RunLoop.main)

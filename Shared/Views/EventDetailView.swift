@@ -68,11 +68,6 @@ struct EventDetailView: View {
         .shadow(radius: focusState.inFocus ? 10 : 0)
         .padding(.vertical, 10)
         }
-        .onAppear {
-//            if let url = event.imageURL {
-//                image.load(url)
-//            }
-        }
     }
 }
 

@@ -668,6 +668,7 @@
 			children = (
 				0F23910B2686CE2D007461F9 /* Image+CenterCropped.swift */,
 				0F8293BC26C72F0E008BBA76 /* URL+AppURLs.swift */,
+				0F1FD6FC2689752A00E90D7D /* UserDefaults+AppSuite.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -745,20 +746,17 @@
 		0F6A04FB2658A1DE0050439D /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				0F8293B426C72D65008BBA76 /* Components */,
-				0F23910A2686CDFF007461F9 /* Extensions */,
-				0F6A04FE2658A1DE0050439D /* CoffAppApp.swift */,
-				0FD69B6A2658D338007EC696 /* Views */,
-				0F6A05002658A1DE0050439D /* Persistence.swift */,
 				0F6A05012658A1E10050439D /* Assets.xcassets */,
 				0F6A04FC2658A1DE0050439D /* CoffApp.xcdatamodeld */,
+				0F6A04FE2658A1DE0050439D /* CoffAppApp.swift */,
 				0F6A05C72658A4350050439D /* NetworkService.swift */,
 				0F6A05E92658B2010050439D /* NetworkState.swift */,
-				0F6A05D12658A9330050439D /* Models */,
-				0FA09F722667373500E04777 /* FocusState.swift */,
-				0F745441266891BE00DEB3F1 /* RuntimeOS.swift */,
+				0F6A05002658A1DE0050439D /* Persistence.swift */,
 				0F49A3D62677022500B62CC4 /* UserDefaultKeys.swift */,
-				0F1FD6FC2689752A00E90D7D /* UserDefaults+AppSuite.swift */,
+				0F8293B426C72D65008BBA76 /* Components */,
+				0F6A05D12658A9330050439D /* Models */,
+				0F23910A2686CDFF007461F9 /* Extensions */,
+				0FD69B6A2658D338007EC696 /* Views */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -868,13 +866,15 @@
 			isa = PBXGroup;
 			children = (
 				0F6A05CD2658A9020050439D /* InterestGroup.swift */,
+				0F49A3DB26770F0400B62CC4 /* Groups.swift */,
 				0FA20C3726956445007F595F /* Group+Selection.swift */,
 				0F6A05D22658A9460050439D /* Event.swift */,
-				0F6A05D62658A9EC0050439D /* Venue.swift */,
+				0FA09F722667373500E04777 /* FocusState.swift */,
 				0F6A05DA2658AA050050439D /* Location.swift */,
 				0FA20C4026956598007F595F /* Location+Directions.swift */,
-				0F49A3DB26770F0400B62CC4 /* Groups.swift */,
 				0FD18C8027000D98003763DB /* Data+Event.swift */,
+				0F745441266891BE00DEB3F1 /* RuntimeOS.swift */,
+				0F6A05D62658A9EC0050439D /* Venue.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
