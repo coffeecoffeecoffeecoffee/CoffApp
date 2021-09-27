@@ -1,5 +1,5 @@
 import XCTest
-//@testable import CoffUp_watchOS_WatchKit_Extension
+// @testable import CoffUp_watchOS_WatchKit_Extension
 
 class CoffUpWatchOSTests: XCTestCase {
 
