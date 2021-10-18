@@ -45,6 +45,7 @@ struct EventListView: View {
         }
         .onAppear {
             net.loadEvents(for: group)
+            group.setSelected()
         }
         .userActivity(ContentView.contentGroupUserActivityType) { activity in
             logger.info("EVENT LIST: \(activity.activityType)")

@@ -158,16 +158,21 @@
 		0FA09F742667373500E04777 /* FocusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F722667373500E04777 /* FocusState.swift */; };
 		0FA09F752667373500E04777 /* FocusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F722667373500E04777 /* FocusState.swift */; };
 		0FA09F762667374C00E04777 /* FocusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F722667373500E04777 /* FocusState.swift */; };
-		0FA20C3826956445007F595F /* Group+Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C3726956445007F595F /* Group+Selection.swift */; };
-		0FA20C3926956445007F595F /* Group+Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C3726956445007F595F /* Group+Selection.swift */; };
-		0FA20C3A26956445007F595F /* Group+Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C3726956445007F595F /* Group+Selection.swift */; };
-		0FA20C3B26956445007F595F /* Group+Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C3726956445007F595F /* Group+Selection.swift */; };
-		0FA20C3C26956445007F595F /* Group+Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C3726956445007F595F /* Group+Selection.swift */; };
+		0FA20C3826956445007F595F /* InterestGroup+Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C3726956445007F595F /* InterestGroup+Selection.swift */; };
+		0FA20C3926956445007F595F /* InterestGroup+Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C3726956445007F595F /* InterestGroup+Selection.swift */; };
+		0FA20C3A26956445007F595F /* InterestGroup+Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C3726956445007F595F /* InterestGroup+Selection.swift */; };
+		0FA20C3B26956445007F595F /* InterestGroup+Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C3726956445007F595F /* InterestGroup+Selection.swift */; };
+		0FA20C3C26956445007F595F /* InterestGroup+Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C3726956445007F595F /* InterestGroup+Selection.swift */; };
 		0FA20C4126956598007F595F /* Location+Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C4026956598007F595F /* Location+Directions.swift */; };
 		0FA20C4226956598007F595F /* Location+Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C4026956598007F595F /* Location+Directions.swift */; };
 		0FA20C4326956598007F595F /* Location+Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C4026956598007F595F /* Location+Directions.swift */; };
 		0FA20C4426956598007F595F /* Location+Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C4026956598007F595F /* Location+Directions.swift */; };
 		0FA20C4526956598007F595F /* Location+Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C4026956598007F595F /* Location+Directions.swift */; };
+		0FA7F3BA270176A600F8B872 /* CoffeeBackgroundTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA7F3B9270176A600F8B872 /* CoffeeBackgroundTask.swift */; };
+		0FA7F3BD270176A600F8B872 /* CoffeeBackgroundTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA7F3B9270176A600F8B872 /* CoffeeBackgroundTask.swift */; };
+		0FA7F3BE270176A600F8B872 /* CoffeeBackgroundTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA7F3B9270176A600F8B872 /* CoffeeBackgroundTask.swift */; };
+		0FA7F3BF270176A600F8B872 /* CoffeeBackgroundTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA7F3B9270176A600F8B872 /* CoffeeBackgroundTask.swift */; };
+		0FA7F3C0270176A600F8B872 /* CoffeeBackgroundTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA7F3B9270176A600F8B872 /* CoffeeBackgroundTask.swift */; };
 		0FD18C7826FD84AD003763DB /* AsyncImagePhaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD18C7726FD84AD003763DB /* AsyncImagePhaseView.swift */; };
 		0FD18C7926FD84AD003763DB /* AsyncImagePhaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD18C7726FD84AD003763DB /* AsyncImagePhaseView.swift */; };
 		0FD18C7A26FD84AD003763DB /* AsyncImagePhaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD18C7726FD84AD003763DB /* AsyncImagePhaseView.swift */; };
@@ -212,7 +217,7 @@
 		0FE9C459269E8FB40079613E /* EventProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2391042686CD8A007461F9 /* EventProvider.swift */; };
 		0FE9C45A269E8FB70079613E /* EventEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2391072686CDBD007461F9 /* EventEntry.swift */; };
 		0FE9C45B269E8FEC0079613E /* InterestGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05CD2658A9020050439D /* InterestGroup.swift */; };
-		0FE9C45C269E8FF00079613E /* Group+Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C3726956445007F595F /* Group+Selection.swift */; };
+		0FE9C45C269E8FF00079613E /* InterestGroup+Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C3726956445007F595F /* InterestGroup+Selection.swift */; };
 		0FE9C45D269E8FF50079613E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05D22658A9460050439D /* Event.swift */; };
 		0FE9C45E269E8FF80079613E /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05D62658A9EC0050439D /* Venue.swift */; };
 		0FE9C45F269E8FFB0079613E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05DA2658AA050050439D /* Location.swift */; };
@@ -231,7 +236,7 @@
 		0FF4AA8026A4E8DA00EEEDBF /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05C72658A4350050439D /* NetworkService.swift */; };
 		0FF4AA8126A4E8E600EEEDBF /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3DB26770F0400B62CC4 /* Groups.swift */; };
 		0FF4AA8226A4E8E600EEEDBF /* InterestGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05CD2658A9020050439D /* InterestGroup.swift */; };
-		0FF4AA8326A4E8E600EEEDBF /* Group+Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C3726956445007F595F /* Group+Selection.swift */; };
+		0FF4AA8326A4E8E600EEEDBF /* InterestGroup+Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C3726956445007F595F /* InterestGroup+Selection.swift */; };
 		0FF4AA8426A4E8E600EEEDBF /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05DA2658AA050050439D /* Location.swift */; };
 		0FF4AA8526A4E8E600EEEDBF /* Location+Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C4026956598007F595F /* Location+Directions.swift */; };
 		0FF4AA8626A4E8E600EEEDBF /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05D22658A9460050439D /* Event.swift */; };
@@ -507,8 +512,9 @@
 		0FA09F692665587600E04777 /* EventSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSummaryView.swift; sourceTree = "<group>"; };
 		0FA09F6D2667251400E04777 /* TVFocusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVFocusable.swift; sourceTree = "<group>"; };
 		0FA09F722667373500E04777 /* FocusState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusState.swift; sourceTree = "<group>"; };
-		0FA20C3726956445007F595F /* Group+Selection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group+Selection.swift"; sourceTree = "<group>"; };
+		0FA20C3726956445007F595F /* InterestGroup+Selection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InterestGroup+Selection.swift"; sourceTree = "<group>"; };
 		0FA20C4026956598007F595F /* Location+Directions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+Directions.swift"; sourceTree = "<group>"; };
+		0FA7F3B9270176A600F8B872 /* CoffeeBackgroundTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBackgroundTask.swift; sourceTree = "<group>"; };
 		0FD18C7726FD84AD003763DB /* AsyncImagePhaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImagePhaseView.swift; sourceTree = "<group>"; };
 		0FD18C8027000D98003763DB /* Data+Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Event.swift"; sourceTree = "<group>"; };
 		0FD69B6B2658D35B007EC696 /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
@@ -749,10 +755,12 @@
 				0F6A05012658A1E10050439D /* Assets.xcassets */,
 				0F6A04FC2658A1DE0050439D /* CoffApp.xcdatamodeld */,
 				0F6A04FE2658A1DE0050439D /* CoffAppApp.swift */,
+				0FA7F3B9270176A600F8B872 /* CoffeeBackgroundTask.swift */,
 				0F6A05C72658A4350050439D /* NetworkService.swift */,
 				0F6A05E92658B2010050439D /* NetworkState.swift */,
 				0F6A05002658A1DE0050439D /* Persistence.swift */,
 				0F49A3D62677022500B62CC4 /* UserDefaultKeys.swift */,
+				0F745441266891BE00DEB3F1 /* RuntimeOS.swift */,
 				0F8293B426C72D65008BBA76 /* Components */,
 				0F6A05D12658A9330050439D /* Models */,
 				0F23910A2686CDFF007461F9 /* Extensions */,
@@ -865,15 +873,14 @@
 		0F6A05D12658A9330050439D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0F6A05CD2658A9020050439D /* InterestGroup.swift */,
-				0F49A3DB26770F0400B62CC4 /* Groups.swift */,
-				0FA20C3726956445007F595F /* Group+Selection.swift */,
+				0FD18C8027000D98003763DB /* Data+Event.swift */,
 				0F6A05D22658A9460050439D /* Event.swift */,
 				0FA09F722667373500E04777 /* FocusState.swift */,
+				0F49A3DB26770F0400B62CC4 /* Groups.swift */,
+				0F6A05CD2658A9020050439D /* InterestGroup.swift */,
+				0FA20C3726956445007F595F /* InterestGroup+Selection.swift */,
 				0F6A05DA2658AA050050439D /* Location.swift */,
 				0FA20C4026956598007F595F /* Location+Directions.swift */,
-				0FD18C8027000D98003763DB /* Data+Event.swift */,
-				0F745441266891BE00DEB3F1 /* RuntimeOS.swift */,
 				0F6A05D62658A9EC0050439D /* Venue.swift */,
 			);
 			path = Models;
@@ -1705,6 +1712,7 @@
 				0F1FD7012689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */,
 				0F2391062686CDAA007461F9 /* EventProvider.swift in Sources */,
 				0F49A45D2679AC8D00B62CC4 /* Location.swift in Sources */,
+				0FA7F3BE270176A600F8B872 /* CoffeeBackgroundTask.swift in Sources */,
 				0F0B231B267FA68600AE7877 /* Image+Data.swift in Sources */,
 				0F49A45F2679AC8D00B62CC4 /* InterestGroup.swift in Sources */,
 				0F2391172686CE75007461F9 /* PlaceholderView.swift in Sources */,
@@ -1717,7 +1725,7 @@
 				0F49A44A2679AC5100B62CC4 /* TheCoffeeWidget.swift in Sources */,
 				0F49A45B2679AC8D00B62CC4 /* NetworkService.swift in Sources */,
 				0F8293C226C732DC008BBA76 /* URL+AppURLs.swift in Sources */,
-				0FA20C3C26956445007F595F /* Group+Selection.swift in Sources */,
+				0FA20C3C26956445007F595F /* InterestGroup+Selection.swift in Sources */,
 				0F2391102686CE2D007461F9 /* Image+CenterCropped.swift in Sources */,
 				0F0B231C267FA69000AE7877 /* ImageCache.swift in Sources */,
 				0F49A4582679AC8D00B62CC4 /* Groups.swift in Sources */,
@@ -1739,7 +1747,7 @@
 				0FDB46BB26A685860085AB5B /* StatusView.swift in Sources */,
 				0F8293B726C72D88008BBA76 /* StatusViewModel.swift in Sources */,
 				0FA09F6A2665587600E04777 /* EventSummaryView.swift in Sources */,
-				0FA20C3826956445007F595F /* Group+Selection.swift in Sources */,
+				0FA20C3826956445007F595F /* InterestGroup+Selection.swift in Sources */,
 				0F6A05282658A1E10050439D /* CoffApp.xcdatamodeld in Sources */,
 				0F6A052E2658A1E10050439D /* Persistence.swift in Sources */,
 				0F23910C2686CE2D007461F9 /* Image+CenterCropped.swift in Sources */,
@@ -1751,6 +1759,7 @@
 				0FD18C7826FD84AD003763DB /* AsyncImagePhaseView.swift in Sources */,
 				0F6A05DB2658AA050050439D /* Location.swift in Sources */,
 				0F6A05CE2658A9020050439D /* InterestGroup.swift in Sources */,
+				0FA7F3BA270176A600F8B872 /* CoffeeBackgroundTask.swift in Sources */,
 				0FD69B702658DABD007EC696 /* EventDetailView.swift in Sources */,
 				0F6A052A2658A1E10050439D /* CoffAppApp.swift in Sources */,
 				0FD18C8127000D98003763DB /* Data+Event.swift in Sources */,
@@ -1789,7 +1798,7 @@
 				0F6A05CF2658A9020050439D /* InterestGroup.swift in Sources */,
 				0FD69B712658DABD007EC696 /* EventDetailView.swift in Sources */,
 				0F6A052B2658A1E10050439D /* CoffAppApp.swift in Sources */,
-				0FA20C3926956445007F595F /* Group+Selection.swift in Sources */,
+				0FA20C3926956445007F595F /* InterestGroup+Selection.swift in Sources */,
 				0F23910D2686CE2D007461F9 /* Image+CenterCropped.swift in Sources */,
 				0FE9C445269E8E980079613E /* TheCoffeeWidgetExtensionMac.intentdefinition in Sources */,
 				0FA20C4226956598007F595F /* Location+Directions.swift in Sources */,
@@ -1852,7 +1861,7 @@
 				0FD69B6E2658D35B007EC696 /* EventListView.swift in Sources */,
 				0F49A3DE26770F0400B62CC4 /* Groups.swift in Sources */,
 				0F8293BF26C72F0E008BBA76 /* URL+AppURLs.swift in Sources */,
-				0FA20C3A26956445007F595F /* Group+Selection.swift in Sources */,
+				0FA20C3A26956445007F595F /* InterestGroup+Selection.swift in Sources */,
 				0F1FD6FF2689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1900,7 +1909,8 @@
 				0FA09F252661FE5800E04777 /* CoffAppApp.swift in Sources */,
 				0FA09F5D2661FEE700E04777 /* Event.swift in Sources */,
 				0FD18C8427000D98003763DB /* Data+Event.swift in Sources */,
-				0FA20C3B26956445007F595F /* Group+Selection.swift in Sources */,
+				0FA20C3B26956445007F595F /* InterestGroup+Selection.swift in Sources */,
+				0FA7F3BD270176A600F8B872 /* CoffeeBackgroundTask.swift in Sources */,
 				0F23910F2686CE2D007461F9 /* Image+CenterCropped.swift in Sources */,
 				0FA20C4426956598007F595F /* Location+Directions.swift in Sources */,
 				0F1FD7002689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */,
@@ -1939,6 +1949,7 @@
 				0FE9C45A269E8FB70079613E /* EventEntry.swift in Sources */,
 				0FE9C453269E8F770079613E /* UserDefaults+AppSuite.swift in Sources */,
 				0FE9C452269E8F700079613E /* UserDefaultKeys.swift in Sources */,
+				0FA7F3BF270176A600F8B872 /* CoffeeBackgroundTask.swift in Sources */,
 				0FE9C451269E8F690079613E /* NetworkState.swift in Sources */,
 				0FE9C454269E8F800079613E /* FocusState.swift in Sources */,
 				0FE9C464269E90F70079613E /* Image+Data-Mac.swift in Sources */,
@@ -1947,7 +1958,7 @@
 				0FE9C444269E8E980079613E /* TheCoffeeWidgetExtensionMac.intentdefinition in Sources */,
 				0FE9C457269E8FA80079613E /* TheCoffeeWidgetEntryView.swift in Sources */,
 				0FE9C456269E8FA50079613E /* PlaceholderView.swift in Sources */,
-				0FE9C45C269E8FF00079613E /* Group+Selection.swift in Sources */,
+				0FE9C45C269E8FF00079613E /* InterestGroup+Selection.swift in Sources */,
 				0FE9C45B269E8FEC0079613E /* InterestGroup.swift in Sources */,
 				0FE9C45E269E8FF80079613E /* Venue.swift in Sources */,
 				0F8293C726C81730008BBA76 /* URL+AppURLs.swift in Sources */,
@@ -1987,9 +1998,10 @@
 				0FF4AA8D26A4E97300EEEDBF /* EventSummaryView.swift in Sources */,
 				0FD18C8727000D98003763DB /* Data+Event.swift in Sources */,
 				0FF4AA8526A4E8E600EEEDBF /* Location+Directions.swift in Sources */,
+				0FA7F3C0270176A600F8B872 /* CoffeeBackgroundTask.swift in Sources */,
 				0FF4AA9926A4F3F500EEEDBF /* CoffApp.xcdatamodeld in Sources */,
 				0FF4AA5926A4E78300EEEDBF /* TheCoffeeAppClip.xcdatamodeld in Sources */,
-				0FF4AA8326A4E8E600EEEDBF /* Group+Selection.swift in Sources */,
+				0FF4AA8326A4E8E600EEEDBF /* InterestGroup+Selection.swift in Sources */,
 				0FF4AA8126A4E8E600EEEDBF /* Groups.swift in Sources */,
 				0FF4AA8926A4E95300EEEDBF /* UserDefaults+AppSuite.swift in Sources */,
 			);

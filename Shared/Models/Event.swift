@@ -1,5 +1,6 @@
 // swiftlint:disable identifier_name
 import Foundation
+import Logging
 
 struct Event: Codable {
     let id, groupID: UUID?
@@ -41,6 +42,16 @@ extension Event {
               endAt: nil,
               venue: nil
         )
+    }
+
+    static func error(text: String) -> Event {
+        Event(id: nil,
+              groupID: nil,
+              name: text,
+              imageURL: nil,
+              startAt: nil,
+              endAt: nil,
+              venue: Venue(name: text, location: nil))
     }
 
     static var empty: Event {
