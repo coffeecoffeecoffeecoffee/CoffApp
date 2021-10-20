@@ -1,3 +1,3 @@
 enum CoffeeBackgroundTask: String, RawRepresentable {
-    case refesh = "science.pixel.espresso.refresh"
+    case refresh = "science.pixel.espresso.refresh"
 }
