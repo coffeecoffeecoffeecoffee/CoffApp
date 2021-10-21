@@ -23,7 +23,7 @@ extension InterestGroup {
         let net = NetworkService()
         guard let events = try? net.futureEvents(for: self),
               !events.isEmpty else {
-            return Event.error(text: "Coffee: YES!")
+                  return Event.loadMostRecent() ?? Event.error(text: "Coffee: YES!")
         }
         let sortedEvets = events.sorted(by: {
             guard let aStart = $0.startAt,

@@ -43,11 +43,10 @@ class EventProvider: IntentTimelineProvider {
                    completion(Timeline(entries: [EventEntry(.error(text: "Coffee: Get Some!"))], policy: .atEnd))
                    return
         }
-        if let futureEvents = try? net.futureEvents(for: savedGroup) {
-            let eventEntries = futureEvents.map {
-                EventEntry($0, date: $0.startAt ?? Date().addingTimeInterval(-60), configuration: configuration)
-            }
-            completion(Timeline(entries: eventEntries, policy: .atEnd))
-        }
+        let event = savedGroup.headlineEvent
+        let entry = EventEntry(event,
+                               date: event.startAt ?? Date().addingTimeInterval(-360),
+                               configuration: configuration)
+        completion(Timeline(entries: [entry], policy: .atEnd))
     }
 }
