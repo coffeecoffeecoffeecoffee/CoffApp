@@ -199,51 +199,6 @@ extension NetworkService {
     }
 }
 
-// MARK: - Deprecated
-extension NetworkService {
-    @available(*, message: "Remove if not in use")
-    private func upcomingEvents(for group: InterestGroup) -> AnyPublisher<[Event], Error> {
-        loadAllEvents(for: group)
-            .map { [weak self] events -> [Event] in
-                guard let self = self else { return [] }
-                let now = Date()
-                let upcoming = events.filter { event in
-                    guard let startDate = event.startAt else {
-                        return false
-                    }
-                    return startDate > now
-                }
-                return upcoming.sorted(by: self.sortEvents)
-            }
-            .removeDuplicates()
-            .eraseToAnyPublisher()
-    }
-
-    @available(*, message: "Remove if not in use")
-    func loadUpcomingEvents(for group: InterestGroup) {
-        upcomingEvents(for: group)
-            .receive(on: RunLoop.main)
-            .sink { upcomingCompletion in
-                switch upcomingCompletion {
-                case .failure(let error):
-                    self.logger.error("loadUpcomingEvents(for:) \(error.localizedDescription)")
-                    self.netState = .failed(error)
-                case .finished:
-                    self.netState = .ready
-                }
-            } receiveValue: { upcomingEvts in
-                self.upcomingEvents = upcomingEvts
-            }
-            .store(in: &subscriptions)
-    }
-
-    @available(*, message: "Remove if not in use")
-    func selectedGroupUpcomingEvents() {
-        guard let selectedGroup = selectedGroup else { return }
-        loadUpcomingEvents(for: selectedGroup)
-    }
-}
-
 #if DEBUG
 func testEvent(_ isFuture: Bool = false) -> Event {
     let location = Location(latitude: Double(37.789004663475026),

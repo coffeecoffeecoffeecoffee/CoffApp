@@ -1,6 +1,5 @@
 // swiftlint:disable identifier_name
 import Foundation
-import Logging
 
 struct Event: Codable {
     let id, groupID: UUID?
