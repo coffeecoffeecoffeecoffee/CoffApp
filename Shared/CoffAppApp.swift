@@ -2,47 +2,56 @@
 import BackgroundTasks
 import Logging
 import SwiftUI
-import UIKit
 
-class AppDelegate: NSObject, UIApplicationDelegate {
-    let logger = Logger(label: "science.pixel.espresso.uiappdelegate")
-
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-        logger.debug("didfinish launching app delegate")
-        BGTaskScheduler.shared.register(forTaskWithIdentifier: CoffeeBackgroundTask.refresh.rawValue,
-                                        using: nil) { [weak self] bgTask in
-            guard let refreshTask = bgTask as? BGAppRefreshTask else { return }
-            self?.handle(backgroundTask: refreshTask)
-        }
-        return true
-    }
+@main
+struct CoffAppApp: App {
+    let persistenceController = PersistenceController.shared
+    let logger = Logger(label: "science.pixel.espresso.coffapp")
     
-    func applicationWillTerminate(_ application: UIApplication) {
-        logger.debug("terminate")
-        do {
-            try scheduleBGTask()
-        } catch {
-            logger.error(.init(stringLiteral: error.localizedDescription))
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .onAppear(perform: {
+                    // Note: SwiftUI doesn’t play nice with
+                    // UIApplication.didFinishLaunching… notifications
+                    logger.debug("ContentView Appears!")
+                    BGTaskScheduler.shared
+                        .register(forTaskWithIdentifier: CoffeeBackgroundTask.refresh.rawValue,
+                                  using: nil) { bgTask in
+                            guard let refreshTask = bgTask as? BGAppRefreshTask else {
+                                logger.debug(.init(stringLiteral: "Not a refresh task: \(bgTask.description)"))
+                                return
+                            }
+                            handle(backgroundTask: refreshTask)
+                        }
+                })
+                .onReceive(NotificationCenter.default.publisher(for: UIApplication.didEnterBackgroundNotification)) { _ in
+                    do {
+                        try scheduleBGTask()
+                    } catch {
+                        logger.error(.init(stringLiteral: error.localizedDescription))
+                    }
+                }
+                .onReceive(NotificationCenter.default.publisher(for: UIApplication.willTerminateNotification)) { _ in
+                    do {
+                        try scheduleBGTask()
+                    } catch {
+                        logger.error(.init(stringLiteral: error.localizedDescription))
+                    }
+                }
         }
     }
+}
 
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        logger.debug("Background app delegate")
-        do {
-            try scheduleBGTask()
-        } catch {
-            logger.error(.init(stringLiteral: error.localizedDescription))
-        }
-    }
-    
-    func scheduleBGTask() throws {
+extension CoffAppApp {
+    private func scheduleBGTask() throws {
         logger.debug("scheduling BG task")
         let request = BGAppRefreshTaskRequest(identifier: CoffeeBackgroundTask.refresh.rawValue)
         try BGTaskScheduler.shared.submit(request)
     }
-
-    func handle(backgroundTask: BGAppRefreshTask) {
+    
+    private func handle(backgroundTask: BGAppRefreshTask) {
         logger.debug("handling BG task")
         let opQ = OperationQueue()
         opQ.maxConcurrentOperationCount = 1
@@ -58,18 +67,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         backgroundTask.expirationHandler = {
             opQ.cancelAllOperations()
         }
-    }
-}
-
-@main
-struct CoffAppApp: App {
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    let persistenceController = PersistenceController.shared
-
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-        }
+        opQ.waitUntilAllOperationsAreFinished()
     }
 }
