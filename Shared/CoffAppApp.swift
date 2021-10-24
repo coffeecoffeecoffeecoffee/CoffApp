@@ -7,11 +7,13 @@ import SwiftUI
 struct CoffAppApp: App {
     let persistenceController = PersistenceController.shared
     let logger = Logger(label: "science.pixel.espresso.coffapp")
+    let net = NetworkService()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(net)
                 .onAppear(perform: {
                     // Note: SwiftUI doesn’t play nice with
                     // UIApplication.didFinishLaunching… notifications
@@ -53,20 +55,24 @@ extension CoffAppApp {
     
     private func handle(backgroundTask: BGAppRefreshTask) {
         logger.debug("handling BG task")
-        let opQ = OperationQueue()
-        opQ.maxConcurrentOperationCount = 1
-        opQ.addOperation {
-            NetworkService().loadGroups()
+        let group = DispatchGroup()
+        let dispatchQ = DispatchQueue(label: "science.pixel.espresso.handlebackgroundtask",
+                                      qos: .background,
+                                      attributes: .concurrent,
+                                      autoreleaseFrequency: .workItem)
+        group.enter()
+        backgroundTask.expirationHandler = {
+            group.leave()
+        }
+        dispatchQ.async {
+            net.loadGroups()
             if let selectedGroup = InterestGroup.loadSelected() {
                 selectedGroup.headlineEvent.saveAsMostRecent()
+                net.loadEvents(for: selectedGroup)
             }
             backgroundTask.setTaskCompleted(success: true)
+            group.leave()
         }
-        opQ.qualityOfService = .background
         try? scheduleBGTask()
-        backgroundTask.expirationHandler = {
-            opQ.cancelAllOperations()
-        }
-        opQ.waitUntilAllOperationsAreFinished()
     }
 }

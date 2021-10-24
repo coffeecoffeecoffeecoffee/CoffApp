@@ -2,9 +2,9 @@ import Logging
 import SwiftUI
 
 struct EventListView: View {
-    @StateObject var net = NetworkService()
+    @EnvironmentObject var net: NetworkService
     var group: InterestGroup
-    private let logger = Logger(label: "EventListView")
+    private let logger = Logger(label: "science.pixel.espresso.eventlistview")
 
     var body: some View {
             VStack(alignment: .center) {
@@ -40,9 +40,9 @@ struct EventListView: View {
                         }
                         .padding(.horizontal, 15)
                     }
-                    .navigationTitle(group.name)
             }
         }
+        .navigationTitle(group.name)
         .onAppear {
             net.loadEvents(for: group)
             group.setSelected()
