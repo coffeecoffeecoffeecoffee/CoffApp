@@ -61,9 +61,6 @@ extension CoffAppApp {
                                       attributes: .concurrent,
                                       autoreleaseFrequency: .workItem)
         group.enter()
-        backgroundTask.expirationHandler = {
-            group.leave()
-        }
         dispatchQ.async {
             net.loadGroups()
             if let selectedGroup = InterestGroup.loadSelected() {
@@ -73,6 +70,7 @@ extension CoffAppApp {
             backgroundTask.setTaskCompleted(success: true)
             group.leave()
         }
+        group.wait()
         try? scheduleBGTask()
     }
 }
