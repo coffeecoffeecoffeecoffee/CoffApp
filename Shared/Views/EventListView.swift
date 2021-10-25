@@ -2,7 +2,7 @@ import Logging
 import SwiftUI
 
 struct EventListView: View {
-    @EnvironmentObject var net: NetworkService
+    @ObservedObject var net = NetworkService()
     var group: InterestGroup
     private let logger = Logger(label: "science.pixel.espresso.eventlistview")
 

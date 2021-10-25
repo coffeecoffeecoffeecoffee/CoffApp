@@ -31,7 +31,6 @@ struct ContentView: View {
                                    destination: EventListView(group: group),
                                    tag: group.name,
                                    selection: $selectedGroup)
-                        .environmentObject(net)
                 }
             }
             .navigationTitle("The Coffee")
