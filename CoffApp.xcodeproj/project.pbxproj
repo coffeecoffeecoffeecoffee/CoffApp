@@ -199,6 +199,8 @@
 		0FDB46BD26A685860085AB5B /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB46BA26A685860085AB5B /* StatusView.swift */; };
 		0FDB46BE26A685860085AB5B /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB46BA26A685860085AB5B /* StatusView.swift */; };
 		0FDB46BF26A685860085AB5B /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB46BA26A685860085AB5B /* StatusView.swift */; };
+		0FDD30B72726673B00E8A4C0 /* BackgroundActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDD30B62726673400E8A4C0 /* BackgroundActivityController.swift */; };
+		0FDD30B9272667A200E8A4C0 /* UIApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDD30B8272667A200E8A4C0 /* UIApplicationDelegate.swift */; };
 		0FE9C43A269E8E970079613E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F49A4442679AC5100B62CC4 /* WidgetKit.framework */; };
 		0FE9C43B269E8E970079613E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F49A4462679AC5100B62CC4 /* SwiftUI.framework */; };
 		0FE9C441269E8E980079613E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FE9C440269E8E980079613E /* Assets.xcassets */; };
@@ -520,6 +522,8 @@
 		0FD69B6B2658D35B007EC696 /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
 		0FD69B6F2658DABD007EC696 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
 		0FDB46BA26A685860085AB5B /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
+		0FDD30B62726673400E8A4C0 /* BackgroundActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundActivityController.swift; sourceTree = "<group>"; };
+		0FDD30B8272667A200E8A4C0 /* UIApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationDelegate.swift; sourceTree = "<group>"; };
 		0FE9C439269E8E970079613E /* TheCoffeeWidgetExtensionMacExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TheCoffeeWidgetExtensionMacExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FE9C43D269E8E970079613E /* TheCoffeeWidgetExtensionMac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCoffeeWidgetExtensionMac.swift; sourceTree = "<group>"; };
 		0FE9C43F269E8E970079613E /* TheCoffeeWidgetExtensionMac.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = TheCoffeeWidgetExtensionMac.intentdefinition; sourceTree = "<group>"; };
@@ -798,6 +802,8 @@
 			isa = PBXGroup;
 			children = (
 				0F6A05092658A1E10050439D /* Info.plist */,
+				0FDD30B62726673400E8A4C0 /* BackgroundActivityController.swift */,
+				0FDD30B8272667A200E8A4C0 /* UIApplicationDelegate.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -1766,9 +1772,11 @@
 				0F745451266C031700DEB3F1 /* Image+Data.swift in Sources */,
 				0F1FD6FD2689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */,
 				0F6A05D32658A9460050439D /* Event.swift in Sources */,
+				0FDD30B72726673B00E8A4C0 /* BackgroundActivityController.swift in Sources */,
 				0F6A052C2658A1E10050439D /* ContentView.swift in Sources */,
 				0F49A4502679AC5400B62CC4 /* TheCoffeeWidget.intentdefinition in Sources */,
 				0F49A3DC26770F0400B62CC4 /* Groups.swift in Sources */,
+				0FDD30B9272667A200E8A4C0 /* UIApplicationDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2153,7 +2161,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = TheCoffeeWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = FS69ZZRN45;
 				INFOPLIST_FILE = TheCoffeeWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -2181,7 +2189,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = TheCoffeeWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = FS69ZZRN45;
 				INFOPLIST_FILE = TheCoffeeWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -2890,7 +2898,7 @@
 				CODE_SIGN_ENTITLEMENTS = TheCoffeeWidgetExtensionMac/TheCoffeeWidgetExtensionMac.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = FS69ZZRN45;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = TheCoffeeWidgetExtensionMac/Info.plist;
@@ -2916,7 +2924,7 @@
 				CODE_SIGN_ENTITLEMENTS = TheCoffeeWidgetExtensionMac/TheCoffeeWidgetExtensionMac.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = FS69ZZRN45;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = TheCoffeeWidgetExtensionMac/Info.plist;
