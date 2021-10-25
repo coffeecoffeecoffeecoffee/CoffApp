@@ -8,7 +8,7 @@ struct EventListView: View {
 
     var body: some View {
             VStack(alignment: .center) {
-                if net.netState == .loading {
+                if net.netState != .ready {
                     ProgressView(net.netState.description)
                         .padding(30)
                         .frame(minWidth: .none, maxWidth: .infinity, minHeight: 200, maxHeight: 320, alignment: .center)

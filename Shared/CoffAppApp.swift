@@ -4,7 +4,6 @@ import SwiftUI
 
 @main
 struct CoffAppApp: App {
-    @Environment(\.scenePhase) private var scenePhase
     private let persistenceController = PersistenceController.shared
     private let logger = Logger(label: "science.pixel.espresso.coffapp")
     private let net = NetworkService()
