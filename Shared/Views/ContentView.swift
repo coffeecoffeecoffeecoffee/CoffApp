@@ -4,7 +4,7 @@ import CoreData
 
 // Shared: macOS, iOS, tvOS
 struct ContentView: View {
-    @EnvironmentObject var net: NetworkService
+    private var net = NetworkService()
     @Environment(\.managedObjectContext) private var viewContext
     @StateObject private var groups = Groups()
     @SceneStorage("selectedGroup") var selectedGroup: String?
