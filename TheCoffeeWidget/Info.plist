@@ -33,14 +33,14 @@
 				<key>NSIncludesSubdomains</key>
 				<true/>
 			</dict>
-			<key>https://www.coffeecoffeecoffee.com</key>
+			<key>https://res.cloudinary.com</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
 				<key>NSIncludesSubdomains</key>
 				<true/>
 			</dict>
-			<key>https://res.cloudinary.com</key>
+			<key>https://www.coffeecoffeecoffee.com</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>

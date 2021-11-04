@@ -2,13 +2,13 @@ import Logging
 import SwiftUI
 
 struct EventListView: View {
-    @StateObject var net = NetworkService()
+    @ObservedObject var net = NetworkService()
     var group: InterestGroup
-    private let logger = Logger(label: "EventListView")
+    private let logger = Logger(label: "science.pixel.espresso.eventlistview")
 
     var body: some View {
             VStack(alignment: .center) {
-                if net.netState == .loading {
+                if net.netState != .ready {
                     ProgressView(net.netState.description)
                         .padding(30)
                         .frame(minWidth: .none, maxWidth: .infinity, minHeight: 200, maxHeight: 320, alignment: .center)
@@ -40,11 +40,12 @@ struct EventListView: View {
                         }
                         .padding(.horizontal, 15)
                     }
-                    .navigationTitle(group.name)
             }
         }
+        .navigationTitle(group.name)
         .onAppear {
             net.loadEvents(for: group)
+            group.setSelected()
         }
         .userActivity(ContentView.contentGroupUserActivityType) { activity in
             logger.info("EVENT LIST: \(activity.activityType)")

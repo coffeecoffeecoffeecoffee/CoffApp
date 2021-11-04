@@ -55,8 +55,10 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "32">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/The Coffee">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0FA09F122661FE5700E04777"
@@ -64,7 +66,7 @@
             BlueprintName = "CoffUp (watchOS) WatchKit App"
             ReferencedContainer = "container:CoffApp.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -73,8 +75,10 @@
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES"
       launchAutomaticallySubstyle = "32">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/The Coffee">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0FA09F122661FE5700E04777"
@@ -82,7 +86,16 @@
             BlueprintName = "CoffUp (watchOS) WatchKit App"
             ReferencedContainer = "container:CoffApp.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "0FA09F122661FE5700E04777"
+            BuildableName = "CoffUp (watchOS) WatchKit App.app"
+            BlueprintName = "CoffUp (watchOS) WatchKit App"
+            ReferencedContainer = "container:CoffApp.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

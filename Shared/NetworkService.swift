@@ -13,14 +13,15 @@ final class NetworkService: ObservableObject {
     @Published var netState = NetworkState.loading
     private var logger = Logger(label: Bundle.main.bundleIdentifier!
                                     .appending(".networkservice.log"))
-    private var subscribers = Set<AnyCancellable>()
+    private var subscriptions = Set<AnyCancellable>()
     private var session = URLSession.shared
-    private var decoder = JSONDecoder()
+    private let decoder = JSONDecoder()
 
     private let groupURL = URL.appURL(with: "api", "groups")
 
     enum NetworkError: Error {
         case invalidURL
+        case noSelectedInterestGroup
         case unknownError
 
         var description: String {
@@ -34,7 +35,7 @@ final class NetworkService: ObservableObject {
     }
 
     func cancelAll() {
-        subscribers.removeAll()
+        subscriptions.removeAll()
         firstEvent = Event.loading
         events = []
         self.netState = .ready
@@ -43,6 +44,7 @@ final class NetworkService: ObservableObject {
     init() {
         decoder.dateDecodingStrategy = .iso8601
         observeSelectedGroup()
+        self.selectedGroup = InterestGroup.loadSelected()
     }
 }
 
@@ -76,7 +78,7 @@ extension NetworkService {
                     group.name == defaultsValue
                 })
             }
-            .store(in: &subscribers)
+            .store(in: &subscriptions)
     }
 
     func loadGroups() {
@@ -95,12 +97,32 @@ extension NetworkService {
                 self.logger.debug("fetched groups \n\(netGroups.count)")
                 self.groups = netGroups
             }
-            .store(in: &subscribers)
+            .store(in: &subscriptions)
     }
 }
 
 // MARK: - Events
 extension NetworkService {
+
+    private func downloadAllEvents(for group: InterestGroup) throws -> [Event] {
+        let data = try Data(contentsOf: group.eventsURL)
+        let events = try decoder.decode([Event].self, from: data)
+        handle(events)
+        return events
+    }
+
+    func futureEvents(for group: InterestGroup) throws -> [Event] {
+        self.events = try downloadAllEvents(for: group)
+        let now = Date()
+        let futureEvents = self.events.filter { event in
+            guard let endDate = event.endAt else {
+                return false
+            }
+            return endDate > now
+        }
+        return futureEvents
+    }
+
     func loadAllEvents(for group: InterestGroup) -> AnyPublisher<[Event], Error> {
         guard let url = group.eventsURL else {
             self.netState = .failed(NetworkError.invalidURL)
@@ -129,7 +151,7 @@ extension NetworkService {
                 case .failure(let error):
                     self.logger.critical("Network Error\n\(error.localizedDescription)")
                     self.netState = .failed(error)
-                    self.sort([Event.error])
+                    self.handle([Event.error])
                 case .finished:
                     self.logger.info("Events fetch complete")
                     self.netState = .ready
@@ -143,12 +165,12 @@ extension NetworkService {
                     self.firstEvent = Event.empty
                 }
                 self.events = netEvents
-                self.sort(netEvents)
+                self.handle(netEvents)
             }
-            .store(in: &subscribers)
+            .store(in: &subscriptions)
     }
 
-    private func sort(_ events: [Event]) {
+    private func handle(_ events: [Event]) {
         let now = Date()
         self.upcomingEvents = []
         self.pastEvents = []
@@ -174,40 +196,6 @@ extension NetworkService {
                   return true
               }
         return aStart < bStart
-    }
-
-    func loadUpcomingEvents(for group: InterestGroup) {
-        loadAllEvents(for: group)
-            .map { [weak self] events -> [Event] in
-                guard let self = self else { return [] }
-                let now = Date()
-                let upcoming = events.filter { event in
-                    guard let startDate = event.startAt else {
-                        return false
-                    }
-                    return startDate > now
-                }
-                return upcoming.sorted(by: self.sortEvents)
-            }
-            .removeDuplicates()
-            .receive(on: RunLoop.main)
-            .sink { upcomingCompletion in
-                switch upcomingCompletion {
-                case .failure(let error):
-                    self.logger.error("loadUpcomingEvents(for:) \(error.localizedDescription)")
-                    self.netState = .failed(error)
-                case .finished:
-                    self.netState = .ready
-                }
-            } receiveValue: { upcomingEvts in
-                self.upcomingEvents = upcomingEvts
-            }
-            .store(in: &subscribers)
-    }
-
-    func selectedGroupUpcomingEvents() {
-        guard let selectedGroup = selectedGroup else { return }
-        loadUpcomingEvents(for: selectedGroup)
     }
 }
 

@@ -4,7 +4,7 @@ import CoreData
 
 // Shared: macOS, iOS, tvOS
 struct ContentView: View {
-    @StateObject private var networkService = NetworkService()
+    private var net = NetworkService()
     @Environment(\.managedObjectContext) private var viewContext
     @StateObject private var groups = Groups()
     @SceneStorage("selectedGroup") var selectedGroup: String?
@@ -17,8 +17,8 @@ struct ContentView: View {
                 // This is needed only for iOS because the source side
                 // of List is sometimes the only view visible on iPhone
                 #if os(iOS)
-                if networkService.netState != .ready
-                    && networkService.netState != .loading
+                if net.netState != .ready
+                    && net.netState != .loading
                     && UIDevice.current.userInterfaceIdiom != .pad {
                     StatusView()
                         .frame(maxWidth: .infinity,
@@ -36,7 +36,7 @@ struct ContentView: View {
             .navigationTitle("The Coffee")
             switch groups.state {
             case .loading:
-                ProgressView(networkService.netState.description)
+                ProgressView(net.netState.description)
                     .frame(minWidth: 320, minHeight: 180)
             case .failed(let error):
                 let errorViewModel = StatusViewModel(headline: "Network Error",
@@ -59,7 +59,7 @@ struct ContentView: View {
             #endif
         }
         .onAppear {
-            networkService.loadGroups()
+            net.loadGroups()
         }
         .onContinueUserActivity(ContentView.contentGroupUserActivityType) { resumeActivity in
             logger.debug("CONTINUE: \(resumeActivity.activityType)")
@@ -97,47 +97,6 @@ extension ContentView {
     }
     #endif
 }
-
-extension ContentView {
-    private func addItem() {
-        withAnimation {
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate.
-                // You should not use this function in a shipping application,
-                // although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-//            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate.
-                // You should not use this function in a shipping application,
-                // although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-}
-
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
 
 #if DEBUG
 struct ContentView_Previews: PreviewProvider {

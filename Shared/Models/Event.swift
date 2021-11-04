@@ -43,6 +43,16 @@ extension Event {
         )
     }
 
+    static func error(text: String) -> Event {
+        Event(id: nil,
+              groupID: nil,
+              name: text,
+              imageURL: nil,
+              startAt: nil,
+              endAt: nil,
+              venue: Venue(name: text, location: nil))
+    }
+
     static var empty: Event {
         Event(id: nil,
               groupID: nil,

@@ -24,8 +24,8 @@ struct TheCoffeeWidgetEntryView: View {
     var body: some View {
         ZStack {
             if let imageData = entry.imageData,
-                let uiImage = UIImage(data: imageData) {
-                Image(uiImage: uiImage)
+                let eventImage = try? Image(data: imageData) {
+                eventImage
                     .centerCropped()
             } else {
                 AsyncImagePhaseView(entry.event.imageURL)
