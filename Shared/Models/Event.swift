@@ -19,7 +19,48 @@ struct Event: Codable {
     }
 }
 
-// MARK: - Event States
+// MARK: - Status
+extension Event {
+    private enum EventState: CustomStringConvertible {
+        case future
+        case now
+        case past
+        case unknown
+
+        var description: String {
+            switch self {
+            case .future:
+                return "Upcoming"
+            case .now:
+                return "Right Now"
+            case .past:
+                return "Previously"
+            default:
+                return "Unknown"
+            }
+        }
+    }
+
+    private var status: EventState {
+        guard let startTime = startAt else {
+            return .unknown
+        }
+        if startTime > Date.now {
+            return .future
+        }
+        if let endTime = endAt,
+           endTime > Date.now {
+            return .now
+        }
+        return .past
+    }
+
+    var statusText: String {
+        self.status.description
+    }
+}
+
+// MARK: - Placeholder Events
 extension Event {
     static var loading: Event {
         Event(id: nil,
@@ -65,6 +106,7 @@ extension Event {
     }
 }
 
+// MARK: - SwiftUI Conformance
 extension Event: Hashable {
     static func == (lhs: Event, rhs: Event) -> Bool {
         guard let lid = lhs.id,
