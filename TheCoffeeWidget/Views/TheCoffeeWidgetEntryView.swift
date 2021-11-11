@@ -9,14 +9,6 @@ struct TheCoffeeWidgetEntryView: View {
         return date > Date() ? true : false
     }
 
-    func labelText(_ event: Event) -> String {
-        guard let startDate = event.startAt else { return "" }
-        if startDate > Date() {
-            return "Next"
-        }
-        return "Previously"
-    }
-
     var shadyPurple = Color(hue: 0.8,
                             saturation: 1.0,
                             brightness: 0.26)
@@ -41,7 +33,7 @@ struct TheCoffeeWidgetEntryView: View {
             HStack {
                 VStack(alignment: .leading) {
                     Spacer()
-                    Text(labelText(entry.event).uppercased())
+                    Text(entry.event.statusText.uppercased())
                         .foregroundColor(.init(hue: 0.6,
                                                saturation: 0.7,
                                                brightness: 3.0))

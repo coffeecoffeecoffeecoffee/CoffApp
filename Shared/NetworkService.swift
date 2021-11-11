@@ -174,20 +174,20 @@ extension NetworkService {
         let now = Date()
         self.upcomingEvents = []
         self.pastEvents = []
-        var forthComingEvents = [Event]()
+        var activeEvents = [Event]()
         events.forEach { event in
-            guard let startDate = event.startAt else { return }
-            if startDate > now {
-                forthComingEvents.append(event)
+            guard let endDate = event.endAt else { return }
+            if endDate > now {
+                activeEvents.append(event)
             } else {
                 self.pastEvents.append(event)
             }
         }
         #if DEBUG
         let evt = testEvent()
-        forthComingEvents.append(evt)
+        activeEvents.append(evt)
         #endif
-        self.upcomingEvents = forthComingEvents.sorted(by: sortEvents)
+        self.upcomingEvents = activeEvents.sorted(by: sortEvents)
     }
 
     private func sortEvents(aVent: Event, bVent: Event) -> Bool {
