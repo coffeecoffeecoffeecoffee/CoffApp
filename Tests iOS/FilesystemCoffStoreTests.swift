@@ -16,22 +16,22 @@ class FilesystemCoffStoreTests: XCTestCase {
         return storeDirectoryURL
     }
 
-    var dut: FilesystemCoffStore!
+    var sut: FilesystemCoffStore!
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        dut = FilesystemCoffStore(rootDirectoryURL: temporaryRootDirectoryURL)
+        sut = FilesystemCoffStore(rootDirectoryURL: temporaryRootDirectoryURL)
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
-        dut = nil
+        sut = nil
     }
 
     func testLoadingSelectedInterestGroupWithoutFile() throws {
         let exp = expectation(description: #function)
         var result: Result<InterestGroup?, Error>?
-        dut.loadSelectedInterestGroup {
+        sut.loadSelectedInterestGroup {
             result = $0
             exp.fulfill()
         }
@@ -52,7 +52,7 @@ class FilesystemCoffStoreTests: XCTestCase {
     func testLoadingEventsWithoutFile() throws {
         let exp = expectation(description: #function)
         var result: Result<Events, Error>?
-        dut.loadEvents {
+        sut.loadEvents {
             result = $0
             exp.fulfill()
         }

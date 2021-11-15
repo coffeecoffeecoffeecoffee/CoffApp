@@ -1661,7 +1661,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "ZPROFILE=$HOME/.zprofile\nif [ -f \"${ZPROFILE}\" ]; then\n    source \"${ZPROFILE}\"\nfi\n\nif which swiftlint >/dev/null; then\n  swiftlint autocorrect && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint autocorrect && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		0F49A3CF267516B500B62CC4 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
