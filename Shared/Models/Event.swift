@@ -1,5 +1,6 @@
-// swiftlint:disable identifier_name
 import Foundation
+
+typealias Events = [Event]
 
 struct Event: Codable {
     let id, groupID: UUID?

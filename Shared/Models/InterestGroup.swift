@@ -1,6 +1,7 @@
-// swiftlint:disable identifier_name
 import Combine
 import Foundation
+
+typealias InterestGroups = [InterestGroup]
 
 struct InterestGroup: Codable {
     let id: UUID
