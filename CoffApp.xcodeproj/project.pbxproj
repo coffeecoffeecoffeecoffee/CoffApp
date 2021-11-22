@@ -62,13 +62,12 @@
 		0F6A052B2658A1E10050439D /* CoffAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FE2658A1DE0050439D /* CoffAppApp.swift */; };
 		0F6A052C2658A1E10050439D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FF2658A1DE0050439D /* ContentView.swift */; };
 		0F6A052D2658A1E10050439D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FF2658A1DE0050439D /* ContentView.swift */; };
-		0F6A052E2658A1E10050439D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05002658A1DE0050439D /* Persistence.swift */; };
-		0F6A052F2658A1E10050439D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05002658A1DE0050439D /* Persistence.swift */; };
+		0F6A052E2658A1E10050439D /* CoffStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05002658A1DE0050439D /* CoffStore.swift */; };
+		0F6A052F2658A1E10050439D /* CoffStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05002658A1DE0050439D /* CoffStore.swift */; };
 		0F6A05302658A1E10050439D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6A05012658A1E10050439D /* Assets.xcassets */; };
 		0F6A05312658A1E10050439D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6A05012658A1E10050439D /* Assets.xcassets */; };
 		0F6A054B2658A2250050439D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6A054A2658A2250050439D /* Assets.xcassets */; };
 		0F6A054E2658A2250050439D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6A054D2658A2250050439D /* Preview Assets.xcassets */; };
-		0F6A05502658A2250050439D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A054F2658A2250050439D /* Persistence.swift */; };
 		0F6A05692658A2250050439D /* CoffAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05682658A2250050439D /* CoffAppUITests.swift */; };
 		0F6A05C22658A2A60050439D /* CoffAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FE2658A1DE0050439D /* CoffAppApp.swift */; };
 		0F6A05C32658A2A60050439D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FF2658A1DE0050439D /* ContentView.swift */; };
@@ -260,8 +259,9 @@
 		0FF4AA9226A4E9D300EEEDBF /* Image+CenterCropped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F23910B2686CE2D007461F9 /* Image+CenterCropped.swift */; };
 		0FF4AA9426A4EA2800EEEDBF /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 0FF4AA9326A4EA2800EEEDBF /* Logging */; };
 		0FF4AA9726A4EA6800EEEDBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6A05012658A1E10050439D /* Assets.xcassets */; };
-		0FF4AA9826A4F3E100EEEDBF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05002658A1DE0050439D /* Persistence.swift */; };
+		0FF4AA9826A4F3E100EEEDBF /* CoffStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05002658A1DE0050439D /* CoffStore.swift */; };
 		0FF4AA9926A4F3F500EEEDBF /* CoffApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FC2658A1DE0050439D /* CoffApp.xcdatamodeld */; };
+		264F9964272F6E6E008E6D0F /* FilesystemCoffStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264F9963272F6E6E008E6D0F /* FilesystemCoffStoreTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -455,7 +455,7 @@
 		0F6A04FD2658A1DE0050439D /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		0F6A04FE2658A1DE0050439D /* CoffAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffAppApp.swift; sourceTree = "<group>"; };
 		0F6A04FF2658A1DE0050439D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		0F6A05002658A1DE0050439D /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		0F6A05002658A1DE0050439D /* CoffStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffStore.swift; sourceTree = "<group>"; };
 		0F6A05012658A1E10050439D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F6A05062658A1E10050439D /* CoffApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F6A05092658A1E10050439D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -473,7 +473,6 @@
 		0F6A05482658A2230050439D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0F6A054A2658A2250050439D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F6A054D2658A2250050439D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		0F6A054F2658A2250050439D /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		0F6A05522658A2250050439D /* CoffApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoffApp.xcdatamodel; sourceTree = "<group>"; };
 		0F6A05542658A2250050439D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F6A05592658A2250050439D /* CoffAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -548,6 +547,7 @@
 		0FF4AA6F26A4E78300EEEDBF /* TheCoffeeAppClipUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCoffeeAppClipUITests.swift; sourceTree = "<group>"; };
 		0FF4AA7126A4E78300EEEDBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FF5652D2684311600C8E02C /* CoffApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoffApp.entitlements; sourceTree = "<group>"; };
+		264F9963272F6E6E008E6D0F /* FilesystemCoffStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesystemCoffStoreTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -768,7 +768,7 @@
 				0F49A3D02675189900B62CC4 /* ImageCache.swift */,
 				0F6A05C72658A4350050439D /* NetworkService.swift */,
 				0F6A05E92658B2010050439D /* NetworkState.swift */,
-				0F6A05002658A1DE0050439D /* Persistence.swift */,
+				0F6A05002658A1DE0050439D /* CoffStore.swift */,
 				0F49A3D62677022500B62CC4 /* UserDefaultKeys.swift */,
 				0F745441266891BE00DEB3F1 /* RuntimeOS.swift */,
 				0F8293B426C72D65008BBA76 /* Components */,
@@ -828,8 +828,9 @@
 		0F6A05192658A1E10050439D /* Tests iOS */ = {
 			isa = PBXGroup;
 			children = (
-				0F6A051A2658A1E10050439D /* TestsiOS.swift */,
 				0F6A051C2658A1E10050439D /* Info.plist */,
+				0F6A051A2658A1E10050439D /* TestsiOS.swift */,
+				264F9963272F6E6E008E6D0F /* FilesystemCoffStoreTests.swift */,
 				0F8293C326C73347008BBA76 /* TestURL+AppURLs.swift */,
 			);
 			path = "Tests iOS";
@@ -850,7 +851,6 @@
 				0F6A05462658A2230050439D /* CoffAppApp.swift */,
 				0F6A05482658A2230050439D /* ContentView.swift */,
 				0F6A054A2658A2250050439D /* Assets.xcassets */,
-				0F6A054F2658A2250050439D /* Persistence.swift */,
 				0F6A05542658A2250050439D /* Info.plist */,
 				0F6A05512658A2250050439D /* CoffApp.xcdatamodeld */,
 				0F6A054C2658A2250050439D /* Preview Content */,
@@ -1760,7 +1760,7 @@
 				0FA20C3826956445007F595F /* InterestGroup+Selection.swift in Sources */,
 				0F6A05282658A1E10050439D /* CoffApp.xcdatamodeld in Sources */,
 				0FEABBBD2733845B00A40F88 /* Image+DataInitializer.swift in Sources */,
-				0F6A052E2658A1E10050439D /* Persistence.swift in Sources */,
+				0F6A052E2658A1E10050439D /* CoffStore.swift in Sources */,
 				0F23910C2686CE2D007461F9 /* Image+CenterCropped.swift in Sources */,
 				0F49A3D12675189900B62CC4 /* ImageCache.swift in Sources */,
 				0F6A05EA2658B2010050439D /* NetworkState.swift in Sources */,
@@ -1799,7 +1799,7 @@
 				0F8293B826C72D88008BBA76 /* StatusViewModel.swift in Sources */,
 				0FA09F6B2665587600E04777 /* EventSummaryView.swift in Sources */,
 				0F6A05292658A1E10050439D /* CoffApp.xcdatamodeld in Sources */,
-				0F6A052F2658A1E10050439D /* Persistence.swift in Sources */,
+				0F6A052F2658A1E10050439D /* CoffStore.swift in Sources */,
 				0F49A3D82677022500B62CC4 /* UserDefaultKeys.swift in Sources */,
 				0FDB46BC26A685860085AB5B /* StatusView.swift in Sources */,
 				0FD18C7926FD84AD003763DB /* AsyncImagePhaseView.swift in Sources */,
@@ -1828,6 +1828,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				264F9964272F6E6E008E6D0F /* FilesystemCoffStoreTests.swift in Sources */,
 				0F8293C926C81A5D008BBA76 /* URL+AppURLs.swift in Sources */,
 				0F6A051B2658A1E10050439D /* TestsiOS.swift in Sources */,
 				0F8293C426C73347008BBA76 /* TestURL+AppURLs.swift in Sources */,
@@ -1856,7 +1857,6 @@
 				0FD69B722658DABD007EC696 /* EventDetailView.swift in Sources */,
 				0F6A05EC2658B2010050439D /* NetworkState.swift in Sources */,
 				0F8293B926C72D88008BBA76 /* StatusViewModel.swift in Sources */,
-				0F6A05502658A2250050439D /* Persistence.swift in Sources */,
 				0FA09F6C2665587600E04777 /* EventSummaryView.swift in Sources */,
 				0F6A05D92658A9EC0050439D /* Venue.swift in Sources */,
 				0F6A05D52658A9460050439D /* Event.swift in Sources */,
@@ -2001,7 +2001,7 @@
 				0FF4AA8026A4E8DA00EEEDBF /* NetworkService.swift in Sources */,
 				0FF4AA8C26A4E96400EEEDBF /* EventDetailView.swift in Sources */,
 				0FF4AA8A26A4E95300EEEDBF /* UserDefaultKeys.swift in Sources */,
-				0FF4AA9826A4F3E100EEEDBF /* Persistence.swift in Sources */,
+				0FF4AA9826A4F3E100EEEDBF /* CoffStore.swift in Sources */,
 				0FF4AA8F26A4E99100EEEDBF /* FocusState.swift in Sources */,
 				0FF4AA9226A4E9D300EEEDBF /* Image+CenterCropped.swift in Sources */,
 				0FF4AA8B26A4E95E00EEEDBF /* EventListView.swift in Sources */,
