@@ -5,10 +5,12 @@ struct EventListView: View {
     @ObservedObject var net = NetworkService()
     var group: InterestGroup
     private let logger = Logger(label: "science.pixel.espresso.eventlistview")
+    let notification = Notification(name: .init(CoffeeBackgroundTask.refresh.rawValue), object: nil, userInfo: nil)
 
     var body: some View {
             VStack(alignment: .center) {
-                if net.netState != .ready {
+                if net.events.count == 0
+                    && net.netState == .loading {
                     ProgressView(net.netState.description)
                         .padding(30)
                         .frame(minWidth: .none, maxWidth: .infinity, minHeight: 200, maxHeight: 320, alignment: .center)
@@ -16,6 +18,9 @@ struct EventListView: View {
                 } else {
                     ScrollView {
                         LazyVStack(alignment: .leading, spacing: 30) {
+                            Text(net.netState.description)
+                                .font(.caption)
+                                .foregroundColor(.secondary)
                             if net.upcomingEvents.count > 0 {
                                 VStack {
                                     ForEach(net.upcomingEvents, id: \.self) { upcomingEvent in
@@ -48,16 +53,9 @@ struct EventListView: View {
             group.setSelected()
         }
         .userActivity(ContentView.contentGroupUserActivityType) { activity in
-            logger.info("EVENT LIST: \(activity.activityType)")
+            logger.info("Handling UserActivty: \(activity.activityType)")
             describeUserActivity(activity)
-        }
-        .onContinueUserActivity(ContentView.contentGroupUserActivityType) { resumeActivity in
-            logger.info("CONTINUE: \(resumeActivity.activityType)")
-            guard let resumedGroup = try? resumeActivity.typedPayload(InterestGroup.self) else {
-                logger.warning("FAIL: Could not resume \(resumeActivity.activityType)")
-                return
-            }
-            logger.info("FOUND: \(resumedGroup.name)")
+            net.loadEvents(for: group)
         }
     }
 }

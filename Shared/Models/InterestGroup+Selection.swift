@@ -19,9 +19,9 @@ extension InterestGroup {
 
 // MARK: - Events
 extension InterestGroup {
-    var headlineEvent: Event {
+    func headlineEvent() async throws -> Event {
         let net = NetworkService()
-        guard let events = try? net.futureEvents(for: self),
+        guard let events = try? await net.futureEvents(for: self),
               !events.isEmpty else {
                   return Event.loadMostRecent() ?? Event.error(text: "Coffee: YES!")
         }

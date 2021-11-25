@@ -17,8 +17,7 @@ struct ContentView: View {
                 // This is needed only for iOS because the source side
                 // of List is sometimes the only view visible on iPhone
                 #if os(iOS)
-                if net.netState != .ready
-                    && net.netState != .loading
+                if net.netState == .loading
                     && UIDevice.current.userInterfaceIdiom != .pad {
                     StatusView()
                         .frame(maxWidth: .infinity,
@@ -67,6 +66,7 @@ struct ContentView: View {
                 return
             }
             logger.debug("GOT \(resumedGroup.name)")
+            net.loadGroups()
             groups.select(resumedGroup.name)
         }
     }

@@ -11,37 +11,33 @@ struct BackgroundActivityController {
             .register(forTaskWithIdentifier: id,
                       using: nil) { bgTask in
                 guard let refreshTask = bgTask as? BGAppRefreshTask else {
-                    logger.error(.init(stringLiteral: "Not a refresh task: \(bgTask.description)"))
+                    logger.error("Not a refresh task: \(bgTask.description)")
                     return
                 }
+                logger.info("Handle background task", metadata: nil)
                 handle(backgroundTask: refreshTask)
             }
     }
 
     func scheduleBGTask() throws {
-        logger.debug("scheduling BG task")
+        logger.info("scheduling BG task")
         let request = BGAppRefreshTaskRequest(identifier: CoffeeBackgroundTask.refresh.rawValue)
         try BGTaskScheduler.shared.submit(request)
     }
 
     private func handle(backgroundTask: BGAppRefreshTask) {
-        logger.debug("handling BG task")
-        let group = DispatchGroup()
-        let dispatchQ = DispatchQueue(label: "science.pixel.espresso.handlebackgroundtask",
-                                      qos: .background,
-                                      attributes: .concurrent,
-                                      autoreleaseFrequency: .workItem)
-        group.enter()
-        dispatchQ.async {
-            net.loadGroups()
-            if let selectedGroup = InterestGroup.loadSelected() {
-                selectedGroup.headlineEvent.saveAsMostRecent()
-                net.loadEvents(for: selectedGroup)
-            }
-            backgroundTask.setTaskCompleted(success: true)
-            group.leave()
+        logger.info("handling BG task: BEGIN")
+        guard InterestGroup.loadSelected() != nil else {
+            // No saved group nothing else to do. Kill the background updates.
+            backgroundTask.setTaskCompleted(success: false)
+            return
         }
-        group.wait()
-        try? scheduleBGTask()
+        do {
+            try scheduleBGTask()
+        } catch {
+            logger.error(.init(stringLiteral: "FAIL to schedule bgtask: \(error.localizedDescription)"), metadata: nil)
+        }
+        logger.info("handling BG task: DONE")
+        backgroundTask.setTaskCompleted(success: true)
     }
 }

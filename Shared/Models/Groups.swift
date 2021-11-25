@@ -22,7 +22,7 @@ final class Groups: ObservableObject {
             .receive(on: RunLoop.main)
             .sink { [weak self] groups in
                 guard let self = self else { return }
-                self.state = .ready
+                self.state = .ready(description: Date().formatted(date: .abbreviated, time: .shortened))
                 self.groups = groups
                 self.selectedGroupName = self.selectedGroupName
             }

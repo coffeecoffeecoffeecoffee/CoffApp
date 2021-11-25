@@ -15,6 +15,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         do {
+            logger.info("Enter Background", metadata: nil)
             try bgActivityController.scheduleBGTask()
         } catch {
             logger.error(.init(stringLiteral: error.localizedDescription))

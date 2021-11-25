@@ -43,10 +43,12 @@ class EventProvider: IntentTimelineProvider {
                    completion(Timeline(entries: [EventEntry(.error(text: "Coffee: Get Some!"))], policy: .atEnd))
                    return
         }
-        let event = savedGroup.headlineEvent
-        let entry = EventEntry(event,
-                               date: event.startAt ?? Date().addingTimeInterval(-360),
-                               configuration: configuration)
-        completion(Timeline(entries: [entry], policy: .atEnd))
+        Task {
+            let headlineEvent = try await savedGroup.headlineEvent()
+            let entry = EventEntry(headlineEvent,
+                                   date: headlineEvent.startAt ?? Date().addingTimeInterval(-360),
+                                   configuration: configuration)
+            completion(Timeline(entries: [entry], policy: .atEnd))
+        }
     }
 }

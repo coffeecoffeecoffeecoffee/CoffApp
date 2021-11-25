@@ -2,7 +2,7 @@ import Combine
 import Foundation
 import Logging
 
-final class NetworkService: ObservableObject {
+final class NetworkService: ObservableObject, DataSource {
     @Published var selectedGroup: InterestGroup?
     @Published var groups = [InterestGroup]()
     @Published var events = [Event]()
@@ -38,7 +38,7 @@ final class NetworkService: ObservableObject {
         subscriptions.removeAll()
         firstEvent = Event.loading
         events = []
-        self.netState = .ready
+        self.netState = .ready(description: Date().formatted(date: .abbreviated, time: .shortened))
     }
 
     init() {
@@ -65,7 +65,7 @@ extension NetworkService {
             self.netState = .failed(error)
         case .finished:
             self.logger.debug("Group Fetch Complete")
-            self.netState = .ready
+            self.netState = .ready(description: Date().formatted(date: .abbreviated, time: .shortened))
         }
     }
 
@@ -103,16 +103,21 @@ extension NetworkService {
 
 // MARK: - Events
 extension NetworkService {
-
-    private func downloadAllEvents(for group: InterestGroup) throws -> [Event] {
-        let data = try Data(contentsOf: group.eventsURL)
+    private func downloadAllEvents(for group: InterestGroup) async throws -> [Event] {
+        guard let eventsURL = group.eventsURL else {
+            throw NetworkError.invalidURL
+        }
+        let request = URLRequest(url: eventsURL,
+                                 cachePolicy: .reloadIgnoringLocalCacheData,
+                                 timeoutInterval: 10)
+        let (data, _) = try await URLSession.shared.data(for: request, delegate: nil)
         let events = try decoder.decode([Event].self, from: data)
         handle(events)
         return events
     }
 
-    func futureEvents(for group: InterestGroup) throws -> [Event] {
-        self.events = try downloadAllEvents(for: group)
+    func futureEvents(for group: InterestGroup) async throws -> [Event] {
+        self.events = try await downloadAllEvents(for: group)
         let now = Date()
         let futureEvents = self.events.filter { event in
             guard let endDate = event.endAt else {
@@ -154,7 +159,7 @@ extension NetworkService {
                     self.handle([Event.error])
                 case .finished:
                     self.logger.info("Events fetch complete")
-                    self.netState = .ready
+                    self.netState = .ready(description: Date().formatted(date: .abbreviated, time: .shortened))
                 }
             } receiveValue: { netEvents in
                 self.logger.info("Events loaded: \(netEvents.count)")
@@ -197,6 +202,11 @@ extension NetworkService {
               }
         return aStart < bStart
     }
+}
+
+// Async API
+extension NetworkService {
+
 }
 
 #if DEBUG
