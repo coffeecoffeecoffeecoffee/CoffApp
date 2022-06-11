@@ -3,6 +3,7 @@ import Foundation
 import Logging
 
 final class NetworkService: ObservableObject {
+    static var shared: NetworkService { .init() }
     @Published var selectedGroup: InterestGroup?
     @Published var groups = [InterestGroup]()
     @Published var events = [Event]()
@@ -109,6 +110,43 @@ extension NetworkService {
         let events = try decoder.decode([Event].self, from: data)
         handle(events)
         return events
+    }
+
+    public func downloadAllEvents(for groupIDs: Set<UUID>) async throws -> [Event] {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        let allEventsSet = try await withThrowingTaskGroup(of: [Event].self,
+                                                    returning: Set<Event>.self) { taskGroup in
+            let groups = groupIDs.map { uid in
+                InterestGroup(id: uid, name: uid.uuidString)
+            }
+            let urls = groups.compactMap { $0.eventsURL }
+            urls.forEach { url in
+                taskGroup.addTask {
+                    do {
+                        let (groupEventsData, _) = try await URLSession.shared.data(from: url)
+                        let groupEvents = try decoder.decode([Event].self,
+                                                             from: groupEventsData)
+                        return groupEvents
+                    } catch {
+                        self.logger.error(.init(stringLiteral: error.localizedDescription))
+                        fatalError(error.localizedDescription)
+                    }
+                }
+            }
+
+            var decodedEvents = Set<Event>()
+            for try await groupEvents in taskGroup {
+                decodedEvents.formUnion(groupEvents)
+            }
+            return decodedEvents
+        }
+        let allEventsSorted = allEventsSet.sorted { prev, this in
+            guard let prevDate = prev.startAt,
+                  let thisDate = this.startAt else { return false }
+            return prevDate < thisDate
+        }
+        return allEventsSorted
     }
 
     func futureEvents(for group: InterestGroup) throws -> [Event] {

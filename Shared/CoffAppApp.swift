@@ -12,7 +12,7 @@ struct CoffAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            GroupListView()
+            EventListView()
         }
     }
 }

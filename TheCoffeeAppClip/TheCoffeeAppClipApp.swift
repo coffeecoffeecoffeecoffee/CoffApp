@@ -4,7 +4,7 @@ import SwiftUI
 struct TheCoffeeAppClipApp: App {
     var body: some Scene {
         WindowGroup {
-            GroupListView()
+            EventListView()
         }
     }
 }

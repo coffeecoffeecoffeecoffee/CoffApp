@@ -2,29 +2,36 @@ import Logging
 import SwiftUI
 import CoreData
 
-// Shared: macOS, iOS, tvOS
 struct GroupListView: View {
-    @State private var path: [InterestGroup] = []
-    @State private var selectedGroup: InterestGroup?
-    @ObservedObject private var net = NetworkService()
-    private let logger = Logger(label: "ContentView.logger")
+    @State private var groups: [InterestGroup] = []
+    private let logger = Logger(label: "GroupListView.logger")
+    private let profile = UserProfile()
+    private let groupsURL = URL.appURL(with: "api", "groups")
 
     var body: some View {
-        NavigationStack(path: $path) {
-            List(net.groups) { meetupGroup in
-                NavigationLink(value: meetupGroup) {
-                    // TODO: Visual design
-                    Text(meetupGroup.name)
+        List(groups) { meetupGroup in
+            HStack {
+                let iconName = profile.subscribedTo(meetupGroup) ? "checkmark.circle.fill" : "circle"
+                Image(systemName: iconName)
+                Text(meetupGroup.name)
+            }
+            .onTapGesture {
+                do {
+                    try profile.toggleGroup(meetupGroup)
+                } catch {
+                    logger.error(.init(stringLiteral: error.localizedDescription))
                 }
             }
-            .navigationTitle("The Coffee")
-            .navigationDestination(for: InterestGroup.self) { meetupGroup in
-                GroupView(group: meetupGroup)
-                    .environmentObject(net)
-            }
         }
-        .onAppear {
-            net.loadGroups()
+        .navigationTitle("Groups")
+        .task {
+            do {
+                let (groupsData, _) = try await URLSession.shared.data(from: groupsURL)
+                groups = try JSONDecoder().decode([InterestGroup].self,
+                                              from: groupsData)
+            } catch {
+                logger.error(.init(stringLiteral: error.localizedDescription))
+            }
         }
     }
 }
