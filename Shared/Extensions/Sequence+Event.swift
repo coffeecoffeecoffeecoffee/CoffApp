@@ -6,7 +6,7 @@ extension Sequence where Element == Event {
         let sorted = self.sorted { prev, this in
             guard let prevDate = prev.startAt,
                   let thisDate = this.startAt else { return false }
-            return prevDate < thisDate
+            return prevDate > thisDate
         }
         return sorted
     }
@@ -31,5 +31,15 @@ extension Sequence where Element == Event {
     func past() -> [Event] {
         let past = self.filtered(isUpcoming: false)
         return past.sortedByTime()
+    }
+
+    func matches(term: String) throws -> [Event] {
+        let regex = try Regex(term.lowercased())
+        let matches = try self.filter { event in
+            try regex.firstMatch(in: event.name.lowercased()) != nil
+            || regex.firstMatch(in: event.venueName.lowercased()) != nil
+            || regex.firstMatch(in: event.localizedStartTime().lowercased()) != nil
+        }
+        return matches.sortedByTime()
     }
 }
