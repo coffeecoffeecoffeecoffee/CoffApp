@@ -1,8 +1,8 @@
 import Logging
 import SwiftUI
 
-struct EventListView: View {
-    @ObservedObject var net = NetworkService()
+struct GroupView: View {
+    @EnvironmentObject var net: NetworkService
     var group: InterestGroup
     private let logger = Logger(label: "science.pixel.espresso.eventlistview")
 
@@ -47,22 +47,10 @@ struct EventListView: View {
             net.loadEvents(for: group)
             group.setSelected()
         }
-        .userActivity(ContentView.contentGroupUserActivityType) { activity in
-            logger.info("EVENT LIST: \(activity.activityType)")
-            describeUserActivity(activity)
-        }
-        .onContinueUserActivity(ContentView.contentGroupUserActivityType) { resumeActivity in
-            logger.info("CONTINUE: \(resumeActivity.activityType)")
-            guard let resumedGroup = try? resumeActivity.typedPayload(InterestGroup.self) else {
-                logger.warning("FAIL: Could not resume \(resumeActivity.activityType)")
-                return
-            }
-            logger.info("FOUND: \(resumedGroup.name)")
-        }
     }
 }
 
-extension EventListView {
+extension GroupView {
     func describeUserActivity(_ userActivity: NSUserActivity) {
         let nextGroup: InterestGroup?
         if let activityGroup = try? userActivity.typedPayload(InterestGroup.self) {
@@ -86,7 +74,7 @@ extension EventListView {
 #if DEBUG
 struct EventListView_Previews: PreviewProvider {
     static var previews: some View {
-        EventListView(group: InterestGroup(id: UUID(uuidString: "28ef50f9-b909-4f03-9a69-a8218a8cbd99")!,
+        GroupView(group: InterestGroup(id: UUID(uuidString: "28ef50f9-b909-4f03-9a69-a8218a8cbd99")!,
                                    name: "Test Group Name"))
             .environmentObject(NetworkService())
     }

@@ -7,8 +7,7 @@ struct TheCoffeeWidget: Widget {
     let kind: String = "The Coffee"
 
     var body: some WidgetConfiguration {
-        IntentConfiguration(kind: kind,
-                            intent: ConfigurationIntent.self,
+        StaticConfiguration(kind: kind,
                             provider: EventProvider()) { entry in
             TheCoffeeWidgetEntryView(entry: entry)
         }

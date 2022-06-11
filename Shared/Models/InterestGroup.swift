@@ -2,9 +2,13 @@
 import Combine
 import Foundation
 
-struct InterestGroup: Codable {
+struct InterestGroup: Codable, Hashable {
     let id: UUID
     let name: String
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }
 
 extension InterestGroup: Equatable { }

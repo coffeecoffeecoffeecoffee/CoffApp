@@ -63,8 +63,7 @@ struct TheCoffeeWidgetEntryView: View {
 #if DEBUG
 struct TheCoffeeWidgetEntryView_Previews: PreviewProvider {
     static var previews: some View {
-        TheCoffeeWidgetEntryView(entry: EventEntry(testEvent(true),
-                                                   configuration: ConfigurationIntent()))
+        TheCoffeeWidgetEntryView(entry: EventEntry(testEvent(true)))
             .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
 }
