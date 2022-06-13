@@ -4,7 +4,7 @@ import WidgetKit
 class EventProvider: TimelineProvider {
     typealias Entry = EventEntry
 
-    private var net = NetworkService()
+    private var profile = UserProfile()
     private let decoder: JSONDecoder
     private let logger = Logger(label: "science.pixel.espresso.eventprovider")
 
@@ -32,15 +32,19 @@ class EventProvider: TimelineProvider {
 
     func getTimeline(in context: Context,
                      completion: @escaping (Timeline<EventEntry>) -> Void) {
-        guard let savedGroup = InterestGroup.loadSelected(),
-               savedGroup.eventsURL != nil else {
-                   logger.error(.init(stringLiteral: "No saved group"))
-                   completion(Timeline(entries: [EventEntry(.error(text: "Coffee: Get Some!"))], policy: .atEnd))
-                   return
+        Task {
+            do {
+                try await profile.sync()
+                print(profile.events.count)
+            } catch {
+                debugPrint(error)
+                fatalError(error.localizedDescription)
+            }
+            print(profile.events.count)
+            let event = profile.events.first ?? .empty
+            let entry = EventEntry(event,
+                                   date: event.startAt ?? Date().addingTimeInterval(-360))
+            completion(Timeline(entries: [entry], policy: .atEnd))
         }
-        let event = savedGroup.headlineEvent
-        let entry = EventEntry(event,
-                               date: event.startAt ?? Date().addingTimeInterval(-360))
-        completion(Timeline(entries: [entry], policy: .atEnd))
     }
 }

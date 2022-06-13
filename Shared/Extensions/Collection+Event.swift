@@ -1,6 +1,6 @@
 import Foundation
 
-extension Sequence where Element == Event {
+extension Collection where Element == Event {
 
     func sortedByTime() -> [Event] {
         let sorted = self.sorted { prev, this in
@@ -33,7 +33,7 @@ extension Sequence where Element == Event {
         return past.sortedByTime()
     }
 
-    func matches(term: String) throws -> [Event] {
+    func matching(term: String) throws -> [Event] {
         let regex = try Regex(term.lowercased())
         let matches = try self.filter { event in
             try regex.firstMatch(in: event.name.lowercased()) != nil

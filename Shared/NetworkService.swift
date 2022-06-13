@@ -4,9 +4,13 @@ import Logging
 
 final class NetworkService: ObservableObject {
     static var shared: NetworkService { .init() }
-    @Published var selectedGroup: InterestGroup?
     @Published var groups = [InterestGroup]()
-    @Published var events = [Event]()
+    @Published var events = [Event]() {
+        didSet {
+            upcomingEvents = events.upcoming()
+            pastEvents = events.past()
+        }
+    }
     let eventsSubject = PassthroughSubject<[Event], Error>()
     @Published var firstEvent: Event = Event.loading
     @Published var upcomingEvents = [Event]()
@@ -44,8 +48,7 @@ final class NetworkService: ObservableObject {
 
     init() {
         decoder.dateDecodingStrategy = .iso8601
-        observeSelectedGroup()
-        self.selectedGroup = InterestGroup.loadSelected()
+        loadGroups()
     }
 }
 
@@ -70,18 +73,6 @@ extension NetworkService {
         }
     }
 
-    func observeSelectedGroup() {
-        UserDefaults.standard.publisher(for: \.selectedGroup)
-            .debounce(for: 0.2, scheduler: RunLoop.current)
-            .sink { [weak self] defaultsValue in
-                guard let self = self else { return }
-                self.selectedGroup = self.groups.first(where: { group in
-                    group.name == defaultsValue
-                })
-            }
-            .store(in: &subscriptions)
-    }
-
     func loadGroups() {
         netState = .loading
         logger.info("Loading all groups")
@@ -100,6 +91,13 @@ extension NetworkService {
             }
             .store(in: &subscriptions)
     }
+
+    func groupForID(_ uid: UUID?) -> InterestGroup? {
+        guard let uid else { return nil }
+        return groups.first { group in
+            group.id == uid
+        }
+    }
 }
 
 // MARK: - Events
@@ -113,15 +111,21 @@ extension NetworkService {
     }
 
     public func downloadAllEvents(for groupIDs: Set<UUID>) async throws -> [Event] {
+        guard !groupIDs.isEmpty else {
+            self.events = []
+            self.upcomingEvents = []
+            self.pastEvents = []
+            return []
+        }
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
         let allEventsSet = try await withThrowingTaskGroup(of: [Event].self,
                                                     returning: Set<Event>.self) { taskGroup in
-            let groups = groupIDs.map { uid in
-                InterestGroup(id: uid, name: uid.uuidString)
+            let evtGroups = groupIDs.map { uid in
+                groupForID(uid) ?? InterestGroup(id: uid, name: uid.uuidString)
             }
-            let urls = groups.compactMap { $0.eventsURL }
-            urls.forEach { url in
+            evtGroups.forEach { group in
+                guard let url = group.eventsURL else { return }
                 taskGroup.addTask {
                     do {
                         let (groupEventsData, _) = try await URLSession.shared.data(from: url)
@@ -141,12 +145,7 @@ extension NetworkService {
             }
             return decodedEvents
         }
-        let allEventsSorted = allEventsSet.sorted { prev, this in
-            guard let prevDate = prev.startAt,
-                  let thisDate = this.startAt else { return false }
-            return prevDate < thisDate
-        }
-        return allEventsSorted
+        return allEventsSet.sortedByTime()
     }
 
     func futureEvents(for group: InterestGroup) throws -> [Event] {

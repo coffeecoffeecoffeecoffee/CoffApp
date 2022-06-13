@@ -1,19 +1,20 @@
 import SwiftUI
 
-@MainActor
 class UserProfile: ObservableObject {
-    @Published var events: [Event] = [] {
+    @Published private(set) var events: [Event] = []
+    @Published private(set) var filteredEvents = [Event]()
+    @Published private(set) var upcomingEvents: [Event] = []
+    @Published private(set) var pastEvents: [Event] = []
+    @Published private(set) var hasGroups: Bool = false
+    @Published var queryString: String = "" {
         didSet {
-            upcomingEvents = events.upcoming()
-            pastEvents = events.past()
+            let newEvents = try? events.matching(term: queryString)
+            filteredEvents = newEvents ?? []
         }
     }
-    @Published var upcomingEvents: [Event] = []
-    @Published var pastEvents: [Event] = []
-    @Published var hasGroups: Bool = false
 
     private var groupIDs: Set<UUID> = []
-    @AppStorage("encoded_group_ids", store: .standard) private var encodedGroupIDs: Data?
+    @AppStorage("encoded_group_ids", store: .sharedSuite) private var encodedGroupIDs: Data?
     private var net = NetworkService.shared
 
     init() {
@@ -22,9 +23,6 @@ class UserProfile: ObservableObject {
         else { return }
         self.groupIDs = decodedGroupIDs
         self.hasGroups = !groupIDs.isEmpty
-        Task {
-            self.events = try await allEvents()
-        }
     }
 }
 
@@ -40,26 +38,28 @@ extension UserProfile {
 
     func toggleGroup(_ group: InterestGroup) throws {
         if subscribedTo(group) {
-            try removeGroup(group)
+            self.groupIDs.remove(group.id)
         } else {
-            try addGroup(group)
+            self.groupIDs.insert(group.id)
         }
-    }
-
-    func addGroup(_ newGroup: InterestGroup) throws {
-        self.groupIDs.insert(newGroup.id)
+        self.hasGroups = !groupIDs.isEmpty
         try save()
-    }
-
-    func removeGroup(_ groupToDelete: InterestGroup) throws {
-        self.groupIDs.remove(groupToDelete.id)
-        try save()
+        Task {
+            try await sync()
+        }
     }
 }
 
 // MARK: - Networking
+@MainActor
 extension UserProfile {
-    func allEvents() async throws -> [Event] {
+    private func allEvents() async throws -> [Event] {
         try await net.downloadAllEvents(for: groupIDs)
+    }
+
+    func sync() async throws {
+        self.events = try await allEvents()
+        self.upcomingEvents = events.upcoming()
+        self.pastEvents = events.past()
     }
 }

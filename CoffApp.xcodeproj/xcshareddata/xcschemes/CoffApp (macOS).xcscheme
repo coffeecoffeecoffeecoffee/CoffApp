@@ -49,6 +49,16 @@
                ReferencedContainer = "container:CoffApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0F6A05632658A2250050439D"
+               BuildableName = "CoffAppUITests.xctest"
+               BlueprintName = "CoffAppUITests"
+               ReferencedContainer = "container:CoffApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

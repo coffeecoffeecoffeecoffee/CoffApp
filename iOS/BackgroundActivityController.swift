@@ -24,6 +24,7 @@ struct BackgroundActivityController {
         try BGTaskScheduler.shared.submit(request)
     }
 
+    // FIXME: This needs to be refactored
     private func handle(backgroundTask: BGAppRefreshTask) {
         logger.debug("handling BG task")
         let group = DispatchGroup()
@@ -34,10 +35,6 @@ struct BackgroundActivityController {
         group.enter()
         dispatchQ.async {
             net.loadGroups()
-            if let selectedGroup = InterestGroup.loadSelected() {
-                selectedGroup.headlineEvent.saveAsMostRecent()
-                net.loadEvents(for: selectedGroup)
-            }
             backgroundTask.setTaskCompleted(success: true)
             group.leave()
         }

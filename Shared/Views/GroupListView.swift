@@ -3,9 +3,9 @@ import SwiftUI
 import CoreData
 
 struct GroupListView: View {
+    @EnvironmentObject var profile: UserProfile
     @State private var groups: [InterestGroup] = []
     private let logger = Logger(label: "GroupListView.logger")
-    private let profile = UserProfile()
     private let groupsURL = URL.appURL(with: "api", "groups")
 
     var body: some View {
@@ -13,6 +13,7 @@ struct GroupListView: View {
             HStack {
                 let iconName = profile.subscribedTo(meetupGroup) ? "checkmark.circle.fill" : "circle"
                 Image(systemName: iconName)
+                    .foregroundColor(.accentColor)
                 Text(meetupGroup.name)
             }
             .onTapGesture {

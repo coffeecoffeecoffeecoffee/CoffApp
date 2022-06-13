@@ -2,29 +2,23 @@ import Logging
 import SwiftUI
 
 struct EventListView: View {
-    @ObservedObject private var profile = UserProfile()
+    @StateObject private var profile = UserProfile()
     private let logger = Logger(label: "science.pixel.espresso.eventlistview")
-    @State private var queryString = ""
-    @State private var filteredEvents = [Event]()
-    private func filter(events: [Event]) -> [Event] {
-        do {
-            return try events.matches(term: queryString)
-        } catch {
-            return []
-        }
-    }
+    @State private var showingPopover = false
 
     var body: some View {
         NavigationStack {
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 30) {
-                    if queryString.isEmpty {
-                        if !profile.hasGroups {
-                            GroupListView()
-                                .frame(maxWidth: .infinity, minHeight: 300)
-                                .padding()
-                                .background(Color.red)
+                    if !profile.hasGroups {
+                        HStack(alignment: .center) {
+                            Spacer()
+                            Button("No groups selected") {
+                                showingPopover.toggle()
+                            }
+                            Spacer()
                         }
+                    } else if profile.queryString.isEmpty {
                         if profile.upcomingEvents.count > 0 {
                             VStack {
                                 ForEach(profile.upcomingEvents, id: \.self) { upcomingEvent in
@@ -47,18 +41,64 @@ struct EventListView: View {
                             }
                         }
                     } else {
-                        let matchedEvents = filter(events: profile.events)
-                        Text("Events: \(matchedEvents.count)")
+                        Text("Events: \(profile.filteredEvents.count)")
                             .font(.title2)
                             .foregroundColor(.secondary)
-                        ForEach(matchedEvents) { event in
+                        ForEach(profile.filteredEvents) { event in
                             EventSummaryView(event)
                         }
                     }
                 }
                 .padding()
                 .navigationTitle("The Coffee")
-                .searchable(text: $queryString)
+                .searchable(text: $profile.queryString)
+                .task {
+                    do {
+                        try await profile.sync()
+                    } catch {
+                        logger.error(.init(stringLiteral: error.localizedDescription))
+                        fatalError(error.localizedDescription)
+                    }
+                }
+                .toolbar {
+#if DEBUG
+                    Button {
+                        Task {
+                            do {
+                                try await profile.sync()
+                            } catch {
+                                logger.error(.init(stringLiteral: error.localizedDescription))
+                                fatalError(error.localizedDescription)
+                            }
+                        }
+                    } label: {
+                        Text("Sync")
+                    }
+#endif
+                    Button {
+                        showingPopover.toggle()
+                    } label: {
+                        Image(systemName: "person.2.circle")
+                        Text("Groups")
+                    }
+                    .popover(isPresented: $showingPopover) {
+                        NavigationStack {
+                            GroupListView()
+                                .environmentObject(profile)
+                                .navigationTitle("Groups")
+#if os(iOS)
+                                .navigationBarTitleDisplayMode(.inline)
+#endif
+                                .toolbar {
+                                    Button {
+                                        showingPopover.toggle()
+                                    } label: {
+                                        Text("Done")
+                                    }
+                                }
+                        }
+                    }
+                }
             }
         }
     }

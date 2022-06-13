@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>CoffUp (watchOS) WatchKit Extension</string>
+	<string>The Coffee</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -60,9 +60,9 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
+	<key>WKCompanionAppBundleIdentifier</key>
+	<string>science.pixel.espresso</string>
 	<key>WKRunsIndependentlyOfCompanionApp</key>
-	<true/>
-	<key>WKWatchOnly</key>
 	<true/>
 </dict>
 </plist>
