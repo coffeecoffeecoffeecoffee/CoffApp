@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import TheCoffeeWrist
+@testable import The_Coffee__wrist__Watch_App
 
 final class TheCoffeeWristAppTests: XCTestCase {
 
