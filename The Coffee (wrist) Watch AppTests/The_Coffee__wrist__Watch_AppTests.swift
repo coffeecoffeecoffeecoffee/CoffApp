@@ -1,12 +1,12 @@
 //
-//  The_Coffee__wrist__Watch_AppTests.swift
-//  The Coffee (wrist) Watch AppTests
+//  The_Coffee_wrist_Watch_AppTests.swift
+//  The Coffee wrist Watch AppTests
 //
 //  Created by Michael Critz on 6/12/22.
 //
 
 import XCTest
-@testable import The_Coffee__wrist__Watch_App
+@testable import The_Coffee_wrist_Watch_App
 
 final class TheCoffeeWristAppTests: XCTestCase {
 

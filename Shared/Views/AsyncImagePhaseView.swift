@@ -8,7 +8,7 @@ struct AsyncImagePhaseView: View {
             switch phase {
             case .success(let img):
                 img.resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .centerCropped()
             default:
                 Image("coffee-\(Int.random(in: 1...10))")
                     .resizable()

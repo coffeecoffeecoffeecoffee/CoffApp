@@ -35,12 +35,10 @@ class EventProvider: TimelineProvider {
         Task {
             do {
                 try await profile.sync()
-                print(profile.events.count)
             } catch {
                 debugPrint(error)
                 fatalError(error.localizedDescription)
             }
-            print(profile.events.count)
             let event = profile.events.first ?? .empty
             let entry = EventEntry(event,
                                    date: event.startAt ?? Date().addingTimeInterval(-360))

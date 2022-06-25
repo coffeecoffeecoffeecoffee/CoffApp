@@ -12,14 +12,12 @@
 		0F1FD6FD2689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1FD6FC2689752A00E90D7D /* UserDefaults+AppSuite.swift */; };
 		0F1FD6FE2689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1FD6FC2689752A00E90D7D /* UserDefaults+AppSuite.swift */; };
 		0F1FD6FF2689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1FD6FC2689752A00E90D7D /* UserDefaults+AppSuite.swift */; };
-		0F1FD7002689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1FD6FC2689752A00E90D7D /* UserDefaults+AppSuite.swift */; };
 		0F1FD7012689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1FD6FC2689752A00E90D7D /* UserDefaults+AppSuite.swift */; };
 		0F2391062686CDAA007461F9 /* EventProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2391042686CD8A007461F9 /* EventProvider.swift */; };
 		0F2391092686CDC7007461F9 /* EventEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2391072686CDBD007461F9 /* EventEntry.swift */; };
 		0F23910C2686CE2D007461F9 /* Image+CenterCropped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F23910B2686CE2D007461F9 /* Image+CenterCropped.swift */; };
 		0F23910D2686CE2D007461F9 /* Image+CenterCropped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F23910B2686CE2D007461F9 /* Image+CenterCropped.swift */; };
 		0F23910E2686CE2D007461F9 /* Image+CenterCropped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F23910B2686CE2D007461F9 /* Image+CenterCropped.swift */; };
-		0F23910F2686CE2D007461F9 /* Image+CenterCropped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F23910B2686CE2D007461F9 /* Image+CenterCropped.swift */; };
 		0F2391102686CE2D007461F9 /* Image+CenterCropped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F23910B2686CE2D007461F9 /* Image+CenterCropped.swift */; };
 		0F2391172686CE75007461F9 /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2391122686CE75007461F9 /* PlaceholderView.swift */; };
 		0F23911D2686CEC3007461F9 /* TheCoffeeWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2391182686CEC3007461F9 /* TheCoffeeWidgetEntryView.swift */; };
@@ -27,11 +25,9 @@
 		0F49A3D12675189900B62CC4 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D02675189900B62CC4 /* ImageCache.swift */; };
 		0F49A3D22675189900B62CC4 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D02675189900B62CC4 /* ImageCache.swift */; };
 		0F49A3D32675189900B62CC4 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D02675189900B62CC4 /* ImageCache.swift */; };
-		0F49A3D42675189900B62CC4 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D02675189900B62CC4 /* ImageCache.swift */; };
 		0F49A3D72677022500B62CC4 /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D62677022500B62CC4 /* UserDefaultKeys.swift */; };
 		0F49A3D82677022500B62CC4 /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D62677022500B62CC4 /* UserDefaultKeys.swift */; };
 		0F49A3D92677022500B62CC4 /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D62677022500B62CC4 /* UserDefaultKeys.swift */; };
-		0F49A3DA2677022500B62CC4 /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D62677022500B62CC4 /* UserDefaultKeys.swift */; };
 		0F49A4452679AC5100B62CC4 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F49A4442679AC5100B62CC4 /* WidgetKit.framework */; };
 		0F49A4472679AC5100B62CC4 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F49A4462679AC5100B62CC4 /* SwiftUI.framework */; };
 		0F49A44A2679AC5100B62CC4 /* TheCoffeeWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A4492679AC5100B62CC4 /* TheCoffeeWidget.swift */; };
@@ -89,21 +85,17 @@
 		0F745442266891BE00DEB3F1 /* RuntimeOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F745441266891BE00DEB3F1 /* RuntimeOS.swift */; };
 		0F745443266891BE00DEB3F1 /* RuntimeOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F745441266891BE00DEB3F1 /* RuntimeOS.swift */; };
 		0F745444266891BE00DEB3F1 /* RuntimeOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F745441266891BE00DEB3F1 /* RuntimeOS.swift */; };
-		0F745445266891BE00DEB3F1 /* RuntimeOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F745441266891BE00DEB3F1 /* RuntimeOS.swift */; };
 		0F74544C2669642200DEB3F1 /* RoundFilledButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F74544B2669642200DEB3F1 /* RoundFilledButtonStyle.swift */; };
 		0F74544D2669642200DEB3F1 /* RoundFilledButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F74544B2669642200DEB3F1 /* RoundFilledButtonStyle.swift */; };
 		0F74544E2669642200DEB3F1 /* RoundFilledButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F74544B2669642200DEB3F1 /* RoundFilledButtonStyle.swift */; };
-		0F74544F2669642200DEB3F1 /* RoundFilledButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F74544B2669642200DEB3F1 /* RoundFilledButtonStyle.swift */; };
 		0F745451266C031700DEB3F1 /* Image+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F745450266C031700DEB3F1 /* Image+Data.swift */; };
 		0F8293B726C72D88008BBA76 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293B626C72D88008BBA76 /* StatusViewModel.swift */; };
 		0F8293B826C72D88008BBA76 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293B626C72D88008BBA76 /* StatusViewModel.swift */; };
 		0F8293B926C72D88008BBA76 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293B626C72D88008BBA76 /* StatusViewModel.swift */; };
-		0F8293BA26C72D88008BBA76 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293B626C72D88008BBA76 /* StatusViewModel.swift */; };
 		0F8293BB26C72D88008BBA76 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293B626C72D88008BBA76 /* StatusViewModel.swift */; };
 		0F8293BD26C72F0E008BBA76 /* URL+AppURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293BC26C72F0E008BBA76 /* URL+AppURLs.swift */; };
 		0F8293BE26C72F0E008BBA76 /* URL+AppURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293BC26C72F0E008BBA76 /* URL+AppURLs.swift */; };
 		0F8293BF26C72F0E008BBA76 /* URL+AppURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293BC26C72F0E008BBA76 /* URL+AppURLs.swift */; };
-		0F8293C026C72F0E008BBA76 /* URL+AppURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293BC26C72F0E008BBA76 /* URL+AppURLs.swift */; };
 		0F8293C126C72F0E008BBA76 /* URL+AppURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293BC26C72F0E008BBA76 /* URL+AppURLs.swift */; };
 		0F8293C226C732DC008BBA76 /* URL+AppURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293BC26C72F0E008BBA76 /* URL+AppURLs.swift */; };
 		0F8293C426C73347008BBA76 /* TestURL+AppURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293C326C73347008BBA76 /* TestURL+AppURLs.swift */; };
@@ -113,59 +105,32 @@
 		0F8293C926C81A5D008BBA76 /* URL+AppURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293BC26C72F0E008BBA76 /* URL+AppURLs.swift */; };
 		0F8293CA26C81A5E008BBA76 /* URL+AppURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293BC26C72F0E008BBA76 /* URL+AppURLs.swift */; };
 		0F8293CD26C81A6D008BBA76 /* URL+AppURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293BC26C72F0E008BBA76 /* URL+AppURLs.swift */; };
-		0F8293CF26C81A71008BBA76 /* URL+AppURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293BC26C72F0E008BBA76 /* URL+AppURLs.swift */; };
-		0F8293D026C81A72008BBA76 /* URL+AppURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8293BC26C72F0E008BBA76 /* URL+AppURLs.swift */; };
-		0FA09F192661FE5800E04777 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA09F182661FE5800E04777 /* Assets.xcassets */; };
-		0FA09F252661FE5800E04777 /* CoffAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F242661FE5800E04777 /* CoffAppApp.swift */; };
-		0FA09F272661FE5900E04777 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F262661FE5900E04777 /* ContentView.swift */; };
-		0FA09F292661FE5900E04777 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F282661FE5900E04777 /* NotificationController.swift */; };
-		0FA09F2B2661FE5900E04777 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F2A2661FE5900E04777 /* NotificationView.swift */; };
-		0FA09F2D2661FE5900E04777 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F2C2661FE5900E04777 /* ComplicationController.swift */; };
-		0FA09F2F2661FE5900E04777 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA09F2E2661FE5900E04777 /* Assets.xcassets */; };
-		0FA09F322661FE5900E04777 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA09F312661FE5900E04777 /* Preview Assets.xcassets */; };
-		0FA09F3E2661FE5900E04777 /* CoffUp__watchOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F3D2661FE5900E04777 /* CoffUp__watchOS_Tests.swift */; };
-		0FA09F492661FE5900E04777 /* CoffUp__watchOS_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F482661FE5900E04777 /* CoffUp__watchOS_UITests.swift */; };
-		0FA09F5C2661FEE700E04777 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05D62658A9EC0050439D /* Venue.swift */; };
-		0FA09F5D2661FEE700E04777 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05D22658A9460050439D /* Event.swift */; };
-		0FA09F5E2661FEE700E04777 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05DA2658AA050050439D /* Location.swift */; };
-		0FA09F5F2661FEE700E04777 /* InterestGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05CD2658A9020050439D /* InterestGroup.swift */; };
-		0FA09F602661FEEF00E04777 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05C72658A4350050439D /* NetworkService.swift */; };
-		0FA09F612661FEEF00E04777 /* NetworkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05E92658B2010050439D /* NetworkState.swift */; };
-		0FA09F632661FF7000E04777 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 0FA09F622661FF7000E04777 /* Logging */; };
-		0FA09F6826629B9100E04777 /* EventListWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F6726629B9100E04777 /* EventListWatchView.swift */; };
 		0FA09F6A2665587600E04777 /* EventSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F692665587600E04777 /* EventSummaryView.swift */; };
 		0FA09F6B2665587600E04777 /* EventSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F692665587600E04777 /* EventSummaryView.swift */; };
 		0FA09F6C2665587600E04777 /* EventSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F692665587600E04777 /* EventSummaryView.swift */; };
 		0FA09F6E2667251400E04777 /* TVFocusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F6D2667251400E04777 /* TVFocusable.swift */; };
 		0FA09F6F2667251400E04777 /* TVFocusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F6D2667251400E04777 /* TVFocusable.swift */; };
 		0FA09F702667251400E04777 /* TVFocusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F6D2667251400E04777 /* TVFocusable.swift */; };
-		0FA09F71266736D900E04777 /* TVFocusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F6D2667251400E04777 /* TVFocusable.swift */; };
 		0FA09F732667373500E04777 /* FocusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F722667373500E04777 /* FocusState.swift */; };
 		0FA09F742667373500E04777 /* FocusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F722667373500E04777 /* FocusState.swift */; };
 		0FA09F752667373500E04777 /* FocusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F722667373500E04777 /* FocusState.swift */; };
-		0FA09F762667374C00E04777 /* FocusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA09F722667373500E04777 /* FocusState.swift */; };
 		0FA20C4126956598007F595F /* Location+Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C4026956598007F595F /* Location+Directions.swift */; };
 		0FA20C4226956598007F595F /* Location+Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C4026956598007F595F /* Location+Directions.swift */; };
 		0FA20C4326956598007F595F /* Location+Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C4026956598007F595F /* Location+Directions.swift */; };
-		0FA20C4426956598007F595F /* Location+Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C4026956598007F595F /* Location+Directions.swift */; };
 		0FA20C4526956598007F595F /* Location+Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C4026956598007F595F /* Location+Directions.swift */; };
 		0FA7F3BA270176A600F8B872 /* CoffeeBackgroundTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA7F3B9270176A600F8B872 /* CoffeeBackgroundTask.swift */; };
-		0FA7F3BD270176A600F8B872 /* CoffeeBackgroundTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA7F3B9270176A600F8B872 /* CoffeeBackgroundTask.swift */; };
 		0FA7F3BE270176A600F8B872 /* CoffeeBackgroundTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA7F3B9270176A600F8B872 /* CoffeeBackgroundTask.swift */; };
 		0FA7F3BF270176A600F8B872 /* CoffeeBackgroundTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA7F3B9270176A600F8B872 /* CoffeeBackgroundTask.swift */; };
 		0FA7F3C0270176A600F8B872 /* CoffeeBackgroundTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA7F3B9270176A600F8B872 /* CoffeeBackgroundTask.swift */; };
 		0FD18C7826FD84AD003763DB /* AsyncImagePhaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD18C7726FD84AD003763DB /* AsyncImagePhaseView.swift */; };
 		0FD18C7926FD84AD003763DB /* AsyncImagePhaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD18C7726FD84AD003763DB /* AsyncImagePhaseView.swift */; };
 		0FD18C7A26FD84AD003763DB /* AsyncImagePhaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD18C7726FD84AD003763DB /* AsyncImagePhaseView.swift */; };
-		0FD18C7B26FD84AD003763DB /* AsyncImagePhaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD18C7726FD84AD003763DB /* AsyncImagePhaseView.swift */; };
 		0FD18C7C26FD84AD003763DB /* AsyncImagePhaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD18C7726FD84AD003763DB /* AsyncImagePhaseView.swift */; };
 		0FD18C7D26FD84AD003763DB /* AsyncImagePhaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD18C7726FD84AD003763DB /* AsyncImagePhaseView.swift */; };
 		0FD18C7E26FD84AD003763DB /* AsyncImagePhaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD18C7726FD84AD003763DB /* AsyncImagePhaseView.swift */; };
-		0FD18C7F26FFCCF6003763DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6A05012658A1E10050439D /* Assets.xcassets */; };
 		0FD18C8127000D98003763DB /* Data+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD18C8027000D98003763DB /* Data+Event.swift */; };
 		0FD18C8227000D98003763DB /* Data+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD18C8027000D98003763DB /* Data+Event.swift */; };
 		0FD18C8327000D98003763DB /* Data+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD18C8027000D98003763DB /* Data+Event.swift */; };
-		0FD18C8427000D98003763DB /* Data+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD18C8027000D98003763DB /* Data+Event.swift */; };
 		0FD18C8527000D98003763DB /* Data+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD18C8027000D98003763DB /* Data+Event.swift */; };
 		0FD18C8627000D98003763DB /* Data+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD18C8027000D98003763DB /* Data+Event.swift */; };
 		0FD18C8727000D98003763DB /* Data+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD18C8027000D98003763DB /* Data+Event.swift */; };
@@ -178,7 +143,6 @@
 		0FDB46BB26A685860085AB5B /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB46BA26A685860085AB5B /* StatusView.swift */; };
 		0FDB46BC26A685860085AB5B /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB46BA26A685860085AB5B /* StatusView.swift */; };
 		0FDB46BD26A685860085AB5B /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB46BA26A685860085AB5B /* StatusView.swift */; };
-		0FDB46BE26A685860085AB5B /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB46BA26A685860085AB5B /* StatusView.swift */; };
 		0FDB46BF26A685860085AB5B /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB46BA26A685860085AB5B /* StatusView.swift */; };
 		0FDD30B72726673B00E8A4C0 /* BackgroundActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDD30B62726673400E8A4C0 /* BackgroundActivityController.swift */; };
 		0FDD30B9272667A200E8A4C0 /* UIApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDD30B8272667A200E8A4C0 /* UIApplicationDelegate.swift */; };
@@ -206,7 +170,6 @@
 		0FEABBBD2733845B00A40F88 /* Image+DataInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEABBBC2733845B00A40F88 /* Image+DataInitializer.swift */; };
 		0FEABBBE2733845B00A40F88 /* Image+DataInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEABBBC2733845B00A40F88 /* Image+DataInitializer.swift */; };
 		0FEABBBF2733845B00A40F88 /* Image+DataInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEABBBC2733845B00A40F88 /* Image+DataInitializer.swift */; };
-		0FEABBC02733845B00A40F88 /* Image+DataInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEABBBC2733845B00A40F88 /* Image+DataInitializer.swift */; };
 		0FEABBC12733845B00A40F88 /* Image+DataInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEABBBC2733845B00A40F88 /* Image+DataInitializer.swift */; };
 		0FEABBC22733845B00A40F88 /* Image+DataInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEABBBC2733845B00A40F88 /* Image+DataInitializer.swift */; };
 		0FEABBC32733845B00A40F88 /* Image+DataInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEABBBC2733845B00A40F88 /* Image+DataInitializer.swift */; };
@@ -247,12 +210,10 @@
 		0FFFC669285461C000F120FF /* Collection+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFC668285461C000F120FF /* Collection+Event.swift */; };
 		0FFFC66A285461CF00F120FF /* Collection+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFC668285461C000F120FF /* Collection+Event.swift */; };
 		0FFFC66B285461D000F120FF /* Collection+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFC668285461C000F120FF /* Collection+Event.swift */; };
-		0FFFC66D285461D600F120FF /* Collection+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFC668285461C000F120FF /* Collection+Event.swift */; };
 		0FFFC66E285461D800F120FF /* Collection+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFC668285461C000F120FF /* Collection+Event.swift */; };
 		0FFFC66F285461D800F120FF /* Collection+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFC668285461C000F120FF /* Collection+Event.swift */; };
 		0FFFC670285461DA00F120FF /* Collection+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFC668285461C000F120FF /* Collection+Event.swift */; };
 		0FFFC6712854675F00F120FF /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFC660285455EB00F120FF /* UserProfile.swift */; };
-		0FFFC67228566A9E00F120FF /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFC660285455EB00F120FF /* UserProfile.swift */; };
 		0FFFC67A28566E6400F120FF /* TheCoffeeWrist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFC67928566E6400F120FF /* TheCoffeeWrist.swift */; };
 		0FFFC67E28566E6600F120FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FFFC67D28566E6600F120FF /* Assets.xcassets */; };
 		0FFFC68128566E6600F120FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FFFC68028566E6600F120FF /* Preview Assets.xcassets */; };
@@ -260,7 +221,7 @@
 		0FFFC69528566E6700F120FF /* The_Coffee__wrist__Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFC69428566E6700F120FF /* The_Coffee__wrist__Watch_AppUITests.swift */; };
 		0FFFC69728566E6700F120FF /* The_Coffee__wrist__Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFC69628566E6700F120FF /* The_Coffee__wrist__Watch_AppUITestsLaunchTests.swift */; };
 		0FFFC6A52856949800F120FF /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFC660285455EB00F120FF /* UserProfile.swift */; };
-		0FFFC6A92856975C00F120FF /* The Coffee (wrist) Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0FFFC67728566E6400F120FF /* The Coffee (wrist) Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0FFFC6A92856975C00F120FF /* The Coffee wrist Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0FFFC67728566E6400F120FF /* The Coffee wrist Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0FFFC6AA285697E000F120FF /* Location+Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA20C4026956598007F595F /* Location+Directions.swift */; };
 		0FFFC6AC285697E000F120FF /* InterestGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05CD2658A9020050439D /* InterestGroup.swift */; };
 		0FFFC6AD285697E000F120FF /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05DA2658AA050050439D /* Location.swift */; };
@@ -334,13 +295,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 0F6A05432658A2230050439D;
 			remoteInfo = CoffApp;
-		};
-		0FA09F452661FE5900E04777 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0F6A04F72658A1DE0050439D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0FA09F122661FE5700E04777;
-			remoteInfo = "CoffUp (watchOS) WatchKit App";
 		};
 		0FE9C446269E8E980079613E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -433,7 +387,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				0FFFC6A92856975C00F120FF /* The Coffee (wrist) Watch App.app in Embed Watch Content */,
+				0FFFC6A92856975C00F120FF /* The Coffee wrist Watch App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -501,7 +455,6 @@
 		0F8293B626C72D88008BBA76 /* StatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
 		0F8293BC26C72F0E008BBA76 /* URL+AppURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+AppURLs.swift"; sourceTree = "<group>"; };
 		0F8293C326C73347008BBA76 /* TestURL+AppURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestURL+AppURLs.swift"; sourceTree = "<group>"; };
-		0FA09F132661FE5700E04777 /* CoffUp (watchOS) WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CoffUp (watchOS) WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FA09F182661FE5800E04777 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0FA09F1A2661FE5800E04777 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FA09F242661FE5800E04777 /* CoffAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffAppApp.swift; sourceTree = "<group>"; };
@@ -513,10 +466,8 @@
 		0FA09F312661FE5900E04777 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0FA09F332661FE5900E04777 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FA09F342661FE5900E04777 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		0FA09F392661FE5900E04777 /* CoffUp (watchOS)Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CoffUp (watchOS)Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FA09F3D2661FE5900E04777 /* CoffUp__watchOS_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffUp__watchOS_Tests.swift; sourceTree = "<group>"; };
 		0FA09F3F2661FE5900E04777 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0FA09F442661FE5900E04777 /* CoffUp (watchOS)UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CoffUp (watchOS)UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FA09F482661FE5900E04777 /* CoffUp__watchOS_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffUp__watchOS_UITests.swift; sourceTree = "<group>"; };
 		0FA09F4A2661FE5900E04777 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FA09F6726629B9100E04777 /* EventListWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListWatchView.swift; sourceTree = "<group>"; };
@@ -553,13 +504,13 @@
 		0FF5652D2684311600C8E02C /* CoffApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoffApp.entitlements; sourceTree = "<group>"; };
 		0FFFC660285455EB00F120FF /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		0FFFC668285461C000F120FF /* Collection+Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Event.swift"; sourceTree = "<group>"; };
-		0FFFC67728566E6400F120FF /* The Coffee (wrist) Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Coffee (wrist) Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FFFC67728566E6400F120FF /* The Coffee wrist Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Coffee wrist Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FFFC67928566E6400F120FF /* TheCoffeeWrist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCoffeeWrist.swift; sourceTree = "<group>"; };
 		0FFFC67D28566E6600F120FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0FFFC68028566E6600F120FF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		0FFFC68628566E6600F120FF /* The Coffee (wrist) Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "The Coffee (wrist) Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FFFC68628566E6600F120FF /* The Coffee wrist Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "The Coffee wrist Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FFFC68A28566E6700F120FF /* The_Coffee__wrist__Watch_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = The_Coffee__wrist__Watch_AppTests.swift; sourceTree = "<group>"; };
-		0FFFC69028566E6700F120FF /* The Coffee (wrist) Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "The Coffee (wrist) Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FFFC69028566E6700F120FF /* The Coffee wrist Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "The Coffee wrist Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FFFC69428566E6700F120FF /* The_Coffee__wrist__Watch_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = The_Coffee__wrist__Watch_AppUITests.swift; sourceTree = "<group>"; };
 		0FFFC69628566E6700F120FF /* The_Coffee__wrist__Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = The_Coffee__wrist__Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0FFFC6A62856950900F120FF /* The-Coffee--wrist--Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "The-Coffee--wrist--Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -630,28 +581,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		0F6A05612658A2250050439D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0FA09F1C2661FE5800E04777 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0FA09F632661FF7000E04777 /* Logging in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0FA09F362661FE5900E04777 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0FA09F412661FE5900E04777 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -829,18 +758,15 @@
 				0F6A05442658A2230050439D /* CoffApp (tvOS).app */,
 				0F6A05592658A2250050439D /* CoffAppTests.xctest */,
 				0F6A05642658A2250050439D /* CoffAppUITests.xctest */,
-				0FA09F132661FE5700E04777 /* CoffUp (watchOS) WatchKit App.app */,
-				0FA09F392661FE5900E04777 /* CoffUp (watchOS)Tests.xctest */,
-				0FA09F442661FE5900E04777 /* CoffUp (watchOS)UITests.xctest */,
 				0F49A3BF2673983D00B62CC4 /* CoffAppMacUITests.xctest */,
 				0F49A4432679AC5100B62CC4 /* TheCoffeeWidgetExtension.appex */,
 				0FE9C439269E8E970079613E /* TheCoffeeWidgetExtensionMacExtension.appex */,
 				0FF4AA4A26A4E78200EEEDBF /* TheCoffeeAppClip.app */,
 				0FF4AA6026A4E78300EEEDBF /* TheCoffeeAppClipTests.xctest */,
 				0FF4AA6B26A4E78300EEEDBF /* TheCoffeeAppClipUITests.xctest */,
-				0FFFC67728566E6400F120FF /* The Coffee (wrist) Watch App.app */,
-				0FFFC68628566E6600F120FF /* The Coffee (wrist) Watch AppTests.xctest */,
-				0FFFC69028566E6700F120FF /* The Coffee (wrist) Watch AppUITests.xctest */,
+				0FFFC67728566E6400F120FF /* The Coffee wrist Watch App.app */,
+				0FFFC68628566E6600F120FF /* The Coffee wrist Watch AppTests.xctest */,
+				0FFFC69028566E6700F120FF /* The Coffee wrist Watch AppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1300,59 +1226,6 @@
 			productReference = 0F6A05642658A2250050439D /* CoffAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		0FA09F122661FE5700E04777 /* CoffUp (watchOS) WatchKit App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0FA09F582661FE5900E04777 /* Build configuration list for PBXNativeTarget "CoffUp (watchOS) WatchKit App" */;
-			buildPhases = (
-				0F49A3CF267516B500B62CC4 /* SwiftLint */,
-				0FA09F112661FE5700E04777 /* Resources */,
-				0FA09F1B2661FE5800E04777 /* Sources */,
-				0FA09F1C2661FE5800E04777 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "CoffUp (watchOS) WatchKit App";
-			productName = "CoffUp (watchOS) WatchKit App";
-			productReference = 0FA09F132661FE5700E04777 /* CoffUp (watchOS) WatchKit App.app */;
-			productType = "com.apple.product-type.application";
-		};
-		0FA09F382661FE5900E04777 /* CoffUp (watchOS)Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0FA09F5A2661FE5900E04777 /* Build configuration list for PBXNativeTarget "CoffUp (watchOS)Tests" */;
-			buildPhases = (
-				0FA09F352661FE5900E04777 /* Sources */,
-				0FA09F362661FE5900E04777 /* Frameworks */,
-				0FA09F372661FE5900E04777 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "CoffUp (watchOS)Tests";
-			productName = "CoffUp (watchOS)Tests";
-			productReference = 0FA09F392661FE5900E04777 /* CoffUp (watchOS)Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		0FA09F432661FE5900E04777 /* CoffUp (watchOS)UITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0FA09F5B2661FE5900E04777 /* Build configuration list for PBXNativeTarget "CoffUp (watchOS)UITests" */;
-			buildPhases = (
-				0FA09F402661FE5900E04777 /* Sources */,
-				0FA09F412661FE5900E04777 /* Frameworks */,
-				0FA09F422661FE5900E04777 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0FA09F462661FE5900E04777 /* PBXTargetDependency */,
-			);
-			name = "CoffUp (watchOS)UITests";
-			productName = "CoffUp (watchOS)UITests";
-			productReference = 0FA09F442661FE5900E04777 /* CoffUp (watchOS)UITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		0FE9C438269E8E970079613E /* TheCoffeeWidgetExtensionMacExtension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0FE9C44C269E8E980079613E /* Build configuration list for PBXNativeTarget "TheCoffeeWidgetExtensionMacExtension" */;
@@ -1429,9 +1302,9 @@
 			productReference = 0FF4AA6B26A4E78300EEEDBF /* TheCoffeeAppClipUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		0FFFC67628566E6400F120FF /* The Coffee (wrist) Watch App */ = {
+		0FFFC67628566E6400F120FF /* The Coffee wrist Watch App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0FFFC69B28566E6700F120FF /* Build configuration list for PBXNativeTarget "The Coffee (wrist) Watch App" */;
+			buildConfigurationList = 0FFFC69B28566E6700F120FF /* Build configuration list for PBXNativeTarget "The Coffee wrist Watch App" */;
 			buildPhases = (
 				0FFFC67328566E6400F120FF /* Sources */,
 				0FFFC67428566E6400F120FF /* Frameworks */,
@@ -1441,17 +1314,17 @@
 			);
 			dependencies = (
 			);
-			name = "The Coffee (wrist) Watch App";
+			name = "The Coffee wrist Watch App";
 			packageProductDependencies = (
 				0FFFC6C528569B4200F120FF /* Logging */,
 			);
 			productName = "The Coffee (wrist) Watch App";
-			productReference = 0FFFC67728566E6400F120FF /* The Coffee (wrist) Watch App.app */;
+			productReference = 0FFFC67728566E6400F120FF /* The Coffee wrist Watch App.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0FFFC68528566E6600F120FF /* The Coffee (wrist) Watch AppTests */ = {
+		0FFFC68528566E6600F120FF /* The Coffee wrist Watch AppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0FFFC69F28566E6700F120FF /* Build configuration list for PBXNativeTarget "The Coffee (wrist) Watch AppTests" */;
+			buildConfigurationList = 0FFFC69F28566E6700F120FF /* Build configuration list for PBXNativeTarget "The Coffee wrist Watch AppTests" */;
 			buildPhases = (
 				0FFFC68228566E6600F120FF /* Sources */,
 				0FFFC68328566E6600F120FF /* Frameworks */,
@@ -1462,14 +1335,14 @@
 			dependencies = (
 				0FFFC68828566E6600F120FF /* PBXTargetDependency */,
 			);
-			name = "The Coffee (wrist) Watch AppTests";
+			name = "The Coffee wrist Watch AppTests";
 			productName = "The Coffee (wrist) Watch AppTests";
-			productReference = 0FFFC68628566E6600F120FF /* The Coffee (wrist) Watch AppTests.xctest */;
+			productReference = 0FFFC68628566E6600F120FF /* The Coffee wrist Watch AppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		0FFFC68F28566E6700F120FF /* The Coffee (wrist) Watch AppUITests */ = {
+		0FFFC68F28566E6700F120FF /* The Coffee wrist Watch AppUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0FFFC6A228566E6700F120FF /* Build configuration list for PBXNativeTarget "The Coffee (wrist) Watch AppUITests" */;
+			buildConfigurationList = 0FFFC6A228566E6700F120FF /* Build configuration list for PBXNativeTarget "The Coffee wrist Watch AppUITests" */;
 			buildPhases = (
 				0FFFC68C28566E6700F120FF /* Sources */,
 				0FFFC68D28566E6700F120FF /* Frameworks */,
@@ -1480,9 +1353,9 @@
 			dependencies = (
 				0FFFC69228566E6700F120FF /* PBXTargetDependency */,
 			);
-			name = "The Coffee (wrist) Watch AppUITests";
+			name = "The Coffee wrist Watch AppUITests";
 			productName = "The Coffee (wrist) Watch AppUITests";
-			productReference = 0FFFC69028566E6700F120FF /* The Coffee (wrist) Watch AppUITests.xctest */;
+			productReference = 0FFFC69028566E6700F120FF /* The Coffee wrist Watch AppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -1525,17 +1398,6 @@
 					0F6A05632658A2250050439D = {
 						CreatedOnToolsVersion = 12.5;
 						TestTargetID = 0F6A050D2658A1E10050439D;
-					};
-					0FA09F122661FE5700E04777 = {
-						CreatedOnToolsVersion = 12.5;
-					};
-					0FA09F382661FE5900E04777 = {
-						CreatedOnToolsVersion = 12.5;
-						TestTargetID = 0FA09F1E2661FE5800E04777;
-					};
-					0FA09F432661FE5900E04777 = {
-						CreatedOnToolsVersion = 12.5;
-						TestTargetID = 0FA09F122661FE5700E04777;
 					};
 					0FE9C438269E8E970079613E = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -1587,18 +1449,15 @@
 				0F6A05432658A2230050439D /* CoffApp (tvOS) */,
 				0F6A05582658A2250050439D /* CoffAppTests */,
 				0F6A05632658A2250050439D /* CoffAppUITests */,
-				0FA09F122661FE5700E04777 /* CoffUp (watchOS) WatchKit App */,
-				0FA09F382661FE5900E04777 /* CoffUp (watchOS)Tests */,
-				0FA09F432661FE5900E04777 /* CoffUp (watchOS)UITests */,
 				0F49A3BE2673983D00B62CC4 /* CoffAppMacUITests */,
 				0F49A4422679AC5100B62CC4 /* TheCoffeeWidgetExtension */,
 				0FE9C438269E8E970079613E /* TheCoffeeWidgetExtensionMacExtension */,
 				0FF4AA4926A4E78200EEEDBF /* TheCoffeeAppClip */,
 				0FF4AA5F26A4E78300EEEDBF /* TheCoffeeAppClipTests */,
 				0FF4AA6A26A4E78300EEEDBF /* TheCoffeeAppClipUITests */,
-				0FFFC67628566E6400F120FF /* The Coffee (wrist) Watch App */,
-				0FFFC68528566E6600F120FF /* The Coffee (wrist) Watch AppTests */,
-				0FFFC68F28566E6700F120FF /* The Coffee (wrist) Watch AppUITests */,
+				0FFFC67628566E6400F120FF /* The Coffee wrist Watch App */,
+				0FFFC68528566E6600F120FF /* The Coffee wrist Watch AppTests */,
+				0FFFC68F28566E6700F120FF /* The Coffee wrist Watch AppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -1674,31 +1533,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0FA09F112661FE5700E04777 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0FA09F322661FE5900E04777 /* Preview Assets.xcassets in Resources */,
-				0FD18C7F26FFCCF6003763DB /* Assets.xcassets in Resources */,
-				0FA09F2F2661FE5900E04777 /* Assets.xcassets in Resources */,
-				0FA09F192661FE5800E04777 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0FA09F372661FE5900E04777 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0FA09F422661FE5900E04777 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		0FE9C437269E8E970079613E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1758,25 +1592,6 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 		0F49A3CE2675169A00B62CC4 /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint autocorrect && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		0F49A3CF267516B500B62CC4 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -2007,61 +1822,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0FA09F1B2661FE5800E04777 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0F8293BA26C72D88008BBA76 /* StatusViewModel.swift in Sources */,
-				0FDB46BE26A685860085AB5B /* StatusView.swift in Sources */,
-				0FFFC67228566A9E00F120FF /* UserProfile.swift in Sources */,
-				0FA09F602661FEEF00E04777 /* NetworkService.swift in Sources */,
-				0FA09F5F2661FEE700E04777 /* InterestGroup.swift in Sources */,
-				0F74544F2669642200DEB3F1 /* RoundFilledButtonStyle.swift in Sources */,
-				0FD18C7B26FD84AD003763DB /* AsyncImagePhaseView.swift in Sources */,
-				0F745445266891BE00DEB3F1 /* RuntimeOS.swift in Sources */,
-				0FA09F292661FE5900E04777 /* NotificationController.swift in Sources */,
-				0FA09F5C2661FEE700E04777 /* Venue.swift in Sources */,
-				0FA09F762667374C00E04777 /* FocusState.swift in Sources */,
-				0FA09F5E2661FEE700E04777 /* Location.swift in Sources */,
-				0F49A3DA2677022500B62CC4 /* UserDefaultKeys.swift in Sources */,
-				0FA09F272661FE5900E04777 /* ContentView.swift in Sources */,
-				0FA09F71266736D900E04777 /* TVFocusable.swift in Sources */,
-				0FEABBC02733845B00A40F88 /* Image+DataInitializer.swift in Sources */,
-				0FA09F2D2661FE5900E04777 /* ComplicationController.swift in Sources */,
-				0F49A3D42675189900B62CC4 /* ImageCache.swift in Sources */,
-				0FA09F612661FEEF00E04777 /* NetworkState.swift in Sources */,
-				0F8293C026C72F0E008BBA76 /* URL+AppURLs.swift in Sources */,
-				0FA09F252661FE5800E04777 /* CoffAppApp.swift in Sources */,
-				0FA09F5D2661FEE700E04777 /* Event.swift in Sources */,
-				0FFFC66D285461D600F120FF /* Collection+Event.swift in Sources */,
-				0FD18C8427000D98003763DB /* Data+Event.swift in Sources */,
-				0FA7F3BD270176A600F8B872 /* CoffeeBackgroundTask.swift in Sources */,
-				0F23910F2686CE2D007461F9 /* Image+CenterCropped.swift in Sources */,
-				0FA20C4426956598007F595F /* Location+Directions.swift in Sources */,
-				0F1FD7002689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */,
-				0FA09F2B2661FE5900E04777 /* NotificationView.swift in Sources */,
-				0FA09F6826629B9100E04777 /* EventListWatchView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0FA09F352661FE5900E04777 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0FA09F3E2661FE5900E04777 /* CoffUp__watchOS_Tests.swift in Sources */,
-				0F8293CF26C81A71008BBA76 /* URL+AppURLs.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0FA09F402661FE5900E04777 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0FA09F492661FE5900E04777 /* CoffUp__watchOS_UITests.swift in Sources */,
-				0F8293D026C81A72008BBA76 /* URL+AppURLs.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		0FE9C435269E8E970079613E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2231,11 +1991,6 @@
 			target = 0F6A05432658A2230050439D /* CoffApp (tvOS) */;
 			targetProxy = 0F6A05652658A2250050439D /* PBXContainerItemProxy */;
 		};
-		0FA09F462661FE5900E04777 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0FA09F122661FE5700E04777 /* CoffUp (watchOS) WatchKit App */;
-			targetProxy = 0FA09F452661FE5900E04777 /* PBXContainerItemProxy */;
-		};
 		0FE9C447269E8E980079613E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0FE9C438269E8E970079613E /* TheCoffeeWidgetExtensionMacExtension */;
@@ -2258,17 +2013,17 @@
 		};
 		0FFFC68828566E6600F120FF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0FFFC67628566E6400F120FF /* The Coffee (wrist) Watch App */;
+			target = 0FFFC67628566E6400F120FF /* The Coffee wrist Watch App */;
 			targetProxy = 0FFFC68728566E6600F120FF /* PBXContainerItemProxy */;
 		};
 		0FFFC69228566E6700F120FF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0FFFC67628566E6400F120FF /* The Coffee (wrist) Watch App */;
+			target = 0FFFC67628566E6400F120FF /* The Coffee wrist Watch App */;
 			targetProxy = 0FFFC69128566E6700F120FF /* PBXContainerItemProxy */;
 		};
 		0FFFC69928566E6700F120FF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0FFFC67628566E6400F120FF /* The Coffee (wrist) Watch App */;
+			target = 0FFFC67628566E6400F120FF /* The Coffee wrist Watch App */;
 			targetProxy = 0FFFC69828566E6700F120FF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -2508,6 +2263,7 @@
 				DEVELOPMENT_TEAM = FS69ZZRN45;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "The Coffee";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2538,6 +2294,7 @@
 				DEVELOPMENT_TEAM = FS69ZZRN45;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "The Coffee";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2573,6 +2330,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macOS/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "The Coffee";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2603,6 +2361,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macOS/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "The Coffee";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2720,6 +2479,7 @@
 				DEVELOPMENT_TEAM = FS69ZZRN45;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/CoffApp tvOS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "The Coffee";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2748,6 +2508,7 @@
 				DEVELOPMENT_TEAM = FS69ZZRN45;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/CoffApp tvOS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "The Coffee";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2857,155 +2618,6 @@
 			};
 			name = Release;
 		};
-		0FA09F4E2661FE5900E04777 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "CoffUp (watchOS) WatchKit App/CoffUp (watchOS) WatchKit App.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
-				DEVELOPMENT_TEAM = FS69ZZRN45;
-				INFOPLIST_FILE = "CoffUp (watchOS) WatchKit App/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.espresso.watch;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 9.0;
-			};
-			name = Debug;
-		};
-		0FA09F4F2661FE5900E04777 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "CoffUp (watchOS) WatchKit App/CoffUp (watchOS) WatchKit App.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
-				DEVELOPMENT_TEAM = FS69ZZRN45;
-				INFOPLIST_FILE = "CoffUp (watchOS) WatchKit App/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.espresso.watch;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 9.0;
-			};
-			name = Release;
-		};
-		0FA09F532661FE5900E04777 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FS69ZZRN45;
-				INFOPLIST_FILE = "CoffUp (watchOS)Tests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "science.pixel.CoffUp--watchOS-Tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoffUp (watchOS) WatchKit Extension.appex/CoffUp (watchOS) WatchKit Extension";
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
-			};
-			name = Debug;
-		};
-		0FA09F542661FE5900E04777 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FS69ZZRN45;
-				INFOPLIST_FILE = "CoffUp (watchOS)Tests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "science.pixel.CoffUp--watchOS-Tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoffUp (watchOS) WatchKit Extension.appex/CoffUp (watchOS) WatchKit Extension";
-				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
-			};
-			name = Release;
-		};
-		0FA09F552661FE5900E04777 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FS69ZZRN45;
-				INFOPLIST_FILE = "CoffUp (watchOS)UITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "science.pixel.CoffUp--watchOS-UITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				TEST_TARGET_NAME = "CoffUp (watchOS) WatchKit App";
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
-			};
-			name = Debug;
-		};
-		0FA09F562661FE5900E04777 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FS69ZZRN45;
-				INFOPLIST_FILE = "CoffUp (watchOS)UITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "science.pixel.CoffUp--watchOS-UITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				TEST_TARGET_NAME = "CoffUp (watchOS) WatchKit App";
-				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
-			};
-			name = Release;
-		};
 		0FE9C44A269E8E980079613E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -3074,6 +2686,7 @@
 				DEVELOPMENT_TEAM = FS69ZZRN45;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = TheCoffeeAppClip/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "The Coffee";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -3101,6 +2714,7 @@
 				DEVELOPMENT_TEAM = FS69ZZRN45;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = TheCoffeeAppClip/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "The Coffee";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -3218,7 +2832,7 @@
 				CODE_SIGN_ENTITLEMENTS = "The Coffee (wrist) Watch App/The Coffee (wrist) Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"The Coffee (wrist) Watch App/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = FS69ZZRN45;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3252,7 +2866,7 @@
 				CODE_SIGN_ENTITLEMENTS = "The Coffee (wrist) Watch App/The Coffee (wrist) Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"The Coffee (wrist) Watch App/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = FS69ZZRN45;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3457,33 +3071,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0FA09F582661FE5900E04777 /* Build configuration list for PBXNativeTarget "CoffUp (watchOS) WatchKit App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0FA09F4E2661FE5900E04777 /* Debug */,
-				0FA09F4F2661FE5900E04777 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0FA09F5A2661FE5900E04777 /* Build configuration list for PBXNativeTarget "CoffUp (watchOS)Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0FA09F532661FE5900E04777 /* Debug */,
-				0FA09F542661FE5900E04777 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0FA09F5B2661FE5900E04777 /* Build configuration list for PBXNativeTarget "CoffUp (watchOS)UITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0FA09F552661FE5900E04777 /* Debug */,
-				0FA09F562661FE5900E04777 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		0FE9C44C269E8E980079613E /* Build configuration list for PBXNativeTarget "TheCoffeeWidgetExtensionMacExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -3520,7 +3107,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0FFFC69B28566E6700F120FF /* Build configuration list for PBXNativeTarget "The Coffee (wrist) Watch App" */ = {
+		0FFFC69B28566E6700F120FF /* Build configuration list for PBXNativeTarget "The Coffee wrist Watch App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0FFFC69C28566E6700F120FF /* Debug */,
@@ -3529,7 +3116,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0FFFC69F28566E6700F120FF /* Build configuration list for PBXNativeTarget "The Coffee (wrist) Watch AppTests" */ = {
+		0FFFC69F28566E6700F120FF /* Build configuration list for PBXNativeTarget "The Coffee wrist Watch AppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0FFFC6A028566E6700F120FF /* Debug */,
@@ -3538,7 +3125,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0FFFC6A228566E6700F120FF /* Build configuration list for PBXNativeTarget "The Coffee (wrist) Watch AppUITests" */ = {
+		0FFFC6A228566E6700F120FF /* Build configuration list for PBXNativeTarget "The Coffee wrist Watch AppUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0FFFC6A328566E6700F120FF /* Debug */,
@@ -3577,11 +3164,6 @@
 			productName = Logging;
 		};
 		0F6A05E42658AEAF0050439D /* Logging */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0F6A05DE2658ADF80050439D /* XCRemoteSwiftPackageReference "swift-log" */;
-			productName = Logging;
-		};
-		0FA09F622661FF7000E04777 /* Logging */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0F6A05DE2658ADF80050439D /* XCRemoteSwiftPackageReference "swift-log" */;
 			productName = Logging;

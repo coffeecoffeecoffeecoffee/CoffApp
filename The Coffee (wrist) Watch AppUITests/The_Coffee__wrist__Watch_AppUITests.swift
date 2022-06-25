@@ -1,6 +1,6 @@
 //
-//  The_Coffee__wrist__Watch_AppUITests.swift
-//  The Coffee (wrist) Watch AppUITests
+//  The_Coffee_wrist_Watch_AppUITests.swift
+//  The Coffee wrist Watch AppUITests
 //
 //  Created by Michael Critz on 6/12/22.
 //

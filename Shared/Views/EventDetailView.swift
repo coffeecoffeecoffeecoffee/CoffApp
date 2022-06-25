@@ -12,61 +12,61 @@ struct EventDetailView: View {
 
     var body: some View {
         TVFocusable(focusState) {
-        ZStack(alignment: .bottomLeading) {
-            AsyncImagePhaseView(event.imageURL)
-            LinearGradient(gradient:
-                            Gradient(colors: [
-                                .clear,
-                                .init(.displayP3, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.8)
-                            ]),
-                           startPoint: UnitPoint(x: 0.5, y: 0.45),
-                           endPoint: UnitPoint(x: 0.5, y: 0.75))
-            HStack(alignment: .bottom) {
-                VStack(alignment: .leading) {
-                    Text(event.name)
-                        .font(.title2)
-                        .foregroundColor(.white)
-                        .scaleEffect(focusState.inFocus ? 1.03 : 1)
-                        .shadow(radius: focusState.inFocus ? 3 : 0)
-                    Text(event.venueName)
-                        .font(.body)
-                        .foregroundColor(.init(white: 0.8))
-                    Text(event.localizedStartTime())
-                        .font(.body)
-                        .bold()
-                        .foregroundColor(.init(white: 0.8))
-                    if event.venue?.location != nil
-                        && RuntimeOS.current != .tvOS {
-                        Button(action: {
-                            event.venue?.getDirections()
-                        }, label: {
-                            HStack {
-                                Image(systemName: "arrow.triangle.turn.up.right.diamond.fill")
-                                    .padding(.vertical, 2)
-                                Text("Directions")
-                            }
-                        })
-                        .buttonStyle(RoundFilledButtonStyle(color: .blue))
-                        .transition(.scale(scale: 0.2, anchor: .bottomLeading))
+            ZStack(alignment: .bottomLeading) {
+                AsyncImagePhaseView(event.imageURL)
+                LinearGradient(gradient:
+                                Gradient(colors: [
+                                    .clear,
+                                    .init(.displayP3, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.8)
+                                ]),
+                               startPoint: UnitPoint(x: 0.5, y: 0.45),
+                               endPoint: UnitPoint(x: 0.5, y: 0.75))
+                HStack(alignment: .bottom) {
+                    VStack(alignment: .leading) {
+                        Text(event.name)
+                            .font(.title2)
+                            .foregroundColor(.white)
+                            .scaleEffect(focusState.inFocus ? 1.03 : 1)
+                            .shadow(radius: focusState.inFocus ? 3 : 0)
+                        Text(event.venueName)
+                            .font(.body)
+                            .foregroundColor(.init(white: 0.8))
+                        Text(event.localizedStartTime())
+                            .font(.body)
+                            .bold()
+                            .foregroundColor(.init(white: 0.8))
+                        if event.venue?.location != nil
+                            && RuntimeOS.current != .tvOS {
+                            Button(action: {
+                                event.venue?.getDirections()
+                            }, label: {
+                                HStack {
+                                    Image(systemName: "arrow.triangle.turn.up.right.diamond.fill")
+                                        .padding(.vertical, 2)
+                                    Text("Directions")
+                                }
+                            })
+                            .buttonStyle(RoundFilledButtonStyle(color: .blue))
+                            .transition(.scale(scale: 0.2, anchor: .bottomLeading))
+                        }
                     }
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 20)
                 }
-                .padding(.horizontal, 20)
-                .padding(.bottom, 20)
             }
-        }
-        .background(
-            LinearGradient(gradient:
-                Gradient(colors: [
-                    .init(.displayP3, red: 0.6, green: 0.3, blue: 0.1, opacity: 1.0),
-                    .black
-                ]),
-                           startPoint: UnitPoint(x: 0, y: 0),
-                           endPoint: UnitPoint(x: 1, y: 1)
+            .background(
+                LinearGradient(gradient:
+                                Gradient(colors: [
+                                    .init(.displayP3, red: 0.6, green: 0.3, blue: 0.1, opacity: 1.0),
+                                    .black
+                                ]),
+                               startPoint: UnitPoint(x: 0, y: 0),
+                               endPoint: UnitPoint(x: 1, y: 1)
+                              )
             )
-        )
-        .cornerRadius(10)
-        .shadow(radius: focusState.inFocus ? 10 : 0)
-        .padding(.vertical, 10)
+            .cornerRadius(10)
+            .shadow(radius: focusState.inFocus ? 10 : 0)
+            .padding(.vertical, 10)
         }
     }
 }

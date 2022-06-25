@@ -8,94 +8,125 @@ struct EventListView: View {
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                LazyVStack(alignment: .leading, spacing: 30) {
-                    if !profile.hasGroups {
-                        HStack(alignment: .center) {
-                            Spacer()
-                            Button("No groups selected") {
-                                showingPopover.toggle()
-                            }
-                            Spacer()
-                        }
-                    } else if profile.queryString.isEmpty {
-                        if profile.upcomingEvents.count > 0 {
-                            VStack {
-                                ForEach(profile.upcomingEvents, id: \.self) { upcomingEvent in
-                                    EventDetailView(upcomingEvent)
-                                }
-                            }
-                        } else {
-                            HStack {
-                                Text("No upcoming events")
-                                    .font(.title2)
-                                    .foregroundColor(.secondary)
-                            }
-                        }
-                        if profile.pastEvents.count > 0 {
-                            Divider()
-                            Text("Previously")
-                                .font(.title)
-                            ForEach(profile.pastEvents) { event in
-                                EventSummaryView(event)
-                            }
-                        }
-                    } else {
-                        Text("Events: \(profile.filteredEvents.count)")
-                            .font(.title2)
-                            .foregroundColor(.secondary)
-                        ForEach(profile.filteredEvents) { event in
-                            EventSummaryView(event)
-                        }
-                    }
-                }
-                .padding()
-                .navigationTitle("The Coffee")
-                .searchable(text: $profile.queryString)
-                .task {
-                    do {
-                        try await profile.sync()
-                    } catch {
-                        logger.error(.init(stringLiteral: error.localizedDescription))
-                        fatalError(error.localizedDescription)
-                    }
-                }
-                .toolbar {
-#if DEBUG
-                    Button {
-                        Task {
-                            do {
-                                try await profile.sync()
-                            } catch {
-                                logger.error(.init(stringLiteral: error.localizedDescription))
-                                fatalError(error.localizedDescription)
-                            }
-                        }
-                    } label: {
-                        Text("Sync")
-                    }
-#endif
-                    Button {
-                        showingPopover.toggle()
-                    } label: {
-                        Image(systemName: "person.2.circle")
-                        Text("Groups")
-                    }
-                    .popover(isPresented: $showingPopover) {
-                        NavigationStack {
-                            GroupListView()
-                                .environmentObject(profile)
-                                .navigationTitle("Groups")
-#if os(iOS)
-                                .navigationBarTitleDisplayMode(.inline)
-#endif
-                                .toolbar {
-                                    Button {
-                                        showingPopover.toggle()
-                                    } label: {
-                                        Text("Done")
+            GeometryReader { geo in
+                ScrollView {
+                    LazyVStack(alignment: .leading, spacing: 30) {
+                        if !profile.hasGroups {
+                            HStack(alignment: .center) {
+                                Spacer()
+                                Button {
+                                    showingPopover.toggle()
+                                } label: {
+                                    HStack {
+                                        Image(systemName: "person.2.circle")
+                                        Text("No groups selected")
                                     }
                                 }
+                                #if os(macOS)
+                                .buttonStyle(.link)
+                                #endif
+                                .font(.largeTitle)
+                                .foregroundColor(.accentColor)
+                                .padding(.vertical, 70)
+                                Spacer()
+                            }
+                            .padding(.horizontal)
+                        } else if profile.queryString.isEmpty {
+                            if profile.upcomingEvents.count > 0 {
+                                ScrollView(.horizontal) {
+                                    HStack {
+                                        ForEach(profile.upcomingEvents, id: \.self) { upcomingEvent in
+                                            EventDetailView(upcomingEvent)
+                                                .frame(idealWidth: geo.size.width - 32,
+                                                       minHeight: 360,
+                                                       maxHeight: 360)
+                                        }
+                                    }
+                                    .padding(.horizontal)
+                                }
+                                .frame(height: 360)
+                            } else {
+                                HStack {
+                                    Spacer()
+                                    Text("No upcoming events")
+                                        .font(.title2)
+                                        .foregroundColor(.secondary)
+                                    Spacer()
+                                }
+                                .padding()
+                            }
+                            if profile.pastEvents.count > 0 {
+                                Group {
+                                    Divider()
+                                    Text("Previously")
+                                        .font(.title)
+                                    ForEach(profile.pastEvents) { event in
+                                        EventSummaryView(event)
+                                    }
+                                }
+                                .padding(.horizontal)
+                            }
+                        } else {
+                            Group {
+                                Text("Events: \(profile.filteredEvents.count)")
+                                    .font(.title2)
+                                    .foregroundColor(.secondary)
+                                ForEach(profile.filteredEvents) { event in
+                                    EventSummaryView(event)
+                                }
+                            }
+                            .padding(.horizontal)
+                        }
+                    }
+                    .padding(.bottom, 40)
+                    .navigationTitle("The Coffee")
+                    .searchable(text: $profile.queryString)
+                    .task {
+                        do {
+                            try await profile.sync()
+                        } catch {
+                            logger.error(.init(stringLiteral: error.localizedDescription))
+                            fatalError(error.localizedDescription)
+                        }
+                    }
+                    .toolbar {
+#if DEBUG
+                        Button {
+                            Task {
+                                do {
+                                    try await profile.sync()
+                                } catch {
+                                    logger.error(.init(stringLiteral: error.localizedDescription))
+                                    fatalError(error.localizedDescription)
+                                }
+                            }
+                        } label: {
+                            Text("Sync")
+                        }
+#endif
+                        Button {
+                            showingPopover.toggle()
+                        } label: {
+                            Image(systemName: "person.2.circle")
+                            Text("Groups")
+                        }
+                        .popover(isPresented: $showingPopover) {
+                            NavigationStack {
+                                GroupListView()
+                                    .environmentObject(profile)
+#if os(iOS)
+                                    .navigationTitle("Groups")
+                                    .navigationBarTitleDisplayMode(.inline)
+                                    .toolbar {
+                                        Button {
+                                            showingPopover.toggle()
+                                        } label: {
+                                            Text("Done")
+                                        }
+                                    }
+#endif
+                            }
+                            .frame(minWidth: 250, minHeight: 240, idealHeight: 304)
                         }
                     }
                 }
