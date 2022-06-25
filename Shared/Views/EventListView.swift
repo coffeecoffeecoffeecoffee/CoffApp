@@ -22,9 +22,9 @@ struct EventListView: View {
                                         Text("No groups selected")
                                     }
                                 }
-                                #if os(macOS)
+#if os(macOS)
                                 .buttonStyle(.link)
-                                #endif
+#endif
                                 .font(.largeTitle)
                                 .foregroundColor(.accentColor)
                                 .padding(.vertical, 70)
@@ -34,7 +34,9 @@ struct EventListView: View {
                         } else if profile.queryString.isEmpty {
                             if profile.upcomingEvents.count > 0 {
                                 ScrollView(.horizontal) {
-                                    HStack {
+                                    LazyHGrid(rows: [
+                                        GridItem(.adaptive(minimum: 560, maximum: (geo.size.width - 32)))
+                                                ]) {
                                         ForEach(profile.upcomingEvents, id: \.self) { upcomingEvent in
                                             EventDetailView(upcomingEvent)
                                                 .frame(idealWidth: geo.size.width - 32,
@@ -60,8 +62,15 @@ struct EventListView: View {
                                     Divider()
                                     Text("Previously")
                                         .font(.title)
-                                    ForEach(profile.pastEvents) { event in
-                                        EventSummaryView(event)
+                                    LazyVGrid(columns: [
+                                                        GridItem(.adaptive(minimum: 280, maximum: 560))
+                                                    ],
+                                              alignment: .leading,
+                                              spacing: 24) {
+                                        ForEach(profile.pastEvents) { event in
+                                            EventSummaryView(event)
+                                                .padding(.bottom, 24)
+                                        }
                                     }
                                 }
                                 .padding(.horizontal)
