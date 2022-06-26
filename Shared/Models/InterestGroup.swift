@@ -1,4 +1,3 @@
-// swiftlint:disable identifier_name
 import Combine
 import Foundation
 
