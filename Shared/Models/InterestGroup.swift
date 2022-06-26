@@ -2,7 +2,9 @@
 import Combine
 import Foundation
 
-struct InterestGroup: Codable, Hashable {
+typealias InterestGroups = [InterestGroup]
+
+struct InterestGroup: Codable {
     let id: UUID
     let name: String
 

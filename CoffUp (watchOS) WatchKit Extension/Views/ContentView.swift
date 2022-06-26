@@ -12,6 +12,7 @@ struct ContentView: View {
             do {
                 try await profile.sync()
             } catch {
+                // TODO: Proper error handling
                 fatalError(error.localizedDescription)
             }
         }
