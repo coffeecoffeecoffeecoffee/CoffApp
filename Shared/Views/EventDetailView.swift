@@ -49,6 +49,7 @@ struct EventDetailView: View {
                             .buttonStyle(RoundFilledButtonStyle(color: .blue))
                             .transition(.scale(scale: 0.2, anchor: .bottomLeading))
                         }
+                        
                     }
                     .padding(.horizontal, 20)
                     .padding(.bottom, 20)

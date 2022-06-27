@@ -17,15 +17,13 @@ struct EventListView: View {
                                 Button {
                                     showingPopover.toggle()
                                 } label: {
-                                    HStack {
-                                        Image(systemName: "person.2.circle")
-                                        Text("No groups selected")
-                                    }
+                                    StatusView("No groups selected",
+                                               description: "Please choose some groups to find local events",
+                                               symbolName: "person.2.circle")
                                 }
 #if os(macOS)
                                 .buttonStyle(.link)
 #endif
-                                .font(.largeTitle)
                                 .foregroundColor(.accentColor)
                                 .padding(.vertical, 70)
                                 Spacer()
@@ -50,8 +48,9 @@ struct EventListView: View {
                             } else {
                                 HStack {
                                     Spacer()
-                                    Text("No upcoming events")
-                                        .font(.title2)
+                                    StatusView("No upcoming Events",
+                                               description: "Check back later",
+                                               symbolName: "calendar")
                                         .foregroundColor(.secondary)
                                     Spacer()
                                 }
