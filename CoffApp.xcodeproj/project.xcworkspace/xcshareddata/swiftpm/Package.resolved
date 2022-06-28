@@ -1,12 +1,30 @@
 {
   "pins" : [
     {
+      "identity" : "icalendarkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swift-calendar/icalendarkit.git",
+      "state" : {
+        "revision" : "389fceafc1132ef284c6215118421bc88f1bfc8c",
+        "version" : "1.0.2"
+      }
+    },
+    {
       "identity" : "swift-log",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-log.git",
       "state" : {
         "revision" : "5d66f7ba25daf4f94100e7022febf3c75e37a6c7",
         "version" : "1.4.2"
+      }
+    },
+    {
+      "identity" : "vcomponentkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swift-calendar/vcomponentkit.git",
+      "state" : {
+        "revision" : "65b7f5066fd62fb83811e66e26ee21a326a015ac",
+        "version" : "1.0.5"
       }
     }
   ],

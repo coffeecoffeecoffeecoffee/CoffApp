@@ -21,6 +21,17 @@
 		0F2391102686CE2D007461F9 /* Image+CenterCropped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F23910B2686CE2D007461F9 /* Image+CenterCropped.swift */; };
 		0F2391172686CE75007461F9 /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2391122686CE75007461F9 /* PlaceholderView.swift */; };
 		0F23911D2686CEC3007461F9 /* TheCoffeeWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2391182686CEC3007461F9 /* TheCoffeeWidgetEntryView.swift */; };
+		0F2E87AB286A160D0051D466 /* ICalendarKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0F2E87AA286A160D0051D466 /* ICalendarKit */; };
+		0F2E87AD286A16260051D466 /* Event+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E87AC286A16260051D466 /* Event+Calendar.swift */; };
+		0F2E87AE286A16260051D466 /* Event+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E87AC286A16260051D466 /* Event+Calendar.swift */; };
+		0F2E87AF286A16260051D466 /* Event+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E87AC286A16260051D466 /* Event+Calendar.swift */; };
+		0F2E87B0286A16260051D466 /* Event+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E87AC286A16260051D466 /* Event+Calendar.swift */; };
+		0F2E87B1286A16260051D466 /* Event+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E87AC286A16260051D466 /* Event+Calendar.swift */; };
+		0F2E87B2286A16260051D466 /* Event+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E87AC286A16260051D466 /* Event+Calendar.swift */; };
+		0F2E87B3286A16260051D466 /* Event+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E87AC286A16260051D466 /* Event+Calendar.swift */; };
+		0F2E87B5286A16CB0051D466 /* ICalendarKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0F2E87B4286A16CB0051D466 /* ICalendarKit */; };
+		0F2E87B7286A16DF0051D466 /* ICalendarKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0F2E87B6286A16DF0051D466 /* ICalendarKit */; };
+		0F2E87B9286A16E70051D466 /* ICalendarKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0F2E87B8286A16E70051D466 /* ICalendarKit */; };
 		0F49A3C22673983E00B62CC4 /* CoffAppMacUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3C12673983E00B62CC4 /* CoffAppMacUITests.swift */; };
 		0F49A3D12675189900B62CC4 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D02675189900B62CC4 /* ImageCache.swift */; };
 		0F49A3D22675189900B62CC4 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D02675189900B62CC4 /* ImageCache.swift */; };
@@ -406,6 +417,7 @@
 		0F23910B2686CE2D007461F9 /* Image+CenterCropped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+CenterCropped.swift"; sourceTree = "<group>"; };
 		0F2391122686CE75007461F9 /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 		0F2391182686CEC3007461F9 /* TheCoffeeWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCoffeeWidgetEntryView.swift; sourceTree = "<group>"; };
+		0F2E87AC286A16260051D466 /* Event+Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+Calendar.swift"; sourceTree = "<group>"; };
 		0F49A3BF2673983D00B62CC4 /* CoffAppMacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffAppMacUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F49A3C12673983E00B62CC4 /* CoffAppMacUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffAppMacUITests.swift; sourceTree = "<group>"; };
 		0F49A3C32673983E00B62CC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -544,6 +556,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F6A05E02658ADF80050439D /* Logging in Frameworks */,
+				0F2E87AB286A160D0051D466 /* ICalendarKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,6 +565,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F6A05E32658AEA80050439D /* Logging in Frameworks */,
+				0F2E87B5286A16CB0051D466 /* ICalendarKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,6 +620,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FF4AA9426A4EA2800EEEDBF /* Logging in Frameworks */,
+				0F2E87B7286A16DF0051D466 /* ICalendarKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,6 +643,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FFFC6C628569B4200F120FF /* Logging in Frameworks */,
+				0F2E87B9286A16E70051D466 /* ICalendarKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -862,6 +878,7 @@
 				0FFFC660285455EB00F120FF /* UserProfile.swift */,
 				0FD18C8027000D98003763DB /* Data+Event.swift */,
 				0F6A05D22658A9460050439D /* Event.swift */,
+				0F2E87AC286A16260051D466 /* Event+Calendar.swift */,
 				0FA09F722667373500E04777 /* FocusState.swift */,
 				0F6A05CD2658A9020050439D /* InterestGroup.swift */,
 				0F6A05DA2658AA050050439D /* Location.swift */,
@@ -1110,6 +1127,7 @@
 			name = "CoffApp (iOS)";
 			packageProductDependencies = (
 				0F6A05DF2658ADF80050439D /* Logging */,
+				0F2E87AA286A160D0051D466 /* ICalendarKit */,
 			);
 			productName = "CoffApp (iOS)";
 			productReference = 0F6A05062658A1E10050439D /* CoffApp.app */;
@@ -1133,6 +1151,7 @@
 			name = "CoffApp (macOS)";
 			packageProductDependencies = (
 				0F6A05E22658AEA80050439D /* Logging */,
+				0F2E87B4286A16CB0051D466 /* ICalendarKit */,
 			);
 			productName = "CoffApp (macOS)";
 			productReference = 0F6A050E2658A1E10050439D /* CoffApp.app */;
@@ -1266,6 +1285,7 @@
 			name = TheCoffeeAppClip;
 			packageProductDependencies = (
 				0FF4AA9326A4EA2800EEEDBF /* Logging */,
+				0F2E87B6286A16DF0051D466 /* ICalendarKit */,
 			);
 			productName = TheCoffeeAppClip;
 			productReference = 0FF4AA4A26A4E78200EEEDBF /* TheCoffeeAppClip.app */;
@@ -1322,6 +1342,7 @@
 			name = "The Coffee wrist Watch App";
 			packageProductDependencies = (
 				0FFFC6C528569B4200F120FF /* Logging */,
+				0F2E87B8286A16E70051D466 /* ICalendarKit */,
 			);
 			productName = "The Coffee (wrist) Watch App";
 			productReference = 0FFFC67728566E6400F120FF /* The Coffee wrist Watch App.app */;
@@ -1442,6 +1463,7 @@
 			mainGroup = 0F6A04F62658A1DE0050439D;
 			packageReferences = (
 				0F6A05DE2658ADF80050439D /* XCRemoteSwiftPackageReference "swift-log" */,
+				0F2E87A9286A160D0051D466 /* XCRemoteSwiftPackageReference "icalendarkit" */,
 			);
 			productRefGroup = 0F6A05072658A1E10050439D /* Products */;
 			projectDirPath = "";
@@ -1663,6 +1685,7 @@
 				0FD18C8527000D98003763DB /* Data+Event.swift in Sources */,
 				0F49A45A2679AC8D00B62CC4 /* RuntimeOS.swift in Sources */,
 				0FFFC6642854560000F120FF /* UserProfile.swift in Sources */,
+				0F2E87B0286A16260051D466 /* Event+Calendar.swift in Sources */,
 				0F49A45C2679AC8D00B62CC4 /* Venue.swift in Sources */,
 				0FEABBC12733845B00A40F88 /* Image+DataInitializer.swift in Sources */,
 				0F23911D2686CEC3007461F9 /* TheCoffeeWidgetEntryView.swift in Sources */,
@@ -1681,6 +1704,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F2E87AD286A16260051D466 /* Event+Calendar.swift in Sources */,
 				0F49A3D72677022500B62CC4 /* UserDefaultKeys.swift in Sources */,
 				0F745442266891BE00DEB3F1 /* RuntimeOS.swift in Sources */,
 				0FA09F6E2667251400E04777 /* TVFocusable.swift in Sources */,
@@ -1744,6 +1768,7 @@
 				0F49A3D22675189900B62CC4 /* ImageCache.swift in Sources */,
 				0F6A05CF2658A9020050439D /* InterestGroup.swift in Sources */,
 				0FFFC66A285461CF00F120FF /* Collection+Event.swift in Sources */,
+				0F2E87AE286A16260051D466 /* Event+Calendar.swift in Sources */,
 				0FEABBC52733899A00A40F88 /* Image+Data-Mac.swift in Sources */,
 				0FD69B712658DABD007EC696 /* EventDetailView.swift in Sources */,
 				0F6A052B2658A1E10050439D /* CoffAppApp.swift in Sources */,
@@ -1801,6 +1826,7 @@
 				0FD18C8327000D98003763DB /* Data+Event.swift in Sources */,
 				0FA09F752667373500E04777 /* FocusState.swift in Sources */,
 				0F6A05C32658A2A60050439D /* GroupListView.swift in Sources */,
+				0F2E87AF286A16260051D466 /* Event+Calendar.swift in Sources */,
 				0FFFC66B285461D000F120FF /* Collection+Event.swift in Sources */,
 				0F6A05D02658A9020050439D /* InterestGroup.swift in Sources */,
 				0FA20C4326956598007F595F /* Location+Directions.swift in Sources */,
@@ -1847,6 +1873,7 @@
 				0FE9C454269E8F800079613E /* FocusState.swift in Sources */,
 				0FD18C8627000D98003763DB /* Data+Event.swift in Sources */,
 				0FFFC6652854560100F120FF /* UserProfile.swift in Sources */,
+				0F2E87B1286A16260051D466 /* Event+Calendar.swift in Sources */,
 				0FE9C455269E8F910079613E /* NetworkService.swift in Sources */,
 				0FEABBC22733845B00A40F88 /* Image+DataInitializer.swift in Sources */,
 				0FEABBC62733899A00A40F88 /* Image+Data-Mac.swift in Sources */,
@@ -1887,6 +1914,7 @@
 				0FF4AA7F26A4E8CD00EEEDBF /* GroupListView.swift in Sources */,
 				0F8293C126C72F0E008BBA76 /* URL+AppURLs.swift in Sources */,
 				0FF4AA9026A4E99C00EEEDBF /* RuntimeOS.swift in Sources */,
+				0F2E87B2286A16260051D466 /* Event+Calendar.swift in Sources */,
 				0FF4AA8D26A4E97300EEEDBF /* EventSummaryView.swift in Sources */,
 				0FFFC670285461DA00F120FF /* Collection+Event.swift in Sources */,
 				0FD18C8727000D98003763DB /* Data+Event.swift in Sources */,
@@ -1932,6 +1960,7 @@
 				0FFFC6B9285697E000F120FF /* Event.swift in Sources */,
 				0FFFC67A28566E6400F120FF /* TheCoffeeWrist.swift in Sources */,
 				0FFFC6B0285697E000F120FF /* FocusState.swift in Sources */,
+				0F2E87B3286A16260051D466 /* Event+Calendar.swift in Sources */,
 				0FFFC6B4285697E000F120FF /* RuntimeOS.swift in Sources */,
 				0FFFC6AA285697E000F120FF /* Location+Directions.swift in Sources */,
 				0FFFC6C2285697E000F120FF /* CoffeeBackgroundTask.swift in Sources */,
@@ -3145,6 +3174,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0F2E87A9286A160D0051D466 /* XCRemoteSwiftPackageReference "icalendarkit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swift-calendar/icalendarkit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		0F6A05DE2658ADF80050439D /* XCRemoteSwiftPackageReference "swift-log" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-log.git";
@@ -3156,6 +3193,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0F2E87AA286A160D0051D466 /* ICalendarKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F2E87A9286A160D0051D466 /* XCRemoteSwiftPackageReference "icalendarkit" */;
+			productName = ICalendarKit;
+		};
+		0F2E87B4286A16CB0051D466 /* ICalendarKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F2E87A9286A160D0051D466 /* XCRemoteSwiftPackageReference "icalendarkit" */;
+			productName = ICalendarKit;
+		};
+		0F2E87B6286A16DF0051D466 /* ICalendarKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F2E87A9286A160D0051D466 /* XCRemoteSwiftPackageReference "icalendarkit" */;
+			productName = ICalendarKit;
+		};
+		0F2E87B8286A16E70051D466 /* ICalendarKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F2E87A9286A160D0051D466 /* XCRemoteSwiftPackageReference "icalendarkit" */;
+			productName = ICalendarKit;
+		};
 		0F49A4622679ACEA00B62CC4 /* Logging */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0F6A05DE2658ADF80050439D /* XCRemoteSwiftPackageReference "swift-log" */;

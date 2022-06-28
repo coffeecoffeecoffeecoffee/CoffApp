@@ -37,19 +37,29 @@ struct EventDetailView: View {
                             .foregroundColor(.init(white: 0.8))
                         if event.venue?.location != nil
                             && RuntimeOS.current != .tvOS {
-                            Button(action: {
-                                event.venue?.getDirections()
-                            }, label: {
-                                HStack {
-                                    Image(systemName: "arrow.triangle.turn.up.right.diamond.fill")
-                                        .padding(.vertical, 2)
-                                    Text("Directions")
-                                }
-                            })
-                            .buttonStyle(RoundFilledButtonStyle(color: .blue))
-                            .transition(.scale(scale: 0.2, anchor: .bottomLeading))
+                            HStack(spacing: 20) {
+                                Button(action: {
+                                    event.venue?.getDirections()
+                                }, label: {
+                                    HStack {
+                                        Image(systemName: "arrow.triangle.turn.up.right.diamond.fill")
+                                            .padding(.vertical, 2)
+                                        Text("Directions")
+                                    }
+                                })
+                                .buttonStyle(RoundFilledButtonStyle(color: .blue))
+                                .transition(.scale(scale: 0.2, anchor: .bottomLeading))
+                                ShareLink(item: event.shareURL(),
+                                          subject: Text(event.name),
+                                          message: Text("\(event.venueName) at \(event.localizedStartTime())"))
+                                #if os(macOS)
+                                .buttonStyle(.link)
+                                #endif
+                            }
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
                         }
-                        
+
                     }
                     .padding(.horizontal, 20)
                     .padding(.bottom, 20)
