@@ -19,10 +19,10 @@ struct StatusView: View {
     }
 
     init(_ title: String, description: String, symbolName: String = "exclamationmark.triangle") {
-        let vm = StatusViewModel(headline: title,
+        let viewmodel = StatusViewModel(headline: title,
                                  description: description,
                                  symbolName: symbolName)
-        self.init(vm)
+        self.init(viewmodel)
     }
 }
 

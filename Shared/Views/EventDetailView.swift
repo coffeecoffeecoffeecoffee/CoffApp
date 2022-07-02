@@ -17,10 +17,11 @@ struct EventDetailView: View {
                 LinearGradient(gradient:
                                 Gradient(colors: [
                                     .clear,
-                                    .init(.displayP3, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.8)
+                                    Color("ShadyPurple")
                                 ]),
                                startPoint: UnitPoint(x: 0.5, y: 0.45),
-                               endPoint: UnitPoint(x: 0.5, y: 0.75))
+                               endPoint: UnitPoint(x: 0.45, y: 0.75))
+                .blendMode(.hardLight)
                 HStack(alignment: .bottom) {
                     VStack(alignment: .leading) {
                         Text(event.name)
@@ -37,7 +38,7 @@ struct EventDetailView: View {
                             .foregroundColor(.init(white: 0.8))
                         if event.venue?.location != nil
                             && RuntimeOS.current != .tvOS {
-                            HStack(spacing: 20) {
+                            HStack(alignment: .firstTextBaseline, spacing: 20) {
                                 Button(action: {
                                     event.venue?.getDirections()
                                 }, label: {
