@@ -134,6 +134,9 @@
 		0FA7F3BE270176A600F8B872 /* CoffeeBackgroundTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA7F3B9270176A600F8B872 /* CoffeeBackgroundTask.swift */; };
 		0FA7F3BF270176A600F8B872 /* CoffeeBackgroundTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA7F3B9270176A600F8B872 /* CoffeeBackgroundTask.swift */; };
 		0FA7F3C0270176A600F8B872 /* CoffeeBackgroundTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA7F3B9270176A600F8B872 /* CoffeeBackgroundTask.swift */; };
+		0FBD22012870BBCC00D752E8 /* CoffAppApp+BackgroundTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBD22002870BBCC00D752E8 /* CoffAppApp+BackgroundTasks.swift */; };
+		0FBD22042870BEEE00D752E8 /* EventListView+BackgroundNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBD22032870BEEE00D752E8 /* EventListView+BackgroundNotifications.swift */; };
+		0FBD22052870BEEE00D752E8 /* EventListView+BackgroundNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBD22032870BEEE00D752E8 /* EventListView+BackgroundNotifications.swift */; };
 		0FD18C7826FD84AD003763DB /* AsyncImagePhaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD18C7726FD84AD003763DB /* AsyncImagePhaseView.swift */; };
 		0FD18C7926FD84AD003763DB /* AsyncImagePhaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD18C7726FD84AD003763DB /* AsyncImagePhaseView.swift */; };
 		0FD18C7A26FD84AD003763DB /* AsyncImagePhaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD18C7726FD84AD003763DB /* AsyncImagePhaseView.swift */; };
@@ -156,8 +159,6 @@
 		0FDB46BC26A685860085AB5B /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB46BA26A685860085AB5B /* StatusView.swift */; };
 		0FDB46BD26A685860085AB5B /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB46BA26A685860085AB5B /* StatusView.swift */; };
 		0FDB46BF26A685860085AB5B /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB46BA26A685860085AB5B /* StatusView.swift */; };
-		0FDD30B72726673B00E8A4C0 /* BackgroundActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDD30B62726673400E8A4C0 /* BackgroundActivityController.swift */; };
-		0FDD30B9272667A200E8A4C0 /* UIApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDD30B8272667A200E8A4C0 /* UIApplicationDelegate.swift */; };
 		0FE9C43A269E8E970079613E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F49A4442679AC5100B62CC4 /* WidgetKit.framework */; };
 		0FE9C43B269E8E970079613E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F49A4462679AC5100B62CC4 /* SwiftUI.framework */; };
 		0FE9C441269E8E980079613E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FE9C440269E8E980079613E /* Assets.xcassets */; };
@@ -491,13 +492,13 @@
 		0FA09F722667373500E04777 /* FocusState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusState.swift; sourceTree = "<group>"; };
 		0FA20C4026956598007F595F /* Location+Directions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+Directions.swift"; sourceTree = "<group>"; };
 		0FA7F3B9270176A600F8B872 /* CoffeeBackgroundTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBackgroundTask.swift; sourceTree = "<group>"; };
+		0FBD22002870BBCC00D752E8 /* CoffAppApp+BackgroundTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoffAppApp+BackgroundTasks.swift"; sourceTree = "<group>"; };
+		0FBD22032870BEEE00D752E8 /* EventListView+BackgroundNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventListView+BackgroundNotifications.swift"; sourceTree = "<group>"; };
 		0FD18C7726FD84AD003763DB /* AsyncImagePhaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImagePhaseView.swift; sourceTree = "<group>"; };
 		0FD18C8027000D98003763DB /* Data+Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Event.swift"; sourceTree = "<group>"; };
 		0FD69B6B2658D35B007EC696 /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
 		0FD69B6F2658DABD007EC696 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
 		0FDB46BA26A685860085AB5B /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
-		0FDD30B62726673400E8A4C0 /* BackgroundActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundActivityController.swift; sourceTree = "<group>"; };
-		0FDD30B8272667A200E8A4C0 /* UIApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationDelegate.swift; sourceTree = "<group>"; };
 		0FE9C439269E8E970079613E /* TheCoffeeWidgetExtensionMacExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TheCoffeeWidgetExtensionMacExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FE9C440269E8E980079613E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0FE9C442269E8E980079613E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -796,9 +797,9 @@
 			isa = PBXGroup;
 			children = (
 				0F6A05092658A1E10050439D /* Info.plist */,
-				0FDD30B62726673400E8A4C0 /* BackgroundActivityController.swift */,
 				0F745450266C031700DEB3F1 /* Image+Data.swift */,
-				0FDD30B8272667A200E8A4C0 /* UIApplicationDelegate.swift */,
+				0FBD22002870BBCC00D752E8 /* CoffAppApp+BackgroundTasks.swift */,
+				0FBD22032870BEEE00D752E8 /* EventListView+BackgroundNotifications.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -1710,6 +1711,7 @@
 				0FA09F6E2667251400E04777 /* TVFocusable.swift in Sources */,
 				0F74544C2669642200DEB3F1 /* RoundFilledButtonStyle.swift in Sources */,
 				0FD69B6C2658D35B007EC696 /* EventListView.swift in Sources */,
+				0FBD22012870BBCC00D752E8 /* CoffAppApp+BackgroundTasks.swift in Sources */,
 				0F6A05C82658A4350050439D /* NetworkService.swift in Sources */,
 				0F6A05D72658A9EC0050439D /* Venue.swift in Sources */,
 				0FDB46BB26A685860085AB5B /* StatusView.swift in Sources */,
@@ -1722,6 +1724,7 @@
 				0F49A3D12675189900B62CC4 /* ImageCache.swift in Sources */,
 				0FFFC669285461C000F120FF /* Collection+Event.swift in Sources */,
 				0F6A05EA2658B2010050439D /* NetworkState.swift in Sources */,
+				0FBD22042870BEEE00D752E8 /* EventListView+BackgroundNotifications.swift in Sources */,
 				0FFFC661285455EB00F120FF /* UserProfile.swift in Sources */,
 				0FA20C4126956598007F595F /* Location+Directions.swift in Sources */,
 				0FA09F732667373500E04777 /* FocusState.swift in Sources */,
@@ -1736,9 +1739,7 @@
 				0F745451266C031700DEB3F1 /* Image+Data.swift in Sources */,
 				0F1FD6FD2689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */,
 				0F6A05D32658A9460050439D /* Event.swift in Sources */,
-				0FDD30B72726673B00E8A4C0 /* BackgroundActivityController.swift in Sources */,
 				0F6A052C2658A1E10050439D /* GroupListView.swift in Sources */,
-				0FDD30B9272667A200E8A4C0 /* UIApplicationDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1900,6 +1901,7 @@
 				0FD18C7E26FD84AD003763DB /* AsyncImagePhaseView.swift in Sources */,
 				0FF4AA8726A4E8E600EEEDBF /* Venue.swift in Sources */,
 				0FF4AA8626A4E8E600EEEDBF /* Event.swift in Sources */,
+				0FBD22052870BEEE00D752E8 /* EventListView+BackgroundNotifications.swift in Sources */,
 				0FF4AA8E26A4E98200EEEDBF /* TVFocusable.swift in Sources */,
 				0FF4AA8026A4E8DA00EEEDBF /* NetworkService.swift in Sources */,
 				0FF4AA8C26A4E96400EEEDBF /* EventDetailView.swift in Sources */,

@@ -5,7 +5,7 @@ import SwiftUI
 struct EventListView: View {
     @Environment(\.scenePhase) private var scenePhase
     @StateObject private var profile = UserProfile()
-    private let logger = Logger(label: "science.pixel.espresso.eventlistview")
+    internal let logger = Logger(label: "science.pixel.espresso.eventlistview")
     @State private var showingPopover = false
 
     var body: some View {
@@ -39,14 +39,16 @@ struct EventListView: View {
                                     ]) {
                                         ForEach(profile.upcomingEvents, id: \.self) { upcomingEvent in
                                             EventDetailView(upcomingEvent)
-                                                .frame(idealWidth: geo.size.width - 32,
-                                                       minHeight: 360,
-                                                       maxHeight: 360)
+                                                .frame(
+                                                    minWidth: 300,
+                                                    idealWidth: geo.size.width - 32,
+                                                    minHeight: 300,
+                                                    idealHeight: (geo.size.height / 2.5),
+                                                    maxHeight: (geo.size.height / 2.5))
                                         }
                                     }
                                     .padding(.horizontal)
                                 }
-                                .frame(height: 360)
                             } else {
                                 HStack {
                                     Spacer()
@@ -149,42 +151,25 @@ struct EventListView: View {
                 }
             }
         }
+#if os(iOS)
         .onChange(of: scenePhase) { newValue in
-            logger.debug(.init(stringLiteral: "\(newValue)"))
+            switch newValue {
+            case .active:
+                Task {
+                    do {
+                        try await removeBadgeCount()
+                    } catch {
+                        logger.error(.init(stringLiteral: error.localizedDescription))
+                    }
+                }
+            default:
+                break
+            }
         }
         .task {
             scheduleAppRefresh()
-            do {
-                try await removeBadgeCount()
-            } catch {
-                logger.error(.init(stringLiteral: error.localizedDescription))
-            }
         }
-    }
-}
-
-// MARK: - Background Notifications
-extension EventListView {
-    func scheduleAppRefresh() {
-        let meanwhile = Date.now.addingTimeInterval(15)
-        let request = BGAppRefreshTaskRequest(identifier: "science.pixel.espresso.backgroundfetch")
-        request.earliestBeginDate = meanwhile
-        do {
-            try BGTaskScheduler.shared.submit(request)
-        } catch {
-            logger.error(.init(stringLiteral: error.localizedDescription))
-        }
-        logger.debug(.init(stringLiteral: request.debugDescription))
-    }
-
-    func removeBadgeCount() async throws {
-        let resetBadgetNotification = UNMutableNotificationContent()
-        resetBadgetNotification.badge = 0
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
-        let request = UNNotificationRequest(identifier: UUID().uuidString,
-                                            content: resetBadgetNotification,
-                                            trigger: trigger)
-        try await UNUserNotificationCenter.current().add(request)
+#endif
     }
 }
 

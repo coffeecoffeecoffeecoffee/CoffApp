@@ -20,7 +20,7 @@ struct EventDetailView: View {
                                     Color("ShadyPurple")
                                 ]),
                                startPoint: UnitPoint(x: 0.5, y: 0.45),
-                               endPoint: UnitPoint(x: 0.45, y: 0.75))
+                               endPoint: UnitPoint(x: 0.48, y: 0.75))
                 .blendMode(.hardLight)
                 HStack(alignment: .bottom) {
                     VStack(alignment: .leading) {
