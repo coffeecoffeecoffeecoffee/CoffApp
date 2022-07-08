@@ -6,7 +6,7 @@ struct StatusView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
             Image(systemName: viewModel.symbolName)
-                .font(.custom("San Francisco Light", size: 64.0))
+                .font(.largeTitle)
             Text(viewModel.headline)
                 .bold()
             Text(viewModel.description)
@@ -16,6 +16,13 @@ struct StatusView: View {
 
     init(_ viewModel: StatusViewModel = .init()) {
         self.viewModel = viewModel
+    }
+
+    init(_ title: String, description: String, symbolName: String = "exclamationmark.triangle") {
+        let viewmodel = StatusViewModel(headline: title,
+                                 description: description,
+                                 symbolName: symbolName)
+        self.init(viewmodel)
     }
 }
 

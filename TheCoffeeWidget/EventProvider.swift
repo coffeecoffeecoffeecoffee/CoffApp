@@ -1,11 +1,10 @@
 import Logging
 import WidgetKit
 
-class EventProvider: IntentTimelineProvider {
+class EventProvider: TimelineProvider {
     typealias Entry = EventEntry
-    typealias Intent = ConfigurationIntent
 
-    private var net = NetworkService()
+    private var profile = UserProfile()
     private let decoder: JSONDecoder
     private let logger = Logger(label: "science.pixel.espresso.eventprovider")
 
@@ -22,31 +21,27 @@ class EventProvider: IntentTimelineProvider {
     }
 
     func placeholder(in context: Context) -> EventEntry {
-        EventEntry(Event.empty,
-                   configuration: ConfigurationIntent())
+        EventEntry(Event.empty)
     }
 
-    func getSnapshot(for configuration: ConfigurationIntent,
-                     in context: Context,
+    func getSnapshot(in context: Context,
                      completion: @escaping (EventEntry) -> Void) {
-        let entry = EventEntry(mostRecentEvent,
-                               configuration: configuration)
+        let entry = EventEntry(mostRecentEvent)
         completion(entry)
     }
 
-    func getTimeline(for configuration: ConfigurationIntent,
-                     in context: Context,
+    func getTimeline(in context: Context,
                      completion: @escaping (Timeline<EventEntry>) -> Void) {
-        guard let savedGroup = InterestGroup.loadSelected(),
-               savedGroup.eventsURL != nil else {
-                   logger.error(.init(stringLiteral: "No saved group"))
-                   completion(Timeline(entries: [EventEntry(.error(text: "Coffee: Get Some!"))], policy: .atEnd))
-                   return
+        Task {
+            do {
+                try await profile.sync()
+            } catch {
+                logger.error(.init(stringLiteral: error.localizedDescription))
+            }
+            let event = profile.upcomingEvents.first ?? .empty
+            let entry = EventEntry(event,
+                                   date: event.startAt ?? Date().addingTimeInterval(-360))
+            completion(Timeline(entries: [entry], policy: .atEnd))
         }
-        let event = savedGroup.headlineEvent
-        let entry = EventEntry(event,
-                               date: event.startAt ?? Date().addingTimeInterval(-360),
-                               configuration: configuration)
-        completion(Timeline(entries: [entry], policy: .atEnd))
     }
 }

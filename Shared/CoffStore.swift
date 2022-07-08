@@ -121,10 +121,3 @@ extension CoffStore {
         }
     }
 }
-
-// TODO: add extension with Combine support
-
-import Combine
-
-extension CoffStore {
-}
