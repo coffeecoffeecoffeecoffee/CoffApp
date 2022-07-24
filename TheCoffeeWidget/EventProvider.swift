@@ -36,9 +36,10 @@ class EventProvider: TimelineProvider {
             do {
                 try await profile.sync()
             } catch {
-                logger.error(.init(stringLiteral: error.localizedDescription))
+                debugPrint(error)
+                fatalError(error.localizedDescription)
             }
-            let event = profile.upcomingEvents.first ?? .empty
+            let event = profile.events.first ?? .empty
             let entry = EventEntry(event,
                                    date: event.startAt ?? Date().addingTimeInterval(-360))
             completion(Timeline(entries: [entry], policy: .atEnd))

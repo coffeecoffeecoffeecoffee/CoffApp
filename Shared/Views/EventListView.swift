@@ -151,7 +151,6 @@ struct EventListView: View {
                 }
             }
         }
-        .frame(minWidth: 332)
 #if os(iOS)
         .onChange(of: scenePhase) { newValue in
             switch newValue {

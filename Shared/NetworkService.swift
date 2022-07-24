@@ -106,6 +106,7 @@ extension NetworkService {
     private func downloadAllEvents(for group: InterestGroup) throws -> [Event] {
         let data = try Data(contentsOf: group.eventsURL)
         let events = try decoder.decode([Event].self, from: data)
+        handle(events)
         return events
     }
 
@@ -133,7 +134,7 @@ extension NetworkService {
                         return groupEvents
                     } catch {
                         self.logger.error(.init(stringLiteral: error.localizedDescription))
-                        return []
+                        fatalError(error.localizedDescription)
                     }
                 }
             }
@@ -144,9 +145,7 @@ extension NetworkService {
             }
             return decodedEvents
         }
-        let sortedEvents = allEventsSet.sorted()
-        handle(sortedEvents)
-        return sortedEvents
+        return allEventsSet.sorted()
     }
 
     func futureEvents(for group: InterestGroup) throws -> [Event] {
@@ -196,7 +195,14 @@ extension NetworkService {
                 }
             } receiveValue: { netEvents in
                 self.logger.info("Events loaded: \(netEvents.count)")
+                if let firstEvent = netEvents.first {
+                    self.firstEvent = firstEvent
+                    firstEvent.saveAsMostRecent()
+                } else {
+                    self.firstEvent = Event.empty
+                }
                 self.events = netEvents
+                self.handle(netEvents)
             }
             .store(in: &subscriptions)
     }
@@ -214,24 +220,11 @@ extension NetworkService {
                 self.pastEvents.append(event)
             }
         }
-        #if TESTACTIVE
+        #if DEBUG
         let evt = testEvent()
         activeEvents.append(evt)
         #endif
         self.upcomingEvents = activeEvents.sorted(by: sortEvents)
-        updateMostRecent()
-    }
-
-    // TODO: This is not the way
-    private func updateMostRecent() {
-        if !upcomingEvents.isEmpty {
-            let nextEvent = upcomingEvents.sorted(orderedBy: .oldestFirst).first!
-            nextEvent.saveAsMostRecent()
-        } else if let lastEvent = pastEvents.first {
-            lastEvent.saveAsMostRecent()
-        } else {
-            Event.empty.saveAsMostRecent()
-        }
     }
 
     private func sortEvents(aVent: Event, bVent: Event) -> Bool {
@@ -244,13 +237,13 @@ extension NetworkService {
 }
 
 #if DEBUG
-func testEvent(_ isNearFuture: Bool = false) -> Event {
+func testEvent(_ isFuture: Bool = false) -> Event {
     let location = Location(latitude: Double(37.789004663475026),
                                    longitude: Double(-122.3970252426277))
     let imageURLString = "https://fastly.4sqi.net/img/general/1440x1920/"
         + "1813137_VPYk5iqnExTrW9lEMbbSy2WDS6P-lbOkpqsy5KE2sSI.jpg"
     let imgURL = URL(string: imageURLString)!
-    let date = isNearFuture ? Date().advanced(by: 40_000) : Date().advanced(by: -20_000)
+    let date = isFuture ? Date().advanced(by: 40_000) : Date().advanced(by: -20_000)
     let event = Event(id: UUID(),
                       groupID: UUID(),
                       name: "Test Event Here",

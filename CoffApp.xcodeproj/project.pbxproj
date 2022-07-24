@@ -2368,7 +2368,6 @@
 				DEVELOPMENT_TEAM = FS69ZZRN45;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				GCC_OPTIMIZATION_LEVEL = 3;
 				INFOPLIST_FILE = macOS/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "The Coffee";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
@@ -2381,7 +2380,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.espresso;
 				PRODUCT_NAME = CoffApp;
 				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -2413,7 +2411,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = science.pixel.espresso;
 				PRODUCT_NAME = CoffApp;
 				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

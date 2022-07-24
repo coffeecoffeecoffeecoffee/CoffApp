@@ -26,6 +26,12 @@ struct EventSummaryView: View {
             .frame(maxWidth: 64, maxHeight: 64)
             .cornerRadius(5)
             VStack(alignment: .leading) {
+//                if let groupName = group?.name {
+//                    Text(groupName)
+//                        .foregroundColor(.secondary)
+//                        .opacity(0.7)
+//                        .font(.footnote)
+//                }
                 Text(event.name)
                     .bold()
                 Text(event.localizedStartTime())

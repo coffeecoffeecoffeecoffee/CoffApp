@@ -4,30 +4,14 @@ import WidgetKit
 struct TheCoffeeWidgetEntryView: View {
     var entry: EventProvider.Entry
 
-    // MARK: -
-    // TOOD: Move to view model
-    func relativelyFormatted(_ date: Date) -> String {
-        let relativeDateFormatter = RelativeDateTimeFormatter()
-        relativeDateFormatter.unitsStyle = .full
-        let relativeDateDescription = relativeDateFormatter.localizedString(for: date, relativeTo: .now)
-        return relativeDateDescription.localizedCapitalized
-    }
-
-    func isNearFuture(_ date: Date?) -> Bool {
+    func isFuture(_ date: Date?) -> Bool {
         guard let date = date else { return false }
-        // TODO: Better handling here with time zones and DateComponent and whatnot
-        let secondsIn24Hours = 86_400
-        let recencyRangeInSeconds = (-secondsIn24Hours * 2)...0
-        let secondsFromNow = Int(date.timeIntervalSinceNow) // which is negative if the future
-        if recencyRangeInSeconds.contains(secondsFromNow) {
-            return true
-        }
-        return false
+        return date > Date() ? true : false
     }
 
-    // MARK: -
-
-    var shadyPurple = Color("ShadyPurple")
+    var shadyPurple = Color(hue: 0.8,
+                            saturation: 1.0,
+                            brightness: 0.26)
 
     var body: some View {
         ZStack {
@@ -58,18 +42,11 @@ struct TheCoffeeWidgetEntryView: View {
                         .font(.body)
                     Text(entry.event.localizedStartTime(.short))
                         .font(.caption)
-                    if let startDate = entry.event.startAt {
-                        if isNearFuture(startDate) {
-                            Text(startDate, style: .timer)
-                                .foregroundColor(.yellow)
-                                .bold()
-                        } else {
-                            Text(relativelyFormatted(startDate))
-                                .foregroundColor(.init(hue: 0.6,
-                                                       saturation: 0.7,
-                                                       brightness: 3.0))
-                                .font(.caption2)
-                        }
+                    if let startDate = entry.event.startAt,
+                        isFuture(startDate) {
+                        Text(startDate, style: .timer)
+                            .foregroundColor(.yellow)
+                            .bold()
                     }
                 }
                 .foregroundColor(.white)
