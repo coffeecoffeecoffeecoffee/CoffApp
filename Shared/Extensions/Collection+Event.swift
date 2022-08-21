@@ -1,12 +1,21 @@
 import Foundation
 
-extension Collection where Element == Event {
+enum SortOrder {
+    case oldestFirst
+    case newestFirst
+}
 
-    func sortedByTime() -> [Event] {
+extension Collection where Element == Event {
+    func sorted(orderedBy sortOrder: SortOrder = .newestFirst) -> [Event] {
         let sorted = self.sorted { prev, this in
             guard let prevDate = prev.startAt,
                   let thisDate = this.startAt else { return false }
-            return prevDate > thisDate
+            switch sortOrder {
+            case .oldestFirst:
+                return prevDate < thisDate
+            default:
+                return prevDate > thisDate
+            }
         }
         return sorted
     }
@@ -25,12 +34,12 @@ extension Collection where Element == Event {
 
     func upcoming() -> [Event] {
         let upcoming = self.filtered(isUpcoming: true)
-        return upcoming.sortedByTime()
+        return upcoming.sorted(orderedBy: .oldestFirst)
     }
 
     func past() -> [Event] {
         let past = self.filtered(isUpcoming: false)
-        return past.sortedByTime()
+        return past.sorted()
     }
 
     func matching(term: String) throws -> [Event] {
@@ -40,6 +49,6 @@ extension Collection where Element == Event {
             || regex.firstMatch(in: event.venueName.lowercased()) != nil
             || regex.firstMatch(in: event.localizedStartTime().lowercased()) != nil
         }
-        return matches.sortedByTime()
+        return matches.sorted()
     }
 }
