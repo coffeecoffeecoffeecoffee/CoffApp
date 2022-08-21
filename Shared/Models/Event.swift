@@ -97,13 +97,14 @@ extension Event {
     }
 
     static var empty: Event {
-        Event(id: nil,
+        let emptyVenue = Venue(name: "The One True Dark Lord", location: nil)
+        return Event(id: nil,
               groupID: nil,
-              name: "Coffee: The True Dark Lord",
+              name: "Coffee",
               imageURL: nil,
               startAt: nil,
               endAt: nil,
-              venue: nil
+              venue: emptyVenue
         )
     }
 }
@@ -142,13 +143,16 @@ extension Event {
 extension Event {
     var venueName: String {
         guard let venueName = venue?.name else {
-            return NSLocalizedString("Mystery location", comment: "")
+            return "☕️"
         }
         return venueName
     }
 
     func localizedStartTime(_ style: DateFormatter.Style = .long) -> String {
-        guard let startAt = startAt else { return NSLocalizedString("Mystery Time", comment: "") }
+        guard let startAt = startAt else {
+            return NSLocalizedString("It’s coffee time somewhere",
+                    comment: "A quirky phrase to show when no time is given")
+        }
         return DateFormatter.localizedString(from: startAt,
                                              dateStyle: style,
                                              timeStyle: .short)
