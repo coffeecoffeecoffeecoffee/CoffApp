@@ -145,7 +145,7 @@ extension NetworkService {
             }
             return decodedEvents
         }
-        return allEventsSet.sorted()
+        return allEventsSet.sortedByTime()
     }
 
     func futureEvents(for group: InterestGroup) throws -> [Event] {
