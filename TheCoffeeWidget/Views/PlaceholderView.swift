@@ -5,6 +5,6 @@ struct PlaceholderView: View {
     var entry: EventProvider.Entry
 
     var body: some View {
-        TheCoffeeWidgetEntryView(entry: entry)
+        TheCoffeeWidgetEntryView(entries: entry)
     }
 }

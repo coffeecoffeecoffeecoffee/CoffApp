@@ -18,6 +18,7 @@ struct EventDetailView: View {
                                 Gradient(colors: [
                                     .clear,
                                     Color("ShadyPurple")
+                                        .opacity(0.7)
                                 ]),
                                startPoint: UnitPoint(x: 0.5, y: 0.45),
                                endPoint: UnitPoint(x: 0.48, y: 0.75))

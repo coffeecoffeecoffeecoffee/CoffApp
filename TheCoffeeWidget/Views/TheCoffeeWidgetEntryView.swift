@@ -5,34 +5,16 @@ struct TheCoffeeWidgetEntryView: View {
     var entry: EventProvider.Entry
 
     // MARK: -
-    // TOOD: Move to view model
-    func relativelyFormatted(_ date: Date) -> String {
-        let relativeDateFormatter = RelativeDateTimeFormatter()
-        relativeDateFormatter.unitsStyle = .full
-        let relativeDateDescription = relativeDateFormatter.localizedString(for: date, relativeTo: .now)
-        return relativeDateDescription.localizedCapitalized
-    }
-
-    func isNearFuture(_ date: Date?) -> Bool {
-        guard let date = date else { return false }
-        // TODO: Better handling here with time zones and DateComponent and whatnot
-        let secondsIn24Hours = 86_400
-        let recencyRangeInSeconds = (-secondsIn24Hours * 2)...0
-        let secondsFromNow = Int(date.timeIntervalSinceNow) // which is negative if the future
-        if recencyRangeInSeconds.contains(secondsFromNow) {
-            return true
-        }
-        return false
-    }
-
-    // MARK: -
-
     var shadyPurple = Color("ShadyPurple")
+
+    init(entries: EventProvider.Entry...) {
+        self.entry = entries.first ?? EventEntry(.empty)
+    }
 
     var body: some View {
         ZStack {
             if let imageData = entry.imageData,
-                let eventImage = try? Image(data: imageData) {
+               let eventImage = try? Image(data: imageData) {
                 eventImage
                     .centerCropped()
             } else {
@@ -40,8 +22,8 @@ struct TheCoffeeWidgetEntryView: View {
             }
             LinearGradient(gradient:
                             Gradient(colors: [
-                                        .clear,
-                                        shadyPurple
+                                .clear,
+                                shadyPurple
                             ]),
                            startPoint: UnitPoint(x: 0.3, y: 0.0),
                            endPoint: UnitPoint(x: 0.0, y: 1.0)
@@ -59,17 +41,11 @@ struct TheCoffeeWidgetEntryView: View {
                     Text(entry.event.localizedStartTime(.short))
                         .font(.caption)
                     if let startDate = entry.event.startAt {
-                        if isNearFuture(startDate) {
-                            Text(startDate, style: .timer)
-                                .foregroundColor(.yellow)
-                                .bold()
-                        } else {
-                            Text(relativelyFormatted(startDate))
-                                .foregroundColor(.init(hue: 0.6,
-                                                       saturation: 0.7,
-                                                       brightness: 3.0))
-                                .font(.caption2)
-                        }
+                        Text(startDate, style: .timer)
+                            .foregroundColor(.init(hue: 0.6,
+                                                   saturation: 0.7,
+                                                   brightness: 3.0))
+                            .bold()
                     }
                 }
                 .foregroundColor(.white)
@@ -86,7 +62,7 @@ struct TheCoffeeWidgetEntryView: View {
 #if DEBUG
 struct TheCoffeeWidgetEntryView_Previews: PreviewProvider {
     static var previews: some View {
-        TheCoffeeWidgetEntryView(entry: EventEntry(testEvent(true)))
+        TheCoffeeWidgetEntryView(entries: EventEntry(testEvent(true)))
             .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
 }

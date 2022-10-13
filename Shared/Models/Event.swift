@@ -97,7 +97,7 @@ extension Event {
     }
 
     static var empty: Event {
-        let emptyVenue = Venue(name: "The One True Dark Lord", location: nil)
+        let emptyVenue = Venue(name: "The Dark Lord", location: nil)
         return Event(id: nil,
               groupID: nil,
               name: "Coffee",

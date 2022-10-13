@@ -32,6 +32,13 @@
 		0F2E87B5286A16CB0051D466 /* ICalendarKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0F2E87B4286A16CB0051D466 /* ICalendarKit */; };
 		0F2E87B7286A16DF0051D466 /* ICalendarKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0F2E87B6286A16DF0051D466 /* ICalendarKit */; };
 		0F2E87B9286A16E70051D466 /* ICalendarKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0F2E87B8286A16E70051D466 /* ICalendarKit */; };
+		0F40026E28F7A76600728CBE /* Date+Recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F40026D28F7A76600728CBE /* Date+Recent.swift */; };
+		0F40026F28F7A76600728CBE /* Date+Recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F40026D28F7A76600728CBE /* Date+Recent.swift */; };
+		0F40027028F7A76600728CBE /* Date+Recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F40026D28F7A76600728CBE /* Date+Recent.swift */; };
+		0F40027128F7A76600728CBE /* Date+Recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F40026D28F7A76600728CBE /* Date+Recent.swift */; };
+		0F40027228F7A76600728CBE /* Date+Recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F40026D28F7A76600728CBE /* Date+Recent.swift */; };
+		0F40027328F7A76600728CBE /* Date+Recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F40026D28F7A76600728CBE /* Date+Recent.swift */; };
+		0F40027428F7A76600728CBE /* Date+Recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F40026D28F7A76600728CBE /* Date+Recent.swift */; };
 		0F49A3C22673983E00B62CC4 /* CoffAppMacUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3C12673983E00B62CC4 /* CoffAppMacUITests.swift */; };
 		0F49A3D12675189900B62CC4 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D02675189900B62CC4 /* ImageCache.swift */; };
 		0F49A3D22675189900B62CC4 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D02675189900B62CC4 /* ImageCache.swift */; };
@@ -419,6 +426,7 @@
 		0F2391122686CE75007461F9 /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 		0F2391182686CEC3007461F9 /* TheCoffeeWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCoffeeWidgetEntryView.swift; sourceTree = "<group>"; };
 		0F2E87AC286A16260051D466 /* Event+Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+Calendar.swift"; sourceTree = "<group>"; };
+		0F40026D28F7A76600728CBE /* Date+Recent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Recent.swift"; sourceTree = "<group>"; };
 		0F49A3BF2673983D00B62CC4 /* CoffAppMacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffAppMacUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F49A3C12673983E00B62CC4 /* CoffAppMacUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffAppMacUITests.swift; sourceTree = "<group>"; };
 		0F49A3C32673983E00B62CC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -766,6 +774,7 @@
 				0F6A05D12658A9330050439D /* Models */,
 				0F23910A2686CDFF007461F9 /* Extensions */,
 				0FD69B6A2658D338007EC696 /* Views */,
+				0F40026D28F7A76600728CBE /* Date+Recent.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -1693,6 +1702,7 @@
 				0F49A45E2679AC8D00B62CC4 /* FocusState.swift in Sources */,
 				0FA20C4526956598007F595F /* Location+Directions.swift in Sources */,
 				0F49A44A2679AC5100B62CC4 /* TheCoffeeWidget.swift in Sources */,
+				0F40027128F7A76600728CBE /* Date+Recent.swift in Sources */,
 				0F49A45B2679AC8D00B62CC4 /* NetworkService.swift in Sources */,
 				0F8293C226C732DC008BBA76 /* URL+AppURLs.swift in Sources */,
 				0F2391102686CE2D007461F9 /* Image+CenterCropped.swift in Sources */,
@@ -1735,6 +1745,7 @@
 				0FA7F3BA270176A600F8B872 /* CoffeeBackgroundTask.swift in Sources */,
 				0FD69B702658DABD007EC696 /* EventDetailView.swift in Sources */,
 				0F6A052A2658A1E10050439D /* CoffAppApp.swift in Sources */,
+				0F40026E28F7A76600728CBE /* Date+Recent.swift in Sources */,
 				0FD18C8127000D98003763DB /* Data+Event.swift in Sources */,
 				0F745451266C031700DEB3F1 /* Image+Data.swift in Sources */,
 				0F1FD6FD2689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */,
@@ -1768,6 +1779,7 @@
 				0F6A05DC2658AA050050439D /* Location.swift in Sources */,
 				0F49A3D22675189900B62CC4 /* ImageCache.swift in Sources */,
 				0F6A05CF2658A9020050439D /* InterestGroup.swift in Sources */,
+				0F40026F28F7A76600728CBE /* Date+Recent.swift in Sources */,
 				0FFFC66A285461CF00F120FF /* Collection+Event.swift in Sources */,
 				0F2E87AE286A16260051D466 /* Event+Calendar.swift in Sources */,
 				0FEABBC52733899A00A40F88 /* Image+Data-Mac.swift in Sources */,
@@ -1827,6 +1839,7 @@
 				0FD18C8327000D98003763DB /* Data+Event.swift in Sources */,
 				0FA09F752667373500E04777 /* FocusState.swift in Sources */,
 				0F6A05C32658A2A60050439D /* GroupListView.swift in Sources */,
+				0F40027028F7A76600728CBE /* Date+Recent.swift in Sources */,
 				0F2E87AF286A16260051D466 /* Event+Calendar.swift in Sources */,
 				0FFFC66B285461D000F120FF /* Collection+Event.swift in Sources */,
 				0F6A05D02658A9020050439D /* InterestGroup.swift in Sources */,
@@ -1881,6 +1894,7 @@
 				0FE9C457269E8FA80079613E /* TheCoffeeWidgetEntryView.swift in Sources */,
 				0FE9C456269E8FA50079613E /* PlaceholderView.swift in Sources */,
 				0FE9C45B269E8FEC0079613E /* InterestGroup.swift in Sources */,
+				0F40027228F7A76600728CBE /* Date+Recent.swift in Sources */,
 				0FE9C45E269E8FF80079613E /* Venue.swift in Sources */,
 				0F8293C726C81730008BBA76 /* URL+AppURLs.swift in Sources */,
 				0FE9C45D269E8FF50079613E /* Event.swift in Sources */,
@@ -1893,6 +1907,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F40027328F7A76600728CBE /* Date+Recent.swift in Sources */,
 				0F8293BB26C72D88008BBA76 /* StatusViewModel.swift in Sources */,
 				0FDB46BF26A685860085AB5B /* StatusView.swift in Sources */,
 				0FF4AA8826A4E93400EEEDBF /* NetworkState.swift in Sources */,
@@ -1955,6 +1970,7 @@
 				0FFFC6BB285697E000F120FF /* Venue.swift in Sources */,
 				0FFFC6BF285697E000F120FF /* Data+Event.swift in Sources */,
 				0FFFC6B6285697E000F120FF /* Image+CenterCropped.swift in Sources */,
+				0F40027428F7A76600728CBE /* Date+Recent.swift in Sources */,
 				0FFFC6B2285697E000F120FF /* URL+AppURLs.swift in Sources */,
 				0FFFC6B1285697E000F120FF /* ImageCache.swift in Sources */,
 				0FFFC6BD285697E000F120FF /* Collection+Event.swift in Sources */,

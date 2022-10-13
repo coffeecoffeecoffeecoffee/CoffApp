@@ -42,9 +42,8 @@ struct EventListView: View {
                                                 .frame(
                                                     minWidth: 300,
                                                     idealWidth: geo.size.width - 32,
-                                                    minHeight: 300,
-                                                    idealHeight: (geo.size.height / 2.5),
-                                                    maxHeight: (geo.size.height / 2.5))
+                                                    minHeight: (geo.size.height / 2),
+                                                    maxHeight: (geo.size.height / 1.2))
                                         }
                                     }
                                     .padding(.horizontal)
@@ -145,6 +144,7 @@ struct EventListView: View {
                                     }
 #endif
                             }
+                            .presentationDetents([.medium, .large])
                             .frame(minWidth: 250, minHeight: 240, idealHeight: 304)
                         }
                     }
