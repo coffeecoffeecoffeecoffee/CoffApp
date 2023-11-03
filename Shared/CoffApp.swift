@@ -4,7 +4,7 @@ import SwiftUI
 import BackgroundTasks
 
 @main
-struct CoffAppApp: App {
+struct CoffApp: App {
     internal let logger = Logger(label: "science.pixel.espresso.coffapp")
     
     init() {

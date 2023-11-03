@@ -72,8 +72,8 @@
 		0F6A05262658A1E10050439D /* TestsMacOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05252658A1E10050439D /* TestsMacOS.swift */; };
 		0F6A05282658A1E10050439D /* CoffApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FC2658A1DE0050439D /* CoffApp.xcdatamodeld */; };
 		0F6A05292658A1E10050439D /* CoffApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FC2658A1DE0050439D /* CoffApp.xcdatamodeld */; };
-		0F6A052A2658A1E10050439D /* CoffAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FE2658A1DE0050439D /* CoffAppApp.swift */; };
-		0F6A052B2658A1E10050439D /* CoffAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FE2658A1DE0050439D /* CoffAppApp.swift */; };
+		0F6A052A2658A1E10050439D /* CoffApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FE2658A1DE0050439D /* CoffApp.swift */; };
+		0F6A052B2658A1E10050439D /* CoffApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FE2658A1DE0050439D /* CoffApp.swift */; };
 		0F6A052C2658A1E10050439D /* GroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FF2658A1DE0050439D /* GroupListView.swift */; };
 		0F6A052D2658A1E10050439D /* GroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FF2658A1DE0050439D /* GroupListView.swift */; };
 		0F6A052E2658A1E10050439D /* CoffStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05002658A1DE0050439D /* CoffStore.swift */; };
@@ -83,7 +83,7 @@
 		0F6A054B2658A2250050439D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6A054A2658A2250050439D /* Assets.xcassets */; };
 		0F6A054E2658A2250050439D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6A054D2658A2250050439D /* Preview Assets.xcassets */; };
 		0F6A05692658A2250050439D /* CoffAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A05682658A2250050439D /* CoffAppUITests.swift */; };
-		0F6A05C22658A2A60050439D /* CoffAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FE2658A1DE0050439D /* CoffAppApp.swift */; };
+		0F6A05C22658A2A60050439D /* CoffApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FE2658A1DE0050439D /* CoffApp.swift */; };
 		0F6A05C32658A2A60050439D /* GroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FF2658A1DE0050439D /* GroupListView.swift */; };
 		0F6A05C52658A2AC0050439D /* CoffApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A04FC2658A1DE0050439D /* CoffApp.xcdatamodeld */; };
 		0F6A05C62658A2B50050439D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6A05012658A1E10050439D /* Assets.xcassets */; };
@@ -446,7 +446,7 @@
 		0F49A44C2679AC5400B62CC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F49A44E2679AC5400B62CC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F6A04FD2658A1DE0050439D /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
-		0F6A04FE2658A1DE0050439D /* CoffAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffAppApp.swift; sourceTree = "<group>"; };
+		0F6A04FE2658A1DE0050439D /* CoffApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffApp.swift; sourceTree = "<group>"; };
 		0F6A04FF2658A1DE0050439D /* GroupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListView.swift; sourceTree = "<group>"; };
 		0F6A05002658A1DE0050439D /* CoffStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffStore.swift; sourceTree = "<group>"; };
 		0F6A05012658A1E10050439D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -776,7 +776,7 @@
 			children = (
 				0F6A05012658A1E10050439D /* Assets.xcassets */,
 				0F6A04FC2658A1DE0050439D /* CoffApp.xcdatamodeld */,
-				0F6A04FE2658A1DE0050439D /* CoffAppApp.swift */,
+				0F6A04FE2658A1DE0050439D /* CoffApp.swift */,
 				0FA7F3B9270176A600F8B872 /* CoffeeBackgroundTask.swift */,
 				0F49A3D02675189900B62CC4 /* ImageCache.swift */,
 				0F6A05C72658A4350050439D /* NetworkService.swift */,
@@ -1496,6 +1496,7 @@
 				0F6A05DE2658ADF80050439D /* XCRemoteSwiftPackageReference "swift-log" */,
 				0F2E87A9286A160D0051D466 /* XCRemoteSwiftPackageReference "icalendarkit" */,
 				0F40027528F7CE2800728CBE /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
+				0FBB38102AF5662500CFD990 /* XCRemoteSwiftPackageReference "SwiftLint" */,
 			);
 			productRefGroup = 0F6A05072658A1E10050439D /* Products */;
 			projectDirPath = "";
@@ -1766,7 +1767,7 @@
 				0F6A05CE2658A9020050439D /* InterestGroup.swift in Sources */,
 				0FA7F3BA270176A600F8B872 /* CoffeeBackgroundTask.swift in Sources */,
 				0FD69B702658DABD007EC696 /* EventDetailView.swift in Sources */,
-				0F6A052A2658A1E10050439D /* CoffAppApp.swift in Sources */,
+				0F6A052A2658A1E10050439D /* CoffApp.swift in Sources */,
 				0F40026E28F7A76600728CBE /* Date+Recent.swift in Sources */,
 				0FD18C8127000D98003763DB /* Data+Event.swift in Sources */,
 				0F745451266C031700DEB3F1 /* Image+Data.swift in Sources */,
@@ -1806,7 +1807,7 @@
 				0F2E87AE286A16260051D466 /* Event+Calendar.swift in Sources */,
 				0FEABBC52733899A00A40F88 /* Image+Data-Mac.swift in Sources */,
 				0FD69B712658DABD007EC696 /* EventDetailView.swift in Sources */,
-				0F6A052B2658A1E10050439D /* CoffAppApp.swift in Sources */,
+				0F6A052B2658A1E10050439D /* CoffApp.swift in Sources */,
 				0F23910D2686CE2D007461F9 /* Image+CenterCropped.swift in Sources */,
 				0FA20C4226956598007F595F /* Location+Directions.swift in Sources */,
 				0F1FD6FE2689752A00E90D7D /* UserDefaults+AppSuite.swift in Sources */,
@@ -1856,7 +1857,7 @@
 				0FD18C7A26FD84AD003763DB /* AsyncImagePhaseView.swift in Sources */,
 				0F49A3D32675189900B62CC4 /* ImageCache.swift in Sources */,
 				0FFFC6672854560800F120FF /* UserProfile.swift in Sources */,
-				0F6A05C22658A2A60050439D /* CoffAppApp.swift in Sources */,
+				0F6A05C22658A2A60050439D /* CoffApp.swift in Sources */,
 				0FEABBBF2733845B00A40F88 /* Image+DataInitializer.swift in Sources */,
 				0FD18C8327000D98003763DB /* Data+Event.swift in Sources */,
 				0FA09F752667373500E04777 /* FocusState.swift in Sources */,
@@ -3239,6 +3240,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.4.2;
+			};
+		};
+		0FBB38102AF5662500CFD990 /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.53.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
