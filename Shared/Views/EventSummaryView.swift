@@ -5,7 +5,7 @@ struct EventSummaryView: View {
     @State private var focusState = FocusState()
     let event: Event
 
-    init(_ event: Event) {
+    init(_ event: Event, group: InterestGroup? = nil) {
         self.event = event
     }
 

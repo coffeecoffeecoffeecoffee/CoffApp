@@ -1,4 +1,4 @@
-import Combine
+// swiftlint:disable identifier_name
 import Foundation
 
 typealias InterestGroups = [InterestGroup]
@@ -6,6 +6,10 @@ typealias InterestGroups = [InterestGroup]
 struct InterestGroup: Codable {
     let id: UUID
     let name: String
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }
 
 extension InterestGroup: Equatable { }

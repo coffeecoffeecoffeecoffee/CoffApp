@@ -58,5 +58,7 @@
 	<array>
 		<string>science.pixel.espresso.group</string>
 	</array>
+	<key>WKWatchOnly</key>
+	<true/>
 </dict>
 </plist>

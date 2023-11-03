@@ -1,3 +1,4 @@
+// swiftlint:disable identifier_name
 import Foundation
 
 extension URL {
@@ -9,5 +10,9 @@ extension URL {
             url = url.appendingPathComponent(path)
         }
         return url
+    }
+
+    static func groupURL(_ id: UUID) -> URL {
+        appURL(with: "groups", id.uuidString.lowercased())
     }
 }

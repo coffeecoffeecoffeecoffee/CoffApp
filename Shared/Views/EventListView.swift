@@ -1,94 +1,183 @@
 import Logging
+import BackgroundTasks
 import SwiftUI
 
 struct EventListView: View {
-    @ObservedObject var net = NetworkService()
-    var group: InterestGroup
-    private let logger = Logger(label: "science.pixel.espresso.eventlistview")
+    @Environment(\.scenePhase) private var scenePhase
+    @StateObject private var profile = UserProfile()
+    internal let logger = Logger(label: "science.pixel.espresso.eventlistview")
+    @State private var showingPopover = false
 
     var body: some View {
-            VStack(alignment: .center) {
-                if net.netState != .ready {
-                    ProgressView(net.netState.description)
-                        .padding(30)
-                        .frame(minWidth: .none, maxWidth: .infinity, minHeight: 200, maxHeight: 320, alignment: .center)
-                    Spacer()
-                } else {
-                    ScrollView {
-                        LazyVStack(alignment: .leading, spacing: 30) {
-                            if net.upcomingEvents.count > 0 {
-                                VStack {
-                                    ForEach(net.upcomingEvents, id: \.self) { upcomingEvent in
-                                        EventDetailView(upcomingEvent)
+        NavigationStack {
+            GeometryReader { geo in
+                ScrollView {
+                    LazyVStack(alignment: .leading, spacing: 30) {
+                        if !profile.hasGroups {
+                            HStack(alignment: .center) {
+                                Spacer()
+                                Button {
+                                    showingPopover.toggle()
+                                } label: {
+                                    StatusView("No groups selected",
+                                               description: "Please choose some groups to find local events",
+                                               symbolName: "person.2.circle")
+                                }
+#if os(macOS)
+                                .buttonStyle(.link)
+#endif
+                                .foregroundColor(.accentColor)
+                                .padding(.vertical, 70)
+                                Spacer()
+                            }
+                            .padding(.horizontal)
+                        } else if profile.queryString.isEmpty {
+                            if profile.upcomingEvents.count > 0 {
+                                ScrollView(.horizontal) {
+                                    LazyHGrid(rows: [
+                                        GridItem(.adaptive(minimum: 560, maximum: (geo.size.width - 32)))
+                                    ]) {
+                                        ForEach(profile.upcomingEvents, id: \.self) { upcomingEvent in
+                                            EventDetailView(upcomingEvent)
+                                                .frame(
+                                                    minWidth: 300,
+                                                    idealWidth: geo.size.width - 32,
+                                                    minHeight: (geo.size.height / 2),
+                                                    maxHeight: (geo.size.height / 1.2))
+                                        }
                                     }
+                                    .padding(.horizontal)
                                 }
                             } else {
                                 HStack {
-                                    Text("No upcoming events")
-                                        .font(.title2)
-                                        .foregroundColor(.secondary)
+                                    Spacer()
+                                    StatusView("No upcoming Events",
+                                               description: "Check back later",
+                                               symbolName: "calendar")
+                                    .foregroundColor(.secondary)
+                                    Spacer()
                                 }
+                                .padding()
                             }
-                            if net.pastEvents.count > 0 {
-                                Divider()
-                                Text("Previously")
-                                    .font(.title)
-                                ForEach(net.pastEvents) { event in
+                            if profile.pastEvents.count > 0 {
+                                Group {
+                                    Divider()
+                                    Text("Previously")
+                                        .font(.title)
+                                    LazyVGrid(columns: [
+                                        GridItem(.adaptive(minimum: 280, maximum: 560))
+                                    ],
+                                              alignment: .leading,
+                                              spacing: 24) {
+                                        ForEach(profile.pastEvents) { event in
+                                            EventSummaryView(event)
+                                                .padding(.bottom, 24)
+                                        }
+                                    }
+                                }
+                                .padding(.horizontal)
+                            }
+                        } else {
+                            Group {
+                                Text("Events: \(profile.filteredEvents.count)")
+                                    .font(.title2)
+                                    .foregroundColor(.secondary)
+                                ForEach(profile.filteredEvents) { event in
                                     EventSummaryView(event)
                                 }
                             }
+                            .padding(.horizontal)
                         }
-                        .padding(.horizontal, 15)
                     }
-            }
-        }
-        .navigationTitle(group.name)
-        .onAppear {
-            net.loadEvents(for: group)
-            group.setSelected()
-        }
-        .userActivity(ContentView.contentGroupUserActivityType) { activity in
-            logger.info("EVENT LIST: \(activity.activityType)")
-            describeUserActivity(activity)
-        }
-        .onContinueUserActivity(ContentView.contentGroupUserActivityType) { resumeActivity in
-            logger.info("CONTINUE: \(resumeActivity.activityType)")
-            guard let resumedGroup = try? resumeActivity.typedPayload(InterestGroup.self) else {
-                logger.warning("FAIL: Could not resume \(resumeActivity.activityType)")
-                return
-            }
-            logger.info("FOUND: \(resumedGroup.name)")
-        }
-    }
-}
+                    .padding(.bottom, 40)
+                    .navigationTitle("The Coffee")
+                    .searchable(text: $profile.queryString)
+                    .task {
+                        do {
+                            try await profile.sync()
+                        } catch {
+                            logger.error(.init(stringLiteral: error.localizedDescription))
+                            fatalError(error.localizedDescription)
+                        }
+                    }
+                    .toolbar {
+#if DEBUG
+                        Button {
+                            Task {
+                                do {
+                                    try await profile.sync()
+                                } catch {
+                                    logger.error(.init(stringLiteral: error.localizedDescription))
+                                    fatalError(error.localizedDescription)
+                                }
+                            }
+                        } label: {
+                            Text("Sync")
+                        }
 
-extension EventListView {
-    func describeUserActivity(_ userActivity: NSUserActivity) {
-        let nextGroup: InterestGroup?
-        if let activityGroup = try? userActivity.typedPayload(InterestGroup.self) {
-            nextGroup = activityGroup
-        } else {
-            nextGroup = group
+                        Button {
+                            print("BG Task Button Pressed")
+                        } label: {
+                            Image(systemName: "hourglass")
+                            Text("Background Task")
+                        }
+#endif
+                        Button {
+                            showingPopover.toggle()
+                        } label: {
+                            Image(systemName: "person.2.circle")
+                            Text("Groups")
+                        }
+                        .popover(isPresented: $showingPopover) {
+                            NavigationStack {
+                                GroupListView()
+                                    .environmentObject(profile)
+#if os(iOS)
+                                    .navigationTitle("Groups")
+                                    .navigationBarTitleDisplayMode(.inline)
+                                    .toolbar {
+                                        Button {
+                                            showingPopover.toggle()
+                                        } label: {
+                                            Text("Done")
+                                        }
+                                    }
+#endif
+                            }
+                            .presentationDetents([.medium, .large])
+                            .frame(minWidth: 250, minHeight: 240, idealHeight: 304)
+                        }
+                    }
+                }
+            }
         }
-        guard let nextGroup = nextGroup else { return }
-        userActivity.title = nextGroup.name
-        userActivity.isEligibleForHandoff = true
-        userActivity.isEligibleForSearch = true
-        userActivity.targetContentIdentifier = nextGroup.id.uuidString
-        do {
-            try userActivity.setTypedPayload(nextGroup)
-        } catch {
-            logger.warning("FAIL: Activity Payload for \(nextGroup.name)")
+        .frame(minWidth: 332)
+#if os(iOS)
+        .onChange(of: scenePhase) { newValue in
+            switch newValue {
+            case .active:
+                Task {
+                    do {
+                        try await removeBadgeCount()
+                    } catch {
+                        logger.error(.init(stringLiteral: error.localizedDescription))
+                    }
+                }
+            default:
+                break
+            }
         }
+        .task {
+            scheduleAppRefresh()
+        }
+#endif
     }
 }
 
 #if DEBUG
 struct EventListView_Previews: PreviewProvider {
     static var previews: some View {
-        EventListView(group: InterestGroup(id: UUID(uuidString: "28ef50f9-b909-4f03-9a69-a8218a8cbd99")!,
-                                   name: "Test Group Name"))
-            .environmentObject(NetworkService())
+        EventListView()
     }
 }
 #endif

@@ -1,14 +1,15 @@
+import CachedAsyncImage
 import SwiftUI
 
 struct AsyncImagePhaseView: View {
     let url: URL?
 
     var body: some View {
-        AsyncImage(url: url) { phase in
+        CachedAsyncImage(url: url) { phase in
             switch phase {
             case .success(let img):
                 img.resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .centerCropped()
             default:
                 Image("coffee-\(Int.random(in: 1...10))")
                     .resizable()

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1300"
+   LastUpgradeVersion = "1400"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -46,6 +46,16 @@
                BlueprintIdentifier = "0F49A3BE2673983D00B62CC4"
                BuildableName = "CoffAppMacUITests.xctest"
                BlueprintName = "CoffAppMacUITests"
+               ReferencedContainer = "container:CoffApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0F6A05632658A2250050439D"
+               BuildableName = "CoffAppUITests.xctest"
+               BlueprintName = "CoffAppUITests"
                ReferencedContainer = "container:CoffApp.xcodeproj">
             </BuildableReference>
          </TestableReference>

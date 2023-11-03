@@ -2,22 +2,20 @@ import SwiftUI
 
 // watchOS
 struct ContentView: View {
-    @EnvironmentObject var networkService: NetworkService
-    @StateObject private var groups = Groups()
-    @SceneStorage("selectedGroup") var selectedGroup: String?
+    @StateObject var profile = UserProfile()
     var body: some View {
-        ForEach(groups.groups) { group in
-            List(networkService.groups, id: \.id) { group in
-                NavigationLink(group.name,
-                               destination: EventListWatchView(group: group)
-                                .environmentObject(networkService),
-                               tag: group.name,
-                               selection: $selectedGroup)
+        LazyVStack {
+            EventListWatchView(headline: "Upcoming", events: profile.upcomingEvents)
+            EventListWatchView(headline: "Previously", events: profile.pastEvents)
+        }
+        .task {
+            do {
+                try await profile.sync()
+            } catch {
+                // TODO: Proper error handling
+                fatalError(error.localizedDescription)
             }
         }
-        .onAppear(perform: {
-            networkService.loadGroups()
-        })
     }
 }
 

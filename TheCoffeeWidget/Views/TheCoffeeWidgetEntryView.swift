@@ -4,19 +4,17 @@ import WidgetKit
 struct TheCoffeeWidgetEntryView: View {
     var entry: EventProvider.Entry
 
-    func isFuture(_ date: Date?) -> Bool {
-        guard let date = date else { return false }
-        return date > Date() ? true : false
-    }
+    // MARK: -
+    var shadyPurple = Color("ShadyPurple")
 
-    var shadyPurple = Color(hue: 0.8,
-                            saturation: 1.0,
-                            brightness: 0.26)
+    init(entries: EventProvider.Entry...) {
+        self.entry = entries.first ?? EventEntry(.empty)
+    }
 
     var body: some View {
         ZStack {
             if let imageData = entry.imageData,
-                let eventImage = try? Image(data: imageData) {
+               let eventImage = try? Image(data: imageData) {
                 eventImage
                     .centerCropped()
             } else {
@@ -24,8 +22,8 @@ struct TheCoffeeWidgetEntryView: View {
             }
             LinearGradient(gradient:
                             Gradient(colors: [
-                                        .clear,
-                                        shadyPurple
+                                .clear,
+                                shadyPurple
                             ]),
                            startPoint: UnitPoint(x: 0.3, y: 0.0),
                            endPoint: UnitPoint(x: 0.0, y: 1.0)
@@ -42,10 +40,11 @@ struct TheCoffeeWidgetEntryView: View {
                         .font(.body)
                     Text(entry.event.localizedStartTime(.short))
                         .font(.caption)
-                    if let startDate = entry.event.startAt,
-                        isFuture(startDate) {
+                    if let startDate = entry.event.startAt {
                         Text(startDate, style: .timer)
-                            .foregroundColor(.yellow)
+                            .foregroundColor(.init(hue: 0.6,
+                                                   saturation: 0.7,
+                                                   brightness: 3.0))
                             .bold()
                     }
                 }
@@ -63,8 +62,7 @@ struct TheCoffeeWidgetEntryView: View {
 #if DEBUG
 struct TheCoffeeWidgetEntryView_Previews: PreviewProvider {
     static var previews: some View {
-        TheCoffeeWidgetEntryView(entry: EventEntry(testEvent(true),
-                                                   configuration: ConfigurationIntent()))
+        TheCoffeeWidgetEntryView(entries: EventEntry(testEvent(true)))
             .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
 }
