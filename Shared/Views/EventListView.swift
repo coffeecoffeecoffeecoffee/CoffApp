@@ -153,7 +153,7 @@ struct EventListView: View {
         }
         .frame(minWidth: 332)
 #if os(iOS)
-        .onChange(of: scenePhase) { newValue in
+        .onChange(of: scenePhase) { _, newValue in
             switch newValue {
             case .active:
                 Task {

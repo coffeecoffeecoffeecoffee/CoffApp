@@ -1,4 +1,3 @@
-// swiftlint:disable line_length
 import SwiftUI
 
 struct EventSummaryView: View {
@@ -41,7 +40,9 @@ struct EventSummaryView: View {
 
 #if DEBUG
 struct EventSummaryView_Previews: PreviewProvider {
+    // swiftlint:disable line_length
     static let imgURL = URL(string: "https://fastly.4sqi.net/img/general/1067x1897/4835820_mqBTxJRmEOlLRK-olPXrElaiIQlU1q5qSjExFIvHKtA.jpg")!
+    // swiftlint:enable line_length
     static var testEvent = Event(id: UUID(),
                                  groupID: UUID(),
                                  name: "Test Event with a very long title right here",

@@ -1,4 +1,3 @@
-// swiftlint:disable identifier_name
 import Foundation
 
 typealias Events = [Event]
@@ -58,7 +57,16 @@ extension Event {
     }
 
     var statusText: String {
-        self.status.description
+        switch status {
+        case .future:
+            self.status.description
+        case .now:
+            self.status.description
+        case .past:
+            ""
+        case .unknown:
+            ""
+        }
     }
 }
 
@@ -97,7 +105,7 @@ extension Event {
     }
 
     static var empty: Event {
-        let emptyVenue = Venue(name: "The Dark Lord", location: nil)
+        let emptyVenue = Venue(name: "Coffee", location: nil)
         return Event(id: nil,
               groupID: nil,
               name: "Coffee",

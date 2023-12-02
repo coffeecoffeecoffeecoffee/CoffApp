@@ -1,4 +1,3 @@
-// swiftlint:disable all
 import Logging
 import SwiftUI
 import BackgroundTasks
@@ -6,12 +5,12 @@ import BackgroundTasks
 @main
 struct CoffApp: App {
     internal let logger = Logger(label: "science.pixel.espresso.coffapp")
-    
+
     init() {
         URLCache.shared.memoryCapacity =  50_000_000
         URLCache.shared.diskCapacity =   500_000_000
     }
-    
+
     var body: some Scene {
         WindowGroup {
             EventListView()

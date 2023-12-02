@@ -1,4 +1,3 @@
-// swiftlint:disable line_length
 import SwiftUI
 
 struct EventDetailView: View {
@@ -88,7 +87,9 @@ struct EventDetailView: View {
 struct EventDetailView_Previews: PreviewProvider {
     static let location = Location(latitude: Double(37.789004663475026),
                                    longitude: Double(-122.3970252426277))
+    // swiftlint:disable line_length
     static let imgURL = URL(string: "https://fastly.4sqi.net/img/general/1440x1920/1813137_VPYk5iqnExTrW9lEMbbSy2WDS6P-lbOkpqsy5KE2sSI.jpg")!
+    // swiftlint:enable line_length
     static var previews: some View {
         let event = Event(id: UUID(),
                           groupID: UUID(),
