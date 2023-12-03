@@ -46,8 +46,10 @@ struct EventListView: View {
                                                     maxHeight: (geo.size.height / 1.2))
                                         }
                                     }
+                                    .scrollTargetLayout()
                                     .padding(.horizontal)
                                 }
+                                .scrollTargetBehavior(.viewAligned)
                             } else {
                                 HStack {
                                     Spacer()
@@ -101,27 +103,6 @@ struct EventListView: View {
                         }
                     }
                     .toolbar {
-#if DEBUG
-                        Button {
-                            Task {
-                                do {
-                                    try await profile.sync()
-                                } catch {
-                                    logger.error(.init(stringLiteral: error.localizedDescription))
-                                    fatalError(error.localizedDescription)
-                                }
-                            }
-                        } label: {
-                            Text("Sync")
-                        }
-
-                        Button {
-                            print("BG Task Button Pressed")
-                        } label: {
-                            Image(systemName: "hourglass")
-                            Text("Background Task")
-                        }
-#endif
                         Button {
                             showingPopover.toggle()
                         } label: {
@@ -147,6 +128,13 @@ struct EventListView: View {
                             .presentationDetents([.medium, .large])
                             .frame(minWidth: 250, minHeight: 240, idealHeight: 304)
                         }
+                    }
+                }
+                .refreshable {
+                    do {
+                        try await profile.sync()
+                    } catch {
+                        logger.error(.init(stringLiteral: error.localizedDescription))
                     }
                 }
             }
