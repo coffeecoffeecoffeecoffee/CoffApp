@@ -25,6 +25,16 @@ struct CoffApp: App {
                 logger.error(.init(stringLiteral: error.localizedDescription))
             }
         }
+#elseif !os(watchOS)
+        .commands {
+            CommandMenu("Coffee") {
+                Button("Refresh") {
+                    let refreshNotification = Notification(name: .init("science.pixel.espresso.refresh-view"))
+                    NotificationCenter.default.post(refreshNotification)
+                }
+                .keyboardShortcut(KeyEquivalent("r"), modifiers: .command)
+            }
+        }
 #endif
     }
 }

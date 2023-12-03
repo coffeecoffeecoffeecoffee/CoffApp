@@ -140,6 +140,15 @@ struct EventListView: View {
             }
         }
         .frame(minWidth: 332)
+        .onReceive(NotificationCenter.default.publisher(for: .init("science.pixel.espresso.refresh-view"))) { _ in
+            Task {
+                do {
+                    try await profile.sync()
+                } catch {
+                    logger.error(.init(stringLiteral: error.localizedDescription))
+                }
+            }
+        }
 #if os(iOS)
         .onChange(of: scenePhase) { _, newValue in
             switch newValue {
