@@ -109,6 +109,7 @@ struct EventListView: View {
                             Image(systemName: "person.2.circle")
                             Text("Groups")
                         }
+#if !os(tvOS)
                         .popover(isPresented: $showingPopover) {
                             NavigationStack {
                                 GroupListView()
@@ -128,6 +129,7 @@ struct EventListView: View {
                             .presentationDetents([.medium, .large])
                             .frame(minWidth: 250, minHeight: 240, idealHeight: 304)
                         }
+#endif
                     }
                 }
                 .refreshable {

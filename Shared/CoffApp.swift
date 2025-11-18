@@ -25,7 +25,7 @@ struct CoffApp: App {
                 logger.error(.init(stringLiteral: error.localizedDescription))
             }
         }
-#elseif !os(watchOS)
+#elseif !os(watchOS) && !os(tvOS)
         .commands {
             CommandMenu("Coffee") {
                 Button("Refresh") {

@@ -2,27 +2,28 @@ import Combine
 import Foundation
 import Logging
 
-final class NetworkService: ObservableObject {
+@Observable
+final class NetworkService {
     static var shared: NetworkService { .init() }
-    @Published var groups = [InterestGroup]()
-    @Published var events = [Event]() {
+    var groups = [InterestGroup]()
+    var events = [Event]() {
         didSet {
             upcomingEvents = events.upcoming()
             pastEvents = events.past()
         }
     }
     let eventsSubject = PassthroughSubject<[Event], Error>()
-    @Published var firstEvent: Event = Event.loading
-    @Published var upcomingEvents = [Event]()
-    @Published var pastEvents = [Event]()
-    @Published var netState = NetworkState.loading
+    var firstEvent: Event = Event.loading
+    var upcomingEvents = [Event]()
+    var pastEvents = [Event]()
+    var netState = NetworkState.loading
     private var logger = Logger(label: Bundle.main.bundleIdentifier!
                                     .appending(".networkservice.log"))
     private var subscriptions = Set<AnyCancellable>()
     private var session = URLSession.shared
     private let decoder = JSONDecoder()
 
-    private let groupURL = URL.appURL(with: "api", "groups")
+    private let groupURL = URL.appURL(with: "api", "v2", "groups")
 
     enum NetworkError: Error {
         case invalidURL
@@ -121,13 +122,12 @@ extension NetworkService {
         let allEventsSet = try await withThrowingTaskGroup(of: [Event].self,
                                                     returning: Set<Event>.self) { taskGroup in
             let evtGroups = groupIDs.map { uid in
-                groupForID(uid) ?? InterestGroup(id: uid, name: uid.uuidString)
+                groupForID(uid) ?? InterestGroup(id: uid, name: uid.uuidString, imageURL: nil)
             }
             evtGroups.forEach { group in
-                guard let url = group.eventsURL else { return }
                 taskGroup.addTask {
                     do {
-                        let (groupEventsData, _) = try await URLSession.shared.data(from: url)
+                        let (groupEventsData, _) = try await URLSession.shared.data(from: group.eventsURL)
                         let groupEvents = try decoder.decode([Event].self,
                                                              from: groupEventsData)
                         return groupEvents
@@ -162,10 +162,7 @@ extension NetworkService {
     }
 
     func loadAllEvents(for group: InterestGroup) -> AnyPublisher<[Event], Error> {
-        guard let url = group.eventsURL else {
-            self.netState = .failed(NetworkError.invalidURL)
-            return Fail(error: NetworkError.invalidURL).eraseToAnyPublisher()
-        }
+        let url = group.eventsURL
         netState = .loading
         return session.dataTaskPublisher(for: url)
             .retry(5)

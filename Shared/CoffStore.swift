@@ -108,16 +108,9 @@ struct FilesystemCoffStore: CoffStore {
 
 }
 
-var defaultCoffeStore: CoffStore?
-
 extension CoffStore {
     static var `default`: CoffStore {
-        if let coffStore = defaultCoffeStore {
-            return coffStore
-        } else {
-            let coffStore = FilesystemCoffStore()
-            defaultCoffeStore = coffStore
-            return coffStore
-        }
+        let coffStore = FilesystemCoffStore()
+        return coffStore
     }
 }

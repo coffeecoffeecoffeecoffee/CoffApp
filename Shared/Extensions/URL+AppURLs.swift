@@ -1,8 +1,12 @@
 import Foundation
 
 extension URL {
-    static var baseURL = URL(string: "https://www.coffeecoffeecoffee.coffee")!
-
+    #if true
+    static let baseURL = URL(string: "https://coffeecoffee.world")!
+    #else
+    static let baseURL = URL(string: "https://www.coffeecoffeecoffee.coffee")!
+    #endif
+    
     static func appURL(with paths: String...) -> URL {
         var url = URL.baseURL
         paths.forEach { path in
@@ -12,6 +16,6 @@ extension URL {
     }
 
     static func groupURL(_ id: UUID) -> URL {
-        appURL(with: "groups", id.uuidString.lowercased())
+        appURL(with: "api", "v2", "groups", id.uuidString.lowercased(), "events")
     }
 }

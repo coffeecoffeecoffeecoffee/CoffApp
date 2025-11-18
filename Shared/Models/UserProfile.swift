@@ -15,8 +15,11 @@ class UserProfile: ObservableObject {
     }
 
     private var groupIDs: Set<UUID> = []
-    @AppStorage("encoded_group_ids", store: .sharedSuite) private var encodedGroupIDs: Data?
-    @AppStorage("saved_events", store: .sharedSuite) private var savedEvents: Data?
+//    @AppStorage("encoded_group_ids", store: .sharedSuite) private var encodedGroupIDs: Data?
+//    @AppStorage("saved_events", store: .sharedSuite) private var savedEvents: Data?
+    private var encodedGroupIDs: Data?
+    private var savedEvents: Data?
+    
     private var net = NetworkService.shared
 
     private let encoder = JSONEncoder()

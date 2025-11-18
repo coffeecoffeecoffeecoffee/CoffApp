@@ -50,11 +50,10 @@ struct EventDetailView: View {
                                 })
                                 .buttonStyle(RoundFilledButtonStyle(color: .blue))
                                 .transition(.scale(scale: 0.2, anchor: .bottomLeading))
+                                #if !os(tvOS)
                                 ShareLink(item: event.shareURL(),
                                           subject: Text(event.name),
                                           message: Text("\(event.venueName) at \(event.localizedStartTime())"))
-                                #if os(macOS)
-                                .buttonStyle(.link)
                                 #endif
                             }
                             .fontWeight(.semibold)

@@ -6,7 +6,7 @@ struct GroupListView: View {
     @EnvironmentObject var profile: UserProfile
     @State private var groups: [InterestGroup] = []
     private let logger = Logger(label: "GroupListView.logger")
-    private let groupsURL = URL.appURL(with: "api", "groups")
+    private let groupsURL = URL.appURL(with: "api", "v2", "groups")
 
     var body: some View {
         List(groups) { meetupGroup in
