@@ -204,7 +204,9 @@ extension NetworkService {
         self.pastEvents = []
         var activeEvents = [Event]()
         events.forEach { event in
-            guard let endDate = event.endAt else { return }
+            guard let endDate = event.endAt else {
+                return
+            }
             if endDate > now {
                 activeEvents.append(event)
             } else {
@@ -220,6 +222,7 @@ extension NetworkService {
     }
 
     // TODO: This is not the way
+    @available(*, deprecated, renamed: "filter", message: "Don’t do this")
     private func updateMostRecent() {
         if !upcomingEvents.isEmpty {
             let nextEvent = upcomingEvents.sorted(orderedBy: .oldestFirst).first!
@@ -254,7 +257,10 @@ func testEvent(_ isNearFuture: Bool = false) -> Event {
                       imageURL: imgURL,
                       startAt: date,
                       endAt: date.advanced(by: 720),
-                      venue: Venue(name: "Salesforce Park", location: location))
+                      venue: Venue(name: "Salesforce Park",
+                                   location: location),
+                      venueID: nil,
+                )
     return event
 }
 #endif

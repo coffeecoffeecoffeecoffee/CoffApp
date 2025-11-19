@@ -15,10 +15,8 @@ class UserProfile: ObservableObject {
     }
 
     private var groupIDs: Set<UUID> = []
-//    @AppStorage("encoded_group_ids", store: .sharedSuite) private var encodedGroupIDs: Data?
-//    @AppStorage("saved_events", store: .sharedSuite) private var savedEvents: Data?
-    private var encodedGroupIDs: Data?
-    private var savedEvents: Data?
+    @AppStorage("encoded_group_ids", store: .sharedSuite) private var encodedGroupIDs: Data?
+    @AppStorage("saved_events", store: .sharedSuite) private var savedEvents: Data?
     
     private var net = NetworkService.shared
 
@@ -73,7 +71,12 @@ extension UserProfile {
 @MainActor
 extension UserProfile {
     private func allEvents() async throws -> [Event] {
-        try await net.downloadAllEvents(for: groupIDs)
+        // Gotta defend against the server data changing…
+        let existingGroups = try await syncGroups()
+        
+        // … before we fetch events.
+        let allEventsForGroups = try await net.downloadAllEvents(for: existingGroups)
+        return allEventsForGroups
     }
 
     func sync() async throws {
@@ -87,5 +90,19 @@ extension UserProfile {
         self.upcomingEvents = events.upcoming()
         self.pastEvents = events.past()
         try save()
+    }
+    
+    /// Merges the current client state with the server, automatically discarding
+    /// groups that don’t exist on the server.
+    /// - Returns: The `intersection of the server and user `InterestGroup.id`
+    @discardableResult
+    private func syncGroups() async throws -> Set<UUID> {
+        let netGroupIDs = net.groups.map { $0.id }
+        let userGroupIDs = groupIDs
+        groupIDs = userGroupIDs.intersection(netGroupIDs)
+        guard groupIDs.isEmpty == false else {
+            throw CoffeeErrors.syncError(reason: "No groups available")
+        }
+        return groupIDs
     }
 }

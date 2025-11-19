@@ -8,6 +8,7 @@ struct Event: Codable {
     let imageURL: URL?
     let startAt, endAt: Date?
     let venue: Venue?
+    let venueID: UUID?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -16,6 +17,7 @@ struct Event: Codable {
         case imageURL = "image_url"
         case startAt = "start_at"
         case endAt = "end_at"
+        case venueID = "venue_id"
         case venue
     }
 }
@@ -50,7 +52,8 @@ extension Event {
             return .future
         }
         if let endTime = endAt,
-           endTime > Date.now {
+            endTime > Date.now
+        {
             return .now
         }
         return .past
@@ -73,46 +76,55 @@ extension Event {
 // MARK: - Placeholder Events
 extension Event {
     static var loading: Event {
-        Event(id: nil,
-              groupID: nil,
-              name: "Loading",
-              imageURL: nil,
-              startAt: nil,
-              endAt: nil,
-              venue: nil
+        Event(
+            id: nil,
+            groupID: nil,
+            name: "Loading",
+            imageURL: nil,
+            startAt: nil,
+            endAt: nil,
+            venue: nil,
+            venueID: nil,
         )
     }
 
     static var error: Event {
-        Event(id: nil,
-              groupID: nil,
-              name: "Error",
-              imageURL: nil,
-              startAt: nil,
-              endAt: nil,
-              venue: nil
+        Event(
+            id: nil,
+            groupID: nil,
+            name: "Error",
+            imageURL: nil,
+            startAt: nil,
+            endAt: nil,
+            venue: nil,
+            venueID: nil,
         )
     }
 
     static func error(text: String) -> Event {
-        Event(id: nil,
-              groupID: nil,
-              name: text,
-              imageURL: nil,
-              startAt: nil,
-              endAt: nil,
-              venue: Venue(name: text, location: nil))
+        Event(
+            id: nil,
+            groupID: nil,
+            name: text,
+            imageURL: nil,
+            startAt: nil,
+            endAt: nil,
+            venue: Venue(name: text, location: nil),
+            venueID: nil,
+        )
     }
 
     static var empty: Event {
         let emptyVenue = Venue(name: "Coffee", location: nil)
-        return Event(id: nil,
-              groupID: nil,
-              name: "Coffee",
-              imageURL: nil,
-              startAt: nil,
-              endAt: nil,
-              venue: emptyVenue
+        return Event(
+            id: nil,
+            groupID: nil,
+            name: "Coffee",
+            imageURL: nil,
+            startAt: nil,
+            endAt: nil,
+            venue: emptyVenue,
+            venueID: nil,
         )
     }
 }
@@ -121,12 +133,13 @@ extension Event {
 extension Event: Hashable {
     static func == (lhs: Event, rhs: Event) -> Bool {
         guard let lid = lhs.id,
-              let rid = rhs.id else { return false }
+            let rid = rhs.id
+        else { return false }
         return lid == rid
     }
 }
 
-extension Event: Identifiable { }
+extension Event: Identifiable {}
 
 // MARK: - Pesistence
 extension Event {
@@ -140,7 +153,8 @@ extension Event {
     static func loadMostRecent() -> Event? {
         if let data = UserDefaults.sharedSuite
             .data(forKey: UserDefaultKeys.mostRecentEvent.rawValue),
-           let savedEvent = try? PropertyListDecoder().decode(Event.self, from: data) {
+            let savedEvent = try? PropertyListDecoder().decode(Event.self, from: data)
+        {
             return savedEvent
         }
         return nil
@@ -158,11 +172,15 @@ extension Event {
 
     func localizedStartTime(_ style: DateFormatter.Style = .long) -> String {
         guard let startAt = startAt else {
-            return NSLocalizedString("It’s coffee time somewhere",
-                    comment: "A quirky phrase to show when no time is given")
+            return NSLocalizedString(
+                "It’s coffee time somewhere",
+                comment: "A quirky phrase to show when no time is given"
+            )
         }
-        return DateFormatter.localizedString(from: startAt,
-                                             dateStyle: style,
-                                             timeStyle: .short)
+        return DateFormatter.localizedString(
+            from: startAt,
+            dateStyle: style,
+            timeStyle: .short
+        )
     }
 }

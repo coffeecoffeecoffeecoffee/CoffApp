@@ -96,7 +96,9 @@ struct EventDetailView_Previews: PreviewProvider {
                           imageURL: imgURL,
                           startAt: Date(),
                           endAt: Date(),
-                          venue: Venue(name: "Salesforce Park", location: location))
+                          venue: Venue(name: "Salesforce Park", location: location),
+                          venueID: nil
+                        )
         EventDetailView(event)
             .frame(width: 320.0, height: 240.0, alignment: .center)
     }

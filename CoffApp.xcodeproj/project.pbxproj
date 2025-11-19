@@ -39,6 +39,13 @@
 		0F40027228F7A76600728CBE /* Date+Recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F40026D28F7A76600728CBE /* Date+Recent.swift */; };
 		0F40027328F7A76600728CBE /* Date+Recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F40026D28F7A76600728CBE /* Date+Recent.swift */; };
 		0F40027428F7A76600728CBE /* Date+Recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F40026D28F7A76600728CBE /* Date+Recent.swift */; };
+		0F452FF62ECE52C700E08BA6 /* CoffeeErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F452FF52ECE52C100E08BA6 /* CoffeeErrors.swift */; };
+		0F452FF72ECE52C700E08BA6 /* CoffeeErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F452FF52ECE52C100E08BA6 /* CoffeeErrors.swift */; };
+		0F452FF82ECE52C700E08BA6 /* CoffeeErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F452FF52ECE52C100E08BA6 /* CoffeeErrors.swift */; };
+		0F452FF92ECE52C700E08BA6 /* CoffeeErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F452FF52ECE52C100E08BA6 /* CoffeeErrors.swift */; };
+		0F452FFA2ECE52C700E08BA6 /* CoffeeErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F452FF52ECE52C100E08BA6 /* CoffeeErrors.swift */; };
+		0F452FFB2ECE52C700E08BA6 /* CoffeeErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F452FF52ECE52C100E08BA6 /* CoffeeErrors.swift */; };
+		0F452FFC2ECE52C700E08BA6 /* CoffeeErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F452FF52ECE52C100E08BA6 /* CoffeeErrors.swift */; };
 		0F49A3C22673983E00B62CC4 /* CoffAppMacUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3C12673983E00B62CC4 /* CoffAppMacUITests.swift */; };
 		0F49A3D12675189900B62CC4 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D02675189900B62CC4 /* ImageCache.swift */; };
 		0F49A3D22675189900B62CC4 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49A3D02675189900B62CC4 /* ImageCache.swift */; };
@@ -438,6 +445,7 @@
 		0F2391182686CEC3007461F9 /* TheCoffeeWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCoffeeWidgetEntryView.swift; sourceTree = "<group>"; };
 		0F2E87AC286A16260051D466 /* Event+Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+Calendar.swift"; sourceTree = "<group>"; };
 		0F40026D28F7A76600728CBE /* Date+Recent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Recent.swift"; sourceTree = "<group>"; };
+		0F452FF52ECE52C100E08BA6 /* CoffeeErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeErrors.swift; sourceTree = "<group>"; };
 		0F49A3BF2673983D00B62CC4 /* CoffAppMacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffAppMacUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F49A3C12673983E00B62CC4 /* CoffAppMacUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffAppMacUITests.swift; sourceTree = "<group>"; };
 		0F49A3C32673983E00B62CC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -778,6 +786,7 @@
 		0F6A04FB2658A1DE0050439D /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				0F452FF52ECE52C100E08BA6 /* CoffeeErrors.swift */,
 				0F6A05012658A1E10050439D /* Assets.xcassets */,
 				0F6A04FC2658A1DE0050439D /* CoffApp.xcdatamodeld */,
 				0F6A04FE2658A1DE0050439D /* CoffApp.swift */,
@@ -1715,6 +1724,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F452FFA2ECE52C700E08BA6 /* CoffeeErrors.swift in Sources */,
 				0FD18C7C26FD84AD003763DB /* AsyncImagePhaseView.swift in Sources */,
 				0F49A4612679AC8D00B62CC4 /* NetworkState.swift in Sources */,
 				0F49A4592679AC8D00B62CC4 /* UserDefaultKeys.swift in Sources */,
@@ -1766,6 +1776,7 @@
 				0FEABBBD2733845B00A40F88 /* Image+DataInitializer.swift in Sources */,
 				0F6A052E2658A1E10050439D /* CoffStore.swift in Sources */,
 				0F23910C2686CE2D007461F9 /* Image+CenterCropped.swift in Sources */,
+				0F452FFB2ECE52C700E08BA6 /* CoffeeErrors.swift in Sources */,
 				0F49A3D12675189900B62CC4 /* ImageCache.swift in Sources */,
 				0F924D3F2BB51D8E00ED68FB /* EventModel.swift in Sources */,
 				0FFFC669285461C000F120FF /* Collection+Event.swift in Sources */,
@@ -1812,6 +1823,7 @@
 				0FFFC662285455F400F120FF /* UserProfile.swift in Sources */,
 				0FEABBBE2733845B00A40F88 /* Image+DataInitializer.swift in Sources */,
 				0FD18C8227000D98003763DB /* Data+Event.swift in Sources */,
+				0F452FF72ECE52C700E08BA6 /* CoffeeErrors.swift in Sources */,
 				0F6A05DC2658AA050050439D /* Location.swift in Sources */,
 				0F49A3D22675189900B62CC4 /* ImageCache.swift in Sources */,
 				0F6A05CF2658A9020050439D /* InterestGroup.swift in Sources */,
@@ -1856,6 +1868,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F452FF92ECE52C700E08BA6 /* CoffeeErrors.swift in Sources */,
 				0F23910E2686CE2D007461F9 /* Image+CenterCropped.swift in Sources */,
 				0F49A3D92677022500B62CC4 /* UserDefaultKeys.swift in Sources */,
 				0F745444266891BE00DEB3F1 /* RuntimeOS.swift in Sources */,
@@ -1911,6 +1924,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F452FF82ECE52C700E08BA6 /* CoffeeErrors.swift in Sources */,
 				0F8293C626C8172C008BBA76 /* Image+CenterCropped.swift in Sources */,
 				0FD18C7D26FD84AD003763DB /* AsyncImagePhaseView.swift in Sources */,
 				0FE9C466269E92620079613E /* ImageCache.swift in Sources */,
@@ -1952,6 +1966,7 @@
 				0FF4AA8826A4E93400EEEDBF /* NetworkState.swift in Sources */,
 				0FF4AA8226A4E8E600EEEDBF /* InterestGroup.swift in Sources */,
 				0FF4AA9126A4E9BD00EEEDBF /* RoundFilledButtonStyle.swift in Sources */,
+				0F452FFC2ECE52C700E08BA6 /* CoffeeErrors.swift in Sources */,
 				0FD18C7E26FD84AD003763DB /* AsyncImagePhaseView.swift in Sources */,
 				0FF4AA8726A4E8E600EEEDBF /* Venue.swift in Sources */,
 				0FF4AA8626A4E8E600EEEDBF /* Event.swift in Sources */,
@@ -2024,6 +2039,7 @@
 				0FFFC6C2285697E000F120FF /* CoffeeBackgroundTask.swift in Sources */,
 				0FFFC6C728569EFD00F120FF /* GroupListView.swift in Sources */,
 				0FFFC6C1285697E000F120FF /* UserDefaultKeys.swift in Sources */,
+				0F452FF62ECE52C700E08BA6 /* CoffeeErrors.swift in Sources */,
 				0FFFC6AD285697E000F120FF /* Location.swift in Sources */,
 				0FFFC6AC285697E000F120FF /* InterestGroup.swift in Sources */,
 				0FFFC6C4285697E000F120FF /* UserDefaults+AppSuite.swift in Sources */,

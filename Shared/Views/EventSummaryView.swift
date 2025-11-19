@@ -49,7 +49,9 @@ struct EventSummaryView_Previews: PreviewProvider {
                                  imageURL: imgURL,
                                  startAt: Date().addingTimeInterval(360),
                                  endAt: Date().addingTimeInterval(720),
-                                 venue: Venue(name: "Equador", location: nil))
+                                 venue: Venue(name: "Equador", location: nil),
+                                 venueID: nil
+                            )
     static var previews: some View {
         EventSummaryView(testEvent)
     }

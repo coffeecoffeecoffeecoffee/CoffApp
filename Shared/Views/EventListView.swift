@@ -97,6 +97,9 @@ struct EventListView: View {
                     .task {
                         do {
                             try await profile.sync()
+                        } catch let coffeeError as CoffeeErrors {
+                            logger.error("\(String(describing: coffeeError))")
+                            return
                         } catch {
                             logger.error(.init(stringLiteral: error.localizedDescription))
                             fatalError(error.localizedDescription)
