@@ -75,9 +75,8 @@ struct EventDetailView: View {
                                endPoint: UnitPoint(x: 1, y: 1)
                               )
             )
-            .cornerRadius(10)
+//            .cornerRadius(10)
             .shadow(radius: focusState.inFocus ? 10 : 0)
-            .padding(.vertical, 10)
         }
     }
 }

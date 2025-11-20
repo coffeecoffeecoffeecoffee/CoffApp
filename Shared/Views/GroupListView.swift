@@ -24,7 +24,6 @@ struct GroupListView: View {
                 }
             }
         }
-        .navigationTitle("Groups")
         .task {
             do {
                 let (groupsData, _) = try await URLSession.shared.data(from: groupsURL)

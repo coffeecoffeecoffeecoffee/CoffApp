@@ -13,7 +13,24 @@ struct CoffApp: App {
 
     var body: some Scene {
         WindowGroup {
-            EventListView()
+            TabView {
+                Tab {
+                    EventListView()
+                } label: {
+                    Label("Events", systemImage: "cup.and.saucer.fill")
+                }
+                
+                Tab {
+                    Text("Profile? Map?")
+                } label: {
+                    Label("Profile", systemImage: "person.fill")
+                }
+                
+                Tab(role: .search) {
+                    GroupListView()
+                        .environmentObject(UserProfile())
+                }
+            }
         }
 #if os(iOS)
         .backgroundTask(.appRefresh("science.pixel.espresso.backgroundfetch")) {

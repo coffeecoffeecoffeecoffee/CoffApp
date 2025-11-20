@@ -21,3 +21,12 @@ extension InterestGroup {
         URL.appURL(with: "api", "v2", "groups", id.uuidString.lowercased(), "events")
     }
 }
+
+extension InterestGroup {
+    public static func fetchGroups() async throws -> [InterestGroup] {
+        let (groupsData, _) = try await URLSession.shared.data(from: .groupsURL)
+        let networkGroups = try JSONDecoder().decode([InterestGroup].self,
+                                                     from: groupsData)
+        return networkGroups
+    }
+}

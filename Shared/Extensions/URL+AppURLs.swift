@@ -14,8 +14,10 @@ extension URL {
         }
         return url
     }
+    
+    static let groupsURL = Self.appURL(with: "api", "v2", "groups")
 
-    static func groupURL(_ id: UUID) -> URL {
+    static func eventsURL(for id: UUID) -> URL {
         appURL(with: "api", "v2", "groups", id.uuidString.lowercased(), "events")
     }
 }

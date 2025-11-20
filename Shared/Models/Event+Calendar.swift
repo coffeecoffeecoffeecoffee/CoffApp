@@ -12,6 +12,6 @@ extension Event {
         guard let groupID else {
             return URL.baseURL
         }
-        return URL.groupURL(groupID)
+        return URL.eventsURL(for: groupID)
     }
 }
