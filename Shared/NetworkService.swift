@@ -4,7 +4,7 @@ import Logging
 
 @Observable
 final class NetworkService {
-    static var shared: NetworkService { .init() }
+    static let shared = NetworkService()
     var groups = [InterestGroup]()
     var events = [Event]() {
         didSet {
@@ -104,8 +104,8 @@ extension NetworkService {
 // MARK: - Events
 extension NetworkService {
 
-    private func downloadAllEvents(for group: InterestGroup) throws -> [Event] {
-        let data = try Data(contentsOf: group.eventsURL)
+    private func downloadAllEvents(for group: InterestGroup) async throws -> [Event] {
+        let (data, res) = try await session.data(from: group.eventsURL)
         let events = try decoder.decode([Event].self, from: data)
         return events
     }
@@ -149,8 +149,8 @@ extension NetworkService {
         return sortedEvents
     }
 
-    func futureEvents(for group: InterestGroup) throws -> [Event] {
-        self.events = try downloadAllEvents(for: group)
+    func futureEvents(for group: InterestGroup) async throws -> [Event] {
+        self.events = try await downloadAllEvents(for: group)
         let now = Date()
         let futureEvents = self.events.filter { event in
             guard let endDate = event.endAt else {

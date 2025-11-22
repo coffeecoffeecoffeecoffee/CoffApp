@@ -3,7 +3,8 @@ import Foundation
 typealias Events = [Event]
 
 struct Event: Codable {
-    let id, groupID: UUID?
+    let id: UUID
+    let groupID: UUID
     let name: String
     let imageURL: URL?
     let startAt, endAt: Date?
@@ -77,8 +78,8 @@ extension Event {
 extension Event {
     static var loading: Event {
         Event(
-            id: nil,
-            groupID: nil,
+            id: UUID(),
+            groupID: UUID(),
             name: "Loading",
             imageURL: nil,
             startAt: nil,
@@ -90,8 +91,8 @@ extension Event {
 
     static var error: Event {
         Event(
-            id: nil,
-            groupID: nil,
+            id: UUID(),
+            groupID: UUID(),
             name: "Error",
             imageURL: nil,
             startAt: nil,
@@ -103,8 +104,8 @@ extension Event {
 
     static func error(text: String) -> Event {
         Event(
-            id: nil,
-            groupID: nil,
+            id: UUID(),
+            groupID: UUID(),
             name: text,
             imageURL: nil,
             startAt: nil,
@@ -117,8 +118,8 @@ extension Event {
     static var empty: Event {
         let emptyVenue = Venue(name: "Coffee", location: nil)
         return Event(
-            id: nil,
-            groupID: nil,
+            id: UUID(),
+            groupID: UUID(),
             name: "Coffee",
             imageURL: nil,
             startAt: nil,
@@ -132,10 +133,11 @@ extension Event {
 // MARK: - SwiftUI Conformance
 extension Event: Hashable {
     static func == (lhs: Event, rhs: Event) -> Bool {
-        guard let lid = lhs.id,
-            let rid = rhs.id
-        else { return false }
-        return lid == rid
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }
 

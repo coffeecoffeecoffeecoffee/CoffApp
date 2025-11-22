@@ -1,4 +1,5 @@
 import Logging
+import SwiftData
 import SwiftUI
 import BackgroundTasks
 
