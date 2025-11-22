@@ -57,6 +57,7 @@ final class NetworkService {
 extension NetworkService {
     func fetchNetworkGroups() -> AnyPublisher<[InterestGroup], Error> {
         session.dataTaskPublisher(for: groupURL)
+            .debounce(for: .seconds(5), scheduler: RunLoop.current)
             .retry(2)
             .map { $0.data }
             .decode(type: [InterestGroup].self, decoder: decoder)

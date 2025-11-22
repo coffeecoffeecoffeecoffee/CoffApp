@@ -1,6 +1,7 @@
 // watchOS
 
 import SwiftUI
+import SwiftData
 
 @main
 struct CoffAppApp: App {
@@ -12,6 +13,8 @@ struct CoffAppApp: App {
                     .environmentObject(networkService)
             }
         }
+        .modelContainer(for: [InterestGroupModel.self, EventModel.self])
         WKNotificationScene(controller: NotificationController.self, category: "myCategory")
     }
 }
+

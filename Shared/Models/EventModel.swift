@@ -17,6 +17,9 @@ final class EventModel {
     var startAt: Date?
     var endAt: Date?
     var venue: Venue?
+
+    // SwiftData relationship: each event belongs to a group
+    @Relationship var group: InterestGroupModel?
     
     internal init(id: UUID? = nil,
                   groupID: UUID? = nil,
@@ -44,3 +47,4 @@ final class EventModel {
                   venue: event.venue)
     }
 }
+

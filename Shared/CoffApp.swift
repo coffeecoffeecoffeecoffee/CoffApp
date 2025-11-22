@@ -14,25 +14,9 @@ struct CoffApp: App {
 
     var body: some Scene {
         WindowGroup {
-            TabView {
-                Tab {
-                    EventListView()
-                } label: {
-                    Label("Events", systemImage: "cup.and.saucer.fill")
-                }
-                
-                Tab {
-                    Text("Profile? Map?")
-                } label: {
-                    Label("Profile", systemImage: "person.fill")
-                }
-                
-                Tab(role: .search) {
-                    GroupListView()
-                        .environmentObject(UserProfile())
-                }
-            }
+            AppRootView()
         }
+        .modelContainer(for: [InterestGroupModel.self, EventModel.self])
 #if os(iOS)
         .backgroundTask(.appRefresh("science.pixel.espresso.backgroundfetch")) {
             logger.debug(.init(stringLiteral: "Fetching new events"))
