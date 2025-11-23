@@ -1,15 +1,16 @@
 import Foundation
 
+@available(*, deprecated, renamed: "Event", message: "really")
 typealias Events = [Event]
 
-struct Event: Codable {
-    let id: UUID
-    let groupID: UUID
-    let name: String
-    let imageURL: URL?
-    let startAt, endAt: Date?
-    let venue: Venue?
-    let venueID: UUID?
+struct Event: Codable, EventRepresentable {
+    var id: UUID
+    var groupID: UUID
+    var name: String
+    var imageURL: URL?
+    var startAt, endAt: Date?
+    var venue: Venue?
+    var venueID: UUID?
 
     enum CodingKeys: String, CodingKey {
         case id

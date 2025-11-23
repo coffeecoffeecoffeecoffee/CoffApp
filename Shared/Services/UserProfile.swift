@@ -14,7 +14,7 @@ class UserProfile: ObservableObject {
         }
     }
 
-    private var groupIDs: Set<UUID> = []
+    @Published private(set) var groupIDs: Set<UUID> = []
     @AppStorage("encoded_group_ids", store: .sharedSuite) private var encodedGroupIDs: Data?
     @AppStorage("saved_events", store: .sharedSuite) private var savedEvents: Data?
     
@@ -97,7 +97,7 @@ extension UserProfile {
     /// - Returns: The `intersection of the server and user `InterestGroup.id`
     @discardableResult
     private func syncGroups() async throws -> Set<UUID> {
-        let netGroupIDs = net.groups.map { $0.id }
+        let netGroupIDs = try await net.loadGroups().map { $0.id }
         let userGroupIDs = groupIDs
         groupIDs = userGroupIDs.intersection(netGroupIDs)
         guard groupIDs.isEmpty == false else {

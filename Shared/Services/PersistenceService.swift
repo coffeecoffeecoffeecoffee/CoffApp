@@ -8,24 +8,9 @@
 import Foundation
 import SwiftData
 
-final class PeristenceService: ObservableObject {
-    private let modelContext: ModelContext
-    
-    init(modelContext: ModelContext) {
-        self.modelContext = modelContext
-    }
-    
-    func saveContext() throws {
-        try modelContext.save()
-    }
-    
-    func add(_ object: any PersistentModel) throws {
-        modelContext.insert(object)
-        try saveContext()
-    }
-    
+final class PersistenceService: ObservableObject {
     /// Replaces all occurrences of InterestGroupModel in the store with the provided groups, matching on id
-    func update(interestGroups: [InterestGroup]) throws {
+    static func update(interestGroups: [InterestGroup], modelContext: ModelContext) throws {
         // Fetch existing persisted groups
         let descriptor = FetchDescriptor<InterestGroupModel>()
         var existing = try modelContext.fetch(descriptor)
@@ -62,11 +47,11 @@ final class PeristenceService: ObservableObject {
         }
 
         // Persist all changes
-        try saveContext()
+        try modelContext.save()
     }
     
     /// Replaces all `Events` per `InterestGroup` with the new array
-    func replace(events: [Event], for groupID: UUID) throws {
+    static func replace(events: [Event], for groupID: UUID, in modelContext: ModelContext) throws {
         // Fetch existing EventModel objects for this group
         let descriptor = FetchDescriptor<EventModel>(
             predicate: #Predicate { model in
@@ -84,11 +69,7 @@ final class PeristenceService: ObservableObject {
 
         // Delete any existing events not present in the incoming set (also remove models with nil ids)
         for model in existing {
-            guard let id = model.id else {
-                modelContext.delete(model)
-                continue
-            }
-            if !incomingIDs.contains(id) {
+            if !incomingIDs.contains(model.id) {
                 modelContext.delete(model)
             }
         }
@@ -97,8 +78,7 @@ final class PeristenceService: ObservableObject {
         existing = try modelContext.fetch(descriptor)
         let existingByID: [UUID: EventModel] = Dictionary(
             uniqueKeysWithValues: existing.compactMap { model in
-                guard let id = model.id else { return nil }
-                return (id, model)
+                return (model.id, model)
             }
         )
 
@@ -119,14 +99,14 @@ final class PeristenceService: ObservableObject {
         }
 
         // Persist changes
-        try saveContext()
+        try modelContext.save()
     }
     
     /// Upserts the contents of events array with the existing events for an ``InterestGroupModel``.
     /// Existing ``EventModel`` properties are updated with any matching ``Event`` with the same id.
     /// New ``EventModel``s are saved with an association to the ``InterestGroupModel`` that matches the
     /// ``Event``’s  .groupID
-    func merge(events: [Event], for groupID: UUID) throws {
+    static func merge(events: [Event], for groupID: UUID, in modelContext: ModelContext) throws {
         // Fetch existing EventModel objects for this group
         let eventModelDescriptor = FetchDescriptor<EventModel>(
             predicate: #Predicate { model in
@@ -136,8 +116,7 @@ final class PeristenceService: ObservableObject {
         let existingEventModels = try modelContext.fetch(eventModelDescriptor)
         let existingByID: [UUID: EventModel] = Dictionary(
             uniqueKeysWithValues: existingEventModels.compactMap { model in
-                guard let id = model.id else { return nil }
-                return (id, model)
+                return (model.id, model)
             }
         )
 
@@ -164,6 +143,6 @@ final class PeristenceService: ObservableObject {
         }
 
         // Persist changes
-        try saveContext()
+        try modelContext.save()
     }
 }

@@ -9,9 +9,9 @@ import Foundation
 import SwiftData
 
 @Model
-final class EventModel {
-    var id: UUID?
-    var groupID: UUID?
+final class EventModel: EventRepresentable {
+    var id: UUID
+    var groupID: UUID
     var name: String
     var imageURL: URL?
     var startAt: Date?
@@ -22,13 +22,13 @@ final class EventModel {
     @Relationship var group: InterestGroupModel?
     
     internal init(id: UUID? = nil,
-                  groupID: UUID? = nil,
+                  groupID: UUID,
                   name: String,
                   imageURL: URL? = nil,
                   startAt: Date? = nil,
                   endAt: Date? = nil,
                   venue: Venue? = nil) {
-        self.id = id
+        self.id = id ?? UUID()
         self.groupID = groupID
         self.name = name
         self.imageURL = imageURL

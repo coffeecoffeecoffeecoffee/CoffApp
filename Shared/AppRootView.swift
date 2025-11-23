@@ -35,16 +35,12 @@ struct AppRootView: View {
             }
         }
         .task {
-            // Fetch interest groups at app launch and persist them
-            let net = NetworkService.shared
             do {
                 let groups = try await InterestGroup.fetchGroups()
-                net.groups = groups
-
+                
                 // Persist fetched groups using SwiftData
-                let persistence = PeristenceService(modelContext: modelContext)
-                try persistence.update(interestGroups: groups)
-
+                try PersistenceService.update(interestGroups: groups, modelContext: modelContext)
+                
                 // After groups are available, fetch all events for subscribed groups
                 let profile = UserProfile()
                 try await profile.sync()

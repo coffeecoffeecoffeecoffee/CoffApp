@@ -1,4 +1,3 @@
-import Combine
 import Foundation
 import Logging
 
@@ -12,18 +11,16 @@ final class NetworkService {
             pastEvents = events.past()
         }
     }
-    let eventsSubject = PassthroughSubject<[Event], Error>()
+    // let eventsSubject = PassthroughSubject<[Event], Error>()
     var firstEvent: Event = Event.loading
     var upcomingEvents = [Event]()
     var pastEvents = [Event]()
     var netState = NetworkState.loading
     private var logger = Logger(label: Bundle.main.bundleIdentifier!
                                     .appending(".networkservice.log"))
-    private var subscriptions = Set<AnyCancellable>()
+    // private var subscriptions = Set<AnyCancellable>()
     private var session = URLSession.shared
     private let decoder = JSONDecoder()
-
-    private let groupURL = URL.appURL(with: "api", "v2", "groups")
 
     enum NetworkError: Error {
         case invalidURL
@@ -41,7 +38,7 @@ final class NetworkService {
     }
 
     func cancelAll() {
-        subscriptions.removeAll()
+        // subscriptions.removeAll()
         firstEvent = Event.loading
         events = []
         self.netState = .ready
@@ -49,14 +46,103 @@ final class NetworkService {
 
     init() {
         decoder.dateDecodingStrategy = .iso8601
-        loadGroups()
     }
 }
 
-// MARK: - Groups
+// MARK: -- Async InterestGroups
 extension NetworkService {
+    
+    func loadGroups() async throws -> [InterestGroup] {
+        logger.info("Fetching groups from \(URL.groupsURL)")
+        let (newGroups, _) = try await session.data(from: URL.groupsURL)
+        let fetchedGroups = try JSONDecoder().decode([InterestGroup].self, from: newGroups)
+        logger.info("Groups fetch complete")
+        return fetchedGroups
+    }
+}
+
+// MARK: -- Async Events
+extension NetworkService {
+    public func loadEvents(for group: InterestGroup) async throws -> [Event] {
+        let url = group.eventsURL
+        netState = .loading
+        logger.info("Fetching events from \(url)")
+        let (newEvents, _) = try await session.data(from: url)
+        let fetchedEvents = try decoder.decode([Event].self, from: newEvents)
+        logger.info("Events fetch complete")
+        netState = .ready
+        return fetchedEvents
+    }
+    
+    public func loadAllEvents(for groups: [InterestGroup]) async throws -> [InterestGroup: [Event]] {
+        return try await withThrowingTaskGroup(of: (InterestGroup, [Event]).self) { taskGroup in
+            for group in groups {
+                taskGroup.addTask { [weak self] in
+                    guard let self else { return (group, []) }
+                    let events = try await self.loadEvents(for: group)
+                    return (group, events)
+                }
+            }
+
+            var allEvents = [InterestGroup: [Event]]()
+            for try await (group, events) in taskGroup {
+                allEvents[group] = events
+            }
+            return allEvents
+        }
+    }
+    
+    public func downloadAllEvents(for groupIDs: Set<UUID>) async throws -> [Event] {
+        netState = .loading
+        logger.info("Downloading all events")
+        guard !groupIDs.isEmpty else {
+            self.events = []
+            self.upcomingEvents = []
+            self.pastEvents = []
+            return []
+        }
+        let allEventsSet = try await withThrowingTaskGroup(of: [Event].self,
+                                                    returning: Set<Event>.self) { taskGroup in
+            let evtGroups = groupIDs.map { uid in
+                InterestGroup(id: uid, name: uid.uuidString, imageURL: nil)
+            }
+            evtGroups.forEach { group in
+                taskGroup.addTask { [weak self] in
+                    guard let self else { return [] }
+                    logger.info("Fetching events for \(group.name)")
+                    do {
+                        let groupEventsURL = group.eventsURL
+                        let (groupEventsData, _) = try await session.data(from: groupEventsURL)
+                        let groupEvents = try decoder.decode([Event].self,
+                                                             from: groupEventsData)
+                        logger.info("Fetched events for: \(group.name)")
+                        return groupEvents
+                    } catch {
+                        self.logger.error(.init(stringLiteral: error.localizedDescription))
+                        return []
+                    }
+                }
+            }
+
+            var decodedEvents = Set<Event>()
+            for try await groupEvents in taskGroup {
+                decodedEvents.formUnion(groupEvents)
+            }
+            return decodedEvents
+        }
+        netState = .ready
+        logger.info("Done downloading all events")
+        return allEventsSet.sorted()
+    }
+}
+
+
+/**
+// MARK: - DEPRECATED Combine Groups
+extension NetworkService {
+    @available(*, deprecated, renamed: "loadAllEvents(for:)", message: "Combine is deprecated, please use async/await instead")
     func fetchNetworkGroups() -> AnyPublisher<[InterestGroup], Error> {
-        session.dataTaskPublisher(for: groupURL)
+        session.dataTaskPublisher(for: URL.groupsURL)
             .debounce(for: .seconds(5), scheduler: RunLoop.current)
             .retry(2)
             .map { $0.data }
@@ -75,6 +161,7 @@ extension NetworkService {
         }
     }
 
+    @available(*, deprecated, renamed: "loadAllEvents(for:)", message: "Combine is deprecated, please use async/await instead")
     func loadGroups() {
         netState = .loading
         logger.info("Loading all groups")
@@ -101,57 +188,23 @@ extension NetworkService {
         }
     }
 }
+*/
 
-// MARK: - Events
-extension NetworkService {
+// MARK: - DEPRECATED Combine Events
+/**
+ extension NetworkService {
 
-    private func downloadAllEvents(for group: InterestGroup) async throws -> [Event] {
-        let (data, res) = try await session.data(from: group.eventsURL)
-        let events = try decoder.decode([Event].self, from: data)
-        return events
-    }
+//    private func downloadAllEvents(for group: InterestGroup) async throws -> [Event] {
+//        let (data, _) = try await session.data(from: group.eventsURL)
+//        let events = try decoder.decode([Event].self, from: data)
+//        return events
+//    }
 
-    public func downloadAllEvents(for groupIDs: Set<UUID>) async throws -> [Event] {
-        guard !groupIDs.isEmpty else {
-            self.events = []
-            self.upcomingEvents = []
-            self.pastEvents = []
-            return []
-        }
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .iso8601
-        let allEventsSet = try await withThrowingTaskGroup(of: [Event].self,
-                                                    returning: Set<Event>.self) { taskGroup in
-            let evtGroups = groupIDs.map { uid in
-                groupForID(uid) ?? InterestGroup(id: uid, name: uid.uuidString, imageURL: nil)
-            }
-            evtGroups.forEach { group in
-                taskGroup.addTask {
-                    do {
-                        let (groupEventsData, _) = try await URLSession.shared.data(from: group.eventsURL)
-                        let groupEvents = try decoder.decode([Event].self,
-                                                             from: groupEventsData)
-                        return groupEvents
-                    } catch {
-                        self.logger.error(.init(stringLiteral: error.localizedDescription))
-                        return []
-                    }
-                }
-            }
+    
 
-            var decodedEvents = Set<Event>()
-            for try await groupEvents in taskGroup {
-                decodedEvents.formUnion(groupEvents)
-            }
-            return decodedEvents
-        }
-        let sortedEvents = allEventsSet.sorted()
-        handle(sortedEvents)
-        return sortedEvents
-    }
-
+    @available(*, deprecated, renamed: "loadAllEvents(for:)", message: "This will be removed soon")
     func futureEvents(for group: InterestGroup) async throws -> [Event] {
-        self.events = try await downloadAllEvents(for: group)
+        self.events = try await loadEvents(for: group)
         let now = Date()
         let futureEvents = self.events.filter { event in
             guard let endDate = event.endAt else {
@@ -162,6 +215,7 @@ extension NetworkService {
         return futureEvents
     }
 
+    @available(*, deprecated, renamed: "loadAllEvents(for:)", message: "Combine is deprecated, use async/await instead")
     func loadAllEvents(for group: InterestGroup) -> AnyPublisher<[Event], Error> {
         let url = group.eventsURL
         netState = .loading
@@ -174,6 +228,7 @@ extension NetworkService {
             .eraseToAnyPublisher()
     }
 
+    @available(*, deprecated, renamed: "loadEvents(for:)", message: "Combine is deprecated, use async/await instead")
     func loadEvents(for group: InterestGroup) {
         loadAllEvents(for: group)
             .receive(on: RunLoop.main)
@@ -199,6 +254,7 @@ extension NetworkService {
             .store(in: &subscriptions)
     }
 
+    @available(*, deprecated, renamed: "handle(_:)", message: "Don’t do this")
     private func handle(_ events: [Event]) {
         let now = Date()
         self.upcomingEvents = []
@@ -243,6 +299,7 @@ extension NetworkService {
         return aStart < bStart
     }
 }
+*/
 
 #if DEBUG
 func testEvent(_ isNearFuture: Bool = false) -> Event {
