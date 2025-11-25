@@ -58,6 +58,8 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Securely store credentials in Keychain</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>science.pixel.espresso.group</string>

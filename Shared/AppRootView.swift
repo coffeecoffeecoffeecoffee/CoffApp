@@ -22,7 +22,7 @@ struct AppRootView: View {
             }
 
             Tab {
-                Text("Profile? Map?")
+                ProfileView()
             } label: {
                 Label("Profile", systemImage: "person.fill")
             }

@@ -3,6 +3,7 @@ import Foundation
 extension URL {
     #if true
     static let baseURL = URL(string: "http://localhost:8080")!
+//    static let baseURL = URL(string: "https://coffeecoffee.world")!
     #else
     static let baseURL = URL(string: "https://www.coffeecoffeecoffee.coffee")!
     #endif
@@ -15,7 +16,16 @@ extension URL {
         return url
     }
     
-    static let groupsURL = Self.appURL(with: "api", "v2", "groups")
+    static func apiV2(with paths: String...) -> URL {
+        var url = URL.appURL(with: "api", "v2")
+        for path in paths {
+            url = url.appendingPathComponent(path)
+        }
+        return url
+    }
+    
+    static let groupsURL = Self.apiV2(with: "groups")
+    static let venuesURL = Self.apiV2(with: "venues")
 
     static func eventsURL(for id: UUID) -> URL {
         appURL(with: "api", "v2", "groups", id.uuidString.lowercased(), "events")

@@ -9,98 +9,105 @@ struct EventListView: View {
     @State private var showingPopover = false
     @Namespace private var namespace
     @State private var groups = [InterestGroup]()
+    @State private var status: CoffeeStatus = .pristine
 
     var body: some View {
         ZStack(alignment: .topTrailing) {
             GeometryReader { geo in
                 ScrollView {
-                    LazyVStack(alignment: .leading, spacing: 30) {
-                        if !profile.hasGroups {
-                            HStack(alignment: .center) {
-                                StatusView(
-                                    "No groups selected",
-                                    description: "Please choose some groups to find local events",
-                                    symbolName: "person.2"
-                                )
-                                .frame(height: geo.size.height * 0.85,
-                                       alignment: .center)
-                                #if os(macOS)
-                                .buttonStyle(.link)
-                                #endif
-                            }
-                            .padding(.horizontal)
-                        } else if profile.queryString.isEmpty {
-                            if profile.upcomingEvents.count > 0 {
-                                LazyVGrid(columns: [
-                                    GridItem(.adaptive(minimum: 560, maximum: geo.size.width))
-                                ]) {
-                                    ForEach(profile.upcomingEvents, id: \.self) { upcomingEvent in
-                                        EventDetailView(upcomingEvent)
-                                            .frame(
-                                                minWidth: 300,
-                                                idealWidth: geo.size.width,
-                                                minHeight: (geo.size.height * 0.667)
-                                            )
-                                    }
-                                }
-                            } else {
-                                Spacer()
-                                HStack {
+                    if status == CoffeeStatus.error {
+                        StatusView("An error has occurred",
+                                   description: "Try again later",
+                                   symbolName: "exclamationmark.triangle")
+                    } else {
+                        LazyVStack(alignment: .leading, spacing: 30) {
+                            if !profile.hasGroups {
+                                HStack(alignment: .center) {
                                     StatusView(
-                                        "No upcoming Events",
-                                        description: "Check back later",
-                                        symbolName: "calendar"
+                                        "No groups selected",
+                                        description: "Please choose some groups to find local events",
+                                        symbolName: "person.2"
                                     )
-                                    .foregroundColor(.secondary)
+                                    .frame(height: geo.size.height * 0.85,
+                                           alignment: .center)
+                                    #if os(macOS)
+                                    .buttonStyle(.link)
+                                    #endif
                                 }
-                                .padding()
-                                .frame(height: geo.size.height,
-                                       alignment: .center)
-                            }
-                            if profile.pastEvents.count > 0 {
-                                Group {
-                                    Text("Previously")
-                                        .font(.title)
-                                    LazyVGrid(
-                                        columns: [
-                                            GridItem(.adaptive(minimum: 280, maximum: 560))
-                                        ],
-                                        alignment: .leading,
-                                        spacing: 24
-                                    ) {
-                                        ForEach(profile.pastEvents) { event in
-                                            EventSummaryView(event)
-                                                .padding(.bottom, 24)
+                                .padding(.horizontal)
+                            } else if profile.queryString.isEmpty {
+                                if profile.upcomingEvents.count > 0 {
+                                    LazyVGrid(columns: [
+                                        GridItem(.adaptive(minimum: 560, maximum: geo.size.width))
+                                    ]) {
+                                        ForEach(profile.upcomingEvents, id: \.self) { upcomingEvent in
+                                            EventDetailView(upcomingEvent)
+                                                .frame(
+                                                    minWidth: 300,
+                                                    idealWidth: geo.size.width,
+                                                    minHeight: (geo.size.height * 0.667)
+                                                )
                                         }
                                     }
-                                }
-                                .padding(.horizontal)
-                            }
-                        } else {
-                            NavigationStack {
-                                Group {
-                                    Text("Events: \(profile.filteredEvents.count)")
-                                        .font(.title2)
+                                } else {
+                                    Spacer()
+                                    HStack {
+                                        StatusView(
+                                            "No upcoming Events",
+                                            description: "Check back later",
+                                            symbolName: "calendar"
+                                        )
                                         .foregroundColor(.secondary)
-                                    ForEach(profile.filteredEvents) { event in
-                                        EventSummaryView(event)
                                     }
+                                    .padding()
+                                    .frame(height: geo.size.height,
+                                           alignment: .center)
                                 }
-                                .padding(.horizontal)
+                                if profile.pastEvents.count > 0 {
+                                    Group {
+                                        Text("Previously")
+                                            .font(.title)
+                                        LazyVGrid(
+                                            columns: [
+                                                GridItem(.adaptive(minimum: 280, maximum: 560))
+                                            ],
+                                            alignment: .leading,
+                                            spacing: 24
+                                        ) {
+                                            ForEach(profile.pastEvents) { event in
+                                                EventSummaryView(event)
+                                                    .padding(.bottom, 24)
+                                            }
+                                        }
+                                    }
+                                    .padding(.horizontal)
+                                }
+                            } else {
+                                NavigationStack {
+                                    Group {
+                                        Text("Events: \(profile.filteredEvents.count)")
+                                            .font(.title2)
+                                            .foregroundColor(.secondary)
+                                        ForEach(profile.filteredEvents) { event in
+                                            EventSummaryView(event)
+                                        }
+                                    }
+                                    .padding(.horizontal)
+                                }
                             }
                         }
-                    }
-                    .ignoresSafeArea(.all, edges: [.top])
-                    .padding(.bottom, 40)
-                    .task {
-                        do {
-                            try await profile.sync()
-                        } catch let coffeeError as CoffeeErrors {
-                            logger.error("\(String(describing: coffeeError))")
-                            return
-                        } catch {
-                            logger.error(.init(stringLiteral: error.localizedDescription))
-                            fatalError(error.localizedDescription)
+                        .ignoresSafeArea(.all, edges: [.top])
+                        .padding(.bottom, 40)
+                        .task {
+                            do {
+                                try await profile.sync()
+                            } catch let coffeeError as CoffeeErrors {
+                                logger.error("\(String(describing: coffeeError))")
+                                return
+                            } catch {
+                                logger.error(.init(stringLiteral: error.localizedDescription))
+                                
+                            }
                         }
                     }
                 }

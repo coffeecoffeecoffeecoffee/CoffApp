@@ -4,6 +4,9 @@ import Logging
 @Observable
 final class NetworkService {
     static let shared = NetworkService()
+    
+    private typealias JWTToken = String
+    
     var groups = [InterestGroup]()
     var events = [Event]() {
         didSet {
@@ -11,7 +14,7 @@ final class NetworkService {
             pastEvents = events.past()
         }
     }
-    // let eventsSubject = PassthroughSubject<[Event], Error>()
+    
     var firstEvent: Event = Event.loading
     var upcomingEvents = [Event]()
     var pastEvents = [Event]()
@@ -20,6 +23,14 @@ final class NetworkService {
                                     .appending(".networkservice.log"))
     // private var subscriptions = Set<AnyCancellable>()
     private var session = URLSession.shared
+    private var jwtToken: JWTToken? {
+        get {
+            UserDefaults.standard.string(forKey: "jwtToken")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "jwtToken")
+        }
+    }
     private let decoder = JSONDecoder()
 
     enum NetworkError: Error {
@@ -49,9 +60,77 @@ final class NetworkService {
     }
 }
 
-// MARK: -- Async InterestGroups
+// MARK: -- User
 extension NetworkService {
     
+    private struct LoginResponse: Codable {
+        let message: String
+        let error: String?
+        let token: JWTToken?
+        
+        enum CodingKeys: String, CodingKey {
+            case message
+            case error
+            case token = "jwt-token"
+        }
+    }
+    
+    func signIn(_ email: String, password: String) async -> Result<String, Error> {
+        let loginURL = URL.apiV2(with: "users", "login")
+        var loginRequest = URLRequest(url: loginURL)
+        loginRequest.httpMethod = "POST"
+        
+        // Configure HTTP Basic Authentication using email as username and password as password
+        let credentials = "\(email):\(password)"
+        if let credentialData = credentials.data(using: .utf8) {
+            let base64Credentials = credentialData.base64EncodedString()
+            loginRequest.setValue("Basic \(base64Credentials)", forHTTPHeaderField: "Authorization")
+        }
+        loginRequest.setValue("application/json", forHTTPHeaderField: "Accept")
+        
+        do {
+            let (loginData, _) = try await session.data(for: loginRequest)
+            let loginResponse = try decoder.decode(LoginResponse.self, from: loginData)
+            guard let token = loginResponse.token else {
+                throw CoffeeErrors.syncError(reason: loginResponse.message)
+            }
+            self.jwtToken = token
+            try KeychainService.shared.saveString(token, for: .jwtToken)
+            try KeychainService.shared.saveString(email, for: .email)
+            try KeychainService.shared.saveString(password, for: .password)
+            logger.info("Saved credentials to Keychain")
+        } catch {
+            return .failure(error)
+        }
+        return .success("Signed in")
+    }
+    
+    func retrieveJWT(localizedReason: String = "Authenticate to access your account") throws -> String {
+        try KeychainService.shared.loadString(for: .jwtToken, localizedReason: localizedReason)
+    }
+
+    func retrieveEmail(localizedReason: String = "Authenticate to access your account") throws -> String {
+        try KeychainService.shared.loadString(for: .email, localizedReason: localizedReason)
+    }
+
+    func retrievePassword(localizedReason: String = "Authenticate to access your account") throws -> String {
+        try KeychainService.shared.loadString(for: .password, localizedReason: localizedReason)
+    }
+}
+
+// MARK: -- Venue
+extension NetworkService {
+    func loadVenues() async throws -> [Venue] {
+        logger.info("Fetching venues from \(URL.venuesURL)")
+        let (newVenues, _) = try await session.data(from: URL.venuesURL)
+        let fetchedVenues = try JSONDecoder().decode([Venue].self, from: newVenues)
+        logger.info("Fetched venues: \(fetchedVenues.count)")
+        return fetchedVenues
+    }
+}
+
+// MARK: -- Async InterestGroups
+extension NetworkService {
     func loadGroups() async throws -> [InterestGroup] {
         logger.info("Fetching groups from \(URL.groupsURL)")
         let (newGroups, _) = try await session.data(from: URL.groupsURL)
@@ -322,3 +401,4 @@ func testEvent(_ isNearFuture: Bool = false) -> Event {
     return event
 }
 #endif
+
