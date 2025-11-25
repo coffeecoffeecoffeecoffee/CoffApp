@@ -41,8 +41,16 @@ final class ProfileViewModel {
                 self.statusMessage = success
                 isLoggedIn = true
             case .failure(let failure):
-                self.statusMessage = failure.localizedDescription
+                switch failure {
+                case .invalid(let reason):
+                    fallthrough
+                case .syncError(let reason):
+                    statusMessage = reason
+                case .signInRequired:
+                    break
+                }
                 isLoggedIn = false
+                showAlert = true
             }
         }
     }
@@ -50,27 +58,50 @@ final class ProfileViewModel {
 
 
 struct LoginView: View {
+    @Environment(\.dismiss) var dismiss
     @State private var viewModel = ProfileViewModel(net: NetworkService.shared)
     
     var body: some View {
-        Text(viewModel.statusMessage)
-        Form {
-            TextField("Email", text: $viewModel.email)
-            SecureField("Password", text: $viewModel.password)
-        }
-        .navigationTitle("Profile")
-        .onSubmit {
-            viewModel.signIn()
-        }
-        .alert("Oops", isPresented: $viewModel.showAlert) {
-            Button("OK") {
-                viewModel.showAlert = false
+        NavigationStack {
+            Form {
+                TextField("Email", text: $viewModel.email)
+                    .textContentType(.emailAddress)
+                    .keyboardType(.emailAddress)
+                    .textInputAutocapitalization(.never)
+                    .autocorrectionDisabled(true)
+                SecureField("Password", text: $viewModel.password)
             }
-            .buttonStyle(.borderedProminent)
-        } message: {
-            Text(viewModel.statusMessage)
+            .navigationTitle("Sign In")
+            .toolbar {
+                if #available(iOS 26.0, *) {
+                    Button(role: .confirm) {
+                        viewModel.signIn()
+                    }
+                } else {
+                    Button {
+                        viewModel.signIn()
+                    } label: {
+                        Image(systemName: "checkmark")
+                    }
+                }
+            }
+            .onSubmit {
+                viewModel.signIn()
+            }
+            .onChange(of: viewModel.isLoggedIn) { _, new in
+                if new {
+                    dismiss()
+                }
+            }
+            .alert("Oops", isPresented: $viewModel.showAlert) {
+                Button("OK") {
+                    viewModel.showAlert = false
+                }
+                .buttonStyle(.borderedProminent)
+            } message: {
+                Text(viewModel.statusMessage)
+            }
         }
-
     }
 }
 
@@ -82,7 +113,7 @@ final class CreateEventViewModel {
     public var selectedVenue: Venue?
     public var venues = [Venue]()
     public var selectedGroup: InterestGroup?
-    public var groups = [InterestGroups]()
+    public var groups = [InterestGroup]()
     
     private let net = NetworkService.shared
     
@@ -114,15 +145,66 @@ final class CreateEventViewModel {
             print(error.localizedDescription)
         }
     }
+    
+    public func fetchGroups() async {
+        do {
+            groups = try await net.loadGroups()
+        } catch {
+            // TODO: handle failure here, too
+            print(error.localizedDescription)
+        }
+    }
+    
+    @discardableResult
+    public func createEvent() async -> Result<Event, CoffeeErrors> {
+        guard eventName.isEmpty == false,
+              let selectedVenue,
+              let selectedGroup
+        else {
+            return .failure(CoffeeErrors.invalid(reason: "Missing required fields"))
+        }
+        let event = Event(id: UUID(),
+                          name: eventName,
+                          groupID: selectedGroup.id,
+                          venue: selectedVenue,
+                          imageURL: nil,
+                          startAt: startAt,
+                          endAt: endAt)
+        let result = await net.createEvent(event)
+        return result
+    }
 }
 
 struct ProfileView: View {
     @State private var navPath = NavigationPath()
     @State private var profileViewModel = ProfileViewModel(net: NetworkService.shared)
     @State private var createEventViewModel = CreateEventViewModel()
+    @State private var statusMessage = "Ready"
+    @State private var showAlert = false
+    @State private var showSignInForm = false
     
     private func handleCreateEvent() {
-        print("handleCreateEvent")
+        Task {
+            let result = await createEventViewModel.createEvent()
+            switch result {
+            case .success(let event):
+                statusMessage = "Created: \(event.name)"
+            case .failure(let failure):
+                switch failure {
+                case .signInRequired:
+                    showSignInForm = true
+                case .syncError(reason: let reason):
+                    statusMessage = reason
+                    showAlert = true
+                case .invalid(reason: let invalidReason):
+                    statusMessage = invalidReason
+                    showAlert = true
+                @unknown default:
+                    statusMessage = "Error: \(String(describing: failure))"
+                    showAlert = true
+                }
+            }
+        }
     }
     
     var body: some View {
@@ -132,10 +214,26 @@ struct ProfileView: View {
                 DatePicker("Start", selection: $createEventViewModel.startAt)
                 DatePicker("End", selection: $createEventViewModel.endAt)
                 VenueSelectView(createEventViewModel: $createEventViewModel)
+                InterestGroupSelectView(createEventViewModel: $createEventViewModel)
+            }
+            .sheet(isPresented: $showSignInForm) {
+                LoginView()
+            }
+            .alert(statusMessage, isPresented: $showAlert) {
+                Button {
+                    print("ok")
+                } label: {
+                    Text("OK")
+                }
+                .buttonStyle(.borderedProminent)
             }
             .navigationTitle("Create Event")
             .task {
                 await createEventViewModel.fetchVenues()
+                await createEventViewModel.fetchGroups()
+                if profileViewModel.isLoggedIn == false {
+                    showSignInForm = true
+                }
             }
             .toolbar {
                 if #available(iOS 26.0, *) {
@@ -152,8 +250,9 @@ struct ProfileView: View {
     }
 }
 
-struct InterestGroupSelectView: View {
+struct VenueSelectView: View {
     @Binding var createEventViewModel: CreateEventViewModel
+    @State private var venueQuery: String = ""
     
     var body: some View {
         Picker(selection: $createEventViewModel.selectedVenue) {
@@ -167,31 +266,25 @@ struct InterestGroupSelectView: View {
         .pickerStyle(.navigationLink)
         .task {
             await createEventViewModel.fetchVenues()
-        }
-        .onChange(of: createEventViewModel.selectedVenue) { old, new in
-            print(new ?? "??")
         }
     }
 }
 
-struct VenueSelectView: View {
+struct InterestGroupSelectView: View {
     @Binding var createEventViewModel: CreateEventViewModel
     
     var body: some View {
-        Picker(selection: $createEventViewModel.selectedVenue) {
-            ForEach(createEventViewModel.venues) { venue in
-                Text(venue.name ?? "Unknown Venue")
-                    .tag(venue)
+        Picker(selection: $createEventViewModel.selectedGroup) {
+            ForEach(createEventViewModel.groups) { group in
+                Text(group.name)
+                    .tag(group)
             }
         } label: {
-            Text("Venue")
+            Text("Group")
         }
         .pickerStyle(.navigationLink)
         .task {
-            await createEventViewModel.fetchVenues()
-        }
-        .onChange(of: createEventViewModel.selectedVenue) { old, new in
-            print(new ?? "??")
+            await createEventViewModel.fetchGroups()
         }
     }
 }

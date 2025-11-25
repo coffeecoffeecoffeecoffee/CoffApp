@@ -14,9 +14,9 @@ final class EventModel: EventRepresentable {
     var groupID: UUID
     var name: String
     var imageURL: URL?
-    var startAt: Date?
-    var endAt: Date?
-    var venue: Venue?
+    var startAt: Date
+    var endAt: Date
+    var venue: Venue
 
     // SwiftData relationship: each event belongs to a group
     @Relationship var group: InterestGroupModel?
@@ -25,9 +25,9 @@ final class EventModel: EventRepresentable {
                   groupID: UUID,
                   name: String,
                   imageURL: URL? = nil,
-                  startAt: Date? = nil,
-                  endAt: Date? = nil,
-                  venue: Venue? = nil) {
+                  startAt: Date,
+                  endAt: Date,
+                  venue: Venue) {
         self.id = id ?? UUID()
         self.groupID = groupID
         self.name = name

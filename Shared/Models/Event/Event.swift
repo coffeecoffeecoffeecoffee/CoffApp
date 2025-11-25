@@ -5,13 +5,13 @@ typealias Events = [Event]
 
 struct Event: Codable, EventRepresentable {
     var id: UUID
-    var groupID: UUID
     var name: String
+    var groupID: UUID
+    var venue: Venue
     var imageURL: URL?
-    var startAt, endAt: Date?
-    var venue: Venue?
-    var venueID: UUID?
-
+    var startAt: Date
+    var endAt: Date
+    
     enum CodingKeys: String, CodingKey {
         case id
         case groupID = "group_id"
@@ -19,7 +19,6 @@ struct Event: Codable, EventRepresentable {
         case imageURL = "image_url"
         case startAt = "start_at"
         case endAt = "end_at"
-        case venueID = "venue_id"
         case venue
     }
 }
@@ -47,15 +46,10 @@ extension Event {
     }
 
     private var status: EventState {
-        guard let startTime = startAt else {
-            return .unknown
-        }
-        if startTime > Date.now {
+        if startAt > Date.now {
             return .future
         }
-        if let endTime = endAt,
-            endTime > Date.now
-        {
+        if endAt > Date.now {
             return .now
         }
         return .past
@@ -77,6 +71,8 @@ extension Event {
 
 // MARK: - Placeholder Events
 extension Event {
+    /**
+
     static var loading: Event {
         Event(
             id: UUID(),
@@ -115,21 +111,21 @@ extension Event {
             venueID: nil,
         )
     }
-
+ */
     static var empty: Event {
         let emptyVenue = Venue(name: "Coffee", location: nil)
         return Event(
             id: UUID(),
-            groupID: UUID(),
             name: "Coffee",
-            imageURL: nil,
-            startAt: nil,
-            endAt: nil,
+            groupID: UUID(),
             venue: emptyVenue,
-            venueID: nil,
+            imageURL: nil,
+            startAt: Date(),
+            endAt: Date()
         )
     }
 }
+
 
 // MARK: - SwiftUI Conformance
 extension Event: Hashable {
@@ -166,20 +162,7 @@ extension Event {
 
 // MARK: - Data formatting
 extension Event {
-    var venueName: String {
-        guard let venueName = venue?.name else {
-            return "☕️"
-        }
-        return venueName
-    }
-
     func localizedStartTime(_ style: DateFormatter.Style = .long) -> String {
-        guard let startAt = startAt else {
-            return NSLocalizedString(
-                "It’s coffee time somewhere",
-                comment: "A quirky phrase to show when no time is given"
-            )
-        }
         return DateFormatter.localizedString(
             from: startAt,
             dateStyle: style,

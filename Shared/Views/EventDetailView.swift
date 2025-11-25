@@ -29,18 +29,18 @@ struct EventDetailView: View {
                             .foregroundColor(.white)
                             .scaleEffect(focusState.inFocus ? 1.03 : 1)
                             .shadow(radius: focusState.inFocus ? 3 : 0)
-                        Text(event.venueName)
+                        Text(event.venue.name)
                             .font(.body)
                             .foregroundColor(.init(white: 0.8))
                         Text(event.localizedStartTime())
                             .font(.body)
                             .bold()
                             .foregroundColor(.init(white: 0.8))
-                        if event.venue?.location != nil
+                        if event.venue.location != nil
                             && RuntimeOS.current != .tvOS {
                             HStack(alignment: .firstTextBaseline, spacing: 20) {
                                 Button(action: {
-                                    event.venue?.getDirections()
+                                    event.venue.getDirections()
                                 }, label: {
                                     HStack {
                                         Image(systemName: "arrow.triangle.turn.up.right.diamond.fill")
@@ -86,21 +86,20 @@ struct EventDetailView: View {
 
 #if DEBUG
 struct EventDetailView_Previews: PreviewProvider {
-    static let location = Location(latitude: Double(37.789004663475026),
+    static let location = Location(title: "Preview Location", latitude: Double(37.789004663475026),
                                    longitude: Double(-122.3970252426277))
     // swiftlint:disable line_length
     static let imgURL = URL(string: "https://coffeecoffee.world/default-coffee.webp")!
     // swiftlint:enable line_length
     static var previews: some View {
         let event = Event(id: UUID(),
-                          groupID: UUID(),
                           name: "Test Event Here",
+                          groupID: UUID(),
+                          venue: Venue(name: "Salesforce Park", location: location),
                           imageURL: imgURL,
                           startAt: Date(),
-                          endAt: Date(),
-                          venue: Venue(name: "Salesforce Park", location: location),
-                          venueID: nil
-                        )
+                          endAt: Date()
+        )
         EventDetailView(event)
             .frame(width: 320.0, height: 240.0, alignment: .center)
     }

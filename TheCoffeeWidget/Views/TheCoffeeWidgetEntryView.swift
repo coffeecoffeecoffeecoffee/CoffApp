@@ -20,20 +20,18 @@ struct TheCoffeeWidgetEntryView: View {
                                            saturation: 0.7,
                                            brightness: 2.0))
                     .font(.caption2)
-                Text(entry.event.venueName)
+                Text(entry.event.venue.name)
                     .font(.body)
                 Text(entry.event.localizedStartTime(.short))
                     .font(.caption)
                     .foregroundColor(.init(hue: 0.9,
                                            saturation: 0.7,
                                            brightness: 2.0))
-                if let startDate = entry.event.startAt {
-                    Text(startDate, style: .timer)
-                        .foregroundColor(.init(hue: 0.0,
-                                               saturation: 0.5,
-                                               brightness: 1.0))
-                        .bold()
-                }
+                Text(entry.event.startAt, style: .timer)
+                    .foregroundColor(.init(hue: 0.0,
+                                           saturation: 0.5,
+                                           brightness: 1.0))
+                    .bold()
             }
             Spacer()
         }

@@ -10,7 +10,7 @@ struct TheCoffeeWrist: App {
 
     var body: some Scene {
         WindowGroup {
-            GeometryReader { _ in
+            GeometryReader { _ in // TODO: Remove
                 NavigationStack(path: $path) {
                     ScrollView {
                         LazyVStack(spacing: 10) {
@@ -18,17 +18,19 @@ struct TheCoffeeWrist: App {
                                 showGroups.toggle()
                             }
                             .zIndex(100)
-                            ForEach(profile.events) { event in
+                            ForEach(profile.events, id: \.id) { event in
                                 ZStack(alignment: .bottom) {
                                     Rectangle()
                                         .fill(Color.secondary.opacity(0.3))
                                         .frame(height: 150)
                                     VStack(alignment: .leading) {
-                                        AsyncImagePhaseView(event.imageURL)
-                                            .frame(height: 100)
-                                            .clipped()
+                                        if let eventImageURL = event.imageURL {
+                                            AsyncImagePhaseView(eventImageURL)
+                                                .frame(height: 100)
+                                                .clipped()
+                                        }
                                         VStack(alignment: .leading) {
-                                            Text(event.venueName)
+                                            Text(event.venue.name)
                                                 .bold()
                                             Text(event.localizedStartTime(.short))
                                                 .font(.caption)
@@ -36,7 +38,7 @@ struct TheCoffeeWrist: App {
                                         }
                                         .padding(.horizontal, 10)
                                         .onTapGesture {
-                                            event.venue?.getDirections()
+                                            event.venue.getDirections()
                                         }
                                         Spacer()
                                     }

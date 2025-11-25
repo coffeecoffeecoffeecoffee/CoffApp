@@ -44,13 +44,12 @@ struct EventSummaryView_Previews: PreviewProvider {
     static let imgURL = URL(string: "https://fastly.4sqi.net/img/general/1067x1897/4835820_mqBTxJRmEOlLRK-olPXrElaiIQlU1q5qSjExFIvHKtA.jpg")!
     // swiftlint:enable line_length
     static var testEvent = Event(id: UUID(),
-                                 groupID: UUID(),
                                  name: "Test Event with a very long title right here",
+                                 groupID: UUID(),
+                                 venue: Venue(name: "Equador", location: nil),
                                  imageURL: imgURL,
                                  startAt: Date().addingTimeInterval(360),
-                                 endAt: Date().addingTimeInterval(720),
-                                 venue: Venue(name: "Equador", location: nil),
-                                 venueID: nil
+                                 endAt: Date().addingTimeInterval(720)
                             )
     static var previews: some View {
         EventSummaryView(testEvent)

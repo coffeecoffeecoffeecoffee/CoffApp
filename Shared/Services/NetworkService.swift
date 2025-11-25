@@ -15,7 +15,6 @@ final class NetworkService {
         }
     }
     
-    var firstEvent: Event = Event.loading
     var upcomingEvents = [Event]()
     var pastEvents = [Event]()
     var netState = NetworkState.loading
@@ -32,6 +31,7 @@ final class NetworkService {
         }
     }
     private let decoder = JSONDecoder()
+    private let encoder = JSONEncoder()
 
     enum NetworkError: Error {
         case invalidURL
@@ -49,33 +49,49 @@ final class NetworkService {
     }
 
     func cancelAll() {
-        // subscriptions.removeAll()
-        firstEvent = Event.loading
         events = []
         self.netState = .ready
     }
 
     init() {
-        decoder.dateDecodingStrategy = .iso8601
+//        decoder.dateDecodingStrategy = .iso8601
+        encoder.dateEncodingStrategy = .iso8601
+    }
+    
+    public func jwtHeader() throws -> String {
+        guard let token = jwtToken else {
+            let failureMessage = "Need to be signed in"
+            self.logger.critical("\(failureMessage)")
+            throw CoffeeErrors.invalid(reason: failureMessage)
+        }
+        return "Bearer \(token)"
     }
 }
 
 // MARK: -- User
 extension NetworkService {
     
-    private struct LoginResponse: Codable {
+    private struct LoginSuccessResponse: Codable {
         let message: String
-        let error: String?
-        let token: JWTToken?
+        let token: JWTToken
         
         enum CodingKeys: String, CodingKey {
             case message
-            case error
             case token = "jwt-token"
         }
     }
     
-    func signIn(_ email: String, password: String) async -> Result<String, Error> {
+    private struct LoginFailureResponse: Codable {
+        let reason: String
+        let error: Bool
+    }
+    
+    private func handleServerError(_ data: Data) -> CoffeeErrors {
+        let loginResponse = try? decoder.decode(LoginFailureResponse.self, from: data)
+        return CoffeeErrors.syncError(reason: loginResponse?.reason ?? "Server error")
+    }
+    
+    func signIn(_ email: String, password: String) async -> Result<String, CoffeeErrors> {
         let loginURL = URL.apiV2(with: "users", "login")
         var loginRequest = URLRequest(url: loginURL)
         loginRequest.httpMethod = "POST"
@@ -90,17 +106,23 @@ extension NetworkService {
         
         do {
             let (loginData, _) = try await session.data(for: loginRequest)
-            let loginResponse = try decoder.decode(LoginResponse.self, from: loginData)
-            guard let token = loginResponse.token else {
-                throw CoffeeErrors.syncError(reason: loginResponse.message)
+            guard let loginResponse = try? decoder.decode(LoginSuccessResponse.self, from: loginData) else {
+                return .failure(handleServerError(loginData))
             }
+            let token = loginResponse.token
             self.jwtToken = token
-            try KeychainService.shared.saveString(token, for: .jwtToken)
-            try KeychainService.shared.saveString(email, for: .email)
-            try KeychainService.shared.saveString(password, for: .password)
+            do {
+                try KeychainService.shared.saveString(token, for: .jwtToken)
+                try KeychainService.shared.saveString(email, for: .email)
+                try KeychainService.shared.saveString(password, for: .password)
+            } catch {
+                logger.critical("\(error.localizedDescription)")
+                return .failure(CoffeeErrors.syncError(reason: error.localizedDescription))
+            }
             logger.info("Saved credentials to Keychain")
         } catch {
-            return .failure(error)
+            let undefinedError = CoffeeErrors.syncError(reason: error.localizedDescription)
+            return .failure(undefinedError)
         }
         return .success("Signed in")
     }
@@ -213,190 +235,57 @@ extension NetworkService {
         logger.info("Done downloading all events")
         return allEventsSet.sorted()
     }
-}
-
-
-/**
-// MARK: - DEPRECATED Combine Groups
-extension NetworkService {
-    @available(*, deprecated, renamed: "loadAllEvents(for:)", message: "Combine is deprecated, please use async/await instead")
-    func fetchNetworkGroups() -> AnyPublisher<[InterestGroup], Error> {
-        session.dataTaskPublisher(for: URL.groupsURL)
-            .debounce(for: .seconds(5), scheduler: RunLoop.current)
-            .retry(2)
-            .map { $0.data }
-            .decode(type: [InterestGroup].self, decoder: decoder)
-            .eraseToAnyPublisher()
-    }
-
-    func handle(_ completion: Subscribers.Completion<Error>) {
-        switch completion {
-        case .failure(let error):
-            self.logger.critical("Network Error \n\(error.localizedDescription)")
-            self.netState = .failed(error)
-        case .finished:
-            self.logger.debug("Group Fetch Complete")
-            self.netState = .ready
-        }
-    }
-
-    @available(*, deprecated, renamed: "loadAllEvents(for:)", message: "Combine is deprecated, please use async/await instead")
-    func loadGroups() {
-        netState = .loading
-        logger.info("Loading all groups")
-        fetchNetworkGroups()
-            .receive(on: RunLoop.main)
-            .sink { [weak self] completion in
-                guard let self = self else {
-                    self?.logger.error("loadGroup() no self")
-                    self?.netState = .failed(NetworkError.unknownError)
-                    return
-                }
-                self.handle(completion)
-            } receiveValue: { netGroups in
-                self.logger.debug("fetched groups \n\(netGroups.count)")
-                self.groups = netGroups
-            }
-            .store(in: &subscriptions)
-    }
-
-    func groupForID(_ uid: UUID?) -> InterestGroup? {
-        guard let uid else { return nil }
-        return groups.first { group in
-            group.id == uid
-        }
-    }
-}
-*/
-
-// MARK: - DEPRECATED Combine Events
-/**
- extension NetworkService {
-
-//    private func downloadAllEvents(for group: InterestGroup) async throws -> [Event] {
-//        let (data, _) = try await session.data(from: group.eventsURL)
-//        let events = try decoder.decode([Event].self, from: data)
-//        return events
-//    }
-
     
-
-    @available(*, deprecated, renamed: "loadAllEvents(for:)", message: "This will be removed soon")
-    func futureEvents(for group: InterestGroup) async throws -> [Event] {
-        self.events = try await loadEvents(for: group)
-        let now = Date()
-        let futureEvents = self.events.filter { event in
-            guard let endDate = event.endAt else {
-                return false
-            }
-            return endDate > now
+    public func createEvent(_ event: Event) async -> Result<Event, CoffeeErrors> {
+        guard let jwtHeader = try? jwtHeader() else {
+            return .failure(CoffeeErrors.signInRequired)
         }
-        return futureEvents
-    }
-
-    @available(*, deprecated, renamed: "loadAllEvents(for:)", message: "Combine is deprecated, use async/await instead")
-    func loadAllEvents(for group: InterestGroup) -> AnyPublisher<[Event], Error> {
-        let url = group.eventsURL
         netState = .loading
-        return session.dataTaskPublisher(for: url)
-            .retry(5)
-            .map {
-                $0.data
-            }
-            .decode(type: [Event].self, decoder: decoder)
-            .eraseToAnyPublisher()
-    }
-
-    @available(*, deprecated, renamed: "loadEvents(for:)", message: "Combine is deprecated, use async/await instead")
-    func loadEvents(for group: InterestGroup) {
-        loadAllEvents(for: group)
-            .receive(on: RunLoop.main)
-            .sink { [weak self] completion in
-                guard let self = self else {
-                    self?.logger.error("loadEvents() - no self")
-                    self?.netState = .failed(NetworkError.unknownError)
-                    return
+        logger.info("Creating event: \(event.name)")
+        do {
+            let eventData = try encoder.encode(event)
+            var createEventRequest = URLRequest(url: URL.apiV2(with: "events"))
+            createEventRequest.httpMethod = "POST"
+            createEventRequest.setValue(jwtHeader, forHTTPHeaderField: "Authorization")
+            createEventRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            createEventRequest.httpBody = eventData
+            let (result, response) = try await session.data(for: createEventRequest)
+            if let loginFailureResponse = try? decoder.decode(LoginFailureResponse.self, from: result) {
+                self.jwtToken = nil
+                if loginFailureResponse.reason.contains("exp claim verification failed: expired") {
+                    // Fetch the credentials from the KeychainService and attempt a login
                 }
-                switch completion {
-                case .failure(let error):
-                    self.logger.critical("Network Error\n\(error.localizedDescription)")
-                    self.netState = .failed(error)
-                    self.handle([Event.error])
-                case .finished:
-                    self.logger.info("Events fetch complete")
-                    self.netState = .ready
-                }
-            } receiveValue: { netEvents in
-                self.logger.info("Events loaded: \(netEvents.count)")
-                self.events = netEvents
+                return .failure(.syncError(reason: loginFailureResponse.reason))
             }
-            .store(in: &subscriptions)
-    }
-
-    @available(*, deprecated, renamed: "handle(_:)", message: "Don’t do this")
-    private func handle(_ events: [Event]) {
-        let now = Date()
-        self.upcomingEvents = []
-        self.pastEvents = []
-        var activeEvents = [Event]()
-        events.forEach { event in
-            guard let endDate = event.endAt else {
-                return
+            if let httpResponse = response as? HTTPURLResponse,
+                (200...299).contains(httpResponse.statusCode) == false {
+                return .failure(CoffeeErrors.syncError(reason: result.debugDescription))
             }
-            if endDate > now {
-                activeEvents.append(event)
-            } else {
-                self.pastEvents.append(event)
-            }
+            let serverEvent = try decoder.decode(Event.self, from: result)
+            return .success(serverEvent)
+        } catch {
+            self.logger.critical("\(String(describing: error))")
+            self.netState = .failed(error)
+            let errorThing = CoffeeErrors.syncError(reason: error.localizedDescription)
+            return .failure(errorThing)
         }
-        #if TESTACTIVE
-        let evt = testEvent()
-        activeEvents.append(evt)
-        #endif
-        self.upcomingEvents = activeEvents.sorted(by: sortEvents)
-        updateMostRecent()
-    }
-
-    // TODO: This is not the way
-    @available(*, deprecated, renamed: "filter", message: "Don’t do this")
-    private func updateMostRecent() {
-        if !upcomingEvents.isEmpty {
-            let nextEvent = upcomingEvents.sorted(orderedBy: .oldestFirst).first!
-            nextEvent.saveAsMostRecent()
-        } else if let lastEvent = pastEvents.first {
-            lastEvent.saveAsMostRecent()
-        } else {
-            Event.empty.saveAsMostRecent()
-        }
-    }
-
-    private func sortEvents(aVent: Event, bVent: Event) -> Bool {
-        guard let aStart = aVent.startAt,
-              let bStart = bVent.startAt else {
-                  return true
-              }
-        return aStart < bStart
     }
 }
-*/
 
 #if DEBUG
 func testEvent(_ isNearFuture: Bool = false) -> Event {
-    let location = Location(latitude: Double(37.789004663475026),
+    let location = Location(title: "Test Location", latitude: Double(37.789004663475026),
                                    longitude: Double(-122.3970252426277))
     let imageURLString = "https://fastly.4sqi.net/img/general/1440x1920/"
         + "1813137_VPYk5iqnExTrW9lEMbbSy2WDS6P-lbOkpqsy5KE2sSI.jpg"
     let imgURL = URL(string: imageURLString)!
     let date = isNearFuture ? Date().advanced(by: 40_000) : Date().advanced(by: -20_000)
     let event = Event(id: UUID(),
-                      groupID: UUID(),
-                      name: "Test Event Here",
-                      imageURL: imgURL,
+                      name: "Test Event Here", groupID: UUID(),
+                      venue: Venue(name: "Salesforce Park",
+                                   location: location), imageURL: imgURL,
                       startAt: date,
                       endAt: date.advanced(by: 720),
-                      venue: Venue(name: "Salesforce Park",
-                                   location: location),
-                      venueID: nil,
                 )
     return event
 }

@@ -6,5 +6,7 @@
 //
 
 enum CoffeeErrors: Error {
+    case signInRequired
     case syncError(reason: String)
+    case invalid(reason: String)
 }
