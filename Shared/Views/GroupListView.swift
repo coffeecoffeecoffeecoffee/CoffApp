@@ -44,7 +44,7 @@ struct GroupListView: View {
                         predicate: #Predicate { $0.groupID == group.id }
                     )
                     let existingModels = try bgContext.fetch(existingEventsDescriptor)
-                    var existingByID: [UUID: EventModel] = Dictionary(
+                    let existingByID: [UUID: EventModel] = Dictionary(
                         uniqueKeysWithValues: existingModels.map { ($0.id, $0) }
                     )
 
