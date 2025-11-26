@@ -1,22 +1,25 @@
-import SwiftUI
+import Foundation
+import Observation
+import SwiftData
 
-class UserProfile: ObservableObject {
-    @Published private(set) var events: [Event] = []
-    @Published private(set) var newEvents: [Event] = []
-    @Published private(set) var filteredEvents = [Event]()
-    @Published private(set) var upcomingEvents: [Event] = []
-    @Published private(set) var pastEvents: [Event] = []
-    @Published private(set) var hasGroups: Bool = false
-    @Published var queryString: String = "" {
+@Observable
+final class UserProfile {
+    private(set) var events: [Event] = []
+    private(set) var newEvents: [Event] = []
+    private(set) var filteredEvents = [Event]()
+    private(set) var upcomingEvents: [Event] = []
+    private(set) var pastEvents: [Event] = []
+    private(set) var hasGroups: Bool = false
+    var queryString: String = "" {
         didSet {
             let newEvents = try? events.matching(term: queryString)
             filteredEvents = newEvents ?? []
         }
     }
 
-    @Published private(set) var groupIDs: Set<UUID> = []
-    @AppStorage("encoded_group_ids", store: .sharedSuite) private var encodedGroupIDs: Data?
-    @AppStorage("saved_events", store: .sharedSuite) private var savedEvents: Data?
+    private(set) var groupIDs: Set<UUID> = []
+    private var encodedGroupIDs: Data?
+    private var savedEvents: Data?
     
     private var net: NetworkServicing
     private let encoder = JSONEncoder()
@@ -30,6 +33,70 @@ class UserProfile: ObservableObject {
 
 // MARK: - Data Handling & Persistence
 extension UserProfile {
+    public func storeEvents(for groups: [InterestGroup], modelContext: ModelContext) async throws {
+        try await withThrowingTaskGroup(of: Void.self) { taskGroup in
+            for group in groups {
+                taskGroup.addTask { [self, modelContext] in
+                    // Create a background context per task for thread safety
+                    let bgContext = ModelContext(modelContext.container)
+                    bgContext.autosaveEnabled = false
+
+                    // Fetch (or create) the InterestGroupModel by id
+                    let groupDescriptor = FetchDescriptor<InterestGroupModel>(
+                        predicate: #Predicate { $0.id == group.id }
+                    )
+
+                    let groupModel: InterestGroupModel
+                    if let existing = try bgContext.fetch(groupDescriptor).first {
+                        groupModel = existing
+                    } else {
+                        let newModel = InterestGroupModel(id: group.id,
+                                                          name: group.name,
+                                                          imageURL: group.imageURL)
+                        bgContext.insert(newModel)
+                        groupModel = newModel
+                    }
+
+                    // Download all events for this group
+                    let fetchedEvents = try await net.loadEvents(for: group)
+
+                    // Fetch existing EventModel instances for this group to upsert
+                    let existingEventsDescriptor = FetchDescriptor<EventModel>(
+                        predicate: #Predicate { $0.groupID == group.id }
+                    )
+                    let existingModels = try bgContext.fetch(existingEventsDescriptor)
+                    let existingByID: [UUID: EventModel] = Dictionary(
+                        uniqueKeysWithValues: existingModels.map { ($0.id, $0) }
+                    )
+
+                    // Upsert and maintain relationship
+                    for event in fetchedEvents {
+                        if let model = existingByID[event.id] {
+                            if model.name != event.name { model.name = event.name }
+                            if model.imageURL != event.imageURL { model.imageURL = event.imageURL }
+                            if model.startAt != event.startAt { model.startAt = event.startAt }
+                            if model.endAt != event.endAt { model.endAt = event.endAt }
+                            if model.venue != event.venue { model.venue = event.venue }
+                            if model.groupID != group.id { model.groupID = group.id }
+                            if model.group?.id != groupModel.id { model.group = groupModel }
+                        } else {
+                            let newModel = EventModel(event)
+                            newModel.groupID = group.id
+                            newModel.group = groupModel
+                            bgContext.insert(newModel)
+                        }
+                    }
+
+                    // Persist changes for this group
+                    try bgContext.save()
+                }
+            }
+
+            // Wait for all tasks to complete or throw
+            try await taskGroup.waitForAll()
+        }
+    }
+    
     private func save() throws {
         encodedGroupIDs = try encoder.encode(groupIDs)
         savedEvents = try? encoder.encode(events)

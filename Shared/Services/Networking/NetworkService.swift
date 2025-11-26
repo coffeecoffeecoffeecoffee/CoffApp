@@ -180,8 +180,13 @@ extension NetworkService {
             for group in groups {
                 taskGroup.addTask { [weak self] in
                     guard let self else { return (group, []) }
-                    let events = try await self.loadEvents(for: group)
-                    return (group, events)
+                    do {
+                        let events = try await self.loadEvents(for: group)
+                        return (group, events)
+                    } catch {
+                        logger.error("Failed to load events for \(group): \(String(describing: error))")
+                        return (group, [])
+                    }
                 }
             }
 
@@ -207,6 +212,8 @@ extension NetworkService {
             let evtGroups = groupIDs.map { uid in
                 InterestGroup(id: uid, name: uid.uuidString, imageURL: nil)
             }
+            let newDecoder = JSONDecoder()
+            newDecoder.dateDecodingStrategy = .iso8601
             evtGroups.forEach { group in
                 taskGroup.addTask { [weak self] in
                     guard let self else { return [] }
@@ -214,9 +221,9 @@ extension NetworkService {
                     do {
                         let groupEventsURL = group.eventsURL
                         let (groupEventsData, _) = try await session.data(from: groupEventsURL)
-                        let groupEvents = try decoder.decode([Event].self,
+                        let groupEvents = try newDecoder.decode([Event].self,
                                                              from: groupEventsData)
-                        logger.info("Fetched events for: \(group.name)")
+                        logger.info("Fetched events for: \(group.name): \(groupEvents.count)")
                         return groupEvents
                     } catch {
                         #if DEBUG
@@ -264,7 +271,8 @@ extension NetworkService {
                 (200...299).contains(httpResponse.statusCode) == false {
                 return .failure(CoffeeErrors.syncError(reason: result.debugDescription))
             }
-            let serverEvent = try decoder.decode(Event.self, from: result)
+            // Server returns Int-based timestamps
+            let serverEvent = try JSONDecoder().decode(Event.self, from: result)
             return .success(serverEvent)
         } catch {
             self.logger.critical("\(String(describing: error))")

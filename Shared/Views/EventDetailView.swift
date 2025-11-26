@@ -78,30 +78,27 @@ struct EventDetailView: View {
                                endPoint: UnitPoint(x: 1, y: 1)
                               )
             )
-//            .cornerRadius(10)
             .shadow(radius: focusState.inFocus ? 10 : 0)
         }
     }
 }
 
-#if DEBUG
-struct EventDetailView_Previews: PreviewProvider {
-    static let location = Location(title: "Preview Location", latitude: Double(37.789004663475026),
-                                   longitude: Double(-122.3970252426277))
-    // swiftlint:disable line_length
-    static let imgURL = URL(string: "https://coffeecoffee.world/default-coffee.webp")!
-    // swiftlint:enable line_length
-    static var previews: some View {
-        let event = Event(id: UUID(),
-                          name: "Test Event Here",
-                          groupID: UUID(),
-                          venue: Venue(name: "Salesforce Park", location: location),
-                          imageURL: imgURL,
-                          startAt: Date(),
-                          endAt: Date()
-        )
-        EventDetailView(event)
-            .frame(width: 320.0, height: 240.0, alignment: .center)
-    }
+#Preview {
+    let location = Location(title: "Preview Location",
+                            latitude: Double(37.789004663475026),
+                            longitude: Double(-122.3970252426277)
+    )
+    let imgURL = URL(string: "https://coffeecoffee.world/default-coffee.webp")!
+    let event = Event(id: UUID(),
+                      name: "Test Event Here",
+                      groupID: UUID(),
+                      venue: Venue(
+                        name: "Salesforce Park",
+                        location: location
+                      ),
+                      imageURL: imgURL,
+                      startAt: Date(),
+                      endAt: Date()
+    )
+    EventDetailView(event)
 }
-#endif

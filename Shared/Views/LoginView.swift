@@ -9,56 +9,58 @@ import SwiftUI
 
 struct LoginView: View {
     @Environment(\.dismiss) var dismiss
-    @State private var viewModel = ProfileViewModel(net: NetworkService.shared)
+    @Binding var profile: ProfileViewModel
     
     var body: some View {
         NavigationStack {
             Form {
                 #if os(iOS)
-                TextField("Email", text: $viewModel.email)
+                TextField("Email", text: $profile.email)
                     .textContentType(.emailAddress)
                     .keyboardType(.emailAddress)
                     .textInputAutocapitalization(.never)
                     .autocorrectionDisabled(true)
                 #else
-                TextField("Email", text: $viewModel.email)
+                TextField("Email", text: $profile.email)
                 #endif
-                SecureField("Password", text: $viewModel.password)
+                SecureField("Password", text: $profile.password)
             }
             .navigationTitle("Sign In")
             .toolbar {
                 if #available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *) {
                     Button(role: .confirm) {
-                        viewModel.signIn()
+                        profile.signIn()
                     }
                 } else {
                     Button {
-                        viewModel.signIn()
+                        profile.signIn()
                     } label: {
                         Image(systemName: "checkmark")
                     }
                 }
             }
             .onSubmit {
-                viewModel.signIn()
+                profile.signIn()
             }
-            .onChange(of: viewModel.isLoggedIn) { _, new in
+            .onChange(of: profile.isLoggedIn) { _, new in
                 if new {
                     dismiss()
                 }
             }
-            .alert("Oops", isPresented: $viewModel.showAlert) {
+            .alert("Oops", isPresented: $profile.showAlert) {
                 Button("OK") {
-                    viewModel.showAlert = false
+                    profile.showAlert = false
                 }
                 .buttonStyle(.borderedProminent)
             } message: {
-                Text(viewModel.statusMessage)
+                Text(profile.statusMessage)
             }
         }
     }
 }
 
 #Preview {
-    LoginView()
+    @Previewable
+    @State var profile = ProfileViewModel(net: PreviewNetworkService())
+    LoginView(profile: $profile)
 }

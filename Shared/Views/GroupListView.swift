@@ -4,7 +4,7 @@ import SwiftUI
 import SwiftData
 
 struct GroupListView: View {
-    @EnvironmentObject var profile: UserProfile
+    @State private var profile: UserProfile
     @Environment(\.modelContext) private var modelContext
     @Query(sort: [SortDescriptor<InterestGroupModel>(\.name, order: .forward)])
     private var groups: [InterestGroupModel]
@@ -13,6 +13,7 @@ struct GroupListView: View {
     
     init(net: NetworkServicing) {
         self.net = net
+        self.profile = UserProfile(net: net)
     }
     
     private func storeEvents(for groups: [InterestGroup]) async throws {
@@ -121,8 +122,7 @@ struct GroupListView: View {
 
 #Preview {
     @Previewable
-    @State var netService = PreviewNetworkService()
-    GroupListView(net: netService)
-        .environmentObject(UserProfile(net: netService))
+    var pns = PreviewNetworkService()
+    GroupListView(net: pns)
 }
 

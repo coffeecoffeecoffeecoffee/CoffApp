@@ -25,7 +25,7 @@ final class ProfileViewModel {
     
     private let net: NetworkServicing
     
-    init(net: NetworkService) {
+    init(net: NetworkServicing) {
         self.net = net
     }
     

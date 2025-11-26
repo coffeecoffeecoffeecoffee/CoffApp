@@ -2,10 +2,11 @@ import SwiftUI
 
 @main
 struct TheCoffeeAppClipApp: App {
-    private let net = NetworkService()
+    @State private var profile = UserProfile(net: NetworkService())
+    
     var body: some Scene {
         WindowGroup {
-            EventListView(net: net)
+            EventListView(profile: $profile)
         }
     }
 }

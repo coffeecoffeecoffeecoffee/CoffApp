@@ -58,7 +58,6 @@ struct TheCoffeeWrist: App {
                                     showGroups.toggle()
                                 }
                                 GroupListView(net: net)
-                                    .environmentObject(profile)
                             }
                         }
                     }

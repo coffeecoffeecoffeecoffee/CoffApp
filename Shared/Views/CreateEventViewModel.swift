@@ -18,9 +18,10 @@ final class CreateEventViewModel {
     public var selectedGroup: InterestGroup?
     public var groups = [InterestGroup]()
     
-    private let net = NetworkService.shared
+    private let net: NetworkServicing
     
-    init() {
+    init(net: NetworkServicing) {
+        self.net = net
         startAt = .now.adding(2, component: .day)?.rounded(to: .hour)
             ?? .now.advanced(by: 120).rounded()
         endAt = .now

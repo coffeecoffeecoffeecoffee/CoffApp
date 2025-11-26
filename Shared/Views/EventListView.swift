@@ -4,17 +4,13 @@ import SwiftUI
 
 struct EventListView: View {
     @Environment(\.scenePhase) private var scenePhase
-    @State private var profile: UserProfile
+    @Binding var profile: UserProfile
     internal let logger = Logger(label: "science.pixel.espresso.eventlistview")
     @State private var showingPopover = false
     @Namespace private var namespace
     @State private var groups = [InterestGroup]()
     @State private var status: CoffeeStatus = .pristine
     
-    init(net: NetworkServicing) {
-        self.profile = .init(net: net)
-    }
-
     var body: some View {
         ZStack(alignment: .topTrailing) {
             GeometryReader { geo in
@@ -174,13 +170,6 @@ struct EventListView: View {
                         }
                 }
             }
-            //            } else {
-            //                Button {
-            //                    showingPopover = true
-            //                } label: {
-            //                    Image(systemName: "line.3.horizontal.decrease")
-            //                }
-            //            }
         }
         .onReceive(NotificationCenter.default.publisher(for: .init("science.pixel.espresso.refresh-view"))) { _ in
             Task {
@@ -215,6 +204,6 @@ struct EventListView: View {
 
 #Preview {
     @Previewable
-    @State var previewNet = PreviewNetworkService()
-    EventListView(net: previewNet)
+    @State var previewProfile = UserProfile(net: PreviewNetworkService())
+    EventListView(profile: $previewProfile)
 }

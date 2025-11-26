@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct CreateEventView: View {
+    @Environment(\.dismiss) var dismiss
     @Binding var profileViewModel: ProfileViewModel
     @State private var showSignInForm: Bool = false
     @State private var showAlert: Bool = false
     @State private var statusMessage = "Ready"
-    @State private var createEventViewModel = CreateEventViewModel()
+    @Binding var createEventViewModel: CreateEventViewModel
     
     private func handleCreateEvent() {
         Task {
@@ -20,6 +21,7 @@ struct CreateEventView: View {
             switch result {
             case .success(let event):
                 statusMessage = "Created: \(event.name)"
+                dismiss()
             case .failure(let failure):
                 switch failure {
                 case .signInRequired:
@@ -47,11 +49,11 @@ struct CreateEventView: View {
             InterestGroupSelectView(createEventViewModel: $createEventViewModel)
         }
         .sheet(isPresented: $showSignInForm) {
-            LoginView()
+            LoginView(profile: $profileViewModel)
         }
         .alert(statusMessage, isPresented: $showAlert) {
             Button {
-                print("ok")
+                print("CreateEventView alert dismissed")
             } label: {
                 Text("OK")
             }
@@ -81,6 +83,13 @@ struct CreateEventView: View {
 
 #Preview {
     @Previewable
-    @State var previewProfileViewModel = ProfileViewModel(net: .shared)
-    CreateEventView(profileViewModel: $previewProfileViewModel)
+    @State var previewProfileViewModel = ProfileViewModel(net: PreviewNetworkService())
+    
+    @Previewable
+    @State var createEventViewModel = CreateEventViewModel(net: PreviewNetworkService())
+    
+    CreateEventView(
+        profileViewModel: $previewProfileViewModel,
+        createEventViewModel: $createEventViewModel
+    )
 }
