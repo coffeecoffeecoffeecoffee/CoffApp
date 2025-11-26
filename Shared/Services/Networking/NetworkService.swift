@@ -219,6 +219,9 @@ extension NetworkService {
                         logger.info("Fetched events for: \(group.name)")
                         return groupEvents
                     } catch {
+                        #if DEBUG
+                        print(String(describing: error))
+                        #endif
                         self.logger.error(.init(stringLiteral: error.localizedDescription))
                         return []
                     }

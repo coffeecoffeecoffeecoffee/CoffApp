@@ -19,7 +19,9 @@ struct InterestGroupSelectView: View {
         } label: {
             Text("Group")
         }
+        #if !os(macOS)
         .pickerStyle(.navigationLink)
+        #endif
         .task {
             await createEventViewModel.fetchGroups()
         }

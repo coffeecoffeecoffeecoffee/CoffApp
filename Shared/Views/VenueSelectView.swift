@@ -20,7 +20,9 @@ struct VenueSelectView: View {
         } label: {
             Text("Venue")
         }
+        #if !os(macOS)
         .pickerStyle(.navigationLink)
+        #endif
         .task {
             await createEventViewModel.fetchVenues()
         }
