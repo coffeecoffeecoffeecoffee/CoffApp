@@ -132,8 +132,7 @@ final class CreateEventViewModel {
     public func fetchVenues() async {
         do {
             venues = try await net.loadVenues().compactMap { venue in
-                guard venue.name != nil,
-                        venue.id != nil,
+                guard venue.id != nil,
                       venue.location != nil
                 else {
                     return nil

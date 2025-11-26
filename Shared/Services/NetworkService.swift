@@ -54,7 +54,7 @@ final class NetworkService {
     }
 
     init() {
-//        decoder.dateDecodingStrategy = .iso8601
+        decoder.dateDecodingStrategy = .iso8601
         encoder.dateEncodingStrategy = .iso8601
     }
     

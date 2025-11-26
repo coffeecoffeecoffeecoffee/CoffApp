@@ -23,9 +23,10 @@ struct EventListView: View {
                         LazyVStack(alignment: .leading, spacing: 30) {
                             if !profile.hasGroups {
                                 HStack(alignment: .center) {
+                                    Spacer()
                                     StatusView(
                                         "No groups selected",
-                                        description: "Please choose some groups to find local events",
+                                        description: "Choose some groups to find local events",
                                         symbolName: "person.2"
                                     )
                                     .frame(height: geo.size.height * 0.85,
@@ -33,6 +34,7 @@ struct EventListView: View {
                                     #if os(macOS)
                                     .buttonStyle(.link)
                                     #endif
+                                    Spacer()
                                 }
                                 .padding(.horizontal)
                             } else if profile.queryString.isEmpty {
@@ -58,9 +60,10 @@ struct EventListView: View {
                                             symbolName: "calendar"
                                         )
                                         .foregroundColor(.secondary)
+                                        .padding()
                                     }
-                                    .padding()
-                                    .frame(height: geo.size.height,
+                                    .frame(width: geo.size.width,
+                                           height: geo.size.height,
                                            alignment: .center)
                                 }
                                 if profile.pastEvents.count > 0 {
