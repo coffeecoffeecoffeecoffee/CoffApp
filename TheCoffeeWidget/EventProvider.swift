@@ -4,11 +4,12 @@ import WidgetKit
 class EventProvider: TimelineProvider {
     typealias Entry = EventEntry
 
-    private var profile = UserProfile()
+    private var profile: UserProfile
     private let decoder: JSONDecoder
     private let logger = Logger(label: "science.pixel.espresso.eventprovider")
 
-    init() {
+    init(net: NetworkServicing) {
+        self.profile = UserProfile(net: net)
         decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
     }
@@ -39,8 +40,7 @@ class EventProvider: TimelineProvider {
                 logger.error(.init(stringLiteral: error.localizedDescription))
             }
             let event = profile.upcomingEvents.first ?? .empty
-            let entry = EventEntry(event,
-                                   date: event.startAt ?? Date().addingTimeInterval(-360))
+            let entry = EventEntry(event, date: event.startAt)
             completion(Timeline(entries: [entry], policy: .atEnd))
         }
     }

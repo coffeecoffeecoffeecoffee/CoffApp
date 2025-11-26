@@ -4,7 +4,6 @@ import SwiftUI
 // MARK: - Background Notifications
 extension CoffApp {
     func fetchNewEvents() async throws -> [Event] {
-        let userProfile = UserProfile()
         try await userProfile.sync()
         return userProfile.newEvents
     }

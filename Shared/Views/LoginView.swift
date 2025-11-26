@@ -14,16 +14,20 @@ struct LoginView: View {
     var body: some View {
         NavigationStack {
             Form {
+                #if os(iOS)
                 TextField("Email", text: $viewModel.email)
                     .textContentType(.emailAddress)
                     .keyboardType(.emailAddress)
                     .textInputAutocapitalization(.never)
                     .autocorrectionDisabled(true)
+                #else
+                TextField("Email", text: $viewModel.email)
+                #endif
                 SecureField("Password", text: $viewModel.password)
             }
             .navigationTitle("Sign In")
             .toolbar {
-                if #available(iOS 26.0, *) {
+                if #available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *) {
                     Button(role: .confirm) {
                         viewModel.signIn()
                     }
@@ -53,4 +57,8 @@ struct LoginView: View {
             }
         }
     }
+}
+
+#Preview {
+    LoginView()
 }

@@ -12,11 +12,12 @@ import Logging
 struct AppRootView: View {
     @Environment(\.modelContext) private var modelContext
     private let logger = Logger(label: "science.pixel.espresso.approot")
+    private let net = NetworkService()
 
     var body: some View {
         TabView {
             Tab {
-                EventListView()
+                EventListView(net: net)
             } label: {
                 Label("Events", systemImage: "cup.and.saucer.fill")
             }
@@ -28,8 +29,8 @@ struct AppRootView: View {
             }
 
             Tab(role: .search) {
-                GroupListView()
-                    .environmentObject(UserProfile())
+                GroupListView(net: net)
+                    .environmentObject(UserProfile(net: net))
             } label: {
                 Label("Search", systemImage: "magnifyingglass")
             }
@@ -42,7 +43,7 @@ struct AppRootView: View {
                 try PersistenceService.update(interestGroups: groups, modelContext: modelContext)
                 
                 // After groups are available, fetch all events for subscribed groups
-                let profile = UserProfile()
+                let profile = UserProfile(net: net)
                 try await profile.sync()
             } catch {
                 logger.error(.init(stringLiteral: error.localizedDescription))

@@ -6,10 +6,11 @@ import Intents
 struct TheCoffeeWidget: Widget {
     let kind: String = "The Coffee"
     @Environment(\.widgetFamily) var family
+    private let net = NetworkService()
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind,
-                            provider: EventProvider()) { entries in
+                            provider: EventProvider(net: net)) { entries in
             switch family {
             case .systemSmall:
                 Text("Small")

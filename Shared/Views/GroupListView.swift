@@ -8,9 +8,12 @@ struct GroupListView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: [SortDescriptor<InterestGroupModel>(\.name, order: .forward)])
     private var groups: [InterestGroupModel]
-    private let net = NetworkService.shared
-    
+    private let net: NetworkServicing
     private let logger = Logger(label: "GroupListView.logger")
+    
+    init(net: NetworkServicing) {
+        self.net = net
+    }
     
     private func storeEvents(for groups: [InterestGroup]) async throws {
         try await withThrowingTaskGroup(of: Void.self) { taskGroup in
@@ -116,12 +119,10 @@ struct GroupListView: View {
     }
 }
 
-#if DEBUG
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        GroupListView()
-            .environmentObject(UserProfile())
-    }
+#Preview {
+    @Previewable
+    @State var netService = PreviewNetworkService()
+    GroupListView(net: netService)
+        .environmentObject(UserProfile(net: netService))
 }
-#endif
 

@@ -2,7 +2,7 @@ import Foundation
 import Logging
 
 @Observable
-final class NetworkService {
+final class NetworkService: NetworkServicing {
     static let shared = NetworkService()
     
     private typealias JWTToken = String
@@ -290,4 +290,5 @@ func testEvent(_ isNearFuture: Bool = false) -> Event {
     return event
 }
 #endif
+
 

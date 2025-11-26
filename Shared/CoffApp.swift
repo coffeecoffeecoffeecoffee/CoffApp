@@ -6,8 +6,13 @@ import BackgroundTasks
 @main
 struct CoffApp: App {
     internal let logger = Logger(label: "science.pixel.espresso.coffapp")
+    private let net: NetworkService
+    let userProfile: UserProfile
 
     init() {
+        let net = NetworkService()
+        self.net = net
+        self.userProfile = UserProfile(net: net)
         URLCache.shared.memoryCapacity =  50_000_000
         URLCache.shared.diskCapacity =   500_000_000
     }

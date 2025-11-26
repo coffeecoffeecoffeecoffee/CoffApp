@@ -4,12 +4,16 @@ import SwiftUI
 
 struct EventListView: View {
     @Environment(\.scenePhase) private var scenePhase
-    @StateObject private var profile = UserProfile()
+    @State private var profile: UserProfile
     internal let logger = Logger(label: "science.pixel.espresso.eventlistview")
     @State private var showingPopover = false
     @Namespace private var namespace
     @State private var groups = [InterestGroup]()
     @State private var status: CoffeeStatus = .pristine
+    
+    init(net: NetworkServicing) {
+        self.profile = .init(net: net)
+    }
 
     var body: some View {
         ZStack(alignment: .topTrailing) {
@@ -209,10 +213,8 @@ struct EventListView: View {
     }
 }
 
-#if DEBUG
-    struct EventListView_Previews: PreviewProvider {
-        static var previews: some View {
-            EventListView()
-        }
-    }
-#endif
+#Preview {
+    @Previewable
+    @State var previewNet = PreviewNetworkService()
+    EventListView(net: previewNet)
+}

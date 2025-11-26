@@ -3,10 +3,15 @@ import SwiftUI
 
 @main
 struct TheCoffeeWrist: App {
-    @StateObject var profile = UserProfile()
+    private let net = NetworkService()
+    @State var profile: UserProfile
     let logger = Logger(label: "TheCoffeeWrist")
     @State private var showGroups: Bool = false
     @State private var path = NavigationPath()
+    
+    init() {
+        self.profile = .init(net: net)
+    }
 
     var body: some Scene {
         WindowGroup {
@@ -52,7 +57,7 @@ struct TheCoffeeWrist: App {
                                 Button("Done") {
                                     showGroups.toggle()
                                 }
-                                GroupListView()
+                                GroupListView(net: net)
                                     .environmentObject(profile)
                             }
                         }

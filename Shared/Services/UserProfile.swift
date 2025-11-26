@@ -18,12 +18,12 @@ class UserProfile: ObservableObject {
     @AppStorage("encoded_group_ids", store: .sharedSuite) private var encodedGroupIDs: Data?
     @AppStorage("saved_events", store: .sharedSuite) private var savedEvents: Data?
     
-    private var net = NetworkService.shared
-
+    private var net: NetworkServicing
     private let encoder = JSONEncoder()
     private let decoder = JSONDecoder()
 
-    init() {
+    init(net: NetworkServicing) {
+        self.net = net
         try? load()
     }
 }
