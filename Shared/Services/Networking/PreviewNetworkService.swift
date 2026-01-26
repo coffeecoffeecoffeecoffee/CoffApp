@@ -5,6 +5,7 @@
 //  Created by Michael Critz on 11/26/25.
 //
 
+import CoffeeKit
 import Foundation
 import Observation
 
@@ -14,10 +15,14 @@ final class PreviewNetworkService: NetworkServicing {
     var groups: [InterestGroup] = [
         InterestGroup(id: UUID(uuidString: "11111111-1111-4111-1111-111111111111")!,
                       name: "Coffee Lovers",
-                      imageURL: nil),
+                      imageURL: nil,
+                      short: "coffee-lovers",
+                     ),
         InterestGroup(id: UUID(uuidString: "22222222-2222-4222-2222-222222222222")!,
                       name: "Espresso Enthusiasts",
-                      imageURL: nil)
+                      imageURL: nil,
+                      short: "espressos",
+                     )
     ]
 
     var events: [Event] = [] {
@@ -38,7 +43,7 @@ final class PreviewNetworkService: NetworkServicing {
                           location: Location(title: "Main St.",
                                              latitude: 37.7749,
                                              longitude: -122.4194))
-        let imgURL = URL(string: "https://example.com/image.jpg")
+        let imgURL = "https://example.com/image.jpg"
 
         let sampleEvents: [Event] = [
             Event(id: UUID(),
@@ -100,8 +105,14 @@ final class PreviewNetworkService: NetworkServicing {
         return dict
     }
 
+    // TODO: Actually download stuff
     func downloadAllEvents(for groupIDs: Set<UUID>) async throws -> [Event] {
-        events.filter { groupIDs.contains($0.groupID) }
+        events.filter {
+            if let groupID = $0.groupID {
+                return groupIDs.contains(groupID)
+            }
+            return false
+        }
     }
 
     // Mutations

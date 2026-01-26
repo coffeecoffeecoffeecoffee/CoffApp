@@ -29,21 +29,24 @@ struct TheCoffeeWrist: App {
                                         .fill(Color.secondary.opacity(0.3))
                                         .frame(height: 150)
                                     VStack(alignment: .leading) {
-                                        if let eventImageURL = event.imageURL {
+                                        if let imgURLstring = event.imageURL,
+                                           let eventImageURL = URL(string: imgURLstring) {
                                             AsyncImagePhaseView(eventImageURL)
                                                 .frame(height: 100)
                                                 .clipped()
                                         }
                                         VStack(alignment: .leading) {
-                                            Text(event.venue.name)
-                                                .bold()
+                                            if let venue = event.venue {
+                                                Text(venue.name)
+                                                    .bold()
+                                            }
                                             Text(event.localizedStartTime(.short))
                                                 .font(.caption)
                                                 .foregroundColor(.secondary)
                                         }
                                         .padding(.horizontal, 10)
                                         .onTapGesture {
-                                            event.venue.getDirections()
+                                            event.venue?.getDirections()
                                         }
                                         Spacer()
                                     }

@@ -1,3 +1,4 @@
+import CoffeeKit
 import Foundation
 
 enum SortOrder {
@@ -5,7 +6,7 @@ enum SortOrder {
     case newestFirst
 }
 
-extension Collection where Element == Event {
+extension Collection where Element == EventPublic {
     func sorted(orderedBy sortOrder: SortOrder = .newestFirst) -> [Event] {
         let sorted = self.sorted { prev, this in
             let prevDate = prev.startAt
@@ -42,7 +43,7 @@ extension Collection where Element == Event {
         let regex = try Regex(term.lowercased())
         let matches = try self.filter { event in
             try regex.firstMatch(in: event.name.lowercased()) != nil
-            || regex.firstMatch(in: event.venue.name.lowercased()) != nil
+            || regex.firstMatch(in: event.venue?.name.lowercased() ?? "") != nil
             || regex.firstMatch(in: event.localizedStartTime().lowercased()) != nil
         }
         return matches.sorted()

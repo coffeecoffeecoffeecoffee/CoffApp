@@ -1,3 +1,4 @@
+import CoffeeKit
 import SwiftUI
 
 struct EventDetailView: View {
@@ -12,7 +13,10 @@ struct EventDetailView: View {
     var body: some View {
         TVFocusable(focusState) {
             ZStack(alignment: .bottomLeading) {
-                AsyncImagePhaseView(event.imageURL)
+                if let urlString = event.imageURL,
+                   let imageURL = URL(string: urlString) {
+                    AsyncImagePhaseView(imageURL)
+                }
                 LinearGradient(gradient:
                                 Gradient(colors: [
                                     .clear,
@@ -29,40 +33,41 @@ struct EventDetailView: View {
                             .foregroundColor(.white)
                             .scaleEffect(focusState.inFocus ? 1.03 : 1)
                             .shadow(radius: focusState.inFocus ? 3 : 0)
-                        Text(event.venue.name)
-                            .font(.body)
-                            .foregroundColor(.init(white: 0.8))
-                        Text(event.localizedStartTime())
-                            .font(.body)
-                            .bold()
-                            .foregroundColor(.init(white: 0.8))
-                        if event.venue.location != nil
-                            && RuntimeOS.current != .tvOS {
-                            HStack(alignment: .firstTextBaseline, spacing: 20) {
-                                Button(action: {
-                                    event.venue.getDirections()
-                                }, label: {
-                                    HStack {
-                                        Image(systemName: "arrow.triangle.turn.up.right.diamond.fill")
-                                            .padding(.vertical, 2)
-                                        Text("Directions")
-                                    }
-                                })
-                                .buttonStyle(RoundFilledButtonStyle(color: .blue))
-                                .transition(.scale(scale: 0.2, anchor: .bottomLeading))
-                                // TODO: Share Link
-                                /**
-                                #if !os(tvOS)
-                                ShareLink(item: event.shareURL(),
-                                          subject: Text(event.name),
-                                          message: Text("\(event.venueName) at \(event.localizedStartTime())"))
-                                #endif
-                                 */
+                        if let venue = event.venue {
+                            Text(venue.name)
+                                .font(.body)
+                                .foregroundColor(.init(white: 0.8))
+                            Text(event.localizedStartTime())
+                                .font(.body)
+                                .bold()
+                                .foregroundColor(.init(white: 0.8))
+                            if venue.location != nil
+                                && RuntimeOS.current != .tvOS {
+                                HStack(alignment: .firstTextBaseline, spacing: 20) {
+                                    Button(action: {
+                                        venue.getDirections()
+                                    }, label: {
+                                        HStack {
+                                            Image(systemName: "arrow.triangle.turn.up.right.diamond.fill")
+                                                .padding(.vertical, 2)
+                                            Text("Directions")
+                                        }
+                                    })
+                                    .buttonStyle(RoundFilledButtonStyle(color: .blue))
+                                    .transition(.scale(scale: 0.2, anchor: .bottomLeading))
+                                    // TODO: Share Link
+                                    /**
+                                     #if !os(tvOS)
+                                     ShareLink(item: event.shareURL(),
+                                     subject: Text(event.name),
+                                     message: Text("\(event.venueName) at \(event.localizedStartTime())"))
+                                     #endif
+                                     */
+                                }
+                                .fontWeight(.semibold)
+                                .foregroundColor(.white)
                             }
-                            .fontWeight(.semibold)
-                            .foregroundColor(.white)
                         }
-
                     }
                     .padding(.horizontal, 20)
                     .padding(.bottom, 20)
@@ -96,7 +101,7 @@ struct EventDetailView: View {
                         name: "Salesforce Park",
                         location: location
                       ),
-                      imageURL: imgURL,
+                      imageURL: nil,
                       startAt: Date(),
                       endAt: Date()
     )

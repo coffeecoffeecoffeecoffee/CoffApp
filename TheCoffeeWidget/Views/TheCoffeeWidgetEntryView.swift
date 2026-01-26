@@ -20,8 +20,10 @@ struct TheCoffeeWidgetEntryView: View {
                                            saturation: 0.7,
                                            brightness: 2.0))
                     .font(.caption2)
-                Text(entry.event.venue.name)
-                    .font(.body)
+                if let venue = entry.event.venue {
+                    Text(venue.name)
+                        .font(.body)
+                }
                 Text(entry.event.localizedStartTime(.short))
                     .font(.caption)
                     .foregroundColor(.init(hue: 0.9,
@@ -42,7 +44,10 @@ struct TheCoffeeWidgetEntryView: View {
                 eventImage
                     .centerCropped()
             } else {
-                AsyncImagePhaseView(entry.event.imageURL)
+                if let imgURLstring = entry.event.imageURL,
+                   let imgURL = URL(string: imgURLstring) {
+                    AsyncImagePhaseView(imgURL)
+                }
             }
             LinearGradient(gradient:
                             Gradient(colors: [

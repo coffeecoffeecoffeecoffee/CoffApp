@@ -1,3 +1,4 @@
+import CoffeeKit
 import Foundation
 import Observation
 import SwiftData
@@ -36,6 +37,7 @@ extension UserProfile {
     public func storeEvents(for groups: [InterestGroup], modelContext: ModelContext) async throws {
         try await withThrowingTaskGroup(of: Void.self) { taskGroup in
             for group in groups {
+                guard let groupID = group.id else { continue }
                 taskGroup.addTask { [self, modelContext] in
                     // Create a background context per task for thread safety
                     let bgContext = ModelContext(modelContext.container)
@@ -43,16 +45,18 @@ extension UserProfile {
 
                     // Fetch (or create) the InterestGroupModel by id
                     let groupDescriptor = FetchDescriptor<InterestGroupModel>(
-                        predicate: #Predicate { $0.id == group.id }
+                        predicate: #Predicate { $0.id == groupID }
                     )
 
                     let groupModel: InterestGroupModel
                     if let existing = try bgContext.fetch(groupDescriptor).first {
                         groupModel = existing
                     } else {
-                        let newModel = InterestGroupModel(id: group.id,
+                        let newModel = InterestGroupModel(id: groupID,
                                                           name: group.name,
-                                                          imageURL: group.imageURL)
+                                                          imageURL: group.imageURL,
+                                                          short: group.short
+                        )
                         bgContext.insert(newModel)
                         groupModel = newModel
                     }
@@ -60,9 +64,12 @@ extension UserProfile {
                     // Download all events for this group
                     let fetchedEvents = try await net.loadEvents(for: group)
 
+                    guard let groupID = group.id else {
+                        throw CoffeeErrors.invalid(reason: "No id for group: \(group.name)")
+                    }
                     // Fetch existing EventModel instances for this group to upsert
                     let existingEventsDescriptor = FetchDescriptor<EventModel>(
-                        predicate: #Predicate { $0.groupID == group.id }
+                        predicate: #Predicate { $0.groupID == groupID }
                     )
                     let existingModels = try bgContext.fetch(existingEventsDescriptor)
                     let existingByID: [UUID: EventModel] = Dictionary(
@@ -71,17 +78,18 @@ extension UserProfile {
 
                     // Upsert and maintain relationship
                     for event in fetchedEvents {
-                        if let model = existingByID[event.id] {
+                        guard let id = event.id else { continue }
+                        if let model = existingByID[id] {
                             if model.name != event.name { model.name = event.name }
                             if model.imageURL != event.imageURL { model.imageURL = event.imageURL }
                             if model.startAt != event.startAt { model.startAt = event.startAt }
                             if model.endAt != event.endAt { model.endAt = event.endAt }
                             if model.venue != event.venue { model.venue = event.venue }
-                            if model.groupID != group.id { model.groupID = group.id }
+                            if model.groupID != group.id { model.groupID = groupID }
                             if model.group?.id != groupModel.id { model.group = groupModel }
                         } else {
-                            let newModel = EventModel(event)
-                            newModel.groupID = group.id
+                            guard let newModel = EventModel(event) else { continue }
+                            newModel.groupID = groupID
                             newModel.group = groupModel
                             bgContext.insert(newModel)
                         }
@@ -116,15 +124,21 @@ extension UserProfile {
         }
     }
 
-    func subscribedTo(_ group: InterestGroup) -> Bool {
-        self.groupIDs.contains(group.id)
+    func subscribedTo(_ group: InterestGroupRepresentable) throws -> Bool {
+        guard let groupID = group.id else {
+            throw CoffeeErrors.invalid(reason: "Group does not contain ID: \(group.name)")
+        }
+        return self.groupIDs.contains(groupID)
     }
 
-    func toggleGroup(_ group: InterestGroup) throws {
-        if subscribedTo(group) {
-            self.groupIDs.remove(group.id)
+    func toggleGroup(_ group: InterestGroupRepresentable) throws {
+        guard let groupID = group.id else {
+            throw CoffeeErrors.invalid(reason: "Group does not contain ID: \(group.name)")
+        }
+        if try subscribedTo(group) {
+            self.groupIDs.remove(groupID)
         } else {
-            self.groupIDs.insert(group.id)
+            self.groupIDs.insert(groupID)
         }
         self.hasGroups = !groupIDs.isEmpty
         try save()
@@ -164,9 +178,9 @@ extension UserProfile {
     /// - Returns: The `intersection of the server and user `InterestGroup.id`
     @discardableResult
     private func syncGroups() async throws -> Set<UUID> {
-        let netGroupIDs = try await net.loadGroups().map { $0.id }
+        let netGroupIDs: [UUID] = try await net.loadGroups().compactMap { $0.id }
         let userGroupIDs = groupIDs
-        groupIDs = userGroupIDs.intersection(netGroupIDs)
+        groupIDs = userGroupIDs.union(netGroupIDs)
         guard groupIDs.isEmpty == false else {
             throw CoffeeErrors.syncError(reason: "No groups available")
         }

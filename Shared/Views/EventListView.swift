@@ -1,6 +1,7 @@
 import BackgroundTasks
 import Logging
 import SwiftUI
+import SwiftData
 
 struct EventListView: View {
     @Environment(\.scenePhase) private var scenePhase
@@ -8,7 +9,8 @@ struct EventListView: View {
     internal let logger = Logger(label: "science.pixel.espresso.eventlistview")
     @State private var showingPopover = false
     @Namespace private var namespace
-    @State private var groups = [InterestGroup]()
+//    @State private var groups = [InterestGroup]()
+    @Query private var groups: [InterestGroupModel]
     @State private var status: CoffeeStatus = .pristine
     
     var body: some View {
@@ -130,7 +132,8 @@ struct EventListView: View {
                         group.name,
                         isOn: Binding(
                             get: {
-                                profile.subscribedTo(group)
+                                let isSubscribed = try? profile.subscribedTo(group)
+                                return isSubscribed ?? false
                             },
                             set: { _ in
                                 try? profile.toggleGroup(group)
@@ -145,13 +148,13 @@ struct EventListView: View {
                         .tint(.accentColor)
                         .glassEffect(.regular, in: .circle)
                         .padding()
-                        .task {
-                            do {
-                                groups = try await InterestGroup.fetchGroups()
-                            } catch {
-                                logger.error("\(String(describing: error))")
-                            }
-                        }
+//                        .task {
+//                            do {
+//                                groups = try await InterestGroup.fetchGroups()
+//                            } catch {
+//                                logger.error("\(String(describing: error))")
+//                            }
+//                        }
                 } else {
                     Image(systemName: "line.3.horizontal.decrease")
                         .padding()
@@ -161,13 +164,13 @@ struct EventListView: View {
                                 .fill(.thinMaterial)
                         }
                         .padding()
-                        .task {
-                            do {
-                                groups = try await InterestGroup.fetchGroups()
-                            } catch {
-                                logger.error("\(String(describing: error))")
-                            }
-                        }
+//                        .task {
+//                            do {
+//                                groups = try await InterestGroup.fetchGroups()
+//                            } catch {
+//                                logger.error("\(String(describing: error))")
+//                            }
+//                        }
                 }
             }
         }

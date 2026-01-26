@@ -1,3 +1,4 @@
+import CoffeeKit
 import MapKit
 
 extension Location {
@@ -9,7 +10,7 @@ extension Location {
         return MKPlacemark(coordinate: CLLocationCoordinate2DMake(lat, lon))
     }
 
-    func getDirections(_ name: String?) {
+    public func getDirections(_ name: String?) {
         guard let placemark = placeMark else { return }
         let mkLocation = MKMapItem(placemark: placemark)
         #if os(tvOS)

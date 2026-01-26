@@ -1,25 +1,22 @@
-import Foundation.NSUUID
+import CoffeeKit
+import Foundation
 
-struct Venue: Codable, Identifiable {
-    let id: UUID?
-    let name: String
-    let location: Location?
-    
-    init(id: UUID? = nil, name: String, location: Location?) {
-        self.id = id
-        self.name = name
-        self.location = location
-    }
-}
+public typealias Venue = VenuePublic
 
-extension Venue: Hashable {
-    static func == (lhs: Venue, rhs: Venue) -> Bool {
-        lhs.name == rhs.name
-    }
-}
+//struct Venue: VenueRepresentable, Codable, Identifiable {
+//    let id: UUID?
+//    let name: String
+//    let location: Location?
+//    
+//    init(id: UUID? = nil, name: String, location: Location?) {
+//        self.id = id
+//        self.name = name
+//        self.location = location
+//    }
+//}
 
 extension Venue {
-    func getDirections() {
+    public func getDirections() {
         location?.getDirections(name)
     }
 }

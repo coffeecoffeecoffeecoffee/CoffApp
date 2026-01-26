@@ -1,9 +1,8 @@
 import Foundation
 
 extension URL {
-    #if true
+    #if false
     static let baseURL = URL(string: "http://localhost:8080")!
-//    static let baseURL = URL(string: "https://coffeecoffee.world")!
     #else
     static let baseURL = URL(string: "https://www.coffeecoffeecoffee.coffee")!
     #endif

@@ -42,7 +42,10 @@ final class PersistenceService: ObservableObject {
         for newGroup in newGroups {
             let model = InterestGroupModel(id: newGroup.id,
                                            name: newGroup.name,
-                                           imageURL: newGroup.imageURL)
+                                           imageURL: newGroup.imageURL,
+                                           short: newGroup.short,
+                                           isArchived: newGroup.isArchived,
+            )
             modelContext.insert(model)
         }
 
@@ -61,7 +64,7 @@ final class PersistenceService: ObservableObject {
         var existing = try modelContext.fetch(descriptor)
 
         // Build incoming lookup and id set (defend against duplicate ids)
-        let incomingByID: [UUID: Event] = Dictionary(
+        let incomingByID: [UUID?: Event] = Dictionary(
             events.map { ($0.id, $0) },
             uniquingKeysWith: { first, _ in first }
         )
@@ -84,6 +87,7 @@ final class PersistenceService: ObservableObject {
 
         // Update existing or insert new events
         for (id, incoming) in incomingByID {
+            guard let id else { continue }
             if let model = existingByID[id] {
                 if model.groupID != groupID { model.groupID = groupID }
                 if model.name != incoming.name { model.name = incoming.name }
@@ -92,7 +96,7 @@ final class PersistenceService: ObservableObject {
                 if model.endAt != incoming.endAt { model.endAt = incoming.endAt }
                 if model.venue != incoming.venue { model.venue = incoming.venue }
             } else {
-                let newModel = EventModel(incoming)
+                guard let newModel = EventModel(incoming) else { continue }
                 newModel.groupID = groupID
                 modelContext.insert(newModel)
             }
@@ -121,13 +125,14 @@ final class PersistenceService: ObservableObject {
         )
 
         // Deduplicate incoming by id and upsert
-        let incomingByID: [UUID: Event] = Dictionary(
+        let incomingByID: [UUID?: Event] = Dictionary(
             events.map { ($0.id, $0) },
             uniquingKeysWith: { first, _ in first }
         )
 
         for (id, incoming) in incomingByID {
-            let targetGroupID = incoming.groupID
+            guard let id,
+                  let targetGroupID = incoming.groupID else { continue }
             if let model = existingByID[id] {
                 if model.groupID != targetGroupID { model.groupID = targetGroupID }
                 if model.name != incoming.name { model.name = incoming.name }
@@ -136,7 +141,7 @@ final class PersistenceService: ObservableObject {
                 if model.endAt != incoming.endAt { model.endAt = incoming.endAt }
                 if model.venue != incoming.venue { model.venue = incoming.venue }
             } else {
-                let newModel = EventModel(incoming)
+                guard let newModel = EventModel(incoming) else { continue }
                 newModel.groupID = targetGroupID
                 modelContext.insert(newModel)
             }

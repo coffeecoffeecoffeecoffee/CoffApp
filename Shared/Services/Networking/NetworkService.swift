@@ -1,3 +1,4 @@
+import CoffeeKit
 import Foundation
 import Logging
 
@@ -165,7 +166,7 @@ extension NetworkService {
 // MARK: -- Async Events
 extension NetworkService {
     public func loadEvents(for group: InterestGroup) async throws -> [Event] {
-        let url = group.eventsURL
+        let url = try group.eventsURL()
         netState = .loading
         logger.info("Fetching events from \(url)")
         let (newEvents, _) = try await session.data(from: url)
@@ -210,7 +211,12 @@ extension NetworkService {
         let allEventsSet = try await withThrowingTaskGroup(of: [Event].self,
                                                     returning: Set<Event>.self) { taskGroup in
             let evtGroups = groupIDs.map { uid in
-                InterestGroup(id: uid, name: uid.uuidString, imageURL: nil)
+                InterestGroup(
+                    id: uid,
+                    name: uid.uuidString,
+                    imageURL: nil,
+                    short: uid.uuidString,
+                )
             }
             let newDecoder = JSONDecoder()
             newDecoder.dateDecodingStrategy = .iso8601
@@ -219,7 +225,9 @@ extension NetworkService {
                     guard let self else { return [] }
                     logger.info("Fetching events for \(group.name)")
                     do {
-                        let groupEventsURL = group.eventsURL
+                        guard let groupEventsURL = try? group.eventsURL() else {
+                            throw CoffeeErrors.invalid(reason: "No event URL for group: \(group.name)")
+                        }
                         let (groupEventsData, _) = try await session.data(from: groupEventsURL)
                         let groupEvents = try newDecoder.decode([Event].self,
                                                              from: groupEventsData)
@@ -287,9 +295,8 @@ extension NetworkService {
 func testEvent(_ isNearFuture: Bool = false) -> Event {
     let location = Location(title: "Test Location", latitude: Double(37.789004663475026),
                                    longitude: Double(-122.3970252426277))
-    let imageURLString = "https://fastly.4sqi.net/img/general/1440x1920/"
+    let imgURL = "https://fastly.4sqi.net/img/general/1440x1920/"
         + "1813137_VPYk5iqnExTrW9lEMbbSy2WDS6P-lbOkpqsy5KE2sSI.jpg"
-    let imgURL = URL(string: imageURLString)!
     let date = isNearFuture ? Date().advanced(by: 40_000) : Date().advanced(by: -20_000)
     let event = Event(id: UUID(),
                       name: "Test Event Here", groupID: UUID(),

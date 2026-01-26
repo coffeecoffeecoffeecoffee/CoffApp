@@ -5,18 +5,19 @@
 //  Created by Michael Critz on 3/27/24.
 //
 
+import CoffeeKit
 import Foundation
 import SwiftData
 
 @Model
-final class EventModel: EventRepresentable {
+final class EventModel {
     var id: UUID
     var groupID: UUID
     var name: String
-    var imageURL: URL?
+    var imageURL: ImageURL?
     var startAt: Date
     var endAt: Date
-    var venue: Venue
+    var venue: Venue?
 
     // SwiftData relationship: each event belongs to a group
     @Relationship var group: InterestGroupModel?
@@ -24,10 +25,10 @@ final class EventModel: EventRepresentable {
     internal init(id: UUID? = nil,
                   groupID: UUID,
                   name: String,
-                  imageURL: URL? = nil,
+                  imageURL: ImageURL? = nil,
                   startAt: Date,
                   endAt: Date,
-                  venue: Venue) {
+                  venue: Venue?) {
         self.id = id ?? UUID()
         self.groupID = groupID
         self.name = name
@@ -37,9 +38,11 @@ final class EventModel: EventRepresentable {
         self.venue = venue
     }
     
-    convenience init(_ event: Event) {
-        self.init(id: event.id,
-                  groupID: event.groupID,
+    convenience init?(_ event: Event) {
+        guard let eventID = event.id else { return nil }
+        guard let groupID = event.groupID else { return nil }
+        self.init(id: eventID,
+                  groupID: groupID,
                   name: event.name,
                   imageURL: event.imageURL,
                   startAt: event.startAt,

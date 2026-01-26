@@ -1,27 +1,27 @@
+import CoffeeKit
 import Foundation
 
-@available(*, deprecated, renamed: "Event", message: "really")
-typealias Events = [Event]
+public typealias Event = EventPublic
 
-struct Event: Codable, EventRepresentable {
-    var id: UUID
-    var name: String
-    var groupID: UUID
-    var venue: Venue
-    var imageURL: URL?
-    var startAt: Date
-    var endAt: Date
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case groupID = "group_id"
-        case name
-        case imageURL = "image_url"
-        case startAt = "start_at"
-        case endAt = "end_at"
-        case venue
-    }
-}
+//struct Event: Codable, EventRepresentable {
+//    var id: UUID?
+//    var name: String
+//    var groupID: UUID
+//    var venue: VenuePublic
+//    var imageURL: ImageURL?
+//    var startAt: Date
+//    var endAt: Date
+//    
+//    enum CodingKeys: String, CodingKey {
+//        case id
+//        case groupID = "group_id"
+//        case name
+//        case imageURL = "image_url"
+//        case startAt = "start_at"
+//        case endAt = "end_at"
+//        case venue
+//    }
+//}
 
 // MARK: - Status
 extension Event {
@@ -113,7 +113,7 @@ extension Event {
     }
  */
     static var empty: Event {
-        let emptyVenue = Venue(name: "Coffee", location: nil)
+        let emptyVenue = VenuePublic(name: "Coffee")
         return Event(
             id: UUID(),
             name: "Coffee",
@@ -126,19 +126,6 @@ extension Event {
     }
 }
 
-
-// MARK: - SwiftUI Conformance
-extension Event: Hashable {
-    static func == (lhs: Event, rhs: Event) -> Bool {
-        return lhs.id == rhs.id
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
-}
-
-extension Event: Identifiable {}
 
 // MARK: - Pesistence
 extension Event {

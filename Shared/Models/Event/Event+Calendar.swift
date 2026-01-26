@@ -8,7 +8,8 @@
 import Foundation
 
 extension Event {
-    func shareURL() -> URL {
+    func shareURL() -> URL? {
+        guard let groupID else { return nil }
         return URL.eventsURL(for: groupID)
     }
 }

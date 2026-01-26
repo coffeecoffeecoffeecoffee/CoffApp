@@ -21,7 +21,7 @@ struct CoffApp: App {
         WindowGroup {
             AppRootView()
         }
-        .modelContainer(for: [InterestGroupModel.self, EventModel.self])
+        .modelContainer(for: [InterestGroupModel.self, EventModel.self], inMemory: false)
 #if os(iOS)
         .backgroundTask(.appRefresh("science.pixel.espresso.backgroundfetch")) {
             logger.debug(.init(stringLiteral: "Fetching new events"))

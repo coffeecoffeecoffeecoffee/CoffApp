@@ -43,7 +43,7 @@ struct AppRootView: View {
         }
         .task {
             do {
-                let groups = try await InterestGroup.fetchGroups()
+                let groups = try await net.loadGroups()
                 
                 // Persist fetched groups using SwiftData
                 try PersistenceService.update(interestGroups: groups, modelContext: modelContext)

@@ -14,7 +14,11 @@ extension Data {
     static func imageData(for event: Event) throws -> Data {
         var data: Data!
         do {
-            data = try Data(contentsOf: event.imageURL)
+            guard let urlString = event.imageURL,
+                    let imageURL = URL(string: urlString) else {
+                throw CoffeeErrors.invalid(reason: "Missing Image URL")
+            }
+            data = try Data(contentsOf: imageURL)
         } catch {
             let coffeeImageName = "coffee-\(Int.random(in: 1...10))"
             guard let localCoffeeImageURL = Bundle.main.url(forResource: coffeeImageName, withExtension: "jpeg") else {

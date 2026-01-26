@@ -4,7 +4,7 @@
 //
 //  Created by Michael Critz on 11/22/25.
 //
-
+/**
 import Foundation
 
 protocol EventRepresentable {
@@ -15,3 +15,4 @@ protocol EventRepresentable {
     var endAt: Date { get set }
     var venue: Venue { get set }
 }
+ */

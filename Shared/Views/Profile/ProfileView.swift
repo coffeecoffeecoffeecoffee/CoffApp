@@ -39,7 +39,7 @@ struct ProfileView: View {
             .padding()
             
             NavigationLink {
-                Text("Create Group (todo)")
+                CreateGroupView()
             } label: {
                 Label("New Group", systemImage: "person.2.badge.plus")
             }

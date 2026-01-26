@@ -20,7 +20,10 @@ struct EventSummaryView: View {
                                startPoint: UnitPoint(x: 0, y: 0),
                                endPoint: UnitPoint(x: 1, y: 1)
                 )
-                AsyncImagePhaseView(event.imageURL)
+                if let imageURLString = event.imageURL,
+                   let imageURL = URL(string: imageURLString) {
+                    AsyncImagePhaseView(imageURL)
+                }
             }
             .frame(maxWidth: 64, maxHeight: 64)
             .cornerRadius(5)
@@ -41,7 +44,7 @@ struct EventSummaryView: View {
 #if DEBUG
 struct EventSummaryView_Previews: PreviewProvider {
     // swiftlint:disable line_length
-    static let imgURL = URL(string: "https://fastly.4sqi.net/img/general/1067x1897/4835820_mqBTxJRmEOlLRK-olPXrElaiIQlU1q5qSjExFIvHKtA.jpg")!
+    static let imgURL = "https://fastly.4sqi.net/img/general/1067x1897/4835820_mqBTxJRmEOlLRK-olPXrElaiIQlU1q5qSjExFIvHKtA.jpg"
     // swiftlint:enable line_length
     static var testEvent = Event(id: UUID(),
                                  name: "Test Event with a very long title right here",

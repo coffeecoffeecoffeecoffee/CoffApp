@@ -23,7 +23,7 @@ extension CoffApp {
         } else {
             let event = newEvents.first!
             notificationContent.title = "\(event.name)"
-            notificationContent.subtitle = "\(event.venue.name) at \(event.localizedStartTime(.medium))"
+            notificationContent.subtitle = "\(event.venue?.name ?? "—") at \(event.localizedStartTime(.medium))"
             notificationContent.badge = 1
         }
         let threeHours = 3.0 * 60.0 * 60.0 // 3 hr * 60 min * 60 sec
